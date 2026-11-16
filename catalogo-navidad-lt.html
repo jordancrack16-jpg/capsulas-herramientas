@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="lt"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Redaguojamas kalėdinis katalogas</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--r:#8c1d2a;--g:#2f5a3a;--o:#b8924a;--c:#fdf8f1;--c2:#efe0cf;--t:#2b2322;--m:#6c605c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.wrap{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+header{text-align:center;padding:8px 0 16px}
+.tag{display:inline-block;background:var(--g);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--r);font-size:clamp(26px,5.5vw,38px);line-height:1.1;margin:12px 0 6px}
+.sub{color:var(--m);max-width:620px;margin:0 auto}
+.panel{background:#fff;border:1px solid #eadccb;border-radius:16px;padding:16px;margin-top:14px}
+.panel h2{font-family:'Fraunces',serif;color:var(--r);font-size:19px;margin-bottom:10px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+label.f{display:block;font-size:13px;font-weight:800;color:var(--g)}
+label.f input,label.f select,label.f textarea{display:block;width:100%;margin-top:4px;font:inherit;font-weight:400;font-size:15px;padding:10px 12px;border:1.5px solid #e5d6c3;border-radius:10px;background:var(--c);color:var(--t)}
+button{font:800 15px 'Nunito Sans';border:0;border-radius:30px;padding:12px 20px;cursor:pointer}
+.print{background:var(--r);color:#fff} .sec{background:#fff;color:var(--r);border:1.5px solid var(--r)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.note{background:#fdf3e4;border-left:4px solid var(--o);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:12px}
+@media print{ .noprint{display:none!important} body{background:#fff} .wrap{max-width:none;padding:0} }
+
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;max-height:420px;overflow:auto;margin-top:8px}
+.li{display:grid;grid-template-columns:22px 46px 1fr 90px;gap:8px;align-items:center;background:var(--c);border:1px solid #eadccb;border-radius:10px;padding:6px 8px;font-size:13px}
+.li img{width:46px;height:46px;border-radius:8px;object-fit:cover}
+.li input[type=text]{width:100%;font:inherit;padding:6px 8px;border:1.5px solid #e5d6c3;border-radius:8px}
+.cat{background:#fff;margin-top:18px;border-radius:12px;overflow:hidden}
+.ch{background:linear-gradient(135deg,#8c1d2a,#a8323f);color:#fff;text-align:center;padding:26px 18px}
+.ch .k{font:800 11px 'Nunito Sans';letter-spacing:3px;color:#f1d9a4}
+.ch h2{font:800 34px/1.1 'Fraunces';margin:6px 0}
+.ch p{opacity:.92;max-width:560px;margin:0 auto}
+.cs{padding:16px 18px 4px}
+.cs h3{font:700 20px 'Fraunces';color:var(--r);margin:6px 0 10px;border-bottom:2px solid var(--c2);padding-bottom:4px}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ci{border:1px solid #eadccb;border-radius:10px;overflow:hidden;break-inside:avoid;background:#fff}
+.ci img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.ci .t{font:700 15px/1.2 'Fraunces';color:var(--r);padding:8px 10px 2px}
+.ci .d{font-size:12px;color:var(--m);padding:0 10px}
+.ci .p{font:800 15px 'Nunito Sans';color:var(--g);padding:4px 10px 10px}
+.cf{background:#fdf3e4;text-align:center;padding:18px;margin-top:10px}
+.cf b{color:var(--r);font-size:17px}
+@media(max-width:640px){.cgrid{grid-template-columns:repeat(2,1fr)}}
+@media print{ @page{size:A4;margin:10mm} .cat{margin:0;border-radius:0} .cgrid{grid-template-columns:repeat(3,1fr)} .cs{break-inside:auto} }
+
+</style></head><body>
+<div class="wrap">
+<header class="noprint"><span class="tag">PREMIJA · REDAGUOJAMA VERSIJA</span><h1>Tavo kalėdinis katalogas <span style="color:var(--o)">su tavo prekės ženklu ir kainomis</span></h1>
+<p class="sub">Pasirink, kokius dizainus siūlysi, įrašyk savo kainas ir duomenis, ir išsaugok PDF formatu, kad galėtum siųsti per WhatsApp arba skelbti savo socialiniuose tinkluose.</p></header>
+<div class="panel noprint"><h2>1 · Tavo duomenys</h2><div class="fg">
+<label class="f">Tavo prekės ženklas<input id="marca" placeholder="Pvz.: Saldus Kava"></label>
+<label class="f">Katalogo pavadinimas<input id="titulo" value="Kalėdų kolekcija"></label>
+<label class="f">WhatsApp<input id="wa" placeholder="Pvz.: +370 612 34567"></label>
+<label class="f">Instagram / socialiniai tinklai<input id="ig" placeholder="@tavoprekeszenklas"></label>
+<label class="f">Užsakymų pateikimo terminas<input id="limite" placeholder="Pvz.: Gruodžio 18 d."></label>
+<label class="f">Pristatymo zona<input id="zona" placeholder="Pvz.: Pristatymas Vilniuje"></label>
+</div>
+<label class="f" style="margin-top:10px">Pristatymo tekstas<textarea id="intro" rows="2">Rankų darbo gurmaniškos kapsulės su kalėdinėmis formomis: kava, arbata ir šokoladas. Dedamos į puodelį su karštu vandeniu arba pienu ir virsta gardžiu gėrimu.</textarea></label>
+<h2 style="margin-top:14px">2 · Dėžutės ir kainos (pasirinktinai)</h2><div class="fg">
+<label class="f">4 kapsulių dėžutė<input id="p4" placeholder="Kaina"></label><label class="f">6 / 9 kapsulių dėžutė<input id="p9" placeholder="Kaina"></label><label class="f">12 kapsulių dėžutė<input id="p12" placeholder="Kaina"></label>
+<label class="f">Rodyti kainą už dizainą<select id="mostrar"><option value="no">Ne (tik dėžutės)</option><option value="si">Taip</option></select></label></div>
+<h2 style="margin-top:14px">3 · Siūlomi dizainai</h2>
+<div style="display:flex;gap:8px"><button class="sec" type="button" id="all" style="padding:6px 12px;font-size:12px">Visi</button><button class="sec" type="button" id="none" style="padding:6px 12px;font-size:12px">Nė vieno</button></div>
+<div class="list" id="list"></div>
+<div class="actions"><button class="print" type="button" onclick="window.print()">⬇ Išsaugoti PDF / Spausdinti</button></div>
+<div class="note">Siųsti per WhatsApp: spausk „Išsaugoti kaip PDF“ spausdinimo lange, mastelis 100 % ir be antraščių. Tavo duomenys išsaugomi šiame įrenginyje.</div></div>
+<div class="cat" id="cat"></div>
+</div>
+<script>
+const ITEMS = [{"n": 1, "t": "Cinamoninė gvazdikėlių kava", "d": "Pabarstyk cinamoną ant džiovintos žvaigždės.", "s": "Kalėdinė kava"}, {"n": 2, "t": "Meduolinė kava", "d": "Akių ir sagų piešimui naudok ištirpintą baltą šokoladą.", "s": "Kalėdinė kava"}, {"n": 3, "t": "Kalėdinė moka kava", "d": "Patepk viršūnę valgomu auksiniu milteliu.", "s": "Kalėdinė kava"}, {"n": 4, "t": "Snieguota vanilinė kava", "d": "Pabarstyk viršų cukraus pudra per smulkų sietelį.", "s": "Kalėdinė kava"}, {"n": 5, "t": "Sūdyto karamelės kava", "d": "Patepk kaspiną baltu šokoladu.", "s": "Kalėdinė kava"}, {"n": 6, "t": "Apelsinų ir cinamono kava", "d": "Ant viršaus dėk gabalėlį kandinto apelsino žievelės.", "s": "Kalėdinė kava"}, {"n": 7, "t": "Šventinė lazdyno riešutų kava", "d": "Papuošk smulkintais lazdyno riešutais.", "s": "Kalėdinė kava"}, {"n": 8, "t": "Poliarinė mėtų kava", "d": "Nupiešk raudonas juostas maistiniu geliu.", "s": "Kalėdinė kava"}, {"n": 9, "t": "Kardamono kava", "d": "Viduryje padėk kardamono sėklą.", "s": "Kalėdinė kava"}, {"n": 10, "t": "Snieguotas kokoso kava", "d": "Viršų apibarstyk tarkuotu kokosu.", "s": "Kalėdinė kava"}, {"n": 11, "t": "Romos su razinomis kava (be alkoholio)", "d": "Papuošk razina ant varpelio krašto.", "s": "Kalėdinė kava"}, {"n": 12, "t": "Kalėdinė prieskonių kava", "d": "Žvaigždės uodegą patepk valgomu auksiniu milteliu.", "s": "Kalėdinė kava"}, {"n": 13, "t": "Raudonoji miško uogų arbata", "d": "Priklijuok džiovėtą rožės žiedlapį su lašeliu tirpalo.", "s": "Kalėdinės arbatos ir užpilai"}, {"n": 14, "t": "Kalėdinė chai arbata", "d": "Pabarstyk cinamoną viršuje.", "s": "Kalėdinės arbatos ir užpilai"}, {"n": 15, "t": "Kalėdinė mėtinė žalia arbata", "d": "Nupiešk mažus raudonus taškelius kaip papuošimus.", "s": "Kalėdinės arbatos ir užpilai"}, {"n": 16, "t": "Ramunėlių arbata su medumi ir apelsinu", "d": "Ant viršaus dėk džiovintą ramunėlės žiedą.", "s": "Kalėdinės arbatos ir užpilai"}, {"n": 17, "t": "Vanilinė rooibos arbata", "d": "Nupiešk raudoną tašką kaip nosį.", "s": "Kalėdinės arbatos ir užpilai"}, {"n": 18, "t": "Obuolių ir cinamono arbata", "d": "Dėk mažą cinamono šakelę.", "s": "Kalėdinės arbatos ir užpilai"}, {"n": 19, "t": "Baltos kriaušės arbata", "d": "Apibrėžk kraštą sidabriniais milteliais.", "s": "Kalėdinės arbatos ir užpilai"}, {"n": 20, "t": "Hibisko ir imbiero užpilas", "d": "Uodegą patepk valgomu auksiniu milteliu.", "s": "Kalėdinės arbatos ir užpilai"}, {"n": 21, "t": "Juodoji arbata su šokoladu", "d": "Baltas šokolado kaspinėlis.", "s": "Kalėdinės arbatos ir užpilai"}, {"n": 22, "t": "Levandų ir citrinos užpilas", "d": "Padėk 2 džiovintus levandų žiedus.", "s": "Kalėdinės arbatos ir užpilai"}, {"n": 23, "t": "Šokoladas su zefyrais", "d": "Zefyrai matomi ant paviršiaus.", "s": "Šokoladas karštam pienui"}, {"n": 24, "t": "Snieguotas baltas šokoladas", "d": "Pabarstyk tarkuotu kokosu.", "s": "Šokoladas karštam pienui"}, {"n": 25, "t": "Kartus apelsinų šokoladas", "d": "Plona kandinto apelsino juostelė.", "s": "Šokoladas karštam pienui"}, {"n": 26, "t": "Maja prieskonių šokoladas", "d": "Valgomi auksiniai milteliai.", "s": "Šokoladas karštam pienui"}, {"n": 27, "t": "Kalėdinis sausainių šokoladas", "d": "Kalėdinės spalvotos drožlės.", "s": "Šokoladas karštam pienui"}, {"n": 28, "t": "Raudonųjų uogų šokoladas", "d": "Džiovintų braškių gabalėliai.", "s": "Šokoladas karštam pienui"}, {"n": 29, "t": "Kalėdinis mėtinio šokoladas", "d": "Baltos šokolado juostos.", "s": "Šokoladas karštam pienui"}, {"n": 30, "t": "Saldus karamelinis šokoladas", "d": "Baltas šokolado siūlas.", "s": "Šokoladas karštam pienui"}, {"n": 31, "t": "Lazdyno riešutų ir kakavos šokoladas", "d": "Smulkinti lazdyno riešutai.", "s": "Šokoladas karštam pienui"}, {"n": 32, "t": "Šventinis rubino šokoladas", "d": "Valgomi džiovinti žiedlapiai.", "s": "Šokoladas karštam pienui"}, {"n": 33, "t": "Espreso kavos bombonas", "d": "Ant dangtelio – kavos pupelė.", "s": "Įdaryti šokolado lukštai"}, {"n": 34, "t": "Kapučino bombonas", "d": "Pabarstyk kakava.", "s": "Įdaryti šokolado lukštai"}, {"n": 35, "t": "Chai arbatos bombonas", "d": "Cinamonas viršuje.", "s": "Įdaryti šokolado lukštai"}, {"n": 36, "t": "Moka mėtinė bombonas", "d": "Žalia valgoma pudra viršūnėje.", "s": "Įdaryti šokolado lukštai"}, {"n": 37, "t": "Vanilės ir kavos bombonas", "d": "Cukraus pudra.", "s": "Įdaryti šokolado lukštai"}, {"n": 38, "t": "Karamelės bombonas", "d": "Baltas šokolado kaspinėlis.", "s": "Įdaryti šokolado lukštai"}, {"n": 39, "t": "Raudonųjų uogų ir arbatos bombonas", "d": "Valgomas blizgesys.", "s": "Įdaryti šokolado lukštai"}, {"n": 40, "t": "Elniuko bombonas", "d": "Raudona nosis ir šokoladiniai ragai.", "s": "Įdaryti šokolado lukštai"}, {"n": 41, "t": "Prabangus auksinis eglutės dizainas", "d": "Visa eglutė nudažyta valgomu auksiniu milteliu ir balta žvaigždės dėmė.", "s": "Kalėdiniai premium dizainai"}, {"n": 42, "t": "Betliejaus žvaigždė", "d": "Kraštai nudažyti auksu.", "s": "Kalėdiniai premium dizainai"}, {"n": 43, "t": "Kalėdų senelio kepurė", "d": "Kraštas ir bumbulas iš tarkuoto kokoso.", "s": "Kalėdiniai premium dizainai"}, {"n": 44, "t": "Šypsantis sniego senis", "d": "Akys ir sagos iš tamsaus šokolado, nosis oranžinė su dažikliu.", "s": "Kalėdiniai premium dizainai"}, {"n": 45, "t": " Advento vainikas", "d": "Raudoni taškeliai kaip uogos.", "s": "Kalėdiniai premium dizainai"}, {"n": 46, "t": "Kalėdinė kojinė", "d": "Balta apdaila ir raudonas akcentas.", "s": "Kalėdiniai premium dizainai"}, {"n": 47, "t": "Marmurinis kalėdinis rutulys", "d": "Auksinio miltelių siūlas.", "s": "Kalėdiniai premium dizainai"}, {"n": 48, "t": "Kalėdų angelas", "d": "Sparnai nudažyti perlamutriniais milteliais.", "s": "Kalėdiniai premium dizainai"}, {"n": 49, "t": "Dviguba staigmenų dovana", "d": "Auksinis kaspinėlis.", "s": "Kalėdiniai premium dizainai"}, {"n": 50, "t": "Naujųjų metų varpeliai", "d": "Auksinis kraštas ir sidabrinis taškas.", "s": "Kalėdiniai premium dizainai"}];
+let st = {marca:"", titulo:"Kalėdų kolekcija", wa:"", ig:"", limite:"", zona:"", intro:"", p4:"", p9:"", p12:"", mostrar:"no", sel: ITEMS.map(i=>i.n), pr:{}};
+try { Object.assign(st, JSON.parse(localStorage.getItem("cg_cat")||"{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_cat", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s); const esc = s => String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const img = n => "img/r" + String(n).padStart(2,"0") + ".jpg";
+function render() {
+  const secs = [...new Set(ITEMS.map(i => i.s))];
+  const boxes = [["4 kapsulių dėžutė", st.p4], ["6 / 9 kapsulių dėžutė", st.p9], ["12 kapsulių dėžutė", st.p12]].filter(b => b[1]);
+  let h = `<div class="ch"><div class="k">${esc(st.marca || "GURMANIŠKOS KAPSULĖS")}</div><h2>${esc(st.titulo)}</h2><p>${esc(st.intro)}</p></div>`;
+  if (boxes.length) h += `<div class="cs"><h3>Mūsų dėžutės</h3><div class="cgrid">${boxes.map(b => `<div class="ci" style="text-align:center;padding:14px"><div class="t">${esc(b[0])}</div><div class="p">${esc(b[1])}</div></div>`).join("")}</div></div>`;
+  secs.forEach(s => { const its = ITEMS.filter(i => i.s === s && st.sel.includes(i.n)); if (!its.length) return;
+    h += `<div class="cs"><h3>${s}</h3><div class="cgrid">` + its.map(i => `<div class="ci"><img src="${img(i.n)}" alt=""><div class="t">${esc(i.t)}</div><div class="d">${esc(i.d)}</div>${st.mostrar === "si" && st.pr[i.n] ? `<div class="p">${esc(st.pr[i.n])}</div>` : '<div style="height:8px"></div>'}</div>`).join("") + "</div></div>"; });
+  const c = [st.wa && "WhatsApp: " + esc(st.wa), st.ig && esc(st.ig), st.zona && esc(st.zona)].filter(Boolean).join(" · ");
+  h += `<div class="cf"><b>Užsisakyk savo kalėdinį rinkinį</b><br>${c || "Parašyk mums, kad sudėtume dėžutę"}${st.limite ? "<br>Užsakymai priimami iki " + esc(st.limite) : ""}</div>`;
+  $("#cat").innerHTML = h;
+}
+["marca","titulo","wa","ig","limite","zona","intro","p4","p9","p12","mostrar"].forEach(k => { const el = $("#"+k); if (st[k]) el.value = st[k]; else st[k] = el.value; el.addEventListener("input", () => { st[k] = el.value; save(); render(); }); });
+$("#list").innerHTML = ITEMS.map(i => `<label class="li"><input type="checkbox" value="${i.n}" ${st.sel.includes(i.n)?"checked":""}><img src="${img(i.n)}" alt="" loading="lazy"><span>${i.n}. ${esc(i.t)}</span><input type="text" data-p="${i.n}" placeholder="Kaina" value="${esc(st.pr[i.n]||"")}"></label>`).join("");
+$("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = () => { st.sel = [...$("#list").querySelectorAll("input[type=checkbox]:checked")].map(x => +x.value); save(); render(); });
+$("#list").querySelectorAll("input[data-p]").forEach(p => p.addEventListener("input", () => { st.pr[p.dataset.p] = p.value; save(); render(); }));
+$("#all").onclick = () => { $("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.checked = true); st.sel = ITEMS.map(i=>i.n); save(); render(); };
+$("#none").onclick = () => { $("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.checked = false); st.sel = []; save(); render(); };
+render();
+</script></body></html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="pt"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Catálogo de Natal editável</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--r:#8c1d2a;--g:#2f5a3a;--o:#b8924a;--c:#fdf8f1;--c2:#efe0cf;--t:#2b2322;--m:#6c605c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.wrap{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+header{text-align:center;padding:8px 0 16px}
+.tag{display:inline-block;background:var(--g);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--r);font-size:clamp(26px,5.5vw,38px);line-height:1.1;margin:12px 0 6px}
+.sub{color:var(--m);max-width:620px;margin:0 auto}
+.panel{background:#fff;border:1px solid #eadccb;border-radius:16px;padding:16px;margin-top:14px}
+.panel h2{font-family:'Fraunces',serif;color:var(--r);font-size:19px;margin-bottom:10px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+label.f{display:block;font-size:13px;font-weight:800;color:var(--g)}
+label.f input,label.f select,label.f textarea{display:block;width:100%;margin-top:4px;font:inherit;font-weight:400;font-size:15px;padding:10px 12px;border:1.5px solid #e5d6c3;border-radius:10px;background:var(--c);color:var(--t)}
+button{font:800 15px 'Nunito Sans';border:0;border-radius:30px;padding:12px 20px;cursor:pointer}
+.print{background:var(--r);color:#fff} .sec{background:#fff;color:var(--r);border:1.5px solid var(--r)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.note{background:#fdf3e4;border-left:4px solid var(--o);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:12px}
+@media print{ .noprint{display:none!important} body{background:#fff} .wrap{max-width:none;padding:0} }
+
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;max-height:420px;overflow:auto;margin-top:8px}
+.li{display:grid;grid-template-columns:22px 46px 1fr 90px;gap:8px;align-items:center;background:var(--c);border:1px solid #eadccb;border-radius:10px;padding:6px 8px;font-size:13px}
+.li img{width:46px;height:46px;border-radius:8px;object-fit:cover}
+.li input[type=text]{width:100%;font:inherit;padding:6px 8px;border:1.5px solid #e5d6c3;border-radius:8px}
+.cat{background:#fff;margin-top:18px;border-radius:12px;overflow:hidden}
+.ch{background:linear-gradient(135deg,#8c1d2a,#a8323f);color:#fff;text-align:center;padding:26px 18px}
+.ch .k{font:800 11px 'Nunito Sans';letter-spacing:3px;color:#f1d9a4}
+.ch h2{font:800 34px/1.1 'Fraunces';margin:6px 0}
+.ch p{opacity:.92;max-width:560px;margin:0 auto}
+.cs{padding:16px 18px 4px}
+.cs h3{font:700 20px 'Fraunces';color:var(--r);margin:6px 0 10px;border-bottom:2px solid var(--c2);padding-bottom:4px}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ci{border:1px solid #eadccb;border-radius:10px;overflow:hidden;break-inside:avoid;background:#fff}
+.ci img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.ci .t{font:700 15px/1.2 'Fraunces';color:var(--r);padding:8px 10px 2px}
+.ci .d{font-size:12px;color:var(--m);padding:0 10px}
+.ci .p{font:800 15px 'Nunito Sans';color:var(--g);padding:4px 10px 10px}
+.cf{background:#fdf3e4;text-align:center;padding:18px;margin-top:10px}
+.cf b{color:var(--r);font-size:17px}
+@media(max-width:640px){.cgrid{grid-template-columns:repeat(2,1fr)}}
+@media print{ @page{size:A4;margin:10mm} .cat{margin:0;border-radius:0} .cgrid{grid-template-columns:repeat(3,1fr)} .cs{break-inside:auto} }
+
+</style></head><body>
+<div class="wrap">
+<header class="noprint"><span class="tag">BÓNUS · VERSÃO EDITÁVEL</span><h1>O teu catálogo de Natal <span style="color:var(--o)">com a tua marca e preços</span></h1>
+<p class="sub">Escolhe os designs que ofereces, escreve os teus preços e os teus dados, e guarda em PDF para enviar pelo WhatsApp ou publicar nas tuas redes.</p></header>
+<div class="panel noprint"><h2>1 · Os teus dados</h2><div class="fg">
+<label class="f">A tua marca<input id="marca" placeholder="Ex.: Doce Café"></label>
+<label class="f">Título do catálogo<input id="titulo" value="Coleção Natal"></label>
+<label class="f">WhatsApp<input id="wa" placeholder="Ex.: +351 912 345 678"></label>
+<label class="f">Instagram / redes<input id="ig" placeholder="@tamarca"></label>
+<label class="f">Data limite para encomendas<input id="limite" placeholder="Ex.: 18 de dezembro"></label>
+<label class="f">Zona de entrega<input id="zona" placeholder="Ex.: Entregas em Lisboa"></label>
+</div>
+<label class="f" style="margin-top:10px">Texto de apresentação<textarea id="intro" rows="2">Cápsulas de café, chá e chocolate com formas natalícias, feitas à mão. Colocam-se na chávena com água ou leite quente e transformam-se numa bebida deliciosa.</textarea></label>
+<h2 style="margin-top:14px">2 · Caixas e preços (opcional)</h2><div class="fg">
+<label class="f">Caixa de 4<input id="p4" placeholder="Preço"></label><label class="f">Caixa de 6 / 9<input id="p9" placeholder="Preço"></label><label class="f">Caixa de 12<input id="p12" placeholder="Preço"></label>
+<label class="f">Mostrar preço por design<select id="mostrar"><option value="no">Não (só caixas)</option><option value="si">Sim</option></select></label></div>
+<h2 style="margin-top:14px">3 · Designs que ofereces</h2>
+<div style="display:flex;gap:8px"><button class="sec" type="button" id="all" style="padding:6px 12px;font-size:12px">Todos</button><button class="sec" type="button" id="none" style="padding:6px 12px;font-size:12px">Nenhum</button></div>
+<div class="list" id="list"></div>
+<div class="actions"><button class="print" type="button" onclick="window.print()">⬇ Guardar PDF / Imprimir</button></div>
+<div class="note">Para enviar pelo WhatsApp: «Guardar como PDF» na janela de impressão, com escala 100 % e sem cabeçalhos. Os teus dados ficam guardados neste dispositivo.</div></div>
+<div class="cat" id="cat"></div>
+</div>
+<script>
+const ITEMS = [{"n": 1, "t": "Café canela e cravinho", "d": "Polvilha canela sobre a estrela seca.", "s": "Café natalício"}, {"n": 2, "t": "Café pão de gengibre", "d": "Desenha os olhos e botões com um ponto de chocolate branco derretido.", "s": "Café natalício"}, {"n": 3, "t": "Café moka natalício", "d": "Pinta a ponta com pó dourado comestível.", "s": "Café natalício"}, {"n": 4, "t": "Café baunilha nevado", "d": "Polvilha açúcar em pó por cima com um passador fino.", "s": "Café natalício"}, {"n": 5, "t": "Café caramelo salgado", "d": "Pinta o laço com chocolate branco.", "s": "Café natalício"}, {"n": 6, "t": "Café laranja e canela", "d": "Coloca um pedacinho de casca de laranja cristalizada por cima.", "s": "Café natalício"}, {"n": 7, "t": "Café avelã festivo", "d": "Decora com avelã picada.", "s": "Café natalício"}, {"n": 8, "t": "Café menta polar", "d": "Pinta riscas vermelhas com corante alimentar em gel.", "s": "Café natalício"}, {"n": 9, "t": "Café cardamomo", "d": "Coloca uma semente de cardamomo no centro.", "s": "Café natalício"}, {"n": 10, "t": "Café coco nevado", "d": "Cobre a parte superior com coco ralado.", "s": "Café natalício"}, {"n": 11, "t": "Café rum com passas (sem álcool)", "d": "Decora com uma passa na borda do sino.", "s": "Café natalício"}, {"n": 12, "t": "Café especiado de Véspera de Natal", "d": "Pinta a cauda da estrela com pó dourado.", "s": "Café natalício"}, {"n": 13, "t": "Chá vermelho de frutos do bosque", "d": "Cola uma pétala de rosa seca com uma gota de solução.", "s": "Chás e infusões natalícias"}, {"n": 14, "t": "Chá chai natalício", "d": "Polvilha canela por cima.", "s": "Chás e infusões natalícias"}, {"n": 15, "t": "Chá verde menta natalícia", "d": "Pinta pequenos pontos vermelhos como enfeites.", "s": "Chás e infusões natalícias"}, {"n": 16, "t": "Camomila com mel e laranja", "d": "Coloca uma flor de camomila seca por cima.", "s": "Chás e infusões natalícias"}, {"n": 17, "t": "Rooibos baunilha", "d": "Desenha o nariz com um ponto vermelho.", "s": "Chás e infusões natalícias"}, {"n": 18, "t": "Chá de maçã e canela", "d": "Coloca um mini pau de canela.", "s": "Chás e infusões natalícias"}, {"n": 19, "t": "Chá branco de pêra", "d": "Pinta a borda com pó prateado.", "s": "Chás e infusões natalícias"}, {"n": 20, "t": "Infusão de hibisco e gengibre", "d": "Pinta a cauda com pó dourado.", "s": "Chás e infusões natalícias"}, {"n": 21, "t": "Chá preto com chocolate", "d": "Laço de chocolate branco.", "s": "Chás e infusões natalícias"}, {"n": 22, "t": "Infusão de lavanda e limão", "d": "Coloca 2 flores de lavanda secas.", "s": "Chás e infusões natalícias"}, {"n": 23, "t": "Chocolate com marshmallows", "d": "Marshmallows visíveis na superfície.", "s": "Chocolate para leite quente"}, {"n": 24, "t": "Chocolate branco nevado", "d": "Polvilha coco ralado.", "s": "Chocolate para leite quente"}, {"n": 25, "t": "Chocolate laranja amarga", "d": "Uma tira fina de laranja cristalizada.", "s": "Chocolate para leite quente"}, {"n": 26, "t": "Chocolate picante maia", "d": "Pó dourado comestível.", "s": "Chocolate para leite quente"}, {"n": 27, "t": "Chocolate bolacha natalícia", "d": "Sprinkles coloridos natalícios.", "s": "Chocolate para leite quente"}, {"n": 28, "t": "Chocolate frutos vermelhos", "d": "Pedaços de morango liofilizado.", "s": "Chocolate para leite quente"}, {"n": 29, "t": "Chocolate com menta natalícia", "d": "Riscas de chocolate branco.", "s": "Chocolate para leite quente"}, {"n": 30, "t": "Chocolate doce de leite", "d": "Fio de chocolate branco.", "s": "Chocolate para leite quente"}, {"n": 31, "t": "Chocolate avelã e cacau", "d": "Avelã picada.", "s": "Chocolate para leite quente"}, {"n": 32, "t": "Chocolate ruby festivo", "d": "Pétalas secas comestíveis.", "s": "Chocolate para leite quente"}, {"n": 33, "t": "Bombom de café expresso", "d": "Um grão de café na tampa.", "s": "Casquinhas de chocolate recheadas"}, {"n": 34, "t": "Bombom capuchino", "d": "Polvilha cacau.", "s": "Casquinhas de chocolate recheadas"}, {"n": 35, "t": "Bombom chá chai", "d": "Canela por cima.", "s": "Casquinhas de chocolate recheadas"}, {"n": 36, "t": "Bombom moka menta", "d": "Pó verde comestível na ponta.", "s": "Casquinhas de chocolate recheadas"}, {"n": 37, "t": "Bombom baunilha e café", "d": "Açúcar em pó.", "s": "Casquinhas de chocolate recheadas"}, {"n": 38, "t": "Bombom caramelo", "d": "Laço de chocolate branco.", "s": "Casquinhas de chocolate recheadas"}, {"n": 39, "t": "Bombom frutos vermelhos e chá", "d": "Brilho comestível.", "s": "Casquinhas de chocolate recheadas"}, {"n": 40, "t": "Bombom rena", "d": "Nariz vermelho e galhadas de chocolate.", "s": "Casquinhas de chocolate recheadas"}, {"n": 41, "t": "Árvore dourada de luxo", "d": "Pinta toda a árvore com pó dourado comestível e um ponto branco de estrela.", "s": "Designs premium de Natal"}, {"n": 42, "t": "Estrela de Belém", "d": "Bordas pintadas com dourado.", "s": "Designs premium de Natal"}, {"n": 43, "t": "Gorro do Pai Natal", "d": "Borda e pompom de coco ralado.", "s": "Designs premium de Natal"}, {"n": 44, "t": "Boneco de neve sorridente", "d": "Olhos e botões com chocolate escuro, nariz laranja com corante.", "s": "Designs premium de Natal"}, {"n": 45, "t": "Coroa do Advento", "d": "Pontos vermelhos como frutos.", "s": "Designs premium de Natal"}, {"n": 46, "t": "Meia de Natal", "d": "Borda branca e detalhe vermelho.", "s": "Designs premium de Natal"}, {"n": 47, "t": "Esfera natalícia marmoreada", "d": "Fio de pó dourado.", "s": "Designs premium de Natal"}, {"n": 48, "t": "Anjo de Natal", "d": "Asas pintadas com pó perolado.", "s": "Designs premium de Natal"}, {"n": 49, "t": "Presente surpresa duplo", "d": "Laço dourado.", "s": "Designs premium de Natal"}, {"n": 50, "t": "Sinos de Ano Novo", "d": "Borda dourada e um pontinho prateado.", "s": "Designs premium de Natal"}];
+let st = {marca:"", titulo:"Coleção Natal", wa:"", ig:"", limite:"", zona:"", intro:"", p4:"", p9:"", p12:"", mostrar:"no", sel: ITEMS.map(i=>i.n), pr:{}};
+try { Object.assign(st, JSON.parse(localStorage.getItem("cg_cat")||"{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_cat", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s); const esc = s => String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const img = n => "img/r" + String(n).padStart(2,"0") + ".jpg";
+function render() {
+  const secs = [...new Set(ITEMS.map(i => i.s))];
+  const boxes = [["Caixa de 4", st.p4], ["Caixa de 6 / 9", st.p9], ["Caixa de 12", st.p12]].filter(b => b[1]);
+  let h = `<div class="ch"><div class="k">${esc(st.marca || "CÁPSULAS GOURMET")}</div><h2>${esc(st.titulo)}</h2><p>${esc(st.intro)}</p></div>`;
+  if (boxes.length) h += `<div class="cs"><h3>As nossas caixas</h3><div class="cgrid">${boxes.map(b => `<div class="ci" style="text-align:center;padding:14px"><div class="t">${esc(b[0])}</div><div class="p">${esc(b[1])}</div></div>`).join("")}</div></div>`;
+  secs.forEach(s => { const its = ITEMS.filter(i => i.s === s && st.sel.includes(i.n)); if (!its.length) return;
+    h += `<div class="cs"><h3>${s}</h3><div class="cgrid">` + its.map(i => `<div class="ci"><img src="${img(i.n)}" alt=""><div class="t">${esc(i.t)}</div><div class="d">${esc(i.d)}</div>${st.mostrar === "si" && st.pr[i.n] ? `<div class="p">${esc(st.pr[i.n])}</div>` : '<div style="height:8px"></div>'}</div>`).join("") + "</div></div>"; });
+  const c = [st.wa && "WhatsApp: " + esc(st.wa), st.ig && esc(st.ig), st.zona && esc(st.zona)].filter(Boolean).join(" · ");
+  h += `<div class="cf"><b>Faz a tua encomenda de Natal</b><br>${c || "Escreve-nos para preparar a tua caixa"}${st.limite ? "<br>Encomendas até " + esc(st.limite) : ""}</div>`;
+  $("#cat").innerHTML = h;
+}
+["marca","titulo","wa","ig","limite","zona","intro","p4","p9","p12","mostrar"].forEach(k => { const el = $("#"+k); if (st[k]) el.value = st[k]; else st[k] = el.value; el.addEventListener("input", () => { st[k] = el.value; save(); render(); }); });
+$("#list").innerHTML = ITEMS.map(i => `<label class="li"><input type="checkbox" value="${i.n}" ${st.sel.includes(i.n)?"checked":""}><img src="${img(i.n)}" alt="" loading="lazy"><span>${i.n}. ${esc(i.t)}</span><input type="text" data-p="${i.n}" placeholder="Preço" value="${esc(st.pr[i.n]||"")}"></label>`).join("");
+$("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = () => { st.sel = [...$("#list").querySelectorAll("input[type=checkbox]:checked")].map(x => +x.value); save(); render(); });
+$("#list").querySelectorAll("input[data-p]").forEach(p => p.addEventListener("input", () => { st.pr[p.dataset.p] = p.value; save(); render(); }));
+$("#all").onclick = () => { $("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.checked = true); st.sel = ITEMS.map(i=>i.n); save(); render(); };
+$("#none").onclick = () => { $("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.checked = false); st.sel = []; save(); render(); };
+render();
+</script></body></html>

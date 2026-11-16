@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>30 WhatsAppi sõnumit</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--wa:#e9f5e1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5}
+.wrap{max-width:820px;margin:0 auto;padding:22px 16px 70px}
+header{text-align:center;padding:10px 0 16px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--g);font-size:clamp(28px,6vw,38px);line-height:1.1;margin:12px 0 6px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:580px;margin:0 auto}
+.vars{position:sticky;top:0;z-index:5;background:rgba(251,247,239,.96);backdrop-filter:blur(6px);border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin:16px 0;box-shadow:0 6px 18px rgba(47,74,42,.07)}
+.vars b{display:block;color:var(--g);font-size:14px;margin-bottom:8px}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.vg input{width:100%;font:inherit;font-size:14px;padding:10px 12px;border:1.5px solid #e2dac9;border-radius:10px;background:#fff}
+.vg input:focus{outline:2px solid var(--s)}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px;margin-top:10px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+textarea{overflow:hidden}
+.filters button{flex:none;font:800 13px 'Nunito Sans';border:1.5px solid var(--s);background:#fff;color:var(--g);border-radius:30px;padding:7px 13px;cursor:pointer}
+.filters button.on{background:var(--g);border-color:var(--g);color:#fff}
+.cat h2{font-family:'Fraunces',serif;color:var(--g);font-size:24px;margin:26px 0 2px}
+.cat>p{color:var(--m);margin-bottom:10px}
+.m{background:#fff;border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin-bottom:12px}
+.mh{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.n{background:var(--g);color:#fff;font-weight:800;font-size:13px;border-radius:30px;padding:3px 10px}
+.mh h3{font-size:16px;color:var(--g)}
+.w{font-size:12px;font-weight:800;color:var(--g);background:var(--s2);border-radius:30px;padding:3px 10px}
+textarea{width:100%;font:inherit;font-size:15px;line-height:1.5;border:0;border-radius:12px 12px 12px 3px;background:var(--wa);padding:12px 14px;resize:vertical;min-height:110px;color:var(--t)}
+textarea:focus{outline:2px solid var(--s)}
+.btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.btns button,.btns a{font:800 13px 'Nunito Sans';border-radius:30px;padding:9px 14px;cursor:pointer;text-decoration:none;border:0}
+.copy{background:var(--g);color:#fff}
+.wa{background:#25d366;color:#fff}
+.reset{background:transparent;color:var(--m);border:1px solid #d9d0bd!important}
+.ok{background:var(--o)!important}
+.tip{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:10px}
+@media(max-width:600px){.vg{grid-template-columns:1fr}.vars{position:static}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">BOONUS 1 · MUUDETAV VERSIOON</span>
+  <h1><em>30 WhatsAppi sõnumit</em>, mis on kohe kasutamiseks valmis</h1>
+  <p class="sub">Sisesta oma andmed vaid korra ja kõik sõnumid täituvad automaatselt. Saad iga sõnumit muuta, kopeerida või avada otse WhatsAppis. Sinu muudatused salvestatakse selles seadmes.</p>
+</header>
+
+<div class="vars">
+  <b>✍️ Sinu andmed (täidetakse kõigis sõnumites)</b>
+  <div class="vg">
+    <input id="v_YO" placeholder="Sinu nimi">
+    <input id="v_NEGOCIO" placeholder="Sinu brändi nimi">
+    <input id="v_CIUDAD" placeholder="Sinu linn">
+  </div>
+  <div class="filters" id="filters"></div>
+</div>
+
+<div id="list"></div>
+<div class="tip"><b>Meeleolu:</b> muuda kindlasti see, mis on nurksulgudes, näiteks <b>[Nimi]</b> või <b>[Kuupäev]</b>, enne saatmist. Ja kirjuta alati inimese nimi: isiklikke sõnumeid vastatakse palju rohkem.</div>
+</div>
+
+<script>
+const DATA = [{"cat": "Vestluse alustamine", "desc": "Et su sõpruskond teaks, et alustasid, ilma et see reklaamiks näiks.", "ms": [{"n": 1, "t": "Uudishimu tekitamine", "w": "WhatsAppi olekud · 8. päev", "x": "Arva ära, mis see on? 👀☕\nSee ei ole šokolaad, seep ega küünal…\nHomme räägin lähemalt 🤫"}, {"n": 2, "t": "Olek: tellimused avatud", "w": "WhatsAppi olekud", "x": "Lõpuks räägin! 🌸\nNeed on gurmeekapslid kohvi ja tee jaoks: paned kuuma vee sisse ja saad maitsva joogi.\nValmistan neid ise käsitsi siin {CIUDAD}.\nSel nädalal avasin esimesed tellimused 🎁 Tahad näha mudeleid? Kirjuta mulle."}, {"n": 3, "t": "Lähedane kontakt", "w": "Isiklik sõnum · 9. päev", "x": "Tere, {NOMBRE}! Kuidas sul läheb? 😊\nRäägin sulle midagi: alustasin gurmeekapslite ettevõtmisega, kohvi ja tee kapslid on käsitsi tehtud lillede, südame ja karukeste kujul.\nTahaksin teada, mida sa neist arvad. Kas saadan sulle mõned pildid?"}, {"n": 4, "t": "Tuttav, mitte väga lähedane", "w": "Isiklik sõnum", "x": "Tere, {NOMBRE}, kuidas läheb? Mina olen {YO} 😊\nKirjutan, sest alustasin gurmeekapslite ettevõtmisega, mis sobib kingituseks.\nMõtlesin sinule, sest tean, et sulle meeldivad ilusad detailid. Näitan sulle kataloogi, ilma kohustuseta?"}, {"n": 5, "t": "Kutse proovimiseks", "w": "Degusteerimine · 11. päev", "x": "{NOMBRE}, mul on sulle väike kingitus! ☕\nKatsetan uusi maitseid oma gurmeekapslites ja tahan sinu ausat arvamust.\nMillal saan sulle need tuua?"}, {"n": 6, "t": "Pärast degusteerimist", "w": "Tänamine ja pakkumine · 11. päev", "x": "Aitäh, et proovisid, {NOMBRE}! 🥰 Milline maitses sulle kõige rohkem?\nSinu arvamus on mulle väga oluline.\nKui tahad kellelegi kingituseks, siis mul on proovikarp ja kinkekarp paela ja kaardiga. Saadan pildid?"}]}, {"cat": "Küsimustele vastamine", "desc": "Kiired vastused kõige sagedasematele küsimustele.", "ms": [{"n": 7, "t": "„Mis see on?“", "w": "Kiire vastus /missee", "x": "Tere, {NOMBRE}! Aitäh, et kirjutasid 😊\nNeed on käsitsi valmistatud kohvi- või teekapslid, mis on vormitud lillede, südame ja karukeste kujuks.\nPane tassitäie kuuma vee sisse ja kapslid lahustuvad aromaatseks joogiks. Väga ilus kingitus!\nKas see on sulle või kingituseks?"}, {"n": 8, "t": "Hinnad ja kataloog", "w": "Kiire vastus /hinnad", "x": "Muidugi! Siin on valikud 👇\n🎁 Proovikarp (4 kapslit)\n🎀 Kinkekarp paela ja kaardiga\n✨ Personaalne tellimus (värvid, initsiaal või sõnum)\nSaadan kataloogi koos piltide ja hindadega. Mis sündmuseks vajad?"}, {"n": 9, "t": "Kuidas valmistada ja kui kaua säilivad", "w": "Kiire vastus /kasutus", "x": "Valmistamine käib nii: pane 1 kapsel tassi, lisa kuum vesi ja sega kuni lahustub ☕\nHoia jahedas ja kuivas suletud pakendis. Annan sulle kirjaliku soovituse säilitusajast üleandmisel.\nTahad esmalt proovida 4 kapsliga karpi?"}, {"n": 10, "t": "„On kallis“", "w": "Hinna vastuväide", "x": "Mõistan sind, {NOMBRE} 😊 Iga kapsel on käsitsi valmistatud, üks haaval, valitud koostisosadega ja kinkepakendiga.\nKui soovid midagi lihtsamat, siis proovikarp on taskukohasem ja sama ilus kingitus. Näitan seda?"}, {"n": 11, "t": "„Mõtlen veel“", "w": "Aja vastuväide", "x": "Muidugi, võta aega! 😊\nLihtsalt ütlen, et tellimused valmistan saabumise järjekorras ja sel nädalal on veel mõned kohad vabad.\nKas soovid, et broneerin sulle koha {FECHA}? Kui mõtled ümber, pole hullu."}]}, {"cat": "Tellimuste kinnitamine", "desc": "Sõnumid, mis viivad „ilus“ juurest „tahan ühte“ juurde.", "ms": [{"n": 12, "t": "Kinnitus kahe valikuga", "w": "Kinnitus · 17. päev", "x": "Milline sulle rohkem meeldib, {NOMBRE}: proovikarp 4 kapsliga või kinkekarp paela ja kaardiga? 🎁\nMõlemad on valmis sinu jaoks {FECHA}."}, {"n": 13, "t": "Kinnitus erilise kuupäeva puhul", "w": "Hooaja kinnitus", "x": "{NOMBRE}, annan teada, sest küsisid 💛\nVõtan vastu viimaseid tellimusi kuupäevaks {FECHA}. Pärast seda enam ei jõua valmistada.\nKas broneerin sulle karbi?"}, {"n": 14, "t": "Kinnitus osalise ettemaksuga", "w": "Kinnitus osalise maksega", "x": "Suurepärane! Broneerimiseks palun 50% ettemaksu ({PRECIO}) ja ülejäänu üleandmisel 😊\nKui kinnitad, panen sind kirja ja hakkan valmistama."}, {"n": 15, "t": "Tellimuse kinnitamine", "w": "Vigade vältimiseks kokkuvõte", "x": "Aitäh tellimuse eest, {NOMBRE}! 🥰 Kinnitan andmed:\n• Toode: \n• Maitsed: \n• Kaart või sõnum: \n• Kättesaamine: {FECHA}\n• Kokku: {PRECIO}\nKas kõik on korras?"}, {"n": 16, "t": "Makseandmed", "w": "Makseviiside saatmine", "x": "Siin on makseandmed 👇\n[Kirjuta siia oma ülekande, pangakonto või makseviis]\nKui oled maksnud, saada mulle kinnitus siia ja kinnitan. Aitäh!"}]}, {"cat": "Kättetoimetamine ja järeltegevus", "desc": "Et ükski päring ega klient ei jääks tähelepanuta.", "ms": [{"n": 17, "t": "Tellimus valmis", "w": "Teade kättetoimetamisest", "x": "Hei, {NOMBRE}, su tellimus on valmis! 🎁✨\nSaadan sulle pildi, et näeksid.\nKas sobib, kui toimetan selle {FECHA}? Või soovid ise järele tulla?"}, {"n": 18, "t": "Juhised üleandmisel", "w": "Koos kättetoimetamisega", "x": "Head nautimist! ☕\nKuidas valmistada: 1 kapsel tassi + kuum vesi + sega.\nHoia jahedas ja kuivas suletud karbis.\nKui maitsesid, tahaksin väga teada!"}, {"n": 19, "t": "Järelpärimine 24 tunni pärast", "w": "Vastuseta päringu järel", "x": "Tere, {NOMBRE}! Kas jõudsid eile saadetud pilte vaadata? 😊\nKui sul on küsimusi mudelite või maitsete kohta, olen siin."}, {"n": 20, "t": "Huvi tundnud, aga ostmata", "w": "Järelpärimine 7 päeva pärast · 29. päev", "x": "Tere, {NOMBRE} 🌸 Mõni päev tagasi küsisid kapslite kohta.\nSel nädalal valmistasin uusi mudeleid ja mõtlesin sinule. Näitan neid?\nKui praegu pole õige aeg, pole hullu!"}, {"n": 21, "t": "Teavituste nimekiri: uudis", "w": "Ainult kontaktidele, kes nõustusid", "x": "✨ Uudised {NEGOCIO} juures ✨\nUued maitsed ja hooajakarp on nüüd saadaval.\nVasta „TAHAN“ ja saadan pildid ja hinnad 🎁"}]}, {"cat": "Suurmüük ja koostöö", "desc": "Tellimused hulgi, ettevõtetele ja kohalikele äriklientidele.", "ms": [{"n": 22, "t": "Üritused (pulmad, sünnipäevad, beebidušid)", "w": "Hulgiklientidele · 19. päev", "x": "Tere, {NOMBRE}! Mina olen {YO} firmast {NEGOCIO} 😊\nValmistan gurmeekapsleid kohvi ja tee jaoks, mis sobivad ürituste meeneks: peo värvid, tähistatavate initsiaalid ja silt sõnumiga.\nSee on eriline detail, mida külalised tõesti kasutavad. Saadan ideed ja hinnad koguse kohta?"}, {"n": 23, "t": "Ettevõtted ja firmakingitused", "w": "Hulgiklientidele · 19. päev", "x": "Tere, {NOMBRE}, kuidas läheb? Mina olen {YO} firmast {NEGOCIO}.\nValmistan gurmeekapslite karpe firmakingitusteks: klientidele, meeskonnale või tähtpäevadeks, kohandatud logoga või sõnumiga.\nKas saadan sulle pakkumise koos valikute ja hindadega koguse kohta?"}, {"n": 24, "t": "Koostööpartner (lillepood, kohvik, kingituste pood)", "w": "Kohalik koostöö · 24. päev", "x": "Tere! Mina olen {YO}, ettevõtja linnast {CIUDAD}. Teen gurmeekapsleid kohvi ja tee jaoks, mis sobivad kingituste juurde.\nTahaksin pakkuda koostööd: võin jätta sulle proovi, et su kliendid saaksid neid näha, ja teha konsignatsioonilepingut või erihinnaga edasimüüki.\nMillal saan tuua karbi proovimiseks?"}]}, {"cat": "Kliendi hoidmine ja kordusmüük", "desc": "Rahulolevad kliendid on parim müügikanal.", "ms": [{"n": 25, "t": "Tagasiside küsimine", "w": "Pärast üleandmist · 20. päev", "x": "Tere, {NOMBRE}! Kuidas gurmeekapslitega läks? 😊\nKas kingisaajale meeldis?\nKui saadad mulle pildi või häälsõnumi oma arvamusega, oleksin väga rõõmus 💛"}, {"n": 26, "t": "Tänamine ja luba küsimine", "w": "Iseloomustuste avaldamiseks", "x": "Suur aitäh, {NOMBRE}! 🥹 Sa tegid mu päeva rõõmsaks.\nKas tohin sinu sõnumit oma olekutes jagada? Võin teha seda ka ilma sinu nime mainimata, kui soovid."}, {"n": 27, "t": "Kordustellimus", "w": "Varasemad kliendid · 22. päev", "x": "Tere, {NOMBRE}! 🌸 Mõni aeg tagasi valmistasin sulle kapslid ja tahan öelda, et mul on nüüd uusi maitseid.\nKuna oled juba klient, kingin sulle järgmise tellimuse juurde ühe kapsli tasuta 🎁\nNäitan sulle uudiseid?"}, {"n": 28, "t": "Soovitused", "w": "Soovituste programm · 23. päev", "x": "{NOMBRE}, aitäh, et usaldad mind! 💛\nRäägin sulle midagi: kui soovitad mind kellelegi ja see inimene teeb tellimuse, kingin sulle järgmise ostu juurde 2 kapslit.\nÜtle talle lihtsalt, et mainigu sinu nime, kui kirjutab mulle 😊"}, {"n": 29, "t": "Kliendi sünnipäev", "w": "Eriline kuupäev", "x": "Palju õnne sünnipäevaks, {NOMBRE}! 🎂🥳\nSoovin sulle imelist päeva.\nMul on sulle kingitus: sel kuul on sinu lemmikkarpil eriline soodustus. Kirjuta mulle, millal tahad!"}, {"n": 30, "t": "Hooajaliste klientide äratamine", "w": "Enne iga tähtpäeva", "x": "Tere, {NOMBRE}! {FECHA} on lähenemas 🎁\nEelmisel aastal/paar korda tagasi jäid paljud ilma oma karbist, sest tellisid hilja, seega annan varakult teada.\nMul on hooaja mudelid olemas. Kas broneerin sulle?"}]}];
+const VARS = ["YO","NEGOCIO","CIUDAD"];
+const LABEL = {NOMBRE:"[Nimi]", YO:"[Sinu nimi]", NEGOCIO:"[Sinu bränd]", CIUDAD:"[Sinu linn]", PRECIO:"[Hind]", FECHA:"[Kuupäev]"};
+let st = {v:{}, e:{}};
+try { st = Object.assign(st, JSON.parse(localStorage.getItem("cg_msgs") || "{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_msgs", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+
+function fill(x) {
+  return x.replace(/\{(\w+)\}/g, (m, k) => (VARS.includes(k) && st.v[k]) ? st.v[k] : (LABEL[k] || m));
+}
+function render(filter) {
+  let h = "";
+  DATA.forEach((c, ci) => {
+    if (filter !== undefined && filter !== ci) return;
+    h += `<section class="cat"><h2>${c.cat}</h2><p>${c.desc}</p>`;
+    c.ms.forEach(m => {
+      const txt = st.e[m.n] !== undefined ? st.e[m.n] : fill(m.x);
+      h += `<div class="m"><div class="mh"><span class="n">${m.n}</span><h3>${m.t}</h3><span class="w">${m.w}</span></div>
+      <textarea data-n="${m.n}" rows="${Math.max(4, txt.split("\n").length + 1)}">${txt.replace(/</g,"&lt;")}</textarea>
+      <div class="btns"><button class="copy" data-c="${m.n}">Kopeeri</button><a class="wa" data-w="${m.n}" href="#" target="_blank" rel="noopener">Ava WhatsAppis</a>
+      ${st.e[m.n] !== undefined ? `<button class="reset" data-r="${m.n}">Taasta originaal</button>` : ""}</div></div>`;
+    });
+    h += "</section>";
+  });
+  $("#list").innerHTML = h;
+  const fit = t => { t.style.height = "auto"; t.style.height = (t.scrollHeight + 4) + "px"; };
+  document.querySelectorAll("textarea").forEach(t => { fit(t); t.addEventListener("input", () => { fit(t); st.e[t.dataset.n] = t.value; save(); }); });
+  document.querySelectorAll("[data-c]").forEach(b => b.onclick = async () => {
+    const t = document.querySelector(`textarea[data-n="${b.dataset.c}"]`);
+    try { await navigator.clipboard.writeText(t.value); } catch(e) { t.select(); document.execCommand("copy"); }
+    b.textContent = "Kopeeritud! ✓"; b.classList.add("ok"); setTimeout(() => { b.textContent = "Kopeeri"; b.classList.remove("ok"); }, 1500);
+  });
+  document.querySelectorAll("[data-w]").forEach(a => a.onclick = () => {
+    const t = document.querySelector(`textarea[data-n="${a.dataset.w}"]`);
+    a.href = "https://wa.me/?text=" + encodeURIComponent(t.value);
+  });
+  document.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { delete st.e[b.dataset.r]; save(); render(cur); });
+}
+let cur;
+const fb = $("#filters");
+fb.innerHTML = `<button class="on" data-f="">Kõik</button>` + DATA.map((c, i) => `<button data-f="${i}">${c.cat}</button>`).join("");
+fb.querySelectorAll("button").forEach(b => b.onclick = () => {
+  fb.querySelectorAll("button").forEach(x => x.classList.remove("on")); b.classList.add("on");
+  cur = b.dataset.f === "" ? undefined : +b.dataset.f; render(cur);
+});
+VARS.forEach(k => { const i = $("#v_" + k); i.value = st.v[k] || ""; i.addEventListener("input", () => { st.v[k] = i.value.trim(); save(); render(cur); }); });
+render();
+</script>
+</body>
+</html>

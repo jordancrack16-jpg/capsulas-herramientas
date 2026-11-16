@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>30 Mensagens de WhatsApp</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--wa:#e9f5e1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5}
+.wrap{max-width:820px;margin:0 auto;padding:22px 16px 70px}
+header{text-align:center;padding:10px 0 16px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--g);font-size:clamp(28px,6vw,38px);line-height:1.1;margin:12px 0 6px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:580px;margin:0 auto}
+.vars{position:sticky;top:0;z-index:5;background:rgba(251,247,239,.96);backdrop-filter:blur(6px);border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin:16px 0;box-shadow:0 6px 18px rgba(47,74,42,.07)}
+.vars b{display:block;color:var(--g);font-size:14px;margin-bottom:8px}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.vg input{width:100%;font:inherit;font-size:14px;padding:10px 12px;border:1.5px solid #e2dac9;border-radius:10px;background:#fff}
+.vg input:focus{outline:2px solid var(--s)}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px;margin-top:10px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+textarea{overflow:hidden}
+.filters button{flex:none;font:800 13px 'Nunito Sans';border:1.5px solid var(--s);background:#fff;color:var(--g);border-radius:30px;padding:7px 13px;cursor:pointer}
+.filters button.on{background:var(--g);border-color:var(--g);color:#fff}
+.cat h2{font-family:'Fraunces',serif;color:var(--g);font-size:24px;margin:26px 0 2px}
+.cat>p{color:var(--m);margin-bottom:10px}
+.m{background:#fff;border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin-bottom:12px}
+.mh{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.n{background:var(--g);color:#fff;font-weight:800;font-size:13px;border-radius:30px;padding:3px 10px}
+.mh h3{font-size:16px;color:var(--g)}
+.w{font-size:12px;font-weight:800;color:var(--g);background:var(--s2);border-radius:30px;padding:3px 10px}
+textarea{width:100%;font:inherit;font-size:15px;line-height:1.5;border:0;border-radius:12px 12px 12px 3px;background:var(--wa);padding:12px 14px;resize:vertical;min-height:110px;color:var(--t)}
+textarea:focus{outline:2px solid var(--s)}
+.btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.btns button,.btns a{font:800 13px 'Nunito Sans';border-radius:30px;padding:9px 14px;cursor:pointer;text-decoration:none;border:0}
+.copy{background:var(--g);color:#fff}
+.wa{background:#25d366;color:#fff}
+.reset{background:transparent;color:var(--m);border:1px solid #d9d0bd!important}
+.ok{background:var(--o)!important}
+.tip{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:10px}
+@media(max-width:600px){.vg{grid-template-columns:1fr}.vars{position:static}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">BÓNUS 1 · VERSÃO EDITÁVEL</span>
+  <h1><em>30 mensagens</em> de WhatsApp prontas a usar</h1>
+  <p class="sub">Escreve os teus dados uma só vez e todas as mensagens preenchem-se sozinhas. Podes editar qualquer mensagem, copiar ou abrir diretamente no WhatsApp. As tuas alterações ficam guardadas neste dispositivo.</p>
+</header>
+
+<div class="vars">
+  <b>✍️ Os teus dados (preenchem-se em todas as mensagens)</b>
+  <div class="vg">
+    <input id="v_YO" placeholder="O teu nome">
+    <input id="v_NEGOCIO" placeholder="Nome da tua marca">
+    <input id="v_CIUDAD" placeholder="A tua cidade">
+  </div>
+  <div class="filters" id="filters"></div>
+</div>
+
+<div id="list"></div>
+<div class="tip"><b>Lembra-te:</b> muda o que está entre colchetes, como <b>[Nome]</b> ou <b>[Data]</b>, antes de enviar. E escreve sempre o nome da pessoa: as mensagens pessoais recebem muito mais resposta.</div>
+</div>
+
+<script>
+const DATA = [{"cat": "Abrir conversa", "desc": "Para que o teu círculo saiba que começaste, sem parecer publicidade.", "ms": [{"n": 1, "t": "Estado de curiosidade", "w": "Estados de WhatsApp · dia 8", "x": "Adivinhas o que é isto? 👀☕\nNão é chocolate, não é sabão e não é uma vela…\nAmanhã conto-te 🤫"}, {"n": 2, "t": "Estado: abri encomendas", "w": "Estados de WhatsApp", "x": "Finalmente conto-te! 🌸\nSão cápsulas gourmet de café e chá: colocas em água quente e transformam-se numa bebida deliciosa.\nFaço-as eu, à mão, em {CIUDAD}.\nEsta semana abro as primeiras encomendas 🎁 Queres ver os modelos? Escreve-me."}, {"n": 3, "t": "Contacto próximo", "w": "Mensagem pessoal · dia 9", "x": "Olá {NOMBRE}! Como estás? 😊\nConto-te uma coisa: comecei um negócio de cápsulas gourmet de café e chá, feitas à mão com formas de flores, corações e ursinhos.\nGostava muito de saber o que achas. Queres que te envie umas fotos?"}, {"n": 4, "t": "Conhecido não tão próximo", "w": "Mensagem pessoal", "x": "Olá {NOMBRE}, como vai tudo? Sou {YO} 😊\nEscrevo-te porque comecei com {NEGOCIO}, um negócio de cápsulas de café e chá para oferecer.\nPensei em ti porque sei que gostas de detalhes bonitos. Queres que te mostre o catálogo, sem compromisso?"}, {"n": 5, "t": "Convite para provar", "w": "Degustação · dia 11", "x": "{NOMBRE}, tenho um presente para ti! ☕\nEstou a experimentar novos sabores das minhas cápsulas gourmet e quero a tua opinião sincera.\nQuando te posso levar?"}, {"n": 6, "t": "Depois da degustação", "w": "Agradecer e oferecer · dia 11", "x": "Obrigado por as provares, {NOMBRE}! 🥰 Qual gostaste mais?\nA tua opinião ajuda-me muito.\nSe quiseres oferecer a alguém: tenho a Caixinha para provar e a Caixa presente com laço e cartão. Queres que te envie as fotos?"}]}, {"cat": "Responder a perguntas", "desc": "Respostas rápidas para as perguntas mais frequentes.", "ms": [{"n": 7, "t": "«O que é?»", "w": "Resposta rápida /oqueé", "x": "Olá {NOMBRE}! Obrigado por escrever 😊\nSão cápsulas de café ou chá feitas à mão e moldadas com formas (flores, corações, ursinhos).\nColocam-se numa chávena, adiciona-se água quente e dissolvem-se numa bebida aromática. São um presente precioso!\nÉ para ti ou para oferecer?"}, {"n": 8, "t": "Preços e catálogo", "w": "Resposta rápida /precos", "x": "Claro! Conto-te as opções 👇\n🎁 Caixinha para provar (4 cápsulas)\n🎀 Caixa presente com laço e cartão\n✨ Encomenda personalizada (cores, inicial ou mensagem)\nDeixo-te o catálogo com fotos e preços. Para que ocasião precisas?"}, {"n": 9, "t": "Como se preparam e quanto duram", "w": "Resposta rápida /uso", "x": "Preparam-se assim: põe 1 cápsula numa chávena, adiciona água quente e mexe até dissolver ☕\nConservam-se num local fresco e seco, na embalagem fechada. Passo-te por escrito o tempo recomendado de consumo na entrega.\nQueres experimentar primeiro a caixinha de 4?"}, {"n": 10, "t": "«Está caro»", "w": "Objeção de preço", "x": "Compreendo, {NOMBRE} 😊 Cada cápsula é feita à mão, uma a uma, com ingredientes selecionados e embalagem de presente incluída.\nSe quiseres algo mais simples, a Caixinha para provar é uma opção mais acessível e igualmente bonita para oferecer. Queres que te mostre?"}, {"n": 11, "t": "«Vou pensar»", "w": "Objeção de tempo", "x": "Claro, sem pressas! 😊\nSó te digo que preparo as encomendas por ordem de chegada e esta semana tenho poucos lugares.\nQueres que te reserve uma para {FECHA}? Se depois mudares de ideia, não há problema."}]}, {"cat": "Fechar encomendas", "desc": "Mensagens para passar de «que giro» a «quero um».", "ms": [{"n": 12, "t": "Fecho com duas opções", "w": "Fecho · dia 17", "x": "Qual gostas mais, {NOMBRE}: a Caixinha de 4 ou a Caixa presente com laço? 🎁\nQualquer uma das duas tenho pronta para {FECHA}."}, {"n": 13, "t": "Fecho por data especial", "w": "Fecho de temporada", "x": "{NOMBRE}, aviso-te porque perguntaste 💛\nEstou a aceitar as últimas encomendas para {FECHA}. Depois dessa data já não consigo preparar.\nQueres que reserve a tua caixa?"}, {"n": 14, "t": "Fecho com sinal", "w": "Confirmar com pagamento parcial", "x": "Perfeito! Para reservar a tua data peço um sinal de 50 % ({PRECIO}) e o resto na entrega 😊\nAssim que confirmes, marco e começo a preparar."}, {"n": 15, "t": "Confirmação da encomenda", "w": "Resumo para evitar erros", "x": "Obrigado pela tua encomenda, {NOMBRE}! 🥰 Confirmo os dados:\n• Produto: \n• Sabores: \n• Cartão ou mensagem: \n• Entrega: {FECHA}\n• Total: {PRECIO}\nEstá tudo bem?"}, {"n": 16, "t": "Dados para pagamento", "w": "Enviar meios de pagamento", "x": "Deixo-te os dados para o pagamento 👇\n[Escreve aqui a tua transferência, MB Way ou meio de pagamento]\nQuando fizeres, envia-me o comprovativo por aqui e confirmo. Obrigado!"}]}, {"cat": "Entrega e acompanhamento", "desc": "Para que nenhuma pergunta nem cliente se perca.", "ms": [{"n": 17, "t": "Encomenda pronta", "w": "Aviso de entrega", "x": "¡{NOMBRE}, a tua encomenda está pronta! 🎁✨\nEnvio-te uma foto para veres.\nEstá bem entregar a {FECHA}? Ou preferes levantar?"}, {"n": 18, "t": "Instruções na entrega", "w": "Junto com a entrega", "x": "Que desfrutes! ☕\nComo preparar: 1 cápsula na chávena + água quente + mexer.\nGuarda num local fresco e seco, na caixa fechada.\nSe gostares, adorava que me contasses!"}, {"n": 19, "t": "Acompanhamento às 24 h", "w": "Pergunta sem resposta", "x": "Olá {NOMBRE}! Conseguiste ver as fotos que te enviei ontem? 😊\nSe tiveres alguma dúvida sobre os modelos ou sabores, estou aqui."}, {"n": 20, "t": "Interessada que não comprou", "w": "Acompanhamento aos 7 dias · dia 29", "x": "Olá {NOMBRE} 🌸 Há uns dias perguntaste pelas cápsulas.\nEsta semana preparei modelos novos e lembrei-me de ti. Queres que te mostre?\nSe agora não for o momento, não te preocupes!"}, {"n": 21, "t": "Lista de difusão: novidade", "w": "Só para contactos que aceitaram", "x": "✨ Novidade em {NEGOCIO} ✨\nNovos sabores e a caixa da temporada já estão disponíveis.\nResponde «QUERO» e envio fotos e preços 🎁"}]}, {"cat": "Vendas grandes e parcerias", "desc": "Encomendas por volume, empresas e negócios locais.", "ms": [{"n": 22, "t": "Eventos (casamentos, aniversários, chá de bebé)", "w": "Clientes de volume · dia 19", "x": "Olá {NOMBRE}! Sou {YO}, de {NEGOCIO} 😊\nFaço cápsulas gourmet personalizadas como lembrança para eventos: com as cores da festa, a inicial dos festejados e uma etiqueta com mensagem.\nÉ um detalhe diferente que os convidados usam mesmo. Queres que te envie ideias e preços por quantidade?"}, {"n": 23, "t": "Empresas e presentes corporativos", "w": "Clientes de volume · dia 19", "x": "Olá {NOMBRE}, como estás? Sou {YO}, de {NEGOCIO}.\nFaço caixas de cápsulas gourmet de café e chá para presentes empresariais: clientes, equipa ou datas especiais, com etiqueta personalizada com o logo ou mensagem.\nPosso enviar-te uma proposta com opções e preços por volume?"}, {"n": 24, "t": "Negócio parceiro (florista, café, loja de presentes)", "w": "Parceria local · dia 24", "x": "Olá! Sou {YO}, empreendedora de {CIUDAD}. Faço cápsulas gourmet de café e chá, ideais para acompanhar presentes.\nGostava de propor uma parceria: posso deixar-te uma amostra para os teus clientes verem e trabalhar em consignação ou com preço especial para revenda.\nQuando te posso levar uma caixa para experimentares?"}]}, {"cat": "Fidelizar e voltar a vender", "desc": "Os teus clientes satisfeitos são o teu melhor canal de vendas.", "ms": [{"n": 25, "t": "Pedir opinião", "w": "Depois da entrega · dia 20", "x": "Olá {NOMBRE}! Como correu com as cápsulas? 😊\nGostaram quem as recebeu?\nSe me enviares uma foto ou áudio com a tua opinião, deixas-me muito feliz 💛"}, {"n": 26, "t": "Agradecer e pedir permissão", "w": "Para publicar testemunhos", "x": "Muito obrigado, {NOMBRE}! 🥹 Alegraste o meu dia.\nPosso partilhar a tua mensagem nos meus estados? Posso fazê-lo sem o teu nome se preferires."}, {"n": 27, "t": "Recompra", "w": "Clientes anteriores · dia 22", "x": "Olá {NOMBRE}! 🌸 Há algum tempo preparei umas cápsulas para ti e queria contar-te que já tenho sabores novos.\nComo já és cliente, na tua próxima encomenda ofereço-te uma cápsula extra 🎁\nQueres ver as novidades?"}, {"n": 28, "t": "Referências", "w": "Programa de referências · dia 23", "x": "{NOMBRE}, obrigado por confiares em mim! 💛\nConto-te uma coisa: se me recomendares a alguém e essa pessoa fizer encomenda, ofereço-te 2 cápsulas na tua próxima compra.\nSó tens de lhe dizer para mencionar o teu nome quando me escrever 😊"}, {"n": 29, "t": "Aniversário do cliente", "w": "Data especial", "x": "Feliz aniversário, {NOMBRE}! 🎂🥳\nQue tenhas um dia lindo.\nTenho um presente para ti: este mês, a tua caixinha favorita com um desconto especial. Escreve-me quando quiseres!"}, {"n": 30, "t": "Reativar clientes de temporada", "w": "Antes de cada data especial", "x": "Olá {NOMBRE}! Aproxima-se {FECHA} 🎁\nNo ano passado/na última vez muitas pessoas ficaram sem a sua caixa porque chegaram tarde, por isso aviso-te com antecedência.\nJá tenho os modelos da temporada. Queres que te reserve a tua?"}]}];
+const VARS = ["YO","NEGOCIO","CIUDAD"];
+const LABEL = {NOMBRE:"[Nome]", YO:"[O teu nome]", NEGOCIO:"[A tua marca]", CIUDAD:"[A tua cidade]", PRECIO:"[Preço]", FECHA:"[Data]"};
+let st = {v:{}, e:{}};
+try { st = Object.assign(st, JSON.parse(localStorage.getItem("cg_msgs") || "{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_msgs", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+
+function fill(x) {
+  return x.replace(/\{(\w+)\}/g, (m, k) => (VARS.includes(k) && st.v[k]) ? st.v[k] : (LABEL[k] || m));
+}
+function render(filter) {
+  let h = "";
+  DATA.forEach((c, ci) => {
+    if (filter !== undefined && filter !== ci) return;
+    h += `<section class="cat"><h2>${c.cat}</h2><p>${c.desc}</p>`;
+    c.ms.forEach(m => {
+      const txt = st.e[m.n] !== undefined ? st.e[m.n] : fill(m.x);
+      h += `<div class="m"><div class="mh"><span class="n">${m.n}</span><h3>${m.t}</h3><span class="w">${m.w}</span></div>
+      <textarea data-n="${m.n}" rows="${Math.max(4, txt.split("\n").length + 1)}">${txt.replace(/</g,"&lt;")}</textarea>
+      <div class="btns"><button class="copy" data-c="${m.n}">Copiar</button><a class="wa" data-w="${m.n}" href="#" target="_blank" rel="noopener">Abrir no WhatsApp</a>
+      ${st.e[m.n] !== undefined ? `<button class="reset" data-r="${m.n}">Restaurar original</button>` : ""}</div></div>`;
+    });
+    h += "</section>";
+  });
+  $("#list").innerHTML = h;
+  const fit = t => { t.style.height = "auto"; t.style.height = (t.scrollHeight + 4) + "px"; };
+  document.querySelectorAll("textarea").forEach(t => { fit(t); t.addEventListener("input", () => { fit(t); st.e[t.dataset.n] = t.value; save(); }); });
+  document.querySelectorAll("[data-c]").forEach(b => b.onclick = async () => {
+    const t = document.querySelector(`textarea[data-n="${b.dataset.c}"]`);
+    try { await navigator.clipboard.writeText(t.value); } catch(e) { t.select(); document.execCommand("copy"); }
+    b.textContent = "Copiado! ✓"; b.classList.add("ok"); setTimeout(() => { b.textContent = "Copiar"; b.classList.remove("ok"); }, 1500);
+  });
+  document.querySelectorAll("[data-w]").forEach(a => a.onclick = () => {
+    const t = document.querySelector(`textarea[data-n="${a.dataset.w}"]`);
+    a.href = "https://wa.me/?text=" + encodeURIComponent(t.value);
+  });
+  document.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { delete st.e[b.dataset.r]; save(); render(cur); });
+}
+let cur;
+const fb = $("#filters");
+fb.innerHTML = `<button class="on" data-f="">Todos</button>` + DATA.map((c, i) => `<button data-f="${i}">${c.cat}</button>`).join("");
+fb.querySelectorAll("button").forEach(b => b.onclick = () => {
+  fb.querySelectorAll("button").forEach(x => x.classList.remove("on")); b.classList.add("on");
+  cur = b.dataset.f === "" ? undefined : +b.dataset.f; render(cur);
+});
+VARS.forEach(k => { const i = $("#v_" + k); i.value = st.v[k] || ""; i.addEventListener("input", () => { st.v[k] = i.value.trim(); save(); render(cur); }); });
+render();
+</script>
+</body>
+</html>

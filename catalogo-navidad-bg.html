@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="bg"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Редактируем коледен каталог</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--r:#8c1d2a;--g:#2f5a3a;--o:#b8924a;--c:#fdf8f1;--c2:#efe0cf;--t:#2b2322;--m:#6c605c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.wrap{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+header{text-align:center;padding:8px 0 16px}
+.tag{display:inline-block;background:var(--g);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--r);font-size:clamp(26px,5.5vw,38px);line-height:1.1;margin:12px 0 6px}
+.sub{color:var(--m);max-width:620px;margin:0 auto}
+.panel{background:#fff;border:1px solid #eadccb;border-radius:16px;padding:16px;margin-top:14px}
+.panel h2{font-family:'Fraunces',serif;color:var(--r);font-size:19px;margin-bottom:10px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+label.f{display:block;font-size:13px;font-weight:800;color:var(--g)}
+label.f input,label.f select,label.f textarea{display:block;width:100%;margin-top:4px;font:inherit;font-weight:400;font-size:15px;padding:10px 12px;border:1.5px solid #e5d6c3;border-radius:10px;background:var(--c);color:var(--t)}
+button{font:800 15px 'Nunito Sans';border:0;border-radius:30px;padding:12px 20px;cursor:pointer}
+.print{background:var(--r);color:#fff} .sec{background:#fff;color:var(--r);border:1.5px solid var(--r)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.note{background:#fdf3e4;border-left:4px solid var(--o);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:12px}
+@media print{ .noprint{display:none!important} body{background:#fff} .wrap{max-width:none;padding:0} }
+
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;max-height:420px;overflow:auto;margin-top:8px}
+.li{display:grid;grid-template-columns:22px 46px 1fr 90px;gap:8px;align-items:center;background:var(--c);border:1px solid #eadccb;border-radius:10px;padding:6px 8px;font-size:13px}
+.li img{width:46px;height:46px;border-radius:8px;object-fit:cover}
+.li input[type=text]{width:100%;font:inherit;padding:6px 8px;border:1.5px solid #e5d6c3;border-radius:8px}
+.cat{background:#fff;margin-top:18px;border-radius:12px;overflow:hidden}
+.ch{background:linear-gradient(135deg,#8c1d2a,#a8323f);color:#fff;text-align:center;padding:26px 18px}
+.ch .k{font:800 11px 'Nunito Sans';letter-spacing:3px;color:#f1d9a4}
+.ch h2{font:800 34px/1.1 'Fraunces';margin:6px 0}
+.ch p{opacity:.92;max-width:560px;margin:0 auto}
+.cs{padding:16px 18px 4px}
+.cs h3{font:700 20px 'Fraunces';color:var(--r);margin:6px 0 10px;border-bottom:2px solid var(--c2);padding-bottom:4px}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ci{border:1px solid #eadccb;border-radius:10px;overflow:hidden;break-inside:avoid;background:#fff}
+.ci img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.ci .t{font:700 15px/1.2 'Fraunces';color:var(--r);padding:8px 10px 2px}
+.ci .d{font-size:12px;color:var(--m);padding:0 10px}
+.ci .p{font:800 15px 'Nunito Sans';color:var(--g);padding:4px 10px 10px}
+.cf{background:#fdf3e4;text-align:center;padding:18px;margin-top:10px}
+.cf b{color:var(--r);font-size:17px}
+@media(max-width:640px){.cgrid{grid-template-columns:repeat(2,1fr)}}
+@media print{ @page{size:A4;margin:10mm} .cat{margin:0;border-radius:0} .cgrid{grid-template-columns:repeat(3,1fr)} .cs{break-inside:auto} }
+
+</style><link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&display=swap" rel="stylesheet"><style>h1,h2,h3,.q h2,.hero h2,.sec h3,.stat b,.lb .n,.ci .t,.ch h2,.cs h3,.cat h2{font-family:Lora,serif!important}</style></head><body>
+<div class="wrap">
+<header class="noprint"><span class="tag">БОНУС · РЕДАКТИРУЕМА ВЕРСИЯ</span><h1>Твоят коледен каталог <span style="color:var(--o)">с твоя бранд и цени</span></h1>
+<p class="sub">Избери кои дизайни предлагаш, въведи цените и данните си и го запази като PDF, за да го изпратиш през WhatsApp или да го публикуваш в социалните мрежи.</p></header>
+<div class="panel noprint"><h2>1 · Твоите данни</h2><div class="fg">
+<label class="f">Твоят бранд<input id="marca" placeholder="Пример: Сладко Кафе"></label>
+<label class="f">Заглавие на каталога<input id="titulo" value="Колекция Коледа"></label>
+<label class="f">WhatsApp<input id="wa" placeholder="Пример: +359 88 123 4567"></label>
+<label class="f">Instagram / социални мрежи<input id="ig" placeholder="@твоябранд"></label>
+<label class="f">Краен срок за поръчки<input id="limite" placeholder="Пример: 18 декември"></label>
+<label class="f">Зона за доставка<input id="zona" placeholder="Пример: Доставки в София"></label>
+</div>
+<label class="f" style="margin-top:10px">Въведение<textarea id="intro" rows="2">Гурме капсули с кафе, чай и шоколад с коледни форми, ръчно изработени. Поставят се в чаша с гореща вода или мляко и се превръщат в вкусна напитка.</textarea></label>
+<h2 style="margin-top:14px">2 · Кутии и цени (по избор)</h2><div class="fg">
+<label class="f">Кутия с 4<input id="p4" placeholder="Цена"></label><label class="f">Кутия с 6 / 9<input id="p9" placeholder="Цена"></label><label class="f">Кутия с 12<input id="p12" placeholder="Цена"></label>
+<label class="f">Показване цена за дизайн<select id="mostrar"><option value="no">Не (само кутии)</option><option value="si">Да</option></select></label></div>
+<h2 style="margin-top:14px">3 · Предлагани дизайни</h2>
+<div style="display:flex;gap:8px"><button class="sec" type="button" id="all" style="padding:6px 12px;font-size:12px">Всички</button><button class="sec" type="button" id="none" style="padding:6px 12px;font-size:12px">Нито един</button></div>
+<div class="list" id="list"></div>
+<div class="actions"><button class="print" type="button" onclick="window.print()">⬇ Запази PDF / Принтирай</button></div>
+<div class="note">За изпращане през WhatsApp: „Запази като PDF“ в прозореца за печат, с мащаб 100% и без заглавия. Твоите данни се запазват на това устройство.</div></div>
+<div class="cat" id="cat"></div>
+</div>
+<script>
+const ITEMS = [{"n": 1, "t": "Кафе с канела и карамфил", "d": "Поръси канела върху сухата звезда.", "s": "Коледно кафе"}, {"n": 2, "t": "Кафе с джинджифилов хляб", "d": "Начертай очите и копчетата с точка разтопен бял шоколад.", "s": "Коледно кафе"}, {"n": 3, "t": "Коледно мока кафе", "d": "Оцвети върха с ядлива златна пудра.", "s": "Коледно кафе"}, {"n": 4, "t": "Кафе с ванилия и сняг", "d": "Поръси пудра захар с фино сито.", "s": "Коледно кафе"}, {"n": 5, "t": "Кафе с карамел и сол", "d": "Оцвети панделката с бял шоколад.", "s": "Коледно кафе"}, {"n": 6, "t": "Кафе с портокал и канела", "d": "Постави парченце конфитюрен портокал отгоре.", "s": "Коледно кафе"}, {"n": 7, "t": "Празнично кафе с лешник", "d": "Украсете с нарязан лешник.", "s": "Коледно кафе"}, {"n": 8, "t": "Полярно кафе с мента", "d": "Начертай червени ивици с гел оцветител.", "s": "Коледно кафе"}, {"n": 9, "t": "Кафе с кардамон", "d": "Постави семе кардамон в центъра.", "s": "Коледно кафе"}, {"n": 10, "t": "Кафе с кокос и сняг", "d": "Покрий горната част с настърган кокос.", "s": "Коледно кафе"}, {"n": 11, "t": "Кафе с ром и стафиди (без алкохол)", "d": "Украсете с една стафида на ръба на камбанката.", "s": "Коледно кафе"}, {"n": 12, "t": "Подправено кафе за Бъдни вечер", "d": "Оцвети опашката на звездата със златна пудра.", "s": "Коледно кафе"}, {"n": 13, "t": "Червен чай с горски плодове", "d": "Залепи сухо розово листенце с капка разтвор.", "s": "Коледни чайове и билки"}, {"n": 14, "t": "Коледен чай чай", "d": "Поръси канела отгоре.", "s": "Коледни чайове и билки"}, {"n": 15, "t": "Зелен чай с коледна мента", "d": "Начертай малки червени точки като украса.", "s": "Коледни чайове и билки"}, {"n": 16, "t": "Маточина с мед и портокал", "d": "Постави сухо цвете маточина отгоре.", "s": "Коледни чайове и билки"}, {"n": 17, "t": "Ройбос с ванилия", "d": "Начертай нос с червена точка.", "s": "Коледни чайове и билки"}, {"n": 18, "t": "Чай с ябълка и канела", "d": "Постави мини канелена пръчка.", "s": "Коледни чайове и билки"}, {"n": 19, "t": "Бял чай с круша", "d": "Оцвети ръба със сребърна пудра.", "s": "Коледни чайове и билки"}, {"n": 20, "t": "Билка с хибискус и джинджифил", "d": "Оцвети опашката със златна пудра.", "s": "Коледни чайове и билки"}, {"n": 21, "t": "Черен чай с шоколад", "d": "Панделка от бял шоколад.", "s": "Коледни чайове и билки"}, {"n": 22, "t": "Билка с лавандула и лимон", "d": "Постави 2 сухи цветчета лавандула.", "s": "Коледни чайове и билки"}, {"n": 23, "t": "Шоколад с маршмелоу", "d": "Маршмелоу на повърхността.", "s": "Шоколад за горещо мляко"}, {"n": 24, "t": "Бял шоколад със сняг", "d": "Поръси настърган кокос.", "s": "Шоколад за горещо мляко"}, {"n": 25, "t": "Горчив портокалов шоколад", "d": "Тънка ивица конфитюрен портокал.", "s": "Шоколад за горещо мляко"}, {"n": 26, "t": "Майски пикантен шоколад", "d": "Ядлива златна пудра.", "s": "Шоколад за горещо мляко"}, {"n": 27, "t": "Шоколад с коледни бисквити", "d": "Коледни цветни пръчици.", "s": "Шоколад за горещо мляко"}, {"n": 28, "t": "Шоколад с горски плодове", "d": "Парченца лиофилизирана ягода.", "s": "Шоколад за горещо мляко"}, {"n": 29, "t": "Шоколад с коледна мента", "d": "Ивици от бял шоколад.", "s": "Шоколад за горещо мляко"}, {"n": 30, "t": "Шоколад с карамелен крем", "d": "Конци от бял шоколад.", "s": "Шоколад за горещо мляко"}, {"n": 31, "t": "Шоколад с лешник и какао", "d": "Нарязан лешник.", "s": "Шоколад за горещо мляко"}, {"n": 32, "t": "Празничен рубинен шоколад", "d": "Ядливи сухи листенца.", "s": "Шоколад за горещо мляко"}, {"n": 33, "t": "Бонбон с еспресо кафе", "d": "Зърно кафе на капачката.", "s": "Шоколадови обвивки с пълнеж"}, {"n": 34, "t": "Бонбон капучино", "d": "Поръси какао.", "s": "Шоколадови обвивки с пълнеж"}, {"n": 35, "t": "Бонбон чай чай", "d": "Канела отгоре.", "s": "Шоколадови обвивки с пълнеж"}, {"n": 36, "t": "Бонбон мока мента", "d": "Ядлива зелена пудра на върха.", "s": "Шоколадови обвивки с пълнеж"}, {"n": 37, "t": "Бонбон ванилия и кафе", "d": "Пудра захар.", "s": "Шоколадови обвивки с пълнеж"}, {"n": 38, "t": "Бонбон карамел", "d": "Панделка от бял шоколад.", "s": "Шоколадови обвивки с пълнеж"}, {"n": 39, "t": "Бонбон горски плодове и чай", "d": "Ядлив блясък.", "s": "Шоколадови обвивки с пълнеж"}, {"n": 40, "t": "Бонбон елен", "d": "Червен нос и рога от шоколад.", "s": "Шоколадови обвивки с пълнеж"}, {"n": 41, "t": "Луксозно златно дърво", "d": "Оцвети цялото дърво със златна ядлива пудра и бяла звезда.", "s": "Премиум коледни дизайни"}, {"n": 42, "t": "Витлеемска звезда", "d": "Ръбове оцветени със злато.", "s": "Премиум коледни дизайни"}, {"n": 43, "t": "Шапка на Дядо Коледа", "d": "Ръб и помпон от настърган кокос.", "s": "Премиум коледни дизайни"}, {"n": 44, "t": "Усмихнат снежен човек", "d": "Очите и копчетата са от тъмен шоколад, носът е оранжев с оцветител.", "s": "Премиум коледни дизайни"}, {"n": 45, "t": "Адвент венец", "d": "Червени точки като плодове.", "s": "Премиум коледни дизайни"}, {"n": 46, "t": "Коледен чорап", "d": "Бял ръб и червен детайл.", "s": "Премиум коледни дизайни"}, {"n": 47, "t": "Мраморна коледна топка", "d": "Конци от златна пудра.", "s": "Премиум коледни дизайни"}, {"n": 48, "t": "Коледен ангел", "d": "Крила оцветени с перлена пудра.", "s": "Премиум коледни дизайни"}, {"n": 49, "t": "Двойна изненада подарък", "d": "Златна панделка.", "s": "Премиум коледни дизайни"}, {"n": 50, "t": "Новогодишни камбанки", "d": "Златен ръб и сребърна точка.", "s": "Премиум коледни дизайни"}];
+let st = {marca:"", titulo:"Колекция Коледа", wa:"", ig:"", limite:"", zona:"", intro:"", p4:"", p9:"", p12:"", mostrar:"no", sel: ITEMS.map(i=>i.n), pr:{}};
+try { Object.assign(st, JSON.parse(localStorage.getItem("cg_cat")||"{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_cat", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s); const esc = s => String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const img = n => "img/r" + String(n).padStart(2,"0") + ".jpg";
+function render() {
+  const secs = [...new Set(ITEMS.map(i => i.s))];
+  const boxes = [["Кутия с 4", st.p4], ["Кутия с 6 / 9", st.p9], ["Кутия с 12", st.p12]].filter(b => b[1]);
+  let h = `<div class="ch"><div class="k">${esc(st.marca || "ГУРМЕ КАПСУЛИ")}</div><h2>${esc(st.titulo)}</h2><p>${esc(st.intro)}</p></div>`;
+  if (boxes.length) h += `<div class="cs"><h3>Нашите кутии</h3><div class="cgrid">${boxes.map(b => `<div class="ci" style="text-align:center;padding:14px"><div class="t">${esc(b[0])}</div><div class="p">${esc(b[1])}</div></div>`).join("")}</div></div>`;
+  secs.forEach(s => { const its = ITEMS.filter(i => i.s === s && st.sel.includes(i.n)); if (!its.length) return;
+    h += `<div class="cs"><h3>${s}</h3><div class="cgrid">` + its.map(i => `<div class="ci"><img src="${img(i.n)}" alt=""><div class="t">${esc(i.t)}</div><div class="d">${esc(i.d)}</div>${st.mostrar === "si" && st.pr[i.n] ? `<div class="p">${esc(st.pr[i.n])}</div>` : '<div style="height:8px"></div>'}</div>`).join("") + "</div></div>"; });
+  const c = [st.wa && "WhatsApp: " + esc(st.wa), st.ig && esc(st.ig), st.zona && esc(st.zona)].filter(Boolean).join(" · ");
+  h += `<div class="cf"><b>Направи своята коледна поръчка</b><br>${c || "Пиши ни, за да съставим твоята кутия"}${st.limite ? "<br>Поръчки до " + esc(st.limite) : ""}</div>`;
+  $("#cat").innerHTML = h;
+}
+["marca","titulo","wa","ig","limite","zona","intro","p4","p9","p12","mostrar"].forEach(k => { const el = $("#"+k); if (st[k]) el.value = st[k]; else st[k] = el.value; el.addEventListener("input", () => { st[k] = el.value; save(); render(); }); });
+$("#list").innerHTML = ITEMS.map(i => `<label class="li"><input type="checkbox" value="${i.n}" ${st.sel.includes(i.n)?"checked":""}><img src="${img(i.n)}" alt="" loading="lazy"><span>${i.n}. ${esc(i.t)}</span><input type="text" data-p="${i.n}" placeholder="Цена" value="${esc(st.pr[i.n]||"")}"></label>`).join("");
+$("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = () => { st.sel = [...$("#list").querySelectorAll("input[type=checkbox]:checked")].map(x => +x.value); save(); render(); });
+$("#list").querySelectorAll("input[data-p]").forEach(p => p.addEventListener("input", () => { st.pr[p.dataset.p] = p.value; save(); render(); }));
+$("#all").onclick = () => { $("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.checked = true); st.sel = ITEMS.map(i=>i.n); save(); render(); };
+$("#none").onclick = () => { $("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.checked = false); st.sel = []; save(); render(); };
+render();
+</script></body></html>

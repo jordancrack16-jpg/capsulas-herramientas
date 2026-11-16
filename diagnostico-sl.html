@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnoza in akcijski načrt</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--w:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.55;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px}
+header{text-align:center;padding:18px 0 10px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;font-weight:800;color:var(--g);font-size:clamp(28px,6vw,40px);line-height:1.1;margin:14px 0 8px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:560px;margin:0 auto}
+.bar{height:8px;background:var(--c2);border-radius:9px;margin:22px 0 6px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--s),var(--o));transition:width .3s}
+.step-n{font-size:13px;color:var(--m);text-align:right;font-weight:600}
+.card{background:var(--w);border:1px solid #e6dfcf;border-radius:18px;padding:24px 20px;margin-top:14px;box-shadow:0 6px 20px rgba(47,74,42,.06)}
+.q{display:none}.q.on{display:block;animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.q h2{font-family:'Fraunces',serif;color:var(--g);font-size:22px;line-height:1.25;margin-bottom:6px}
+.q .hint{color:var(--m);font-size:14px;margin-bottom:14px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;border:1.5px solid #e2dac9;border-radius:14px;padding:13px 14px;cursor:pointer;background:var(--c);font-weight:600;transition:.15s}
+.opt:hover{border-color:var(--s)}
+.opt input{accent-color:var(--g);width:18px;height:18px;flex:none}
+.opt.sel{border-color:var(--g);background:var(--s2)}
+.opt small{display:block;font-weight:400;color:var(--m);font-size:13px}
+input[type=text],input[type=number],select{width:100%;font:inherit;padding:13px 14px;border:1.5px solid #e2dac9;border-radius:12px;background:var(--c);color:var(--t)}
+input:focus,select:focus{outline:2px solid var(--s);border-color:var(--s)}
+.row{display:grid;grid-template-columns:1fr 130px;gap:10px}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+button{font:800 15px 'Nunito Sans',sans-serif;border:0;border-radius:40px;padding:14px 22px;cursor:pointer}
+.next{background:var(--g);color:#fff;flex:1}.next:disabled{opacity:.4;cursor:not-allowed}
+.back{background:transparent;color:var(--g);border:1.5px solid var(--g)}
+.err{color:#b5654a;font-size:13px;margin-top:8px;min-height:18px}
+/* Resultado */
+#plan{display:none}
+.hero{background:linear-gradient(135deg,var(--g),#466b3c);color:#fff;border-radius:20px;padding:26px 22px;margin-top:10px}
+.hero .k{font-size:12px;letter-spacing:3px;font-weight:800;color:#e9d8b0}
+.hero h2{font-family:'Fraunces',serif;font-size:28px;line-height:1.15;margin:6px 0}
+.hero p{opacity:.92}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.stat{background:rgba(255,255,255,.12);border-radius:14px;padding:12px;text-align:center}
+.stat b{display:block;font-family:'Fraunces',serif;font-size:22px}
+.stat span{font-size:12px;opacity:.9}
+.sec{margin-top:22px}
+.sec h3{font-family:'Fraunces',serif;color:var(--g);font-size:21px;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.sec h3 .n{background:var(--o);color:#fff;font:800 13px 'Nunito Sans';border-radius:30px;padding:3px 10px}
+.list{list-style:none;display:grid;gap:8px}
+.list li{background:var(--w);border:1px solid #e6dfcf;border-radius:12px;padding:11px 14px 11px 40px;position:relative}
+.list li:before{content:"✓";position:absolute;left:14px;top:10px;color:var(--s);font-weight:800}
+.list.warn li:before{content:"!";color:#b5654a}
+.week{background:var(--w);border:1px solid #e6dfcf;border-radius:16px;padding:16px;margin-bottom:12px;break-inside:avoid}
+.week h4{color:var(--g);font-size:16px;margin-bottom:2px}
+.week .d{font-size:12px;color:var(--o);font-weight:800;letter-spacing:2px}
+.week ul{margin:8px 0 0 0;list-style:none}
+.week li{padding:6px 0 6px 28px;border-top:1px dashed #e6dfcf;position:relative;font-size:15px}
+.week li:before{content:"☐";position:absolute;left:4px;color:var(--s);font-weight:800}
+.week li b{color:var(--g)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--s2);color:var(--g);font-weight:800;font-size:13px;border-radius:30px;padding:6px 12px}
+.note{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--m);margin-top:14px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.actions button{flex:1;min-width:200px}
+.print{background:var(--o);color:#fff}
+.restart{background:transparent;border:1.5px solid var(--g);color:var(--g)}
+@media (max-width:520px){.stats{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff}.wrap{max-width:none;padding:0}
+  #quiz,header .sub,.actions,.bar,.step-n{display:none!important}
+  header{padding:0}
+  .hero{break-inside:avoid}
+  .sec{break-inside:auto}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">1. KORAK PROGRAMA</span>
+  <h1>Diagnoza in <em>osebni akcijski načrt</em></h1>
+  <p class="sub">Odgovori na 12 hitrih vprašanj (približno 5 minut). Na koncu boš dobil svoj 30-dnevni načrt, prilagojen tvojemu času, proračunu in izkušnjam, pripravljen za tisk ali shranjevanje v PDF.</p>
+</header>
+
+<div id="quiz">
+  <div class="bar"><i id="prog"></i></div>
+  <div class="step-n" id="stepn"></div>
+  <div class="card" id="qs"></div>
+  <div class="err" id="err"></div>
+  <div class="nav">
+    <button class="back" id="back" type="button">← Nazaj</button>
+    <button class="next" id="next" type="button">Naprej →</button>
+  </div>
+</div>
+
+<div id="plan"></div>
+</div>
+
+<script>
+const Q = [
+ {id:"nombre", t:"Kako ti je ime?", h:"Tvoj načrt bo vseboval tvoje ime.", type:"text", ph:"Tvoje ime"},
+ {id:"pais", t:"V kateri državi boš prodajal/a?", h:"To nam pomaga predlagati kanale in posebne datume.", type:"select",
+  o:["Slovenija","Avstrija","Hrvaška","Italija","Madžarska","Nemčija","Švica","Italija","Srbija","Bosna in Hercegovina","Črna gora","Severna Makedonija","Drugo"]},
+ {id:"exp", t:"Koliko izkušenj imaš s pripravo gurmanskih kapsul?", type:"radio", o:[
+   ["0","Še nisem naredil/a nobene","Še sem začetnik/začetnica"],["1","Naredil/a sem nekaj poskusov","Uspeva mi, a še vadim"],
+   ["2","Sem že prodal/a ali podaril/a nekaj","Imam nekaj izkušenj in mnenj"],["3","Redno prodajam","Želim urediti stvari in rasti"]]},
+ {id:"pres", t:"S kakšnim proračunom začneš za materiale in embalažo?", type:"radio", o:[
+   ["0","Zelo nizek","Samo kar že imam ali minimalno"],["1","Nizek","Za nekaj serij in preprosto embalažo"],
+   ["2","Srednji","Za več serij in lepe škatle"],["3","Lahko vložim več","Novi modeli, več embalaže in materiala"]]},
+ {id:"horas", t:"Koliko ur na teden lahko nameniš temu?", type:"radio", o:[
+   ["0","Manj kot 3 ure","Kratko nekaj dni"],["1","3 do 6 ur","Skoraj ura na dan"],
+   ["2","7 do 12 ur","Ura ali dve na dan"],["3","Več kot 12 ur","Lahko namenim veliko časa"]]},
+ {id:"canales", t:"Kje bi rad/a prodajal/a?", h:"Izberi lahko več možnosti.", type:"check", o:[
+   ["wa","WhatsApp"],["ig","Instagram"],["tt","TikTok"],["fb","Facebook in Marketplace"],["feria","Sejmi in tržnice"],
+   ["local","Lokalne trgovine (kavarne, cvetličarne, darila)"],["eventos","Dogodki in podjetja (poročne, rojstnodnevne, poslovna darila)"]]},
+ {id:"contactos", t:"Koliko stikov imaš približno na WhatsAppu?", type:"radio", o:[
+   ["0","Manj kot 100",""],["1","Med 100 in 300",""],["2","Med 300 in 800",""],["3","Več kot 800",""]]},
+ {id:"video", t:"Se upaš snemati videe za družbena omrežja?", type:"radio", o:[
+   ["2","Da, in lahko sem v videu","Upam si govoriti pred kamero"],["1","Da, a samo roke in izdelek","Raje ne pokažem obraza"],
+   ["0","Za zdaj raje fotografije","Videi mi ne gredo"]]},
+ {id:"obj", t:"Kaj želiš doseči s tem poslom?", type:"radio", o:[
+   ["extra","Dodatni zaslužek","Dopolniti svoj dohodek"],["principal","Glavni vir dohodka","Zgraditi resen posel"],
+   ["temporada","Prodaja ob posebnih priložnostih","Božič, materinski dan, valentinovo…"],["eventos","Specializacija za dogodke in darila","Poroke, rojstni dnevi, podjetja"]]},
+ {id:"meta", t:"Koliko bi rad/a prodal/a v naslednjih 30 dneh?", h:"Vnesi številko in svojo valuto. Kasneje boš to prilagodil/a s kalkulatorjem.", type:"meta"},
+ {id:"traba", t:"Kaj te danes najbolj ovira?", type:"radio", o:[
+   ["precio","Ne vem, koliko zaračunati",""],["donde","Ne vem, kje in komu prodajati",""],["verguenza","Sram me je ponuditi",""],
+   ["tiempo","Nimam veliko časa",""],["produccion","Še se ne počutim varno pri proizvodnji",""]]},
+ {id:"fecha", t:"Kateri poseben datum imaš najbližje?", h:"Posebni datumi so tvoja najboljša prodajna priložnost.", type:"radio", o:[
+   ["navidad","Božič in novo leto",""],["sanvalentin","Valentinovo / dan zaljubljenih",""],["madre","Materinski dan",""],
+   ["padre","Očetovski dan",""],["graduacion","Zaključki šolanja",""],["ninguna","Nobenega v naslednjih tednih",""]]},
+];
+const MONEDAS = {"Slovenija":"EUR","Avstrija":"EUR","Hrvaška":"HRK","Italija":"EUR","Madžarska":"HUF","Nemčija":"EUR","Švica":"CHF","Srbija":"RSD","Bosna in Hercegovina":"BAM","Črna gora":"EUR","Severna Makedonija":"MKD","Drugo":"EUR"};
+let A = {}; let i = 0;
+try { const s = localStorage.getItem("cg_diag"); if (s) A = JSON.parse(s) || {}; } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_diag", JSON.stringify(A)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function render() {
+  const q = Q[i]; let h = `<div class="q on"><h2>${q.t}</h2>${q.h ? `<p class="hint">${q.h}</p>` : ""}`;
+  if (q.type === "text") h += `<input type="text" id="f" placeholder="${q.ph}" value="${esc(A[q.id]||"")}" maxlength="40">`;
+  if (q.type === "select") h += `<select id="f"><option value="">Izberi državo</option>${q.o.map(o=>`<option ${A[q.id]===o?"selected":""}>${o}</option>`).join("")}</select>`;
+  if (q.type === "radio") h += `<div class="opts">${q.o.map(([v,l,s])=>`<label class="opt ${A[q.id]===v?"sel":""}"><input type="radio" name="r" value="${v}" ${A[q.id]===v?"checked":""}><span>${l}${s?`<small>${s}</small>`:""}</span></label>`).join("")}</div>`;
+  if (q.type === "check") { const cur = A[q.id]||[]; h += `<div class="opts">${q.o.map(([v,l])=>`<label class="opt ${cur.includes(v)?"sel":""}"><input type="checkbox" value="${v}" ${cur.includes(v)?"checked":""}><span>${l}</span></label>`).join("")}</div>`; }
+  if (q.type === "meta") { const mon = A.moneda || MONEDAS[A.pais] || "EUR";
+    h += `<div class="row"><input type="number" id="f" min="0" inputmode="numeric" placeholder="Npr.: 1000" value="${A.meta||""}"><input type="text" id="mon" value="${esc(mon)}" maxlength="5" aria-label="Valuta"></div>`; }
+  h += "</div>";
+  $("#qs").innerHTML = h; $("#err").textContent = "";
+  $("#prog").style.width = (i / Q.length * 100) + "%";
+  $("#stepn").textContent = `Vprašanje ${i+1} od ${Q.length}`;
+  $("#back").style.visibility = i ? "visible" : "hidden";
+  $("#next").textContent = i === Q.length - 1 ? "Poglej moj načrt ✦" : "Naprej →";
+  document.querySelectorAll(".opt input").forEach(inp => inp.addEventListener("change", () => {
+    if (inp.type === "radio") { document.querySelectorAll(".opt").forEach(o=>o.classList.remove("sel")); inp.closest(".opt").classList.add("sel"); A[q.id] = inp.value; save(); setTimeout(next, 220); }
+    else { inp.closest(".opt").classList.toggle("sel", inp.checked); A[q.id] = [...document.querySelectorAll(".opt input:checked")].map(x=>x.value); save(); }
+  }));
+  const f = $("#f"); if (f && q.type !== "select") { f.focus(); f.addEventListener("keydown", e => { if (e.key === "Enter") next(); }); }
+}
+function valid() {
+  const q = Q[i];
+  if (q.type === "text") { const v = $("#f").value.trim(); if (!v) return "Vnesi svoje ime za nadaljevanje."; A.nombre = v; }
+  if (q.type === "select") { const v = $("#f").value; if (!v) return "Izberi državo."; if (A.pais !== v) delete A.moneda; A.pais = v; }
+  if (q.type === "radio" && A[q.id] === undefined) return "Izberi možnost.";
+  if (q.type === "check" && !(A[q.id]||[]).length) return "Izberi vsaj eno možnost.";
+  if (q.type === "meta") { const v = parseFloat($("#f").value); if (!(v > 0)) return "Vnesi številko večjo od nič."; A.meta = v; A.moneda = ($("#mon").value.trim() || "EUR").toUpperCase(); }
+  save(); return "";
+}
+function next() { const e = valid(); if (e) { $("#err").textContent = e; return; } if (i < Q.length - 1) { i++; render(); } else showPlan(); }
+$("#next").onclick = next;
+$("#back").onclick = () => { if (i > 0) { i--; render(); } };
+
+const n = k => parseInt(A[k] ?? 0, 10);
+const fmt = v => Math.round(v).toLocaleString("sl");
+
+function showPlan() {
+  const exp = n("exp"), pres = n("pres"), horas = n("horas"), cont = n("contactos"), vid = n("video");
+  const ch = A.canales || [], has = c => ch.includes(c);
+  const nombre = esc(A.nombre), mon = esc(A.moneda), meta = A.meta;
+
+  // Profil
+  const score = exp + horas + Math.min(pres, 2);
+  const perfil = score <= 3 ? ["Začetnik/začetnica", "Tvoj cilj je vaditi, pripraviti lepo vzorčno škatlo in začeti prodajati v svojem bližnjem krogu. Korak za korakom."]
+    : score <= 6 ? ["V razvoju", "Že imaš osnovo. Tvoj cilj je urediti cene, redno pokazati izdelek in zaključiti prve naročnike."]
+    : ["Pripravljen/a za rast", "Imaš izkušnje in čas. Tvoj cilj je dodati kanale, velike naročnike in stranke, ki se vračajo."];
+
+  // Čas na dan
+  const minDia = ["20–30 min", "40–60 min", "1–2 h", "2 h ali več"][horas];
+  const diasSem = [3, 5, 5, 6][horas];
+
+  // Prioritetni kanali
+  let prio = ["WhatsApp (statusi in osebna sporočila)"];
+  if (has("ig") || (vid >= 1 && !has("tt"))) prio.push(vid >= 1 ? "Instagram (Reels in statusi)" : "Instagram (fotografije in karusel)");
+  if (has("tt") && vid >= 1) prio.push("TikTok (kratki videi procesa)");
+  if (has("fb")) prio.push("Facebook Marketplace in lokalne skupine");
+  if (has("local")) prio.push("Lokalne partnerske trgovine");
+  if (has("eventos") || A.obj === "eventos") prio.push("Dogodki in poslovna darila");
+  if (has("feria")) prio.push("Sejmi in tržnice");
+  prio = [...new Set(prio)].slice(0, horas >= 2 ? 4 : 3);
+
+  // Priporočeni izdelki
+  const prods = exp === 0 ? ["Vzorec za pokušino (4 gurmanske kapsule)", "Darilna škatla (6 gurmanskih kapsul)"]
+    : ["Vzorec za pokušino (4 gurmanske kapsule)", "Darilna škatla (6–9 gurmanskih kapsul)", "Personalizirano naročilo"];
+  if (A.obj === "eventos" || has("eventos")) prods.push("Spominki za dogodke (po količini)");
+  const formatos = exp <= 1 ? "srce, cvet in krog (najlažje za odstranjevanje)" : "srce, cvet, medvedek in metulj";
+  const sabores = pres === 0 ? "2 okusa kave in 1 čaja, za manjšo nabavo" : "3 okusi kave in 2 čaja";
+
+  // Poseben datum
+  const F = {navidad:["Božična škatla","božič"], sanvalentin:["Škatla zaljubljencev","valentinovo"], madre:["Mamin dan škatla","materinski dan"],
+             padre:["Očetova kavna škatla","očetovski dan"], graduacion:["Škatla za zaključke","zaključki"], ninguna:["Rojstnodnevna škatla","rojstni dnevi v mesecu"]};
+  const [cajaT, fechaT] = F[A.fecha] || F.ninguna;
+
+  // Cilji (povprečna cena ni znana: zahteva izračun)
+  const metaSem = meta / 4.3;
+
+  // Moči in opozorila
+  const fort = [], aten = [];
+  if (exp >= 2) fort.push("Imaš izkušnje: lahko pokažeš prave fotografije in mnenja že od prvega dne.");
+  if (horas >= 2) fort.push("Imaš dovolj časa: lahko napreduješ hitreje kot osnovni načrt.");
+  if (cont >= 2) fort.push("Tvoj seznam WhatsApp je velik: tvoji statusi bodo prvi prodajni kanal.");
+  if (vid === 2) fort.push("Upaš si v videu: to vzbuja zaupanje in povečuje prodajo.");
+  if (pres >= 2) fort.push("Tvoj proračun omogoča lepo predstavitev od začetka.");
+  if (A.fecha && A.fecha !== "ninguna") fort.push(`Imaš blizu ${fechaT}: datum, ki upravičuje nakup zdaj.`);
+  if (!fort.length) fort.push("Naredil/a si prvi korak z metodo: to te postavi pred večino.");
+  if (exp <= 1) aten.push("Vaditi 2–3 serije pred sprejemom velikih naročil; začni z enostavnimi oblikami.");
+  if (pres === 0) aten.push("Začni z enostavno embalažo (kraft vrečka + etiketa) in prve dobičke vloži v škatle.");
+  if (horas === 0) aten.push("Z malo časa proizvajaj v serijah en dan na teden in posnemi več videov naenkrat.");
+  if (cont === 0) aten.push("Tvoj seznam stikov je majhen: potrebuješ Marketplace, skupine in partnerske trgovine za večji doseg.");
+  if (vid === 0) aten.push("Brez videa boš dosegel/a manj ljudi. Poskusi samo z rokami: raztapljajoča se kapsula je tvoja najboljša vsebina.");
+  const TRABA = {precio:"Največja ovira je cena: dnevi 3 in 4 so ključni. Ne preskoči jih.",
+    donde:"Največja ovira je, kje prodajati: sledi vodiču za prvih 10 strank od dneva 7.",
+    verguenza:"Sram te je ponuditi: uporabi pripravljena sporočila iz Bonusa 1. Delil/a boš nekaj lepega, ne prosil/a za uslugo.",
+    tiempo:"Čas ti je omejen: opravi samo glavno nalogo dneva in združi proizvodnjo.",
+    produccion:"Še se ne počutiš varno pri proizvodnji: dneva 2 in 6 posveti vaji in ponovi glavni tečaj."};
+  aten.push(TRABA[A.traba]);
+
+  // Prilagojeni tedni
+  const S1 = [
+    `<b>Dan 1:</b> natisni ta načrt in zapiši, zakaj začneš.`,
+    `<b>Dan 2:</b> določi meni: ${prods.slice(0,3).join(", ")}. Oblike: ${formatos}. Okusi: ${sabores}.`,
+    `<b>Dnevi 3–4:</b> v kalkulator vnesi stroške in določi cene (priporočeni dobiček: 55–70 %).`,
+    `<b>Dan 5:</b> nastavi cilj v zavihku «3 · Cilj»: ${fmt(meta)} ${mon} je približno ${fmt(metaSem)} ${mon} na teden. Poglej, koliko škatel je to in prilagodi, če je treba.`,
+    exp <= 1 ? `<b>Dan 6:</b> naredi 2 vaji in eno vzorčno škatlo. Posnemi 15 fotografij z naravno svetlobo.` : `<b>Dan 6:</b> pripravi vzorčno škatlo, posnemi 15 fotografij in video raztapljajoče se kapsule.`,
+    `<b>Dan 7:</b> nastavi WhatsApp Business (katalog izdelkov) in pripravi seznam ${cont === 0 ? "50" : "100"} stikov.`];
+  const S2 = [
+    `<b>Dan 8:</b> 3 WhatsApp statusi z radovednim sporočilom (Sporočilo 1).`,
+    `<b>Dan 9:</b> ${cont >= 2 ? "15" : "10"} osebnih sporočil s Sporočilom 3. Zapiši, kdo odgovori.`,
+    vid >= 1 ? `<b>Dan 10:</b> posnemi scenarij 1 «Ugani, kaj je to?»${vid === 1 ? " (samo roke)" : ""} in objavi na ${has("tt") ? "TikTok, " : ""}Instagram in statusih.` : `<b>Dan 10:</b> objavi karusel fotografij z vprašanjem «Ugani, kaj je to?».`,
+    `<b>Dan 11:</b> pokušina z družino, na delu ali s prijatelji. Prosi za mnenje in fotografijo.`,
+    has("fb") || cont <= 1 ? `<b>Dan 12:</b> objavi na Marketplace in v 3 lokalnih skupinah.` : `<b>Dan 12:</b> druga runda statusov z mnenji z degustacije.`,
+    `<b>Dnevi 13–14:</b> še 10 sporočil in pregled tedna v Kontroli naročil.`];
+  const S3 = [
+    `<b>Dan 15:</b> lansiraj svojo <b>«${cajaT}»</b> za ${fechaT}, z rokom za naročila.`,
+    `<b>Dan 16:</b> nastavi hitre odgovore in oznake v WhatsApp Business.`,
+    `<b>Dan 17:</b> zaključi odprta vprašanja (Sporočila 12–16). Prosi za polog za potrditev.`,
+    `<b>Dan 18:</b> ustvari 3 personalizirane možnosti in izračunaj ceno.`,
+    has("eventos") || A.obj === "eventos" ? `<b>Dan 19:</b> kontaktiraj 10 možnih strank za dogodke ali podjetja (Sporočila 22 in 23). <b>Visoka prioriteta zate.</b>` : `<b>Dan 19:</b> kontaktiraj 5 možnih strank za dogodke (Sporočilo 22).`,
+    `<b>Dnevi 20–21:</b> objavi 3 pričevanja in preveri, kateri izdelek prinaša največ dobička.`];
+  const S4 = [
+    `<b>Dan 22:</b> sporočilo za ponovni nakup vsem strankam (Sporočilo 27).`,
+    `<b>Dan 23:</b> aktiviraj program priporočil (Sporočilo 28).`,
+    has("local") ? `<b>Dan 24:</b> obišči 3 partnerske trgovine z vzorčno škatlo. <b>Visoka prioriteta zate.</b>` : `<b>Dan 24:</b> kontaktiraj 2 sorodni trgovini (cvetličarna, kavarna) s Sporočilom 24.`,
+    `<b>Dan 25:</b> načrtuj 2 tedna vsebin${vid >= 1 ? " in posnemi 3 videe naenkrat" : ""}.`,
+    `<b>Dnevi 26–27:</b> uredi svojo proizvodno rutino in preveri številke v zavihku Povzetek.`,
+    `<b>Dnevi 28–30:</b> zaključna ocena, zahvali strankam in pripravi nov načrt z novim ciljem.`];
+  const rutina = horas === 0
+    ? ["Ponedeljek: 20 min sporočil in statusov", "Sreda: 20 min vsebine", "Sobota: proizvodnja in pakiranje v seriji"]
+    : horas === 1 ? ["Vsak dan: 15 min statusov in odgovorov", "3 dni na teden: 30 min naloge iz načrta", "1 dan: proizvodnja v seriji"]
+    : ["Vsak dan: 20 min statusov in odgovorov", "Vsak dan: naloga iz načrta", "2 dni: proizvodnja", "1 dan: snemanje več videov skupaj"];
+
+  const L = a => `<ul class="list">${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+  const W = (k, t, d, a) => `<div class="week"><div class="d">${d}</div><h4>${k} · ${t}</h4><ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul></div>`;
+  const hoy = new Date().toLocaleDateString("sl", {day:"numeric", month:"long", year:"numeric"});
+
+  $("#plan").innerHTML = `
+  <div class="hero"><div class="k">AKCIJSKI NAČRT · ${hoy.toUpperCase()}</div>
+    <h2>${nombre}, to je tvoj 30-dnevni načrt</h2><p><b>${perfil[0]}.</b> ${perfil[1]}</p>
+    <div class="stats"><div class="stat"><b>${fmt(meta)} ${mon}</b><span>tvoj cilj v 30 dneh</span></div>
+    <div class="stat"><b>${minDia}</b><span>na dan · ${diasSem} dni/teden</span></div>
+    <div class="stat"><b>${prio.length}</b><span>prioritetni kanali</span></div></div></div>
+
+  <div class="sec"><h3><span class="n">1</span>Tvoje moči</h3>${L(fort)}</div>
+  <div class="sec"><h3><span class="n">2</span>Na kaj bodi pozoren/na</h3><ul class="list warn">${aten.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="sec"><h3><span class="n">3</span>Za začetek prodaje</h3>${L(prods)}
+    <div class="note">Priporočene oblike: <b>${formatos}</b>. Okusi: <b>${sabores}</b>. Tvoja sezonska ponudba: <b>«${cajaT}»</b>.</div></div>
+  <div class="sec"><h3><span class="n">4</span>Kje začeti prodajati</h3><div class="chips">${prio.map(p=>`<span class="chip">${p}</span>`).join("")}</div>
+    <div class="note">Začni s prvim in dodaj naslednjega, ko redno objavljaš. Boljši je en dobro urejen kanal kot štirje zanemarjeni.</div></div>
+  <div class="sec"><h3><span class="n">5</span>Tvoja tedenska rutina</h3>${L(rutina)}</div>
+  <div class="sec"><h3><span class="n">6</span>Tvoj načrt po tednih</h3>
+    ${W("Faza 1","Akcijski načrt","DNEVI 1 DO 7",S1)}${W("Faza 2","Prve stranke","DNEVI 8 DO 14",S2)}
+    ${W("Faza 3","Povpraševanja → naročila","DNEVI 15 DO 21",S3)}${W("Faza 4","Rast","DNEVI 22 DO 30",S4)}</div>
+  <div class="note"><b>Tvoj cilj je vodilo, ne zagotovilo.</b> Rezultati so odvisni od tvoje vztrajnosti, cen in trga. Če se ti zdi, da so številke v zavihku «3 · Cilj» pretežke za tvoj čas, prilagodi cilj: dosegljiv cilj, ki ga izpolniš, je boljši kot velik, ki ga opustiš. Vsaka naloga je podrobno razložena v <b>Priročniku programa</b>.</div>
+  <div class="actions"><button class="print" type="button" onclick="window.print()">⬇ Shrani kot PDF / Natisni</button>
+  <button class="restart" type="button" onclick="restart()">Uredi svoje odgovore</button></div>`;
+  $("#quiz").style.display = "none"; $("header .sub").style.display = "none";
+  $("#plan").style.display = "block"; window.scrollTo(0, 0);
+  A.done = true; save();
+}
+function restart() { $("#plan").style.display = "none"; $("#quiz").style.display = "block"; $("header .sub").style.display = ""; i = 0; render(); }
+if (A.done && A.meta) showPlan(); else render();
+</script>
+</body>
+</html>

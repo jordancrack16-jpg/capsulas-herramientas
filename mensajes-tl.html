@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>30 Mensahe sa WhatsApp</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--wa:#e9f5e1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5}
+.wrap{max-width:820px;margin:0 auto;padding:22px 16px 70px}
+header{text-align:center;padding:10px 0 16px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--g);font-size:clamp(28px,6vw,38px);line-height:1.1;margin:12px 0 6px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:580px;margin:0 auto}
+.vars{position:sticky;top:0;z-index:5;background:rgba(251,247,239,.96);backdrop-filter:blur(6px);border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin:16px 0;box-shadow:0 6px 18px rgba(47,74,42,.07)}
+.vars b{display:block;color:var(--g);font-size:14px;margin-bottom:8px}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.vg input{width:100%;font:inherit;font-size:14px;padding:10px 12px;border:1.5px solid #e2dac9;border-radius:10px;background:#fff}
+.vg input:focus{outline:2px solid var(--s)}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px;margin-top:10px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+textarea{overflow:hidden}
+.filters button{flex:none;font:800 13px 'Nunito Sans';border:1.5px solid var(--s);background:#fff;color:var(--g);border-radius:30px;padding:7px 13px;cursor:pointer}
+.filters button.on{background:var(--g);border-color:var(--g);color:#fff}
+.cat h2{font-family:'Fraunces',serif;color:var(--g);font-size:24px;margin:26px 0 2px}
+.cat>p{color:var(--m);margin-bottom:10px}
+.m{background:#fff;border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin-bottom:12px}
+.mh{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.n{background:var(--g);color:#fff;font-weight:800;font-size:13px;border-radius:30px;padding:3px 10px}
+.mh h3{font-size:16px;color:var(--g)}
+.w{font-size:12px;font-weight:800;color:var(--g);background:var(--s2);border-radius:30px;padding:3px 10px}
+textarea{width:100%;font:inherit;font-size:15px;line-height:1.5;border:0;border-radius:12px 12px 12px 3px;background:var(--wa);padding:12px 14px;resize:vertical;min-height:110px;color:var(--t)}
+textarea:focus{outline:2px solid var(--s)}
+.btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.btns button,.btns a{font:800 13px 'Nunito Sans';border-radius:30px;padding:9px 14px;cursor:pointer;text-decoration:none;border:0}
+.copy{background:var(--g);color:#fff}
+.wa{background:#25d366;color:#fff}
+.reset{background:transparent;color:var(--m);border:1px solid #d9d0bd!important}
+.ok{background:var(--o)!important}
+.tip{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:10px}
+@media(max-width:600px){.vg{grid-template-columns:1fr}.vars{position:static}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">BONO 1 · EDITABLE NA VERSION</span>
+  <h1><em>30 mensahe</em> sa WhatsApp na ready na gamitin</h1>
+  <p class="sub">Isulat mo lang ang mga detalye mo isang beses, at lahat ng mensahe ay awtomatikong mapupuno. Pwede mong i-edit ang kahit anong mensahe, kopyahin, o buksan diretso sa WhatsApp. Naka-save ang mga pagbabago mo dito sa device mo.</p>
+</header>
+
+<div class="vars">
+  <b>✍️ Ang mga detalye mo (mapupuno sa lahat ng mensahe)</b>
+  <div class="vg">
+    <input id="v_YO" placeholder="Pangalan mo">
+    <input id="v_NEGOCIO" placeholder="Pangalan ng brand mo">
+    <input id="v_CIUDAD" placeholder="Lungsod mo">
+  </div>
+  <div class="filters" id="filters"></div>
+</div>
+
+<div id="list"></div>
+<div class="tip"><b>Tandaan:</b> palitan ang mga nasa loob ng bracket, tulad ng <b>[Nombre]</b> o <b>[Fecha]</b>, bago magpadala. At laging isulat ang pangalan ng tao: mas madalas sumagot ang mga personal na mensahe.</div>
+</div>
+
+<script>
+const DATA = [{"cat": "Simulan ang usapan", "desc": "Para malaman ng mga kakilala mo na nagsimula ka na, nang hindi mukhang promo.", "ms": [{"n": 1, "t": "Status ng curiosity", "w": "WhatsApp Status · araw 8", "x": "Hulaan niyo kung ano ito? 👀☕\nHindi tsokolate, hindi sabon, at hindi kandila…\nBukas sasabihin ko 🤫"}, {"n": 2, "t": "Status: bukas na ang orders", "w": "WhatsApp Status", "x": "Finally, sasabihin ko na! 🌸\nIto ay Gourmet Capsules ng kape at tsaa: ilalagay mo sa mainit na tubig at magiging masarap na inumin.\nGawa ko ito, handmade, dito sa {CIUDAD}.\nNgayong linggo, bukas na ang unang mga order 🎁 Gusto mo bang makita ang mga modelo? Message mo lang ako."}, {"n": 3, "t": "Malapit na kakilala", "w": "Personal na mensahe · araw 9", "x": "Hi {NOMBRE}! Kumusta? 😊\nMay sasabihin ako: nagsimula ako ng negosyo ng Gourmet Capsules ng kape at tsaa, handmade na may hugis bulaklak, puso, at oso.\nGusto kong malaman ang opinyon mo. Gusto mo ba ng mga pictures?"}, {"n": 4, "t": "Hindi gaanong close na kakilala", "w": "Personal na mensahe", "x": "Hi {NOMBRE}, kumusta? Ako si {YO} 😊\nSinasabi ko ito kasi nagsimula ako ng {NEGOCIO}, negosyo ng mga kapsula ng kape at tsaa para pang-regalo.\nNaalala kita kasi alam kong gusto mo ng mga cute na detalye. Gusto mo bang makita ang katalogo, walang pressure?"}, {"n": 5, "t": "Imbitasyon para subukan", "w": "Degustation · araw 11", "x": "{NOMBRE}, may regalo ako para sa'yo! ☕\nNagsusubok ako ng mga bagong lasa ng Gourmet Capsules ko at gusto kong marinig ang totoo mong opinyon.\nKailan kita pwedeng dalhan?"}, {"n": 6, "t": "Pagkatapos ng degustation", "w": "Pasasalamat at alok · araw 11", "x": "Salamat sa pagsubok, {NOMBRE}! 🥰 Ano ang pinaka nagustuhan mo?\nMalaking tulong ang opinyon mo.\nKung gusto mong regaluhan ang iba: meron akong Sample Box at Gift Box na may ribbon at card. Gusto mo bang ipadala ko ang mga pictures?"}]}, {"cat": "Sagot sa mga tanong", "desc": "Mabilisang sagot sa mga madalas itanong.", "ms": [{"n": 7, "t": "«Ano ito?»", "w": "Mabilisang sagot /anoito", "x": "Hi {NOMBRE}! Salamat sa pag-message 😊\nMga kapsula ito ng kape o tsaa na handmade at may hugis (bulaklak, puso, oso).\nIlagay mo sa tasa, lagyan ng mainit na tubig, at matutunaw para maging aromatic na inumin. Ang ganda ng regalo!\nPara ba ito sa'yo o pang-regalo?"}, {"n": 8, "t": "Presyo at katalogo", "w": "Mabilisang sagot /presyo", "x": "Sige! Ito ang mga options 👇\n🎁 Sample Box (4 capsules)\n🎀 Gift Box na may ribbon at card\n✨ Custom order (kulay, initial o mensahe)\nIpadala ko ang katalogo na may pictures at presyo. Para saan ba ito?"}, {"n": 9, "t": "Paano ihahanda at gaano katagal", "w": "Mabilisang sagot /paggamit", "x": "Ganito ihahanda: ilagay ang 1 kapsula sa tasa, lagyan ng mainit na tubig, at haluin hanggang matunaw ☕\nItago sa malamig at tuyong lugar, sa saradong lalagyan. Ipapadala ko ang recommended na expiration kapag na-deliver.\nGusto mo bang subukan muna ang sample box na 4?"}, {"n": 10, "t": "«Mahal»", "w": "Pagtutol sa presyo", "x": "Naiintindihan kita, {NOMBRE} 😊 Handmade ang bawat kapsula, isa-isa, gamit ang mga piniling ingredients at may kasamang regalo na packaging.\nKung gusto mo ng mas simple, ang Sample Box ay mas affordable at kasing ganda pa rin para pang-regalo. Gusto mo bang ipakita ko?"}, {"n": 11, "t": "«Pag-iisip muna»", "w": "Pagtutol sa oras", "x": "Sige, walang rush! 😊\nSinasabi ko lang na inaayos ko ang mga order ayon sa pagdating ng request at kakaunti na lang ang slots ngayong linggo.\nGusto mo ba magpa-reserve para sa {FECHA}? Kung magbago ang isip mo, ayos lang."}]}, {"cat": "Pagtatapos ng order", "desc": "Mensahe para gawing 'gusto ko na' ang 'ang ganda naman'.", "ms": [{"n": 12, "t": "Pagtatapos na may dalawang option", "w": "Pagtatapos · araw 17", "x": "Alin ang mas gusto mo, {NOMBRE}: Sample Box na 4 o Gift Box na may ribbon? 🎁\nReady na ang kahit alin para sa {FECHA}."}, {"n": 13, "t": "Pagtatapos dahil sa espesyal na petsa", "w": "Seasonal closing", "x": "{NOMBRE}, sinasabi ko lang kasi tinanong mo 💛\nTumatanggap na lang ako ng mga huling order para sa {FECHA}. Pagkatapos ng petsang iyon, hindi ko na maihahanda.\nIre-reserve ko ba ang box mo?"}, {"n": 14, "t": "Pagtatapos na may deposit", "w": "Kumpirmahin gamit ang partial payment", "x": "Perfect! Para ma-reserve ang petsa, kailangan ko ng 50% deposit ({PRECIO}) at ang balance pag-deliver 😊\nPag-confirm mo, ise-set ko ang schedule at sisimulan ko na ang paggawa."}, {"n": 15, "t": "Kumpirmasyon ng order", "w": "Summary para maiwasan ang errors", "x": "Salamat sa order mo, {NOMBRE}! 🥰 Kumpirmado ang mga detalye:\n• Produkto: \n• Mga lasa: \n• Card o mensahe: \n• Delivery: {FECHA}\n• Kabuuan: {PRECIO}\nTama ba lahat?"}, {"n": 16, "t": "Detalye ng bayad", "w": "Ipadala ang payment methods", "x": "Ito ang mga detalye para sa bayad 👇\n[Isulat dito ang iyong bank transfer, GCash o iba pang paraan ng bayad]\nPagkatapos bayad, ipadala ang resibo dito para makumpirma ko. Salamat!"}]}, {"cat": "Delivery at follow-up", "desc": "Para walang tanong o customer na makalimutan.", "ms": [{"n": 17, "t": "Order ready na", "w": "Abiso ng delivery", "x": "Ready na ang order mo, {NOMBRE}! 🎁✨\nMagpapadala ako ng picture para makita mo.\nOk lang ba na i-deliver ko sa {FECHA}? O gusto mo na lang kunin?"}, {"n": 18, "t": "Instructions sa delivery", "w": "Kasama ng delivery", "x": "Enjoyin mo! ☕\nPaano ihanda: 1 kapsula sa tasa + mainit na tubig + haluin.\nItago sa malamig at tuyong lugar, sa saradong box.\nKung nagustuhan mo, gusto kong marinig ang feedback mo!"}, {"n": 19, "t": "Follow-up after 24h", "w": "Tanong na walang sagot", "x": "Hi {NOMBRE}! Napanood mo ba yung mga pictures na pinadala ko kahapon? 😊\nKung may tanong ka tungkol sa mga modelo o lasa, nandito lang ako."}, {"n": 20, "t": "Interesadong hindi bumili", "w": "Follow-up after 7 days · araw 29", "x": "Hi {NOMBRE} 🌸 Ilang araw na ang nakalipas, nagtanong ka tungkol sa capsules.\nNgayong linggo may mga bagong modelo ako at naalala kita. Gusto mo bang makita?\nKung hindi pa panahon ngayon, ayos lang!"}, {"n": 21, "t": "Broadcast list: bagong update", "w": "Para lang sa mga pumayag", "x": "✨ Bagong update sa {NEGOCIO} ✨\nMay mga bagong lasa at available na ang seasonal box.\nReply ka ng «GUSTO KO» para padalhan kita ng pictures at presyo 🎁"}]}, {"cat": "Malalaking benta at partnerships", "desc": "Order sa dami, companies at local na negosyo.", "ms": [{"n": 22, "t": "Events (kasal, birthday, baby shower)", "w": "Bulk clients · araw 19", "x": "Hi {NOMBRE}! Ako si {YO} ng {NEGOCIO} 😊\nGumagawa ako ng personalized Gourmet Capsules bilang souvenir sa events: kulay ng party, initial ng celebrants, at label na may mensahe.\nIba ito sa usual na regalo na ginagamit talaga ng guests. Gusto mo bang magpadala ako ng ideas at presyo depende sa dami?"}, {"n": 23, "t": "Companies at corporate gifts", "w": "Bulk clients · araw 19", "x": "Hi {NOMBRE}, kumusta? Ako si {YO} ng {NEGOCIO}.\nGumagawa ako ng boxes ng Gourmet Capsules ng kape at tsaa para sa corporate gifts: clients, team, o special dates, na may personalized na label na may logo o mensahe.\nPwede ba kitang padalhan ng proposal na may options at presyo depende sa volume?"}, {"n": 24, "t": "Partner na negosyo (flower shop, café, gift shop)", "w": "Local partnership · araw 24", "x": "Hi! Ako si {YO}, entrepreneur mula sa {CIUDAD}. Gumagawa ako ng Gourmet Capsules ng kape at tsaa, perfect pang-sabay sa regalo.\nGusto kitang i-propose ng partnership: pwede kitang bigyan ng sample para makita ng customers mo at mag-consign o may special price para sa resale.\nKailan kita pwedeng dalhan ng box para matikman mo?"}]}, {"cat": "Pananatili ng customer at repeat sales", "desc": "Masaya mong customers ang best sales channel mo.", "ms": [{"n": 25, "t": "Humingi ng feedback", "w": "Pagkatapos ng delivery · araw 20", "x": "Hi {NOMBRE}! Kumusta ang capsules? 😊\nNagustuhan ba ng nakatanggap?\nKung magpapadala ka ng picture o audio ng feedback mo, sobrang saya ko 💛"}, {"n": 26, "t": "Pasalamatan at humingi ng permiso", "w": "Para sa testimonials", "x": "Maraming salamat, {NOMBRE}! 🥹 Pinasaya mo araw ko.\nPwede ba kitang i-feature sa mga status ko? Pwede rin na hindi ilagay ang pangalan mo kung gusto mo."}, {"n": 27, "t": "Repeat order", "w": "Dating customers · araw 22", "x": "Hi {NOMBRE}! 🌸 Ilang panahon na ang nakalipas, gumawa ako ng capsules para sa'yo at gusto kong sabihin na may mga bagong lasa na ako.\nBilang loyal customer, may libre kang isang capsule sa next order mo 🎁\nGusto mo bang makita ang mga bago?"}, {"n": 28, "t": "Referral program", "w": "Referral program · araw 23", "x": "{NOMBRE}, salamat sa pagtitiwala! 💛\nSasabihin ko lang: kapag nirefer mo ako sa iba at nag-order sila, bibigyan kita ng 2 capsules sa susunod mong purchase.\nSabihin mo lang na ikaw ang nag-refer kapag nag-message sila 😊"}, {"n": 29, "t": "Birthday ng customer", "w": "Special date", "x": "Maligayang kaarawan, {NOMBRE}! 🎂🥳\nSana maging maganda ang araw mo.\nMay regalo ako: ngayong buwan, may special discount sa paborito mong box. Message mo lang ako anytime!"}, {"n": 30, "t": "I-activate ulit ang seasonal customers", "w": "Bago ang bawat special date", "x": "Hi {NOMBRE}! Papalapit na ang {FECHA} 🎁\nNoong nakaraang taon/huling beses, maraming hindi nakakuha ng box dahil late sila, kaya sinasabi ko nang maaga.\nReady na ang mga seasonal models ko. Ire-reserve ko ba ang sa'yo?"}]}];
+const VARS = ["YO","NEGOCIO","CIUDAD"];
+const LABEL = {NOMBRE:"[Pangalan]", YO:"[Pangalan mo]", NEGOCIO:"[Brand mo]", CIUDAD:"[Lungsod mo]", PRECIO:"[Presyo]", FECHA:"[Petsa]"};
+let st = {v:{}, e:{}};
+try { st = Object.assign(st, JSON.parse(localStorage.getItem("cg_msgs") || "{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_msgs", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+
+function fill(x) {
+  return x.replace(/\{(\w+)\}/g, (m, k) => (VARS.includes(k) && st.v[k]) ? st.v[k] : (LABEL[k] || m));
+}
+function render(filter) {
+  let h = "";
+  DATA.forEach((c, ci) => {
+    if (filter !== undefined && filter !== ci) return;
+    h += `<section class="cat"><h2>${c.cat}</h2><p>${c.desc}</p>`;
+    c.ms.forEach(m => {
+      const txt = st.e[m.n] !== undefined ? st.e[m.n] : fill(m.x);
+      h += `<div class="m"><div class="mh"><span class="n">${m.n}</span><h3>${m.t}</h3><span class="w">${m.w}</span></div>
+      <textarea data-n="${m.n}" rows="${Math.max(4, txt.split("\n").length + 1)}">${txt.replace(/</g,"&lt;")}</textarea>
+      <div class="btns"><button class="copy" data-c="${m.n}">Kopyahin</button><a class="wa" data-w="${m.n}" href="#" target="_blank" rel="noopener">Buksan sa WhatsApp</a>
+      ${st.e[m.n] !== undefined ? `<button class="reset" data-r="${m.n}">Ibalik sa original</button>` : ""}</div></div>`;
+    });
+    h += "</section>";
+  });
+  $("#list").innerHTML = h;
+  const fit = t => { t.style.height = "auto"; t.style.height = (t.scrollHeight + 4) + "px"; };
+  document.querySelectorAll("textarea").forEach(t => { fit(t); t.addEventListener("input", () => { fit(t); st.e[t.dataset.n] = t.value; save(); }); });
+  document.querySelectorAll("[data-c]").forEach(b => b.onclick = async () => {
+    const t = document.querySelector(`textarea[data-n="${b.dataset.c}"]`);
+    try { await navigator.clipboard.writeText(t.value); } catch(e) { t.select(); document.execCommand("copy"); }
+    b.textContent = "Nakopya! ✓"; b.classList.add("ok"); setTimeout(() => { b.textContent = "Kopyahin"; b.classList.remove("ok"); }, 1500);
+  });
+  document.querySelectorAll("[data-w]").forEach(a => a.onclick = () => {
+    const t = document.querySelector(`textarea[data-n="${a.dataset.w}"]`);
+    a.href = "https://wa.me/?text=" + encodeURIComponent(t.value);
+  });
+  document.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { delete st.e[b.dataset.r]; save(); render(cur); });
+}
+let cur;
+const fb = $("#filters");
+fb.innerHTML = `<button class="on" data-f="">Lahat</button>` + DATA.map((c, i) => `<button data-f="${i}">${c.cat}</button>`).join("");
+fb.querySelectorAll("button").forEach(b => b.onclick = () => {
+  fb.querySelectorAll("button").forEach(x => x.classList.remove("on")); b.classList.add("on");
+  cur = b.dataset.f === "" ? undefined : +b.dataset.f; render(cur);
+});
+VARS.forEach(k => { const i = $("#v_" + k); i.value = st.v[k] || ""; i.addEventListener("input", () => { st.v[k] = i.value.trim(); save(); render(cur); }); });
+render();
+</script>
+</body>
+</html>

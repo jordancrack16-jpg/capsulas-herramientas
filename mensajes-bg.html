@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>30 съобщения за WhatsApp</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--wa:#e9f5e1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5}
+.wrap{max-width:820px;margin:0 auto;padding:22px 16px 70px}
+header{text-align:center;padding:10px 0 16px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--g);font-size:clamp(28px,6vw,38px);line-height:1.1;margin:12px 0 6px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:580px;margin:0 auto}
+.vars{position:sticky;top:0;z-index:5;background:rgba(251,247,239,.96);backdrop-filter:blur(6px);border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin:16px 0;box-shadow:0 6px 18px rgba(47,74,42,.07)}
+.vars b{display:block;color:var(--g);font-size:14px;margin-bottom:8px}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.vg input{width:100%;font:inherit;font-size:14px;padding:10px 12px;border:1.5px solid #e2dac9;border-radius:10px;background:#fff}
+.vg input:focus{outline:2px solid var(--s)}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px;margin-top:10px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+textarea{overflow:hidden}
+.filters button{flex:none;font:800 13px 'Nunito Sans';border:1.5px solid var(--s);background:#fff;color:var(--g);border-radius:30px;padding:7px 13px;cursor:pointer}
+.filters button.on{background:var(--g);border-color:var(--g);color:#fff}
+.cat h2{font-family:'Fraunces',serif;color:var(--g);font-size:24px;margin:26px 0 2px}
+.cat>p{color:var(--m);margin-bottom:10px}
+.m{background:#fff;border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin-bottom:12px}
+.mh{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.n{background:var(--g);color:#fff;font-weight:800;font-size:13px;border-radius:30px;padding:3px 10px}
+.mh h3{font-size:16px;color:var(--g)}
+.w{font-size:12px;font-weight:800;color:var(--g);background:var(--s2);border-radius:30px;padding:3px 10px}
+textarea{width:100%;font:inherit;font-size:15px;line-height:1.5;border:0;border-radius:12px 12px 12px 3px;background:var(--wa);padding:12px 14px;resize:vertical;min-height:110px;color:var(--t)}
+textarea:focus{outline:2px solid var(--s)}
+.btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.btns button,.btns a{font:800 13px 'Nunito Sans';border-radius:30px;padding:9px 14px;cursor:pointer;text-decoration:none;border:0}
+.copy{background:var(--g);color:#fff}
+.wa{background:#25d366;color:#fff}
+.reset{background:transparent;color:var(--m);border:1px solid #d9d0bd!important}
+.ok{background:var(--o)!important}
+.tip{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:10px}
+@media(max-width:600px){.vg{grid-template-columns:1fr}.vars{position:static}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&display=swap" rel="stylesheet"><style>h1,h2,h3,.q h2,.hero h2,.sec h3,.stat b,.lb .n,.ci .t,.ch h2,.cs h3,.cat h2{font-family:Lora,serif!important}</style></head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">БОНУС 1 · РЕДАКТИРУЕМА ВЕРСИЯ</span>
+  <h1><em>30 съобщения</em> за WhatsApp, готови за използване</h1>
+  <p class="sub">Въведи данните си само веднъж и всички съобщения се попълват автоматично. Можеш да редактираш всяко съобщение, да го копираш или да го отвориш директно в WhatsApp. Промените ти се запазват на това устройство.</p>
+</header>
+
+<div class="vars">
+  <b>✍️ Твоите данни (попълват се във всички съобщения)</b>
+  <div class="vg">
+    <input id="v_YO" placeholder="Твоето име">
+    <input id="v_NEGOCIO" placeholder="Име на твоя бранд">
+    <input id="v_CIUDAD" placeholder="Твоят град">
+  </div>
+  <div class="filters" id="filters"></div>
+</div>
+
+<div id="list"></div>
+<div class="tip"><b>Запомни:</b> смени това, което е в квадратни скоби, като <b>[Име]</b> или <b>[Дата]</b>, преди да изпратиш. И винаги пиши името на човека: личните съобщения получават много по-добър отговор.</div>
+</div>
+
+<script>
+const DATA = [{"cat": "Започни разговор", "desc": "За да знаят твоите близки, че си започнал, без да изглежда като реклама.", "ms": [{"n": 1, "t": "Събуди любопитство", "w": "WhatsApp статуси · ден 8", "x": "Познайте какво е това? 👀☕\nНе е шоколад, не е сапун и не е свещ…\nУтре ще разкажа 🤫"}, {"n": 2, "t": "Статус: отворих поръчки", "w": "WhatsApp статуси", "x": "Най-накрая ви казвам! 🌸\nТова са гурме капсули за кафе и чай: слагаш ги в гореща вода и се превръщат в вкусна напитка.\nПравя ги ръчно в {CIUDAD}.\nТази седмица отварям първите поръчки 🎁 Искаш ли да видиш моделите? Пиши ми."}, {"n": 3, "t": "Близък контакт", "w": "Лично съобщение · ден 9", "x": "Здрасти {NOMBRE}! Как си? 😊\nИскам да ти кажа нещо: започнах бизнес с гурме капсули за кафе и чай, ръчно изработени с форми на цветя, сърца и мечета.\nЩе ми е интересно да чуя какво мислиш. Да ти пратя няколко снимки?"}, {"n": 4, "t": "Познат, не толкова близък", "w": "Лично съобщение", "x": "Здрасти {NOMBRE}, как вървят нещата? Аз съм {YO} 😊\nПиша ти, защото започвам с {NEGOCIO}, бизнес с гурме капсули за кафе и чай за подарък.\nПомислих за теб, защото знам, че харесваш красиви детайли. Да ти покажа каталога, без ангажимент?"}, {"n": 5, "t": "Покана за проба", "w": "Дегустация · ден 11", "x": "{NOMBRE}, имам малък подарък за теб! ☕\nПробвам нови вкусове на моите гурме капсули и искам да чуя твоето честно мнение.\nКога мога да ти ги донеса?"}, {"n": 6, "t": "След дегустацията", "w": "Благодарност и предложение · ден 11", "x": "Благодаря, че ги опита, {NOMBRE}! 🥰 Кой ти хареса най-много?\nМнението ти много ми помага.\nАко искаш да подариш на някого: имам Кутия за проба и Подаръчна кутия с панделка и картичка. Да ти пратя снимки?"}]}, {"cat": "Отговори на въпроси", "desc": "Бързи отговори на най-често задаваните въпроси.", "ms": [{"n": 7, "t": "„Какво е това?“", "w": "Бърз отговор /quees", "x": "Здрасти {NOMBRE}! Благодаря, че пишеш 😊\nТова са гурме капсули за кафе или чай, ръчно изработени и оформени с форми (цветя, сърца, мечета).\nСлагат се в чаша, добавя се гореща вода и се разтварят в ароматна напитка. Чудесен подарък!\nЗа теб ли е или за подарък?"}, {"n": 8, "t": "Цени и каталог", "w": "Бърз отговор /precios", "x": "Разбира се! Ето опциите 👇\n🎁 Кутия за проба (4 капсули)\n🎀 Подаръчна кутия с панделка и картичка\n✨ Персонализирана поръчка (цветове, инициали или послание)\nПрилагам каталог със снимки и цени. За какъв повод ти трябва?"}, {"n": 9, "t": "Как се приготвят и колко издържат", "w": "Бърз отговор /uso", "x": "Приготвят се така: сложи 1 капсула в чаша, добави гореща вода и разбъркай докато се разтвори ☕\nСъхраняват се на хладно и сухо място, в затворена опаковка. Ще ти изпратя препоръчителния срок за консумация при доставка.\nИскаш ли първо да пробваш кутията с 4 капсули?"}, {"n": 10, "t": "„Скъпо е“", "w": "Възражение за цена", "x": "Разбирам те, {NOMBRE} 😊 Всяка капсула е ръчно направена, една по една, с подбрани съставки и опаковка за подарък включена.\nАко искаш нещо по-просто, Кутията за проба е по-достъпна и също много красива за подарък. Да ти я покажа?"}, {"n": 11, "t": "„Ще помисля“", "w": "Възражение за време", "x": "Разбира се, без бързане! 😊\nСамо да ти кажа, че обработвам поръчките по ред на постъпване и тази седмица имам малко свободни места.\nИскаш ли да ти запазя едно за {FECHA}? Ако после промениш решението, няма проблем."}]}, {"cat": "Затваряне на поръчки", "desc": "Съобщения, които превръщат „хубаво е“ в „искам едно“. ", "ms": [{"n": 12, "t": "Затваряне с две опции", "w": "Затваряне · ден 17", "x": "Кое ти харесва повече, {NOMBRE}: Кутията с 4 капсули или Подаръчната кутия с панделка? 🎁\nИ двете мога да ти подготвя за {FECHA}."}, {"n": 13, "t": "Затваряне за специална дата", "w": "Затваряне на сезон", "x": "{NOMBRE}, казвам ти, защото питаш 💛\nПриемам последните поръчки за {FECHA}. След тази дата няма да мога да ги приготвя.\nДа ти запазя ли кутията?"}, {"n": 14, "t": "Затваряне с капаро", "w": "Потвърждение с частично плащане", "x": "Перфектно! За да запазиш датата, моля за капаро 50 % ({PRECIO}), а останалото при доставка 😊\nЩом потвърдиш, ще те запиша и ще започна подготовката."}, {"n": 15, "t": "Потвърждение на поръчката", "w": "Обобщение за избягване на грешки", "x": "Благодаря за поръчката, {NOMBRE}! 🥰 Потвърждавам данните:\n• Продукт: \n• Вкусове: \n• Картичка или послание: \n• Доставка: {FECHA}\n• Общо: {PRECIO}\nВсичко наред ли е?"}, {"n": 16, "t": "Данни за плащане", "w": "Изпращане на методи за плащане", "x": "Ето данните за плащане 👇\n[Въведи тук банков превод, ePay или друг метод за плащане]\nКогато платиш, изпрати ми потвърждение тук и ще ти потвърдя. Благодаря!"}]}, {"cat": "Доставка и последващи действия", "desc": "Нито един въпрос или клиент да не се изгуби.", "ms": [{"n": 17, "t": "Поръчката е готова", "w": "Известие за доставка", "x": "Здрасти {NOMBRE}, поръчката ти е готова! 🎁✨\nИзпращам ти снимка, за да видиш.\nПодходящо ли е да я доставя на {FECHA}? Или предпочиташ да я вземеш?"}, {"n": 18, "t": "Инструкции при доставка", "w": "Заедно с доставката", "x": "Приятно изживяване! ☕\nКак се приготвят: 1 капсула в чашата + гореща вода + разбъркай.\nСъхранявай ги на хладно и сухо място, в затворената кутия.\nАко ти харесат, ще се радвам да ми кажеш!"}, {"n": 19, "t": "Проследяване след 24 ч", "w": "Въпрос без отговор", "x": "Здрасти {NOMBRE}! Успя ли да видиш снимките, които ти изпратих вчера? 😊\nАко имаш въпроси за моделите или вкусовете, тук съм."}, {"n": 20, "t": "Заинтересован, но не купил", "w": "Проследяване след 7 дни · ден 29", "x": "Здрасти {NOMBRE} 🌸 Преди няколко дни питаше за капсулите.\nТази седмица направих нови модели и се сетих за теб. Да ти ги покажа?\nАко сега не е моментът, няма проблем!"}, {"n": 21, "t": "Списък за разпространение: новина", "w": "Само за контакти, които са съгласни", "x": "✨ Ново в {NEGOCIO} ✨\nНови вкусове и сезонната кутия вече са налични.\nОтговори с „ИСКАМ“ и ще ти пратя снимки и цени 🎁"}]}, {"cat": "Големи продажби и партньорства", "desc": "Поръчки на едро, фирми и местни бизнеси.", "ms": [{"n": 22, "t": "Събития (сватби, рождени дни, бебешки партита)", "w": "Клиенти на едро · ден 19", "x": "Здрасти {NOMBRE}! Аз съм {YO} от {NEGOCIO} 😊\nПравя персонализирани гурме капсули като спомен за събития: с цветовете на партито, инициалите на празнуващите и етикет с послание.\nТова е различен детайл, който гостите наистина използват. Да ти пратя идеи и цени за количества?"}, {"n": 23, "t": "Фирми и корпоративни подаръци", "w": "Клиенти на едро · ден 19", "x": "Здрасти {NOMBRE}, как си? Аз съм {YO} от {NEGOCIO}.\nПравя кутии с гурме капсули за кафе и чай за фирмени подаръци: за клиенти, екип или специални дати, с персонализиран етикет с лого или послание.\nМога ли да ти изпратя предложение с опции и цени за количества?"}, {"n": 24, "t": "Партньорски бизнес (цветарски магазин, кафе, магазин за подаръци)", "w": "Местно партньорство · ден 24", "x": "Здрасти! Аз съм {YO}, предприемач от {CIUDAD}. Правя гурме капсули за кафе и чай, идеални за допълнение към подаръци.\nБих искалa да предложа партньорство: мога да ти оставя мостра, за да ги видят клиентите ти, и да работим на консигнация или с специална цена за препродажба.\nКога мога да ти донеса кутия за проба?"}]}, {"cat": "Задържане и повторни продажби", "desc": "Доволните ти клиенти са най-добрият ти канал за продажби.", "ms": [{"n": 25, "t": "Питай за мнение", "w": "След доставка · ден 20", "x": "Здрасти {NOMBRE}! Как ти се сториха капсулите? 😊\nХаресаха ли се на този, който ги получи?\nАко ми пратиш снимка или аудио с мнението си, ще се зарадвам много 💛"}, {"n": 26, "t": "Благодари и поиска разрешение", "w": "За публикуване на отзиви", "x": "Много благодаря, {NOMBRE}! 🥹 Направи ми деня по-хубав.\nДавам ли ти разрешение да споделя съобщението ти в статусите си? Мога да го направя без името ти, ако предпочиташ."}, {"n": 27, "t": "Повторна покупка", "w": "Предишни клиенти · ден 22", "x": "Здрасти {NOMBRE}! 🌸 Преди време ти направих капсули и искам да ти кажа, че вече имам нови вкусове.\nТъй като вече си клиент, при следващата поръчка ще ти подаря една допълнителна капсула 🎁\nИскаш ли да ти покажа новите?"}, {"n": 28, "t": "Препоръки", "w": "Програма за препоръки · ден 23", "x": "{NOMBRE}, благодаря, че ми се доверяваш! 💛\nЩе ти кажа нещо: ако ме препоръчаш на някого и този човек направи поръчка, ще ти подаря 2 капсули при следващата ти покупка.\nПросто му кажи да те спомене, когато ми пише 😊"}, {"n": 29, "t": "Рожден ден на клиента", "w": "Специална дата", "x": "Честит рожден ден, {NOMBRE}! 🎂🥳\nПожелавам ти прекрасен ден.\nИмам малък подарък: този месец любимата ти кутия с специална отстъпка. Пиши ми, когато искаш!"}, {"n": 30, "t": "Активиране на сезонни клиенти", "w": "Преди всяка специална дата", "x": "Здрасти {NOMBRE}! Наближава {FECHA} 🎁\nМиналата година/последния път много хора останаха без кутия, защото поръчаха късно, затова ти казвам навреме.\nВече имам сезонните модели. Да ти запазя твоята?"}]}];
+const VARS = ["YO","NEGOCIO","CIUDAD"];
+const LABEL = {NOMBRE:"[Име]", YO:"[Твоето име]", NEGOCIO:"[Твоя бранд]", CIUDAD:"[Твоят град]", PRECIO:"[Цена]", FECHA:"[Дата]"};
+let st = {v:{}, e:{}};
+try { st = Object.assign(st, JSON.parse(localStorage.getItem("cg_msgs") || "{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_msgs", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+
+function fill(x) {
+  return x.replace(/\{(\w+)\}/g, (m, k) => (VARS.includes(k) && st.v[k]) ? st.v[k] : (LABEL[k] || m));
+}
+function render(filter) {
+  let h = "";
+  DATA.forEach((c, ci) => {
+    if (filter !== undefined && filter !== ci) return;
+    h += `<section class="cat"><h2>${c.cat}</h2><p>${c.desc}</p>`;
+    c.ms.forEach(m => {
+      const txt = st.e[m.n] !== undefined ? st.e[m.n] : fill(m.x);
+      h += `<div class="m"><div class="mh"><span class="n">${m.n}</span><h3>${m.t}</h3><span class="w">${m.w}</span></div>
+      <textarea data-n="${m.n}" rows="${Math.max(4, txt.split("\n").length + 1)}">${txt.replace(/</g,"&lt;")}</textarea>
+      <div class="btns"><button class="copy" data-c="${m.n}">Копирай</button><a class="wa" data-w="${m.n}" href="#" target="_blank" rel="noopener">Отвори в WhatsApp</a>
+      ${st.e[m.n] !== undefined ? `<button class="reset" data-r="${m.n}">Възстанови оригинала</button>` : ""}</div></div>`;
+    });
+    h += "</section>";
+  });
+  $("#list").innerHTML = h;
+  const fit = t => { t.style.height = "auto"; t.style.height = (t.scrollHeight + 4) + "px"; };
+  document.querySelectorAll("textarea").forEach(t => { fit(t); t.addEventListener("input", () => { fit(t); st.e[t.dataset.n] = t.value; save(); }); });
+  document.querySelectorAll("[data-c]").forEach(b => b.onclick = async () => {
+    const t = document.querySelector(`textarea[data-n="${b.dataset.c}"]`);
+    try { await navigator.clipboard.writeText(t.value); } catch(e) { t.select(); document.execCommand("copy"); }
+    b.textContent = "Копирано! ✓"; b.classList.add("ok"); setTimeout(() => { b.textContent = "Копирай"; b.classList.remove("ok"); }, 1500);
+  });
+  document.querySelectorAll("[data-w]").forEach(a => a.onclick = () => {
+    const t = document.querySelector(`textarea[data-n="${a.dataset.w}"]`);
+    a.href = "https://wa.me/?text=" + encodeURIComponent(t.value);
+  });
+  document.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { delete st.e[b.dataset.r]; save(); render(cur); });
+}
+let cur;
+const fb = $("#filters");
+fb.innerHTML = `<button class="on" data-f="">Всички</button>` + DATA.map((c, i) => `<button data-f="${i}">${c.cat}</button>`).join("");
+fb.querySelectorAll("button").forEach(b => b.onclick = () => {
+  fb.querySelectorAll("button").forEach(x => x.classList.remove("on")); b.classList.add("on");
+  cur = b.dataset.f === "" ? undefined : +b.dataset.f; render(cur);
+});
+VARS.forEach(k => { const i = $("#v_" + k); i.value = st.v[k] || ""; i.addEventListener("input", () => { st.v[k] = i.value.trim(); save(); render(cur); }); });
+render();
+</script>
+</body>
+</html>

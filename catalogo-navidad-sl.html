@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="sl"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Urejljiv božični katalog</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--r:#8c1d2a;--g:#2f5a3a;--o:#b8924a;--c:#fdf8f1;--c2:#efe0cf;--t:#2b2322;--m:#6c605c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.wrap{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+header{text-align:center;padding:8px 0 16px}
+.tag{display:inline-block;background:var(--g);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--r);font-size:clamp(26px,5.5vw,38px);line-height:1.1;margin:12px 0 6px}
+.sub{color:var(--m);max-width:620px;margin:0 auto}
+.panel{background:#fff;border:1px solid #eadccb;border-radius:16px;padding:16px;margin-top:14px}
+.panel h2{font-family:'Fraunces',serif;color:var(--r);font-size:19px;margin-bottom:10px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+label.f{display:block;font-size:13px;font-weight:800;color:var(--g)}
+label.f input,label.f select,label.f textarea{display:block;width:100%;margin-top:4px;font:inherit;font-weight:400;font-size:15px;padding:10px 12px;border:1.5px solid #e5d6c3;border-radius:10px;background:var(--c);color:var(--t)}
+button{font:800 15px 'Nunito Sans';border:0;border-radius:30px;padding:12px 20px;cursor:pointer}
+.print{background:var(--r);color:#fff} .sec{background:#fff;color:var(--r);border:1.5px solid var(--r)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.note{background:#fdf3e4;border-left:4px solid var(--o);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:12px}
+@media print{ .noprint{display:none!important} body{background:#fff} .wrap{max-width:none;padding:0} }
+
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;max-height:420px;overflow:auto;margin-top:8px}
+.li{display:grid;grid-template-columns:22px 46px 1fr 90px;gap:8px;align-items:center;background:var(--c);border:1px solid #eadccb;border-radius:10px;padding:6px 8px;font-size:13px}
+.li img{width:46px;height:46px;border-radius:8px;object-fit:cover}
+.li input[type=text]{width:100%;font:inherit;padding:6px 8px;border:1.5px solid #e5d6c3;border-radius:8px}
+.cat{background:#fff;margin-top:18px;border-radius:12px;overflow:hidden}
+.ch{background:linear-gradient(135deg,#8c1d2a,#a8323f);color:#fff;text-align:center;padding:26px 18px}
+.ch .k{font:800 11px 'Nunito Sans';letter-spacing:3px;color:#f1d9a4}
+.ch h2{font:800 34px/1.1 'Fraunces';margin:6px 0}
+.ch p{opacity:.92;max-width:560px;margin:0 auto}
+.cs{padding:16px 18px 4px}
+.cs h3{font:700 20px 'Fraunces';color:var(--r);margin:6px 0 10px;border-bottom:2px solid var(--c2);padding-bottom:4px}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ci{border:1px solid #eadccb;border-radius:10px;overflow:hidden;break-inside:avoid;background:#fff}
+.ci img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.ci .t{font:700 15px/1.2 'Fraunces';color:var(--r);padding:8px 10px 2px}
+.ci .d{font-size:12px;color:var(--m);padding:0 10px}
+.ci .p{font:800 15px 'Nunito Sans';color:var(--g);padding:4px 10px 10px}
+.cf{background:#fdf3e4;text-align:center;padding:18px;margin-top:10px}
+.cf b{color:var(--r);font-size:17px}
+@media(max-width:640px){.cgrid{grid-template-columns:repeat(2,1fr)}}
+@media print{ @page{size:A4;margin:10mm} .cat{margin:0;border-radius:0} .cgrid{grid-template-columns:repeat(3,1fr)} .cs{break-inside:auto} }
+
+</style></head><body>
+<div class="wrap">
+<header class="noprint"><span class="tag">BONUS · UREJALNA RAZLIČICA</span><h1>Tvoj božični katalog <span style="color:var(--o)">s tvojim logotipom in cenami</span></h1>
+<p class="sub">Izberi, katere dizajne ponujaš, vpiši svoje cene in podatke ter shrani kot PDF, da ga lahko pošlješ preko WhatsAppa ali objaviš na svojih družbenih omrežjih.</p></header>
+<div class="panel noprint"><h2>1 · Tvoji podatki</h2><div class="fg">
+<label class="f">Tvoj logotip<input id="marca" placeholder="Npr.: Sladka Kava"></label>
+<label class="f">Naslov kataloga<input id="titulo" value="Božična kolekcija"></label>
+<label class="f">WhatsApp<input id="wa" placeholder="Npr.: +386 40 123 456"></label>
+<label class="f">Instagram / družbena omrežja<input id="ig" placeholder="@tvojalogotip"></label>
+<label class="f">Rok za naročila<input id="limite" placeholder="Npr.: 18. december"></label>
+<label class="f">Območje dostave<input id="zona" placeholder="Npr.: Dostava po Ljubljani"></label>
+</div>
+<label class="f" style="margin-top:10px">Uvodno besedilo<textarea id="intro" rows="2">Gurmanske kapsule kave, čaja in čokolade z božičnimi oblikami, ročno izdelane. Postavi jih v skodelico z vročo vodo ali mlekom in uživaj v okusni pijači.</textarea></label>
+<h2 style="margin-top:14px">2 · Škatle in cene (neobvezno)</h2><div class="fg">
+<label class="f">Škatla s 4<input id="p4" placeholder="Cena"></label><label class="f">Škatla s 6 / 9<input id="p9" placeholder="Cena"></label><label class="f">Škatla s 12<input id="p12" placeholder="Cena"></label>
+<label class="f">Prikaži ceno na dizajn<select id="mostrar"><option value="no">Ne (samo škatle)</option><option value="si">Da</option></select></label></div>
+<h2 style="margin-top:14px">3 · Dizajni, ki jih ponujaš</h2>
+<div style="display:flex;gap:8px"><button class="sec" type="button" id="all" style="padding:6px 12px;font-size:12px">Vsi</button><button class="sec" type="button" id="none" style="padding:6px 12px;font-size:12px">Noben</button></div>
+<div class="list" id="list"></div>
+<div class="actions"><button class="print" type="button" onclick="window.print()">⬇ Shrani PDF / Natisni</button></div>
+<div class="note">Za pošiljanje preko WhatsAppa: izberi »Shrani kot PDF« v oknu tiskanja, z merilom 100 % in brez glave strani. Tvoji podatki se shranijo v tem brskalniku.</div></div>
+<div class="cat" id="cat"></div>
+</div>
+<script>
+const ITEMS = [{"n": 1, "t": "Kava s cimetom in klinčki", "d": "Potresi cimet po suhi zvezdi.", "s": "Božična kava"}, {"n": 2, "t": "Kava z ingverjevim piškotom", "d": "Nariši oči in gumbe z malo stopljene bele čokolade.", "s": "Božična kava"}, {"n": 3, "t": "Božična moka kava", "d": "Nariši vrh z jedilnim zlatim prahom.", "s": "Božična kava"}, {"n": 4, "t": "Snežna vanilijeva kava", "d": "Potresi sladkor v prahu s fino cedilo.", "s": "Božična kava"}, {"n": 5, "t": "Slana karamelna kava", "d": "Nariši pentljo z belo čokolado.", "s": "Božična kava"}, {"n": 6, "t": "Pomarančna kava s cimetom", "d": "Na vrh položi košček kandirane pomarančne lupine.", "s": "Božična kava"}, {"n": 7, "t": "Praznična lešnikova kava", "d": "Okras z nasekljanimi lešniki.", "s": "Božična kava"}, {"n": 8, "t": "Polarno meta kava", "d": "Nariši rdeče črte z gel barvilo za živila.", "s": "Božična kava"}, {"n": 9, "t": "Kava s kardamomom", "d": "Na sredino položi seme kardamoma.", "s": "Božična kava"}, {"n": 10, "t": "Snežna kokosova kava", "d": "Zgornji del pokrij s kokosovimi kosmiči.", "s": "Božična kava"}, {"n": 11, "t": "Kava z rumi in rozinami (brez alkohola)", "d": "Okras z rozino na robu zvončka.", "s": "Božična kava"}, {"n": 12, "t": "Začinjena božična kava", "d": "Nariši rep zvezde z jedilnim zlatim prahom.", "s": "Božična kava"}, {"n": 13, "t": "Rdeči gozdni čaj", "d": "Prilepi posušen vrtnin list z malo tekočine.", "s": "Božični čaji in napitki"}, {"n": 14, "t": "Božični chai čaj", "d": "Potresi cimet po vrhu.", "s": "Božični čaji in napitki"}, {"n": 15, "t": "Božični zeleni meta čaj", "d": "Nariši majhne rdeče pikice kot okraske.", "s": "Božični čaji in napitki"}, {"n": 16, "t": "Kamilica z medom in pomarančo", "d": "Na vrh položi posušeno cvet kamilice.", "s": "Božični čaji in napitki"}, {"n": 17, "t": "Rooibos z vanilijo", "d": "Nariši nos z rdečo piko.", "s": "Božični čaji in napitki"}, {"n": 18, "t": "Jabolčni cimetov čaj", "d": "Položi majhno palčko cimeta.", "s": "Božični čaji in napitki"}, {"n": 19, "t": "Beli hruškin čaj", "d": "Nariši rob s srebrnim prahom.", "s": "Božični čaji in napitki"}, {"n": 20, "t": "Hibiskus in ingver napitek", "d": "Nariši rep z zlatim prahom.", "s": "Božični čaji in napitki"}, {"n": 21, "t": "Črni čaj s čokolado", "d": "Pentlja iz bele čokolade.", "s": "Božični čaji in napitki"}, {"n": 22, "t": "Sivka in limona napitek", "d": "Položi 2 posušena cvetova sivke.", "s": "Božični čaji in napitki"}, {"n": 23, "t": "Čokolada z marshmallows", "d": "Marshmallows vidni na površini.", "s": "Čokolada za vroče mleko"}, {"n": 24, "t": "Snežna bela čokolada", "d": "Potresi kokosove kosmiče.", "s": "Čokolada za vroče mleko"}, {"n": 25, "t": "Grenka pomarančna čokolada", "d": "Tanka rezina kandirane pomaranče.", "s": "Čokolada za vroče mleko"}, {"n": 26, "t": "Maja začinjena čokolada", "d": "Jedilni zlat prah.", "s": "Čokolada za vroče mleko"}, {"n": 27, "t": "Božična piškotna čokolada", "d": "Božične barvne koščice.", "s": "Čokolada za vroče mleko"}, {"n": 28, "t": "Čokolada z gozdnimi sadeži", "d": "Koščki liofilizirane jagode.", "s": "Čokolada za vroče mleko"}, {"n": 29, "t": "Božična meta čokolada", "d": "Črte iz bele čokolade.", "s": "Čokolada za vroče mleko"}, {"n": 30, "t": "Čokolada dulce de leche", "d": "Nit iz bele čokolade.", "s": "Čokolada za vroče mleko"}, {"n": 31, "t": "Lešnik in kakav čokolada", "d": "Nasekljani lešniki.", "s": "Čokolada za vroče mleko"}, {"n": 32, "t": "Praznična ruby čokolada", "d": "Jedilni posušeni cvetovi.", "s": "Čokolada za vroče mleko"}, {"n": 33, "t": "Kava espresso bombon", "d": "Na vrhu zrno kave.", "s": "Polnjene čokoladne lupine"}, {"n": 34, "t": "Capuccino bombon", "d": "Potresi kakav.", "s": "Polnjene čokoladne lupine"}, {"n": 35, "t": "Chai čaj bombon", "d": "Cimet na vrhu.", "s": "Polnjene čokoladne lupine"}, {"n": 36, "t": "Moka meta bombon", "d": "Jedilni zeleni prah na vrhu.", "s": "Polnjene čokoladne lupine"}, {"n": 37, "t": "Vanilija in kava bombon", "d": "Sladkor v prahu.", "s": "Polnjene čokoladne lupine"}, {"n": 38, "t": "Karamel bombon", "d": "Pentlja iz bele čokolade.", "s": "Polnjene čokoladne lupine"}, {"n": 39, "t": "Gozdni sadeži in čaj bombon", "d": "Jedilni sijaj.", "s": "Polnjene čokoladne lupine"}, {"n": 40, "t": "Rudolf bombon", "d": "Rdeč nos in čokoladni rogovi.", "s": "Polnjene čokoladne lupine"}, {"n": 41, "t": "Luksuzno zlato drevo", "d": "Celotno drevo pobarvaj z jedilnim zlatim prahom in belo zvezdico na vrhu.", "s": "Premium božični dizajni"}, {"n": 42, "t": "Betlehemska zvezda", "d": "Robovi pobarvani z zlatom.", "s": "Premium božični dizajni"}, {"n": 43, "t": "Božična kapica", "d": "Rob in cof iz kokosovih kosmičev.", "s": "Premium božični dizajni"}, {"n": 44, "t": "Nasmejan snežak", "d": "Oči in gumbi iz temne čokolade, oranžen nos z barvilom.", "s": "Premium božični dizajni"}, {"n": 45, "t": "Adventni venec", "d": "Rdeče pikice kot plodovi.", "s": "Premium božični dizajni"}, {"n": 46, "t": "Božična nogavica", "d": "Beli rob in rdeč detajl.", "s": "Premium božični dizajni"}, {"n": 47, "t": "Marmorirana božična krogla", "d": "Nit iz zlatih delcev.", "s": "Premium božični dizajni"}, {"n": 48, "t": "Božični angel", "d": "Krila pobarvana z bisernim prahom.", "s": "Premium božični dizajni"}, {"n": 49, "t": "Dvojno presenečenje", "d": "Zlata pentlja.", "s": "Premium božični dizajni"}, {"n": 50, "t": "Novoletni zvončki", "d": "Zlati rob in srebrna pika.", "s": "Premium božični dizajni"}];
+let st = {marca:"", titulo:"Božična kolekcija", wa:"", ig:"", limite:"", zona:"", intro:"", p4:"", p9:"", p12:"", mostrar:"no", sel: ITEMS.map(i=>i.n), pr:{}};
+try { Object.assign(st, JSON.parse(localStorage.getItem("cg_cat")||"{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_cat", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s); const esc = s => String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const img = n => "img/r" + String(n).padStart(2,"0") + ".jpg";
+function render() {
+  const secs = [...new Set(ITEMS.map(i => i.s))];
+  const boxes = [["Škatla s 4", st.p4], ["Škatla s 6 / 9", st.p9], ["Škatla s 12", st.p12]].filter(b => b[1]);
+  let h = `<div class="ch"><div class="k">${esc(st.marca || "GURMANSKE KAPSULE")}</div><h2>${esc(st.titulo)}</h2><p>${esc(st.intro)}</p></div>`;
+  if (boxes.length) h += `<div class="cs"><h3>Naše škatle</h3><div class="cgrid">${boxes.map(b => `<div class="ci" style="text-align:center;padding:14px"><div class="t">${esc(b[0])}</div><div class="p">${esc(b[1])}</div></div>`).join("")}</div></div>`;
+  secs.forEach(s => { const its = ITEMS.filter(i => i.s === s && st.sel.includes(i.n)); if (!its.length) return;
+    h += `<div class="cs"><h3>${s}</h3><div class="cgrid">` + its.map(i => `<div class="ci"><img src="${img(i.n)}" alt=""><div class="t">${esc(i.t)}</div><div class="d">${esc(i.d)}</div>${st.mostrar === "si" && st.pr[i.n] ? `<div class="p">${esc(st.pr[i.n])}</div>` : '<div style="height:8px"></div>'}</div>`).join("") + "</div></div>"; });
+  const c = [st.wa && "WhatsApp: " + esc(st.wa), st.ig && esc(st.ig), st.zona && esc(st.zona)].filter(Boolean).join(" · ");
+  h += `<div class="cf"><b>Naroči svoje gurmanske kapsule</b><br>${c || "Piši nam za sestavo tvoje škatle"}${st.limite ? "<br>Naročila sprejemamo do " + esc(st.limite) : ""}</div>`;
+  $("#cat").innerHTML = h;
+}
+["marca","titulo","wa","ig","limite","zona","intro","p4","p9","p12","mostrar"].forEach(k => { const el = $("#"+k); if (st[k]) el.value = st[k]; else st[k] = el.value; el.addEventListener("input", () => { st[k] = el.value; save(); render(); }); });
+$("#list").innerHTML = ITEMS.map(i => `<label class="li"><input type="checkbox" value="${i.n}" ${st.sel.includes(i.n)?"checked":""}><img src="${img(i.n)}" alt="" loading="lazy"><span>${i.n}. ${esc(i.t)}</span><input type="text" data-p="${i.n}" placeholder="Cena" value="${esc(st.pr[i.n]||"")}"></label>`).join("");
+$("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = () => { st.sel = [...$("#list").querySelectorAll("input[type=checkbox]:checked")].map(x => +x.value); save(); render(); });
+$("#list").querySelectorAll("input[data-p]").forEach(p => p.addEventListener("input", () => { st.pr[p.dataset.p] = p.value; save(); render(); }));
+$("#all").onclick = () => { $("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.checked = true); st.sel = ITEMS.map(i=>i.n); save(); render(); };
+$("#none").onclick = () => { $("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.checked = false); st.sel = []; save(); render(); };
+render();
+</script></body></html>

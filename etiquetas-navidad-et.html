@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="et"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Muudetavad jõulumärgised</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--r:#8c1d2a;--g:#2f5a3a;--o:#b8924a;--c:#fdf8f1;--c2:#efe0cf;--t:#2b2322;--m:#6c605c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.wrap{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+header{text-align:center;padding:8px 0 16px}
+.tag{display:inline-block;background:var(--g);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--r);font-size:clamp(26px,5.5vw,38px);line-height:1.1;margin:12px 0 6px}
+.sub{color:var(--m);max-width:620px;margin:0 auto}
+.panel{background:#fff;border:1px solid #eadccb;border-radius:16px;padding:16px;margin-top:14px}
+.panel h2{font-family:'Fraunces',serif;color:var(--r);font-size:19px;margin-bottom:10px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+label.f{display:block;font-size:13px;font-weight:800;color:var(--g)}
+label.f input,label.f select,label.f textarea{display:block;width:100%;margin-top:4px;font:inherit;font-weight:400;font-size:15px;padding:10px 12px;border:1.5px solid #e5d6c3;border-radius:10px;background:var(--c);color:var(--t)}
+button{font:800 15px 'Nunito Sans';border:0;border-radius:30px;padding:12px 20px;cursor:pointer}
+.print{background:var(--r);color:#fff} .sec{background:#fff;color:var(--r);border:1.5px solid var(--r)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.note{background:#fdf3e4;border-left:4px solid var(--o);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:12px}
+@media print{ .noprint{display:none!important} body{background:#fff} .wrap{max-width:none;padding:0} }
+
+.designs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.dz{border:2px solid #eadccb;border-radius:14px;padding:10px;text-align:center;cursor:pointer;font-weight:800;font-size:13px;color:var(--m);background:var(--c)}
+.dz.on{border-color:var(--r);color:var(--r);background:#fbeeee}
+.sheet{display:grid;gap:4mm;margin-top:16px;background:#fff;padding:8mm;border-radius:10px}
+.sheet.round{grid-template-columns:repeat(3,1fr)} .sheet.rect{grid-template-columns:repeat(2,1fr)} .sheet.tagh{grid-template-columns:repeat(3,1fr)}
+.lb{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;break-inside:avoid}
+.round .lb{aspect-ratio:1;border-radius:50%;padding:7%}
+.rect .lb{aspect-ratio:2/1;border-radius:4mm;padding:4mm 6mm}
+.tagh .lb{aspect-ratio:3/5;border-radius:3mm 3mm 10mm 10mm;padding:9mm 4mm 4mm;position:relative}
+.tagh .lb:before{content:"";position:absolute;top:4mm;width:4mm;height:4mm;border-radius:50%;border:1px solid currentColor;opacity:.5}
+.lb .b{font:800 7.5pt 'Nunito Sans';letter-spacing:2px;text-transform:uppercase}
+.lb .n{font:700 13pt/1.1 'Fraunces';margin:1.5mm 0}
+.lb .m{font-size:7.6pt;line-height:1.3}
+.lb .x{font-size:6.6pt;opacity:.8;margin-top:1mm}
+.d1 .lb{background:radial-gradient(circle,#fff 55%,#fbf1e4);border:1.5pt solid #b8924a;color:#8c1d2a} .d1 .lb .b{color:#2f5a3a}
+.d2 .lb{background:#8c1d2a;color:#fff;border:1.5pt solid #d9b56c} .d2 .lb .b{color:#f1d9a4}
+.d3 .lb{background:#2f5a3a;color:#fff;border:1.5pt dashed #f2e6cf} .d3 .lb .b{color:#f3d8a0}
+.d4 .lb{background:#fff;color:#2b2322;border:1pt solid #2b2322} .d4 .lb .n{font-family:'Nunito Sans';font-weight:800;letter-spacing:.5px}
+@media print{ @page{size:A4;margin:10mm} .sheet{padding:0;border-radius:0} }
+
+</style></head><body>
+<div class="wrap">
+<header class="noprint"><span class="tag">BOONUS · MUUDETAV VERSIOON</span><h1>Jõulumärgised <span style="color:var(--o)">sinu brändiga</span></h1>
+<p class="sub">Vali disain, kirjuta oma andmed ja vajuta «Prindi / Salvesta PDF». Prindi kleebispaberile või A4 kartongile, 100% suuruses.</p></header>
+<div class="panel noprint"><h2>1 · Vali disain</h2><div class="designs" id="designs"></div></div>
+<div class="panel noprint"><h2>2 · Vorming</h2><div class="designs" id="formats"></div></div>
+<div class="panel noprint"><h2>3 · Sinu andmed</h2><div class="fg">
+<label class="f">Sinu bränd<input id="marca" placeholder="Näiteks: Magus Kohvik"></label>
+<label class="f">Sõnum<input id="msg" placeholder="Näiteks: Häid Jõule"></label>
+<label class="f">Väike rida (valikuline)<input id="extra" placeholder="Näiteks: Käsitöö · @sinuinstagram"></label>
+<label class="f">Märgiste sisu<select id="modo"><option value="sabor">Üks märgis maitse kohta (vali allpool)</option><option value="igual">Kõik ühesugused selle tekstiga ↓</option></select></label>
+<label class="f">Tekst (kui kõik on ühesugused)<input id="igual" placeholder="Näiteks: Jõulukollektsioon"></label>
+<label class="f">Kogus (kui kõik on ühesugused)<input id="cant" type="number" min="1" max="60" value="12"></label>
+</div>
+<div id="saborwrap" style="margin-top:12px"><b style="color:var(--g);font-size:13px">Trükitavad maitsed</b>
+<div style="display:flex;gap:8px;margin:6px 0"><button class="sec" type="button" id="all" style="padding:6px 12px;font-size:12px">Kõik</button><button class="sec" type="button" id="none" style="padding:6px 12px;font-size:12px">Mitte ükski</button></div>
+<div id="sabores" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px;font-size:14px;max-height:260px;overflow:auto"></div></div>
+<div class="actions"><button class="print" type="button" onclick="window.print()">🖨 Prindi / Salvesta PDF</button></div>
+<div class="note">Nõuanne: prindisuvandites lülita välja „Päised ja jalused“ ning vali skaala 100%.</div></div>
+<div id="sheets"></div>
+</div>
+<script>
+const ITEMS = [{"n": 1, "t": "Kaneeli ja nelgi kohv", "d": "Puista kaneeli kuiva tähe peale.", "s": "Jõulukohv"}, {"n": 2, "t": "Piparkoogikohv", "d": "Joonista silmad ja nööbid sulatatud valge šokolaadiga.", "s": "Jõulukohv"}, {"n": 3, "t": "Jõulumoka kohv", "d": "Värvi tipp söödava kuldse pulbriga.", "s": "Jõulukohv"}, {"n": 4, "t": "Lumivalge vanillikohv", "d": "Puista peene sõelaga tuhksuhkrut peale.", "s": "Jõulukohv"}, {"n": 5, "t": "Soolase karamelli kohv", "d": "Värvi lips valge šokolaadiga.", "s": "Jõulukohv"}, {"n": 6, "t": "Apelsini ja kaneeli kohv", "d": "Aseta peale väike tükk kandis apelsinikoori.", "s": "Jõulukohv"}, {"n": 7, "t": "Pähkline pidulik kohv", "d": "Kaunista hakitud sarapuupähklitega.", "s": "Jõulukohv"}, {"n": 8, "t": "Põhjapooluse piparmündikohv", "d": "Värvi punased triibud geeltoiduvärviga.", "s": "Jõulukohv"}, {"n": 9, "t": "Kardemoni kohv", "d": "Aseta keskele üks kardemoni seeme.", "s": "Jõulukohv"}, {"n": 10, "t": "Lumivalge kookosekohv", "d": "Kata pealmine osa riivitud kookosega.", "s": "Jõulukohv"}, {"n": 11, "t": "Rummiga rosina kohv (alkoholi vaba)", "d": "Kaunista rosinaga kellukese ääres.", "s": "Jõulukohv"}, {"n": 12, "t": "Jõuluõhtu vürtsikohv", "d": "Värvi tähe saba söödava kuldpulbriga.", "s": "Jõulukohv"}, {"n": 13, "t": "Metsamarjade punane tee", "d": "Kleebi kuiv roosipetal tilga lahusega.", "s": "Jõuluteed ja -tõmmised"}, {"n": 14, "t": "Jõulune chai tee", "d": "Puista kaneeli peale.", "s": "Jõuluteed ja -tõmmised"}, {"n": 15, "t": "Jõulune piparmündiroheline tee", "d": "Värvi väikesed punased täpid kaunistuseks.", "s": "Jõuluteed ja -tõmmised"}, {"n": 16, "t": "Kummel mesi ja apelsiniga", "d": "Aseta peale kuivanud kummelilill.", "s": "Jõuluteed ja -tõmmised"}, {"n": 17, "t": "Vanilline rooibos", "d": "Joonista nina punase täpiga.", "s": "Jõuluteed ja -tõmmised"}, {"n": 18, "t": "Õuna ja kaneeli tee", "d": "Aseta väike kaneelipulk.", "s": "Jõuluteed ja -tõmmised"}, {"n": 19, "t": "Valge pirnitee", "d": "Värvi serv hõbedase pulbriga.", "s": "Jõuluteed ja -tõmmised"}, {"n": 20, "t": "Jamaica ja ingveri tõmmis", "d": "Värvi saba kuldse pulbriga.", "s": "Jõuluteed ja -tõmmised"}, {"n": 21, "t": "Must tee šokolaadiga", "d": "Valge šokolaadi lips.", "s": "Jõuluteed ja -tõmmised"}, {"n": 22, "t": "Lavendli ja sidruni tõmmis", "d": "Aseta 2 kuivatatud lavendlilille.", "s": "Jõuluteed ja -tõmmised"}, {"n": 23, "t": "Šokolaad vahukommidega", "d": "Vahukommid nähtaval pinnal.", "s": "Kuuma piima šokolaad"}, {"n": 24, "t": "Lumivalge šokolaad", "d": "Puista riivitud kookost.", "s": "Kuuma piima šokolaad"}, {"n": 25, "t": "Kibe apelsinišokolaad", "d": "Peenike kandis apelsiniribake.", "s": "Kuuma piima šokolaad"}, {"n": 26, "t": "Maiade vürtsikas šokolaad", "d": "Söödav kuldpulber.", "s": "Kuuma piima šokolaad"}, {"n": 27, "t": "Piparkoogiküpsise šokolaad", "d": "Jõuluvärvilised puruhelbed.", "s": "Kuuma piima šokolaad"}, {"n": 28, "t": "Punaste marjade šokolaad", "d": "Kuivatatud maasikapuru.", "s": "Kuuma piima šokolaad"}, {"n": 29, "t": "Jõulune piparmündišokolaad", "d": "Valge šokolaadi triibud.", "s": "Kuuma piima šokolaad"}, {"n": 30, "t": "Magus piimašokolaad", "d": "Valge šokolaadi niit.", "s": "Kuuma piima šokolaad"}, {"n": 31, "t": "Sarapuupähkli ja kakaoga šokolaad", "d": "Hakitud sarapuupähkel.", "s": "Kuuma piima šokolaad"}, {"n": 32, "t": "Pidulik ruby šokolaad", "d": "Söödavad kuivatatud kroonlehed.", "s": "Kuuma piima šokolaad"}, {"n": 33, "t": "Espresso kohvimaius", "d": "Üks kohvioa kaanel.", "s": "Täidetud šokolaadikestad"}, {"n": 34, "t": "Kaputsiinomaius", "d": "Puista kakaod.", "s": "Täidetud šokolaadikestad"}, {"n": 35, "t": "Chai tee maius", "d": "Kaneel peal.", "s": "Täidetud šokolaadikestad"}, {"n": 36, "t": "Moka piparmündimaius", "d": "Roheline söödav pulber tipul.", "s": "Täidetud šokolaadikestad"}, {"n": 37, "t": "Vanilli ja kohvi maius", "d": "Tuhksuhkur.", "s": "Täidetud šokolaadikestad"}, {"n": 38, "t": "Karamellimaius", "d": "Valge šokolaadi lips.", "s": "Täidetud šokolaadikestad"}, {"n": 39, "t": "Punaste marjade ja tee maius", "d": "Söödav sära.", "s": "Täidetud šokolaadikestad"}, {"n": 40, "t": "Põdramaius", "d": "Punane nina ja šokolaadist sarved.", "s": "Täidetud šokolaadikestad"}, {"n": 41, "t": "Luks kuldne kuusk", "d": "Värvi kogu kuusk söödava kuldpulbriga ja valge tähe täpiga.", "s": "Jõulu premium-disainid"}, {"n": 42, "t": "Belemi täht", "d": "Servad kuldsed.", "s": "Jõulu premium-disainid"}, {"n": 43, "t": "Jõuluvana müts", "d": "Serv ja pompom riivitud kookos.", "s": "Jõulu premium-disainid"}, {"n": 44, "t": "Naeratav lumememm", "d": "Silmad ja nööbid tumeda šokolaadiga, nina oranž toiduvärviga.", "s": "Jõulu premium-disainid"}, {"n": 45, "t": "Advendi pärg", "d": "Punased täpid nagu marjad.", "s": "Jõulu premium-disainid"}, {"n": 46, "t": "Jõulusokk", "d": "Valge serv ja punane detail.", "s": "Jõulu premium-disainid"}, {"n": 47, "t": "Marmorjas jõulupall", "d": "Kuldne pulbri niit.", "s": "Jõulu premium-disainid"}, {"n": 48, "t": "Jõuluingel", "d": "Tiivad pärlise pulbriga värvitud.", "s": "Jõulu premium-disainid"}, {"n": 49, "t": "Topeltüllatuskingitus", "d": "Kuldne lips.", "s": "Jõulu premium-disainid"}, {"n": 50, "t": "Uusaasta kellukesed", "d": "Kuldne serv ja hõbedane täpp.", "s": "Jõulu premium-disainid"}];
+const DES = [["d1","Klassikaline kuldne"],["d2","Jõuluroheline"],["d3","Männiroheline"],["d4","Minimalistlik"]];
+const FMT = [["round","Ümmargune (5,5 cm) · 12 lehel"],["rect","Ristkülikukujuline (9 × 4,5 cm) · 10 lehel"],["tagh","Riputatav silt · 9 lehel"]];
+const PER = {round:12, rect:10, tagh:9};
+let st = {d:"d1", f:"round", marca:"", msg:"Häid Jõule", extra:"", modo:"sabor", igual:"Jõulukollektsioon", cant:12, sel: ITEMS.map(i=>i.n)};
+try { Object.assign(st, JSON.parse(localStorage.getItem("cg_lbl")||"{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_lbl", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s); const esc = s => String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function chips(id, arr, key) { $(id).innerHTML = arr.map(([v,l]) => `<div class="dz ${st[key]===v?"on":""}" data-v="${v}">${l}</div>`).join("");
+  $(id).querySelectorAll(".dz").forEach(d => d.onclick = () => { st[key] = d.dataset.v; save(); chips(id, arr, key); render(); }); }
+function render() {
+  $("#saborwrap").style.display = st.modo === "sabor" ? "block" : "none";
+  const names = st.modo === "sabor" ? ITEMS.filter(i => st.sel.includes(i.n)).map(i => i.t) : Array(Math.max(1, Math.min(60, +st.cant || 1))).fill(st.igual);
+  const per = PER[st.f]; let h = "";
+  for (let p = 0; p < names.length; p += per) {
+    h += `<div class="sheet ${st.f} ${st.d}" style="${p ? "break-before:page" : ""}">` + names.slice(p, p + per).map(n =>
+      `<div class="lb"><div class="b">${esc(st.marca || "Jõuluväljaanne")}</div><div class="n">${esc(n)}</div><div class="m">${esc(st.msg)}</div>${st.extra ? `<div class="x">${esc(st.extra)}</div>` : ""}</div>`).join("") + "</div>";
+  }
+  $("#sheets").innerHTML = h;
+}
+["marca","msg","extra","modo","igual","cant"].forEach(k => { const el = $("#"+k); el.value = st[k]; el.addEventListener("input", () => { st[k] = el.value; save(); render(); }); });
+$("#sabores").innerHTML = ITEMS.map(i => `<label><input type="checkbox" value="${i.n}" ${st.sel.includes(i.n)?"checked":""}> ${i.n}. ${esc(i.t)}</label>`).join("");
+$("#sabores").querySelectorAll("input").forEach(c => c.onchange = () => { st.sel = [...$("#sabores").querySelectorAll("input:checked")].map(x => +x.value); save(); render(); });
+$("#all").onclick = () => { $("#sabores").querySelectorAll("input").forEach(c => c.checked = true); st.sel = ITEMS.map(i=>i.n); save(); render(); };
+$("#none").onclick = () => { $("#sabores").querySelectorAll("input").forEach(c => c.checked = false); st.sel = []; save(); render(); };
+chips("#designs", DES, "d"); chips("#formats", FMT, "f"); render();
+</script></body></html>

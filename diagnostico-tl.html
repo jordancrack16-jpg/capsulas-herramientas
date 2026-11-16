@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnóstico at Plano ng Aksyon</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--w:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.55;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px}
+header{text-align:center;padding:18px 0 10px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;font-weight:800;color:var(--g);font-size:clamp(28px,6vw,40px);line-height:1.1;margin:14px 0 8px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:560px;margin:0 auto}
+.bar{height:8px;background:var(--c2);border-radius:9px;margin:22px 0 6px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--s),var(--o));transition:width .3s}
+.step-n{font-size:13px;color:var(--m);text-align:right;font-weight:600}
+.card{background:var(--w);border:1px solid #e6dfcf;border-radius:18px;padding:24px 20px;margin-top:14px;box-shadow:0 6px 20px rgba(47,74,42,.06)}
+.q{display:none}.q.on{display:block;animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.q h2{font-family:'Fraunces',serif;color:var(--g);font-size:22px;line-height:1.25;margin-bottom:6px}
+.q .hint{color:var(--m);font-size:14px;margin-bottom:14px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;border:1.5px solid #e2dac9;border-radius:14px;padding:13px 14px;cursor:pointer;background:var(--c);font-weight:600;transition:.15s}
+.opt:hover{border-color:var(--s)}
+.opt input{accent-color:var(--g);width:18px;height:18px;flex:none}
+.opt.sel{border-color:var(--g);background:var(--s2)}
+.opt small{display:block;font-weight:400;color:var(--m);font-size:13px}
+input[type=text],input[type=number],select{width:100%;font:inherit;padding:13px 14px;border:1.5px solid #e2dac9;border-radius:12px;background:var(--c);color:var(--t)}
+input:focus,select:focus{outline:2px solid var(--s);border-color:var(--s)}
+.row{display:grid;grid-template-columns:1fr 130px;gap:10px}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+button{font:800 15px 'Nunito Sans',sans-serif;border:0;border-radius:40px;padding:14px 22px;cursor:pointer}
+.next{background:var(--g);color:#fff;flex:1}.next:disabled{opacity:.4;cursor:not-allowed}
+.back{background:transparent;color:var(--g);border:1.5px solid var(--g)}
+.err{color:#b5654a;font-size:13px;margin-top:8px;min-height:18px}
+/* Resultado */
+#plan{display:none}
+.hero{background:linear-gradient(135deg,var(--g),#466b3c);color:#fff;border-radius:20px;padding:26px 22px;margin-top:10px}
+.hero .k{font-size:12px;letter-spacing:3px;font-weight:800;color:#e9d8b0}
+.hero h2{font-family:'Fraunces',serif;font-size:28px;line-height:1.15;margin:6px 0}
+.hero p{opacity:.92}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.stat{background:rgba(255,255,255,.12);border-radius:14px;padding:12px;text-align:center}
+.stat b{display:block;font-family:'Fraunces',serif;font-size:22px}
+.stat span{font-size:12px;opacity:.9}
+.sec{margin-top:22px}
+.sec h3{font-family:'Fraunces',serif;color:var(--g);font-size:21px;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.sec h3 .n{background:var(--o);color:#fff;font:800 13px 'Nunito Sans';border-radius:30px;padding:3px 10px}
+.list{list-style:none;display:grid;gap:8px}
+.list li{background:var(--w);border:1px solid #e6dfcf;border-radius:12px;padding:11px 14px 11px 40px;position:relative}
+.list li:before{content:"✓";position:absolute;left:14px;top:10px;color:var(--s);font-weight:800}
+.list.warn li:before{content:"!";color:#b5654a}
+.week{background:var(--w);border:1px solid #e6dfcf;border-radius:16px;padding:16px;margin-bottom:12px;break-inside:avoid}
+.week h4{color:var(--g);font-size:16px;margin-bottom:2px}
+.week .d{font-size:12px;color:var(--o);font-weight:800;letter-spacing:2px}
+.week ul{margin:8px 0 0 0;list-style:none}
+.week li{padding:6px 0 6px 28px;border-top:1px dashed #e6dfcf;position:relative;font-size:15px}
+.week li:before{content:"☐";position:absolute;left:4px;color:var(--s);font-weight:800}
+.week li b{color:var(--g)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--s2);color:var(--g);font-weight:800;font-size:13px;border-radius:30px;padding:6px 12px}
+.note{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--m);margin-top:14px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.actions button{flex:1;min-width:200px}
+.print{background:var(--o);color:#fff}
+.restart{background:transparent;border:1.5px solid var(--g);color:var(--g)}
+@media (max-width:520px){.stats{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff}.wrap{max-width:none;padding:0}
+  #quiz,header .sub,.actions,.bar,.step-n{display:none!important}
+  header{padding:0}
+  .hero{break-inside:avoid}
+  .sec{break-inside:auto}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">HAKBANG 1 NG PROGRAMA</span>
+  <h1>Diagnóstico at <em>personalized na plano ng aksyon</em></h1>
+  <p class="sub">Sagutin ang 12 mabilis na tanong (mga 5 minuto lang). Sa dulo, makakatanggap ka ng 30-araw na plano, na nakaayon sa oras mo, budget, at karanasan, handa nang i-print o i-save bilang PDF.</p>
+</header>
+
+<div id="quiz">
+  <div class="bar"><i id="prog"></i></div>
+  <div class="step-n" id="stepn"></div>
+  <div class="card" id="qs"></div>
+  <div class="err" id="err"></div>
+  <div class="nav">
+    <button class="back" id="back" type="button">← Bago</button>
+    <button class="next" id="next" type="button">Susunod →</button>
+  </div>
+</div>
+
+<div id="plan"></div>
+</div>
+
+<script>
+const Q = [
+ {id:"nombre", t:"Ano ang pangalan mo?", h:"Ang plano mo ay may pangalan mo.", type:"text", ph:"Pangalan mo"},
+ {id:"pais", t:"Saang bansa ka magbebenta?", h:"Makakatulong ito para magmungkahi ng mga channel at espesyal na petsa.", type:"select",
+  o:["Pilipinas","Malaysia","Indonesia","Singapore","Thailand","Vietnam","Brunei","Cambodia","Laos","Timog Korea","Hapon","Iba pa"]},
+ {id:"exp", t:"Gaano ka na karanasan sa paggawa ng Gourmet Capsules?", type:"radio", o:[
+   ["0","Hindi pa ako nakagawa","Kakapasok ko lang sa kurso"],["1","Nakagawa na ng ilang pagsubok","Kaya ko na pero nagpa-practice pa rin"],
+   ["2","Nakabenta o nakapagbigay na ng ilan","May karanasan at ilang feedback"],["3","Regular na akong nagbebenta","Gusto kong ayusin at palaguin"]]},
+ {id:"pres", t:"Magkano ang budget mo para sa mga materyales at packaging?", type:"radio", o:[
+   ["0","Mababa lang","Yung meron na ako o pinaka-minimum"],["1","Medyo mababa","Para sa ilang batch at simpleng packaging"],
+   ["2","Katamtaman","Para sa maraming batch at magagandang kahon"],["3","Pwede akong mag-invest ng higit","Mga bagong molde, mas maraming packaging at materyales"]]},
+ {id:"horas", t:"Ilang oras kada linggo ang kaya mong ilaan?", type:"radio", o:[
+   ["0","Mas mababa sa 3 oras","Konting oras lang sa ilang araw"],["1","3 hanggang 6 na oras","Halos isang oras kada araw"],
+   ["2","7 hanggang 12 na oras","Isa o dalawang oras kada araw"],["3","Higit sa 12 na oras","Maraming oras ang kaya kong ilaan"]]},
+ {id:"canales", t:"Saan mo gustong magbenta?", h:"Puwede kang pumili ng maraming opsyon.", type:"check", o:[
+   ["wa","WhatsApp"],["ig","Instagram"],["tt","TikTok"],["fb","Facebook at Marketplace"],["palengke","Mga palengke at tiangge"],
+   ["local","Mga lokal na negosyo (kapehan, flower shops, regalo)"],["eventos","Mga events at kumpanya (kasal, kaarawan, corporate gifts)"]]},
+ {id:"contactos", t:"Ilang contacts ang meron ka sa WhatsApp, mga ganoon?", type:"radio", o:[
+   ["0","Mas mababa sa 100",""],["1","100 hanggang 300",""],["2","300 hanggang 800",""],["3","Higit sa 800",""]]},
+ {id:"video", t:"Gusto mo bang mag-record ng videos para sa social media?", type:"radio", o:[
+   ["2","Oo, at pwede akong magpakita","Kaya kong magsalita sa camera"],["1","Oo, pero kamay lang at produkto ang ipapakita","Ayoko ipakita mukha"],
+   ["0","Mas gusto ko lang mag-photo muna","Nahihirapan ako sa videos"]]},
+ {id:"obj", t:"Ano ang gusto mong makamit sa negosyong ito?", type:"radio", o:[
+   ["extra","Extra na kita","Dagdag sa kinikita ko"],["principal","Gawing pangunahing kita","Gusto kong seryosohin ang negosyo"],
+   ["temporada","Magbenta sa espesyal na okasyon","Pasko, Araw ng mga Ina, Valentine’s…"],["eventos","Mag-specialize sa events at regalo","Kasalan, kaarawan, kumpanya"]]},
+ {id:"meta", t:"Magkano ang gusto mong maibenta sa susunod na 30 araw?", h:"Isulat ang numero at pera mo. Pwede mo itong i-adjust sa Calculator mamaya.", type:"meta"},
+ {id:"traba", t:"Ano ang pinakamalaking hadlang mo ngayon?", type:"radio", o:[
+   ["precio","Hindi ko alam kung magkano ang sisingilin",""],["donde","Hindi ko alam saan o kanino magbebenta",""],["verguenza","Nahihiya akong mag-alok",""],
+   ["tiempo","Kulang ako sa oras",""],["produccion","Hindi pa ako kumpiyansa sa paggawa",""]]},
+ {id:"fecha", t:"Anong espesyal na petsa ang pinakamalapit sa'yo?", h:"Ang mga espesyal na petsa ay pinakamagandang pagkakataon para magbenta.", type:"radio", o:[
+   ["pasko","Pasko at Bagong Taon",""],["valentine","Araw ng mga Puso",""],["ina","Araw ng mga Ina",""],
+   ["ama","Araw ng mga Ama",""],["graduation","Graduation / pagtatapos",""],["wala","Walang espesyal na petsa sa mga susunod na linggo",""]]},
+];
+const MONEDAS = {"Pilipinas":"PHP","Malaysia":"MYR","Indonesia":"IDR","Singapore":"SGD","Thailand":"THB","Vietnam":"VND","Brunei":"BND","Cambodia":"KHR","Laos":"LAK","Timog Korea":"KRW","Hapon":"JPY","Iba pa":"PHP"};
+let A = {}; let i = 0;
+try { const s = localStorage.getItem("cg_diag"); if (s) A = JSON.parse(s) || {}; } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_diag", JSON.stringify(A)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function render() {
+  const q = Q[i]; let h = `<div class="q on"><h2>${q.t}</h2>${q.h ? `<p class="hint">${q.h}</p>` : ""}`;
+  if (q.type === "text") h += `<input type="text" id="f" placeholder="${q.ph}" value="${esc(A[q.id]||"")}" maxlength="40">`;
+  if (q.type === "select") h += `<select id="f"><option value="">Pumili ng bansa</option>${q.o.map(o=>`<option ${A[q.id]===o?"selected":""}>${o}</option>`).join("")}</select>`;
+  if (q.type === "radio") h += `<div class="opts">${q.o.map(([v,l,s])=>`<label class="opt ${A[q.id]===v?"sel":""}"><input type="radio" name="r" value="${v}" ${A[q.id]===v?"checked":""}><span>${l}${s?`<small>${s}</small>`:""}</span></label>`).join("")}</div>`;
+  if (q.type === "check") { const cur = A[q.id]||[]; h += `<div class="opts">${q.o.map(([v,l])=>`<label class="opt ${cur.includes(v)?"sel":""}"><input type="checkbox" value="${v}" ${cur.includes(v)?"checked":""}><span>${l}</span></label>`).join("")}</div>`; }
+  if (q.type === "meta") { const mon = A.moneda || MONEDAS[A.pais] || "PHP";
+    h += `<div class="row"><input type="number" id="f" min="0" inputmode="numeric" placeholder="Halimbawa: 1000" value="${A.meta||""}"><input type="text" id="mon" value="${esc(mon)}" maxlength="5" aria-label="Pera"></div>`; }
+  h += "</div>";
+  $("#qs").innerHTML = h; $("#err").textContent = "";
+  $("#prog").style.width = (i / Q.length * 100) + "%";
+  $("#stepn").textContent = `Tanong ${i+1} sa ${Q.length}`;
+  $("#back").style.visibility = i ? "visible" : "hidden";
+  $("#next").textContent = i === Q.length - 1 ? "Tingnan ang plano ko ✦" : "Susunod →";
+  document.querySelectorAll(".opt input").forEach(inp => inp.addEventListener("change", () => {
+    if (inp.type === "radio") { document.querySelectorAll(".opt").forEach(o=>o.classList.remove("sel")); inp.closest(".opt").classList.add("sel"); A[q.id] = inp.value; save(); setTimeout(next, 220); }
+    else { inp.closest(".opt").classList.toggle("sel", inp.checked); A[q.id] = [...document.querySelectorAll(".opt input:checked")].map(x=>x.value); save(); }
+  }));
+  const f = $("#f"); if (f && q.type !== "select") { f.focus(); f.addEventListener("keydown", e => { if (e.key === "Enter") next(); }); }
+}
+function valid() {
+  const q = Q[i];
+  if (q.type === "text") { const v = $("#f").value.trim(); if (!v) return "Isulat ang pangalan mo para magpatuloy."; A.nombre = v; }
+  if (q.type === "select") { const v = $("#f").value; if (!v) return "Pumili ng bansa."; if (A.pais !== v) delete A.moneda; A.pais = v; }
+  if (q.type === "radio" && A[q.id] === undefined) return "Pumili ng isang opsyon.";
+  if (q.type === "check" && !(A[q.id]||[]).length) return "Pumili ng kahit isang opsyon.";
+  if (q.type === "meta") { const v = parseFloat($("#f").value); if (!(v > 0)) return "Isulat ang numerong higit sa zero."; A.meta = v; A.moneda = ($("#mon").value.trim() || "PHP").toUpperCase(); }
+  save(); return "";
+}
+function next() { const e = valid(); if (e) { $("#err").textContent = e; return; } if (i < Q.length - 1) { i++; render(); } else showPlan(); }
+$("#next").onclick = next;
+$("#back").onclick = () => { if (i > 0) { i--; render(); } };
+
+const n = k => parseInt(A[k] ?? 0, 10);
+const fmt = v => Math.round(v).toLocaleString("fil");
+
+function showPlan() {
+  const exp = n("exp"), pres = n("pres"), horas = n("horas"), cont = n("contactos"), vid = n("video");
+  const ch = A.canales || [], has = c => ch.includes(c);
+  const nombre = esc(A.nombre), mon = esc(A.moneda), meta = A.meta;
+
+  // Perfil
+  const score = exp + horas + Math.min(pres, 2);
+  const perfil = score <= 3 ? ["Bagong negosyante", "Ang prayoridad mo ay mag-practice, gumawa ng magandang sample, at magsimulang magbenta sa mga kakilala. Unti-unti lang."] 
+    : score <= 6 ? ["Negosyante na umaandar", "May base ka na. Prayoridad mo ay ayusin ang presyo, ipakita ang produkto nang regular, at makakuha ng unang mga order."]
+    : ["Negosyante na handang lumago", "May karanasan at oras ka. Prayoridad mo ay dagdagan ang mga channel, malalaking order, at mga suki."];
+
+  // Oras kada araw
+  const minDia = ["20–30 min", "40–60 min", "1–2 h", "2 h o higit pa"][horas];
+  const diasSem = [3, 5, 5, 6][horas];
+
+  // Mga pangunahing channel
+  let prio = ["WhatsApp (status at personal na mensahe)"];
+  if (has("ig") || (vid >= 1 && !has("tt"))) prio.push(vid >= 1 ? "Instagram (Reels at status)" : "Instagram (mga larawan at carousel)");
+  if (has("tt") && vid >= 1) prio.push("TikTok (maikling video ng proseso)");
+  if (has("fb")) prio.push("Facebook Marketplace at mga lokal na grupo");
+  if (has("local")) prio.push("Mga lokal na negosyo na katuwang");
+  if (has("eventos") || A.obj === "eventos") prio.push("Mga events at corporate gifts");
+  if (has("palengke")) prio.push("Mga palengke at tiangge");
+  prio = [...new Set(prio)].slice(0, horas >= 2 ? 4 : 3);
+
+  // Mga inirerekomendang produkto
+  const prods = exp === 0 ? ["Sample box (4 Gourmet Capsules)", "Gift box (6 Gourmet Capsules)"]
+    : ["Sample box (4 Gourmet Capsules)", "Gift box (6–9 Gourmet Capsules)", "Custom order"];
+  if (A.obj === "eventos" || has("eventos")) prods.push("Souvenirs para sa events (bulk orders)");
+  const formatos = exp <= 1 ? "puso, bulaklak at bilog (pinakamadaling i-mold)" : "puso, bulaklak, oso at paru-paro";
+  const sabores = pres === 0 ? "2 flavors ng kape at 1 ng tsaa, para sa maliit na supply" : "3 flavors ng kape at 2 ng tsaa";
+
+  // Espesyal na petsa
+  const F = {pasko:["Christmas Box","Pasko"], valentine:["Valentine’s Box","Araw ng mga Puso"], ina:["Mother’s Day Box","Araw ng mga Ina"],
+             ama:["Father’s Day Box","Araw ng mga Ama"], graduation:["Graduation Box","graduation"], wala:["Birthday Box","mga kaarawan ng buwan"]};
+  const [cajaT, fechaT] = F[A.fecha] || F.wala;
+
+  // Mga target (walang average price kaya kailangan kalkulahin)
+  const metaSem = meta / 4.3;
+
+  // Mga kalakasan at dapat bantayan
+  const fort = [], aten = [];
+  if (exp >= 2) fort.push("May karanasan ka na: puwede kang magpakita ng totoong larawan at feedback mula sa unang araw.");
+  if (horas >= 2) fort.push("Marami kang oras: puwede kang magpatuloy nang mas mabilis kaysa sa base plan.");
+  if (cont >= 2) fort.push("Malaki ang listahan mo sa WhatsApp: ang status mo ang unang sales channel mo.");
+  if (vid === 2) fort.push("Kaya mong magpakita sa video: nakakapagbigay ito ng tiwala at mas nakakapagbenta.");
+  if (pres >= 2) fort.push("Kaya ng budget mo na alagaan ang presentation mula sa simula.");
+  if (A.fecha && A.fecha !== "wala") fort.push(`Malapit ang ${fechaT}: magandang dahilan para bumili ngayon.`);
+  if (!fort.length) fort.push("Nagsimula ka na gamit ang isang metodo: mas maaga ka kaysa karamihan.");
+  if (exp <= 1) aten.push("Mag-practice ng 2–3 batch bago tumanggap ng malalaking order; simulan sa simpleng format.");
+  if (pres === 0) aten.push("Simulan sa simpleng packaging (kraft bag + label) at i-reinvest ang unang kita sa mga kahon.");
+  if (horas === 0) aten.push("Kung kulang sa oras, gumawa ng batch isang araw lang sa isang linggo at mag-record ng maraming video nang sabay.");
+  if (cont === 0) aten.push("Maliit ang contact list mo: kailangan mo ng Marketplace, grupo, at katuwang na negosyo para maabot ang mas maraming tao.");
+  if (vid === 0) aten.push("Kung walang video, mas kakaunti ang maaabot mo. Subukan lang ang kamay: ang paglusaw ng capsule ang pinakamagandang content mo.");
+  const TRABA = {precio:"Ang pinakamalaking hadlang mo ay presyo: ang mga araw 3 at 4 ay mahalaga. Huwag itong laktawan.",
+    donde:"Ang pinakamalaking hadlang mo ay saan magbebenta: sundan ang Gabay sa unang 10 kliyente mula araw 7.",
+    verguenza:"Nahihiya kang mag-alok: gamitin ang mga handang mensahe sa Bonus 1. Magbabahagi ka ng maganda, hindi nanghihingi ng pabor.",
+    tiempo:"Limitado ang oras mo: gawin lang ang pangunahing gawain araw-araw at pagsamahin ang produksyon.",
+    produccion:"Hindi ka pa kumpiyansa sa paggawa: ilaan ang araw 2 at 6 para mag-practice at balikan ang pangunahing kurso."};
+  aten.push(TRABA[A.traba]);
+
+  // Personalized na linggo
+  const S1 = [
+    `<b>Araw 1:</b> i-print ang planong ito at isulat kung bakit ka nagsimula.`,
+    `<b>Araw 2:</b> tukuyin ang menu mo: ${prods.slice(0,3).join(", ")}. Mga format: ${formatos}. Mga flavor: ${sabores}.`,
+    `<b>Araw 3–4:</b> ilagay ang gastos mo sa Calculator at tukuyin ang presyo (recommended margin: 55–70 %).`,
+    `<b>Araw 5:</b> ilagay ang target mo sa sheet na «3 · Meta»: ${fmt(meta)} ${mon} ay mga ${fmt(metaSem)} ${mon} kada linggo. Tingnan kung ilang kahon ito at i-adjust kung kailangan.`,
+    exp <= 1 ? `<b>Araw 6:</b> gumawa ng 2 practice batch at isang sample box. Kumuha ng 15 larawan gamit natural na ilaw.` : `<b>Araw 6:</b> ihanda ang sample box, kumuha ng 15 larawan at i-record ang paglusaw ng capsule.`,
+    `<b>Araw 7:</b> i-setup ang WhatsApp Business (catalog ng produkto) at gumawa ng listahan ng ${cont === 0 ? "50" : "100"} contacts.`];
+  const S2 = [
+    `<b>Araw 8:</b> 3 WhatsApp status gamit ang curiosity message (Message 1).`,
+    `<b>Araw 9:</b> ${cont >= 2 ? "15" : "10"} personal na mensahe gamit ang Message 3. Itala kung sino ang sumagot.`,
+    vid >= 1 ? `<b>Araw 10:</b> i-record ang Script 1 «Hulaan mo kung ano ito?»${vid === 1 ? " (kamay lang)" : ""} at i-post sa ${has("tt") ? "TikTok, " : ""}Instagram at status.` : `<b>Araw 10:</b> mag-post ng carousel ng mga larawan na may tanong na «Hulaan mo kung ano ito?».`,
+    `<b>Araw 11:</b> tasting kasama ang pamilya, trabaho o kaibigan. Humingi ng feedback at larawan.`,
+    has("fb") || cont <= 1 ? `<b>Araw 12:</b> mag-post sa Marketplace at sa 3 lokal na grupo.` : `<b>Araw 12:</b> pangalawang round ng status gamit ang feedback mula sa tasting.`,
+    `<b>Araw 13–14:</b> 10 pang mensahe at review ng linggo sa Order Control.`];
+  const S3 = [
+    `<b>Araw 15:</b> ilunsad ang <b>«${cajaT}»</b> para sa ${fechaT}, may deadline sa pag-order.`,
+    `<b>Araw 16:</b> ilagay ang mga quick replies at labels sa WhatsApp Business.`,
+    `<b>Araw 17:</b> tapusin ang mga pending na tanong (Messages 12–16). Humingi ng deposit para kumpirmahin.`,
+    `<b>Araw 18:</b> gumawa ng 3 custom options at kalkulahin ang presyo.`,
+    has("eventos") || A.obj === "eventos" ? `<b>Araw 19:</b> kontakin ang 10 posibleng kliyente sa events o kumpanya (Messages 22 at 23). <b>Mataas na prayoridad para sa'yo.</b>` : `<b>Araw 19:</b> kontakin ang 5 posibleng kliyente sa events (Message 22).`,
+    `<b>Araw 20–21:</b> mag-post ng 3 testimonials at tingnan kung alin ang pinaka-kumikita.`];
+  const S4 = [
+    `<b>Araw 22:</b> mensahe para sa repurchase sa lahat ng kliyente (Message 27).`,
+    `<b>Araw 23:</b> i-activate ang referral program mo (Message 28).`,
+    has("local") ? `<b>Araw 24:</b> bisitahin ang 3 katuwang na negosyo na may sample box. <b>Mataas na prayoridad para sa'yo.</b>` : `<b>Araw 24:</b> kontakin ang 2 related na negosyo (flower shop, kapehan) gamit ang Message 24.`,
+    `<b>Araw 25:</b> planuhin ang 2 linggo ng content${vid >= 1 ? " at i-record ang 3 videos nang sabay" : ""}.`,
+    `<b>Araw 26–27:</b> ayusin ang routine ng produksyon at tingnan ang mga numero sa Summary sheet.`,
+    `<b>Araw 28–30:</b> final evaluation, pasalamatan ang mga kliyente at gumawa ng bagong plano na may bagong target.`];
+  const rutina = horas === 0
+    ? ["Lunes: 20 min ng mensahe at status", "Miyerkules: 20 min ng content", "Sabado: produksyon at packaging ng batch"]
+    : horas === 1 ? ["Araw-araw: 15 min ng status at sagot", "3 araw kada linggo: 30 min ng gawain sa plano", "1 araw: produksyon ng batch"]
+    : ["Araw-araw: 20 min ng status at sagot", "Araw-araw: gawain sa plano", "2 araw: produksyon", "1 araw: mag-record ng maraming video nang sabay"];
+
+  const L = a => `<ul class="list">${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+  const W = (k, t, d, a) => `<div class="week"><div class="d">${d}</div><h4>${k} · ${t}</h4><ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul></div>`;
+  const hoy = new Date().toLocaleDateString("fil", {day:"numeric", month:"long", year:"numeric"});
+
+  $("#plan").innerHTML = `
+  <div class="hero"><div class="k">PLANO NG AKSYON · ${hoy.toUpperCase()}</div>
+    <h2>${nombre}, ito ang 30-araw na plano mo</h2><p><b>${perfil[0]}.</b> ${perfil[1]}</p>
+    <div class="stats"><div class="stat"><b>${fmt(meta)} ${mon}</b><span>target mo sa 30 araw</span></div>
+    <div class="stat"><b>${minDia}</b><span>kada araw · ${diasSem} araw/kada linggo</span></div>
+    <div class="stat"><b>${prio.length}</b><span>mga pangunahing channel</span></div></div></div>
+
+  <div class="sec"><h3><span class="n">1</span>Mga kalakasan mo</h3>${L(fort)}</div>
+  <div class="sec"><h3><span class="n">2</span>Dapat bantayan</h3><ul class="list warn">${aten.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="sec"><h3><span class="n">3</span>Simulan ang pagbebenta</h3>${L(prods)}
+    <div class="note">Inirerekomendang format: <b>${formatos}</b>. Mga flavor: <b>${sabores}</b>. Seasonal offer mo: <b>«${cajaT}»</b>.</div></div>
+  <div class="sec"><h3><span class="n">4</span>Saan unang magbenta</h3><div class="chips">${prio.map(p=>`<span class="chip">${p}</span>`).join("")}</div>
+    <div class="note">Simulan sa una at idagdag ang susunod kapag regular ka nang nagpo-post. Mas maganda ang isang channel na maayos kaysa apat na pinabayaan.</div></div>
+  <div class="sec"><h3><span class="n">5</span>Lingguhang routine mo</h3>${L(rutina)}</div>
+  <div class="sec"><h3><span class="n">6</span>Plano mo linggo-linggo</h3>
+    ${W("Fase 1","Plano ng aksyon","ARAW 1 HANGGANG 7",S1)}${W("Fase 2","Unang mga kliyente","ARAW 8 HANGGANG 14",S2)}
+    ${W("Fase 3","Mga tanong → order","ARAW 15 HANGGANG 21",S3)}${W("Fase 4","Paglago","ARAW 22 HANGGANG 30",S4)}</div>
+  <div class="note"><b>Ang target mo ay gabay lang, hindi garantiya.</b> Depende ang resulta sa tiyaga mo, presyo, at market mo. Kung sa pag-compute sa sheet na «3 · Meta» ay parang imposible ang daily numbers para sa oras mo, bawasan ang target: mas mahalaga ang abot-kayang target na natutupad kaysa malaking target na iniwan. Detalyado ang bawat gawain sa <b>Manual ng programa</b>.</div>
+  <div class="actions"><button class="print" type="button" onclick="window.print()">⬇ I-save bilang PDF / I-print</button>
+  <button class="restart" type="button" onclick="restart()">I-edit ang sagot ko</button></div>`;
+  $("#quiz").style.display = "none"; $("header .sub").style.display = "none";
+  $("#plan").style.display = "block"; window.scrollTo(0, 0);
+  A.done = true; save();
+}
+function restart() { $("#plan").style.display = "none"; $("#quiz").style.display = "block"; $("header .sub").style.display = ""; i = 0; render(); }
+if (A.done && A.meta) showPlan(); else render();
+</script>
+</body>
+</html>

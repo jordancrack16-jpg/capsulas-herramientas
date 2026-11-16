@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>30 WhatsApp žinučių</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--wa:#e9f5e1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5}
+.wrap{max-width:820px;margin:0 auto;padding:22px 16px 70px}
+header{text-align:center;padding:10px 0 16px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--g);font-size:clamp(28px,6vw,38px);line-height:1.1;margin:12px 0 6px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:580px;margin:0 auto}
+.vars{position:sticky;top:0;z-index:5;background:rgba(251,247,239,.96);backdrop-filter:blur(6px);border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin:16px 0;box-shadow:0 6px 18px rgba(47,74,42,.07)}
+.vars b{display:block;color:var(--g);font-size:14px;margin-bottom:8px}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.vg input{width:100%;font:inherit;font-size:14px;padding:10px 12px;border:1.5px solid #e2dac9;border-radius:10px;background:#fff}
+.vg input:focus{outline:2px solid var(--s)}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px;margin-top:10px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+textarea{overflow:hidden}
+.filters button{flex:none;font:800 13px 'Nunito Sans';border:1.5px solid var(--s);background:#fff;color:var(--g);border-radius:30px;padding:7px 13px;cursor:pointer}
+.filters button.on{background:var(--g);border-color:var(--g);color:#fff}
+.cat h2{font-family:'Fraunces',serif;color:var(--g);font-size:24px;margin:26px 0 2px}
+.cat>p{color:var(--m);margin-bottom:10px}
+.m{background:#fff;border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin-bottom:12px}
+.mh{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.n{background:var(--g);color:#fff;font-weight:800;font-size:13px;border-radius:30px;padding:3px 10px}
+.mh h3{font-size:16px;color:var(--g)}
+.w{font-size:12px;font-weight:800;color:var(--g);background:var(--s2);border-radius:30px;padding:3px 10px}
+textarea{width:100%;font:inherit;font-size:15px;line-height:1.5;border:0;border-radius:12px 12px 12px 3px;background:var(--wa);padding:12px 14px;resize:vertical;min-height:110px;color:var(--t)}
+textarea:focus{outline:2px solid var(--s)}
+.btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.btns button,.btns a{font:800 13px 'Nunito Sans';border-radius:30px;padding:9px 14px;cursor:pointer;text-decoration:none;border:0}
+.copy{background:var(--g);color:#fff}
+.wa{background:#25d366;color:#fff}
+.reset{background:transparent;color:var(--m);border:1px solid #d9d0bd!important}
+.ok{background:var(--o)!important}
+.tip{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:10px}
+@media(max-width:600px){.vg{grid-template-columns:1fr}.vars{position:static}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">BONUSAS 1 · REDAGUOJAMA VERSIJA</span>
+  <h1><em>30 WhatsApp žinučių</em> paruoštų naudoti</h1>
+  <p class="sub">Įvesk savo duomenis tik vieną kartą, ir visos žinutės užpildomos automatiškai. Gali redaguoti bet kurią žinutę, nukopijuoti ją arba atidaryti tiesiogiai WhatsApp. Tavo pakeitimai išsaugomi šiame įrenginyje.</p>
+</header>
+
+<div class="vars">
+  <b>✍️ Tavo duomenys (užpildomi visose žinutėse)</b>
+  <div class="vg">
+    <input id="v_YO" placeholder="Tavo vardas">
+    <input id="v_NEGOCIO" placeholder="Tavo prekės ženklas">
+    <input id="v_CIUDAD" placeholder="Tavo miestas">
+  </div>
+  <div class="filters" id="filters"></div>
+</div>
+
+<div id="list"></div>
+<div class="tip"><b>Prisimink:</b> pakeisk tai, kas yra tarp skliaustų, pvz., <b>[Vardas]</b> arba <b>[Data]</b>, prieš siųsdamas. Ir visada rašyk asmens vardą: asmeninės žinutės sulaukia daug daugiau atsakymų.</div>
+</div>
+
+<script>
+const DATA = [{"cat": "Pradėti pokalbį", "desc": "Kad tavo artimieji sužinotų, jog pradėjai, neatrodant kaip reklama.", "ms": [{"n": 1, "t": "Smalsumo būsena", "w": "WhatsApp būsenos · 8 diena", "x": "Atspėk, kas tai? 👀☕\nTai ne šokoladas, ne muilas ir ne žvakė…\nRytoj papasakosiu 🤫"}, {"n": 2, "t": "Būsena: atidariau užsakymus", "w": "WhatsApp būsenos", "x": "Pagaliau galiu papasakoti! 🌸\nTai gurmaniškos kapsulės kavos ir arbatos: įdedi į karštą vandenį ir gauni skanų gėrimą.\nGaminu jas rankomis, {CIUDAD} mieste.\nŠią savaitę atidarau pirmuosius užsakymus 🎁 Nori pamatyti modelius? Parašyk man."}, {"n": 3, "t": "Artimas kontaktas", "w": "Asmeninė žinutė · 9 diena", "x": "Labas, {NOMBRE}! Kaip laikaisi? 😊\nNoriu papasakoti: pradėjau verslą su gurmaniškomis kapsulėmis kavos ir arbatos, rankų darbo, gėlių, širdelių ir meškiukų formų.\nBūtų smagu sužinoti, ką manai. Noriu atsiųsti keletą nuotraukų?"}, {"n": 4, "t": "Pažįstamas, bet ne labai artimas", "w": "Asmeninė žinutė", "x": "Labas, {NOMBRE}, kaip sekasi? Aš esu {YO} 😊\nRašau, nes pradėjau {NEGOCIO} – gurmaniškų kapsulių kavos ir arbatos verslą dovanoms.\nPagalvojau apie tave, nes žinau, kad tau patinka gražūs dalykai. Noriu parodyti katalogą, be jokio įsipareigojimo?"}, {"n": 5, "t": "Kvietimas paragauti", "w": "Degustacija · 11 diena", "x": "{NOMBRE}, turiu tau dovanėlę! ☕\nIšbandau naujus savo gurmaniškų kapsulių skonius ir noriu išgirsti tavo nuoširdžią nuomonę.\nKada galėčiau atnešti?"}, {"n": 6, "t": "Po degustacijos", "w": "Padėka ir pasiūlymas · 11 diena", "x": "Ačiū, kad išbandei, {NOMBRE}! 🥰 Kuri kapsulė patiko labiausiai?\nTavo nuomonė man labai svarbi.\nJei nori dovanoti, turiu Dovanų dėžutę ir Dovanų dėžutę su kaspinu ir atvirute. Noriu atsiųsti nuotraukas?"}]}, {"cat": "Atsakyti į užklausas", "desc": "Greiti atsakymai į dažniausiai užduodamus klausimus.", "ms": [{"n": 7, "t": "„Kas tai?“", "w": "Greitas atsakymas /kas", "x": "Labas, {NOMBRE}! Ačiū, kad parašei 😊\nTai rankų darbo kavos arba arbatos kapsulės, formuotos į gėles, širdeles ir meškiukus.\nĮdedi į puodelį, užpilsi karštu vandeniu ir kapsulė ištirpsta į aromatingą gėrimą. Tai nuostabi dovana!\nAr tai tau, ar dovanai?"}, {"n": 8, "t": "Kainos ir katalogas", "w": "Greitas atsakymas /kainos", "x": "Žinoma! Štai variantai 👇\n🎁 Dėžutė bandymui (4 kapsulės)\n🎀 Dovanų dėžutė su kaspinu ir atvirute\n✨ Užsakymas pagal užsakymą (spalvos, inicialai ar žinutė)\nPalieku katalogą su nuotraukomis ir kainomis. Kokiai progai tau reikia?"}, {"n": 9, "t": "Kaip paruošti ir kiek laiko laikosi", "w": "Greitas atsakymas /naudojimas", "x": "Paruoši taip: įdedi 1 kapsulę į puodelį, užpili karštu vandeniu ir maišai, kol ištirpsta ☕\nLaikyti vėsioje, sausoje vietoje, uždarytame pakuotėje. Pristatydama pateiksiu rekomenduojamą vartojimo laiką raštu.\nNori pirmiausia išbandyti 4 kapsulių dėžutę?"}, {"n": 10, "t": "„Brangu“", "w": "Kainos prieštaravimas", "x": "Suprantu tave, {NOMBRE} 😊 Kiekviena kapsulė pagaminta rankomis, po vieną, iš atrinktų ingredientų, įskaitant dovanų pakuotę.\nJei nori paprastesnio varianto, Dėžutė bandymui yra prieinamesnė ir taip pat graži dovana. Noriu parodyti?"}, {"n": 11, "t": "„Pagalvosiu“", "w": "Laiko prieštaravimas", "x": "Žinoma, be skubos! 😊\nTiesiog noriu pasakyti, kad užsakymus ruošiu pagal užsakymo eilę, o šią savaitę vietų liko nedaug.\nNoriu rezervuoti vieną tavo vardu iki {FECHA}? Jei paskui pakeisi mintį, nieko tokio."}]}, {"cat": "Užsakymų užbaigimas", "desc": "Žinutės, kurios padeda pereiti nuo „gražu“ prie „noriu“.", "ms": [{"n": 12, "t": "Užbaigimas su dviem pasirinkimais", "w": "Užbaigimas · 17 diena", "x": "Kuris tau labiau patinka, {NOMBRE}: 4 kapsulių dėžutė ar Dovanų dėžutė su kaspinu? 🎁\nBet kurią galiu paruošti iki {FECHA}."}, {"n": 13, "t": "Užbaigimas dėl ypatingos datos", "w": "Sezono užbaigimas", "x": "{NOMBRE}, pranešu, nes klausėte 💛\nPriimu paskutinius užsakymus iki {FECHA}. Po šios datos nebegalėsiu jų paruošti.\nAr rezervuoju dėžutę tau?"}, {"n": 14, "t": "Užbaigimas su avansu", "w": "Patvirtinimas su daliniu apmokėjimu", "x": "Puiku! Norint rezervuoti datą, prašau 50 % avanso ({PRECIO}), likusi dalis sumokama atsiimant 😊\nKai tik patvirtinsi, užrašysiu ir pradėsiu gaminti."}, {"n": 15, "t": "Užsakymo patvirtinimas", "w": "Santrauka, kad išvengti klaidų", "x": "Ačiū už užsakymą, {NOMBRE}! 🥰 Patvirtinu duomenis:\n• Produktas: \n• Skoniai: \n• Atvirutė ar žinutė: \n• Pristatymas: {FECHA}\n• Iš viso: {PRECIO}\nAr viskas teisinga?"}, {"n": 16, "t": "Apmokėjimo duomenys", "w": "Siųsti apmokėjimo būdus", "x": "Palieku apmokėjimo duomenis 👇\n[Įrašyk čia savo pavedimą, banko sąskaitą ar mokėjimo būdą]\nKai atliksi, atsiųsk kvitą čia ir patvirtinsiu. Ačiū!"}]}, {"cat": "Pristatymas ir sekimas", "desc": "Kad nė viena užklausa ar klientas neliktų nepastebėti.", "ms": [{"n": 17, "t": "Užsakymas paruoštas", "w": "Pristatymo pranešimas", "x": "¡{NOMBRE}, tavo užsakymas paruoštas! 🎁✨\nSiunčiu nuotrauką, kad pamatytum.\nAr tinka, jei pristatau {FECHA}? Ar norėtum pats atsiimti?"}, {"n": 18, "t": "Instrukcijos pristatant", "w": "Kartu su pristatymu", "x": "Mėgaukis! ☕\nKaip paruošti: 1 kapsulė į puodelį + karštas vanduo + maišyti.\nLaikyk vėsioje, sausoje vietoje, uždarytoje dėžutėje.\nJei patiks, labai norėčiau išgirsti tavo nuomonę!"}, {"n": 19, "t": "Sekimas po 24 val.", "w": "Užklausa be atsakymo", "x": "Labas, {NOMBRE}! Ar pavyko peržiūrėti nuotraukas, kurias atsiunčiau vakar? 😊\nJei turi klausimų apie modelius ar skonius, esu čia."}, {"n": 20, "t": "Susidomėjusi, bet nepirkusi", "w": "Sekimas po 7 dienų · 29 diena", "x": "Labas, {NOMBRE} 🌸 Prieš kelias dienas domėjaisi kapsulėmis.\nŠią savaitę paruošiau naujų modelių ir prisiminiau tave. Noriu parodyti?\nJei dabar ne laikas, nesijaudink!"}, {"n": 21, "t": "Siuntimo sąrašas: naujiena", "w": "Tik kontaktams, kurie sutiko", "x": "✨ Nauja {NEGOCIO} ✨\nNauji skoniai ir sezoninė dėžutė jau pasiekiami.\nAtsakyk „NORIŲ“ ir atsiųsiu nuotraukas bei kainas 🎁"}]}, {"cat": "Didieji pardavimai ir partnerystės", "desc": "Užsakymai dideliais kiekiais, įmonėms ir vietiniams verslams.", "ms": [{"n": 22, "t": "Renginiai (vestuvės, gimtadieniai, krikštynos)", "w": "Dideli klientai · 19 diena", "x": "Labas, {NOMBRE}! Aš esu {YO} iš {NEGOCIO} 😊\nGaminu personalizuotas gurmaniškas kapsules kaip renginių prisiminimus: pagal šventės spalvas, švenčiamųjų inicialus ir su žinute etiketėje.\nTai unikali dovana, kurią svečiai tikrai naudoja. Noriu atsiųsti idėjų ir kainų už kiekį?"}, {"n": 23, "t": "Įmonės ir korporatyvinės dovanos", "w": "Dideli klientai · 19 diena", "x": "Labas, {NOMBRE}, kaip sekasi? Aš esu {YO} iš {NEGOCIO}.\nGaminu gurmaniškų kapsulių kavos ir arbatos dėžutes įmonių dovanoms: klientams, komandai ar ypatingoms progoms, su personalizuota etikete su logotipu ar žinute.\nAr galiu atsiųsti pasiūlymą su variantais ir kainomis už kiekį?"}, {"n": 24, "t": "Partnerystė su verslu (gėlių parduotuvė, kavinė, dovanų parduotuvė)", "w": "Vietinė partnerystė · 24 diena", "x": "Labas! Aš esu {YO}, verslininkė iš {CIUDAD}. Gaminu gurmaniškas kapsules kavos ir arbatos, puikiai tinkančias dovanoms.\nNorėčiau pasiūlyti partnerystę: galiu palikti pavyzdį, kad tavo klientai galėtų pamatyti, ir dirbti konsignacijos pagrindu arba su specialia perpardavimo kaina.\nKada galėčiau atvežti dėžutę, kad išbandytum?"}]}, {"cat": "Klientų lojalumas ir pakartotiniai pardavimai", "desc": "Tavo patenkinti klientai – geriausias pardavimų kanalas.", "ms": [{"n": 25, "t": "Prašyti atsiliepimo", "w": "Po pristatymo · 20 diena", "x": "Labas, {NOMBRE}! Kaip sekėsi su kapsulėmis? 😊\nAr patiko tam, kas jas gavo?\nJei atsiųsi nuotrauką ar garso įrašą su savo nuomone, būsiu labai laiminga 💛"}, {"n": 26, "t": "Padėka ir leidimo prašymas", "w": "Testimonialų skelbimui", "x": "Labai ačiū, {NOMBRE}! 🥹 Praskaidrinai mano dieną.\nAr galiu pasidalinti tavo žinute savo būsenose? Galiu tai padaryti be tavo vardo, jei nori."}, {"n": 27, "t": "Pakartotinis pirkimas", "w": "Ankstesni klientai · 22 diena", "x": "Labas, {NOMBRE}! 🌸 Prieš kurį laiką gaminau tau kapsules ir noriu pranešti, kad turiu naujų skonių.\nKadangi esi klientė, kitame užsakyme dovanoju papildomą kapsulę 🎁\nNoriu parodyti naujienas?"}, {"n": 28, "t": "Rekomendacijos", "w": "Rekomendacijų programa · 23 diena", "x": "{NOMBRE}, ačiū, kad pasitiki manimi! 💛\nPasakysiu tau: jei rekomenduosi mane kam nors, o ta asmuo pateiks užsakymą, kitame pirkime gausi 2 kapsules dovanų.\nTiesiog pasakyk, kad paminėtų tavo vardą, kai rašys man 😊"}, {"n": 29, "t": "Kliento gimtadienis", "w": "Ypatinga data", "x": "Su gimtadieniu, {NOMBRE}! 🎂🥳\nTegul tavo diena būna nuostabi.\nTuriu tau dovanėlę: šį mėnesį tavo mėgstamiausia dėžutė su specialia nuolaida. Rašyk, kada nori!"}, {"n": 30, "t": "Sezoninių klientų aktyvinimas", "w": "Prieš kiekvieną ypatingą datą", "x": "Labas, {NOMBRE}! Artėja {FECHA} 🎁\nPraėjusiais metais/daug žmonių liko be savo dėžutės, nes pavėlavo, todėl pranešu iš anksto.\nJau turiu sezoninius modelius. Ar rezervuoju tau?"}]}];
+const VARS = ["YO","NEGOCIO","CIUDAD"];
+const LABEL = {NOMBRE:"[Vardas]", YO:"[Tavo vardas]", NEGOCIO:"[Tavo prekės ženklas]", CIUDAD:"[Tavo miestas]", PRECIO:"[Kaina]", FECHA:"[Data]"};
+let st = {v:{}, e:{}};
+try { st = Object.assign(st, JSON.parse(localStorage.getItem("cg_msgs") || "{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_msgs", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+
+function fill(x) {
+  return x.replace(/\{(\w+)\}/g, (m, k) => (VARS.includes(k) && st.v[k]) ? st.v[k] : (LABEL[k] || m));
+}
+function render(filter) {
+  let h = "";
+  DATA.forEach((c, ci) => {
+    if (filter !== undefined && filter !== ci) return;
+    h += `<section class="cat"><h2>${c.cat}</h2><p>${c.desc}</p>`;
+    c.ms.forEach(m => {
+      const txt = st.e[m.n] !== undefined ? st.e[m.n] : fill(m.x);
+      h += `<div class="m"><div class="mh"><span class="n">${m.n}</span><h3>${m.t}</h3><span class="w">${m.w}</span></div>
+      <textarea data-n="${m.n}" rows="${Math.max(4, txt.split("\n").length + 1)}">${txt.replace(/</g,"&lt;")}</textarea>
+      <div class="btns"><button class="copy" data-c="${m.n}">Kopijuoti</button><a class="wa" data-w="${m.n}" href="#" target="_blank" rel="noopener">Atidaryti WhatsApp</a>
+      ${st.e[m.n] !== undefined ? `<button class="reset" data-r="${m.n}">Atstatyti originalą</button>` : ""}</div></div>`;
+    });
+    h += "</section>";
+  });
+  $("#list").innerHTML = h;
+  const fit = t => { t.style.height = "auto"; t.style.height = (t.scrollHeight + 4) + "px"; };
+  document.querySelectorAll("textarea").forEach(t => { fit(t); t.addEventListener("input", () => { fit(t); st.e[t.dataset.n] = t.value; save(); }); });
+  document.querySelectorAll("[data-c]").forEach(b => b.onclick = async () => {
+    const t = document.querySelector(`textarea[data-n="${b.dataset.c}"]`);
+    try { await navigator.clipboard.writeText(t.value); } catch(e) { t.select(); document.execCommand("copy"); }
+    b.textContent = "Nukopijuota! ✓"; b.classList.add("ok"); setTimeout(() => { b.textContent = "Kopijuoti"; b.classList.remove("ok"); }, 1500);
+  });
+  document.querySelectorAll("[data-w]").forEach(a => a.onclick = () => {
+    const t = document.querySelector(`textarea[data-n="${a.dataset.w}"]`);
+    a.href = "https://wa.me/?text=" + encodeURIComponent(t.value);
+  });
+  document.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { delete st.e[b.dataset.r]; save(); render(cur); });
+}
+let cur;
+const fb = $("#filters");
+fb.innerHTML = `<button class="on" data-f="">Visos</button>` + DATA.map((c, i) => `<button data-f="${i}">${c.cat}</button>`).join("");
+fb.querySelectorAll("button").forEach(b => b.onclick = () => {
+  fb.querySelectorAll("button").forEach(x => x.classList.remove("on")); b.classList.add("on");
+  cur = b.dataset.f === "" ? undefined : +b.dataset.f; render(cur);
+});
+VARS.forEach(k => { const i = $("#v_" + k); i.value = st.v[k] || ""; i.addEventListener("input", () => { st.v[k] = i.value.trim(); save(); render(cur); }); });
+render();
+</script>
+</body>
+</html>

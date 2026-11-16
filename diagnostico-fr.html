@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnostic et Plan d’Action</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--w:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.55;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px}
+header{text-align:center;padding:18px 0 10px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;font-weight:800;color:var(--g);font-size:clamp(28px,6vw,40px);line-height:1.1;margin:14px 0 8px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:560px;margin:0 auto}
+.bar{height:8px;background:var(--c2);border-radius:9px;margin:22px 0 6px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--s),var(--o));transition:width .3s}
+.step-n{font-size:13px;color:var(--m);text-align:right;font-weight:600}
+.card{background:var(--w);border:1px solid #e6dfcf;border-radius:18px;padding:24px 20px;margin-top:14px;box-shadow:0 6px 20px rgba(47,74,42,.06)}
+.q{display:none}.q.on{display:block;animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.q h2{font-family:'Fraunces',serif;color:var(--g);font-size:22px;line-height:1.25;margin-bottom:6px}
+.q .hint{color:var(--m);font-size:14px;margin-bottom:14px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;border:1.5px solid #e2dac9;border-radius:14px;padding:13px 14px;cursor:pointer;background:var(--c);font-weight:600;transition:.15s}
+.opt:hover{border-color:var(--s)}
+.opt input{accent-color:var(--g);width:18px;height:18px;flex:none}
+.opt.sel{border-color:var(--g);background:var(--s2)}
+.opt small{display:block;font-weight:400;color:var(--m);font-size:13px}
+input[type=text],input[type=number],select{width:100%;font:inherit;padding:13px 14px;border:1.5px solid #e2dac9;border-radius:12px;background:var(--c);color:var(--t)}
+input:focus,select:focus{outline:2px solid var(--s);border-color:var(--s)}
+.row{display:grid;grid-template-columns:1fr 130px;gap:10px}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+button{font:800 15px 'Nunito Sans',sans-serif;border:0;border-radius:40px;padding:14px 22px;cursor:pointer}
+.next{background:var(--g);color:#fff;flex:1}.next:disabled{opacity:.4;cursor:not-allowed}
+.back{background:transparent;color:var(--g);border:1.5px solid var(--g)}
+.err{color:#b5654a;font-size:13px;margin-top:8px;min-height:18px}
+/* Resultado */
+#plan{display:none}
+.hero{background:linear-gradient(135deg,var(--g),#466b3c);color:#fff;border-radius:20px;padding:26px 22px;margin-top:10px}
+.hero .k{font-size:12px;letter-spacing:3px;font-weight:800;color:#e9d8b0}
+.hero h2{font-family:'Fraunces',serif;font-size:28px;line-height:1.15;margin:6px 0}
+.hero p{opacity:.92}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.stat{background:rgba(255,255,255,.12);border-radius:14px;padding:12px;text-align:center}
+.stat b{display:block;font-family:'Fraunces',serif;font-size:22px}
+.stat span{font-size:12px;opacity:.9}
+.sec{margin-top:22px}
+.sec h3{font-family:'Fraunces',serif;color:var(--g);font-size:21px;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.sec h3 .n{background:var(--o);color:#fff;font:800 13px 'Nunito Sans';border-radius:30px;padding:3px 10px}
+.list{list-style:none;display:grid;gap:8px}
+.list li{background:var(--w);border:1px solid #e6dfcf;border-radius:12px;padding:11px 14px 11px 40px;position:relative}
+.list li:before{content:"✓";position:absolute;left:14px;top:10px;color:var(--s);font-weight:800}
+.list.warn li:before{content:"!";color:#b5654a}
+.week{background:var(--w);border:1px solid #e6dfcf;border-radius:16px;padding:16px;margin-bottom:12px;break-inside:avoid}
+.week h4{color:var(--g);font-size:16px;margin-bottom:2px}
+.week .d{font-size:12px;color:var(--o);font-weight:800;letter-spacing:2px}
+.week ul{margin:8px 0 0 0;list-style:none}
+.week li{padding:6px 0 6px 28px;border-top:1px dashed #e6dfcf;position:relative;font-size:15px}
+.week li:before{content:"☐";position:absolute;left:4px;color:var(--s);font-weight:800}
+.week li b{color:var(--g)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--s2);color:var(--g);font-weight:800;font-size:13px;border-radius:30px;padding:6px 12px}
+.note{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--m);margin-top:14px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.actions button{flex:1;min-width:200px}
+.print{background:var(--o);color:#fff}
+.restart{background:transparent;border:1.5px solid var(--g);color:var(--g)}
+@media (max-width:520px){.stats{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff}.wrap{max-width:none;padding:0}
+  #quiz,header .sub,.actions,.bar,.step-n{display:none!important}
+  header{padding:0}
+  .hero{break-inside:avoid}
+  .sec{break-inside:auto}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">ÉTAPE 1 DU PROGRAMME</span>
+  <h1>Diagnostic et <em>plan d’action</em> personnalisé</h1>
+  <p class="sub">Réponds à 12 questions rapides (environ 5 minutes). À la fin, tu recevras ton plan sur 30 jours, adapté à ton temps, ton budget et ton expérience, prêt à imprimer ou sauvegarder en PDF.</p>
+</header>
+
+<div id="quiz">
+  <div class="bar"><i id="prog"></i></div>
+  <div class="step-n" id="stepn"></div>
+  <div class="card" id="qs"></div>
+  <div class="err" id="err"></div>
+  <div class="nav">
+    <button class="back" id="back" type="button">← Retour</button>
+    <button class="next" id="next" type="button">Suivant →</button>
+  </div>
+</div>
+
+<div id="plan"></div>
+</div>
+
+<script>
+const Q = [
+ {id:"nombre", t:"Comment tu t’appelles ?", h:"Ton plan portera ton nom.", type:"text", ph:"Ton prénom"},
+ {id:"pais", t:"Dans quel pays vas-tu vendre ?", h:"Cela nous aide à te suggérer des canaux et des dates spéciales.", type:"select",
+  o:["France","Belgique","Suisse","Luxembourg","Monaco","Andorre","Allemagne","Italie","Espagne","Royaume-Uni","Autre"]},
+ {id:"exp", t:"Quelle expérience as-tu dans la préparation de capsules gourmandes ?", type:"radio", o:[
+   ["0","Je n’en ai pas encore fait","Je débute avec le cours"],["1","J’ai fait quelques essais","Ça me réussit, mais je pratique encore"],
+   ["2","J’en ai déjà vendu ou offert","J’ai de l’expérience et quelques avis"],["3","Je vends régulièrement","Je veux m’organiser et développer"]]},
+ {id:"pres", t:"Avec quel budget démarres-tu pour les ingrédients et emballages ?", type:"radio", o:[
+   ["0","Très bas","Juste ce que j’ai déjà ou le minimum"],["1","Bas","Pour quelques séries et emballages simples"],
+   ["2","Moyen","Pour plusieurs séries et jolies boîtes"],["3","Je peux investir plus","Nouveaux moules, plus d’emballages et matériel"]]},
+ {id:"horas", t:"Combien d’heures par semaine peux-tu y consacrer ?", type:"radio", o:[
+   ["0","Moins de 3 heures","Un peu certains jours"],["1","De 3 à 6 heures","Presque une heure par jour"],
+   ["2","De 7 à 12 heures","Une à deux heures par jour"],["3","Plus de 12 heures","Je peux y consacrer beaucoup de temps"]]},
+ {id:"canales", t:"Où aimerais-tu vendre ?", h:"Tu peux choisir plusieurs options.", type:"check", o:[
+   ["wa","WhatsApp"],["ig","Instagram"],["tt","TikTok"],["fb","Facebook et Marketplace"],["feria","Marchés et foires"],
+   ["local","Commerces locaux (cafés, fleuristes, cadeaux)"],["eventos","Événements et entreprises (mariages, anniversaires, cadeaux d’entreprise)"]]},
+ {id:"contactos", t:"Combien de contacts as-tu sur WhatsApp, environ ?", type:"radio", o:[
+   ["0","Moins de 100",""],["1","Entre 100 et 300",""],["2","Entre 300 et 800",""],["3","Plus de 800",""]]},
+ {id:"video", t:"Es-tu prêt(e) à faire des vidéos pour les réseaux ?", type:"radio", o:[
+   ["2","Oui, et je peux apparaître","Je suis à l’aise devant la caméra"],["1","Oui, mais seulement mes mains et le produit","Je préfère ne pas montrer mon visage"],
+   ["0","Je préfère les photos pour l’instant","Les vidéos me posent problème"]]},
+ {id:"obj", t:"Que veux-tu accomplir avec ce business ?", type:"radio", o:[
+   ["extra","Un revenu complémentaire","Compléter ce que je gagne déjà"],["principal","Que ce soit mon revenu principal","Construire un vrai business"],
+   ["temporada","Vendre lors de dates spéciales","Noël, Fête des Mères, Saint-Valentin…"],["eventos","Me spécialiser dans les événements et cadeaux","Mariages, anniversaires, entreprises"]]},
+ {id:"meta", t:"Combien aimerais-tu vendre dans les 30 prochains jours ?", h:"Écris un chiffre et ta devise. Tu pourras ajuster plus tard avec la Calculatrice.", type:"meta"},
+ {id:"traba", t:"Qu’est-ce qui te freine le plus aujourd’hui ?", type:"radio", o:[
+   ["precio","Je ne sais pas combien facturer",""],["donde","Je ne sais pas où ni à qui vendre",""],["verguenza","J’ai honte de proposer",""],
+   ["tiempo","Je n’ai pas beaucoup de temps",""],["produccion","Je ne me sens pas encore sûre de la production",""]]},
+ {id:"fecha", t:"Quelle date spéciale approche le plus ?", h:"Les dates spéciales sont ta meilleure opportunité de vente.", type:"radio", o:[
+   ["navidad","Noël et Nouvel An",""],["sanvalentin","Saint-Valentin / Fête de l’Amour",""],["madre","Fête des Mères",""],
+   ["padre","Fête des Pères",""],["graduacion","Remises de diplômes / fin d’année scolaire",""],["ninguna","Aucune dans les prochaines semaines",""]]},
+];
+const MONEDAS = {"France":"EUR","Belgique":"EUR","Suisse":"CHF","Luxembourg":"EUR","Monaco":"EUR","Andorre":"EUR","Allemagne":"EUR","Italie":"EUR","Espagne":"EUR","Royaume-Uni":"GBP","Autre":"EUR"};
+let A = {}; let i = 0;
+try { const s = localStorage.getItem("cg_diag"); if (s) A = JSON.parse(s) || {}; } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_diag", JSON.stringify(A)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function render() {
+  const q = Q[i]; let h = `<div class="q on"><h2>${q.t}</h2>${q.h ? `<p class="hint">${q.h}</p>` : ""}`;
+  if (q.type === "text") h += `<input type="text" id="f" placeholder="${q.ph}" value="${esc(A[q.id]||"")}" maxlength="40">`;
+  if (q.type === "select") h += `<select id="f"><option value="">Choisis ton pays</option>${q.o.map(o=>`<option ${A[q.id]===o?"selected":""}>${o}</option>`).join("")}</select>`;
+  if (q.type === "radio") h += `<div class="opts">${q.o.map(([v,l,s])=>`<label class="opt ${A[q.id]===v?"sel":""}"><input type="radio" name="r" value="${v}" ${A[q.id]===v?"checked":""}><span>${l}${s?`<small>${s}</small>`:""}</span></label>`).join("")}</div>`;
+  if (q.type === "check") { const cur = A[q.id]||[]; h += `<div class="opts">${q.o.map(([v,l])=>`<label class="opt ${cur.includes(v)?"sel":""}"><input type="checkbox" value="${v}" ${cur.includes(v)?"checked":""}><span>${l}</span></label>`).join("")}</div>`; }
+  if (q.type === "meta") { const mon = A.moneda || MONEDAS[A.pais] || "EUR";
+    h += `<div class="row"><input type="number" id="f" min="0" inputmode="numeric" placeholder="Ex. : 1000" value="${A.meta||""}"><input type="text" id="mon" value="${esc(mon)}" maxlength="5" aria-label="Devise"></div>`; }
+  h += "</div>";
+  $("#qs").innerHTML = h; $("#err").textContent = "";
+  $("#prog").style.width = (i / Q.length * 100) + "%";
+  $("#stepn").textContent = `Question ${i+1} sur ${Q.length}`;
+  $("#back").style.visibility = i ? "visible" : "hidden";
+  $("#next").textContent = i === Q.length - 1 ? "Voir mon plan ✦" : "Suivant →";
+  document.querySelectorAll(".opt input").forEach(inp => inp.addEventListener("change", () => {
+    if (inp.type === "radio") { document.querySelectorAll(".opt").forEach(o=>o.classList.remove("sel")); inp.closest(".opt").classList.add("sel"); A[q.id] = inp.value; save(); setTimeout(next, 220); }
+    else { inp.closest(".opt").classList.toggle("sel", inp.checked); A[q.id] = [...document.querySelectorAll(".opt input:checked")].map(x=>x.value); save(); }
+  }));
+  const f = $("#f"); if (f && q.type !== "select") { f.focus(); f.addEventListener("keydown", e => { if (e.key === "Enter") next(); }); }
+}
+function valid() {
+  const q = Q[i];
+  if (q.type === "text") { const v = $("#f").value.trim(); if (!v) return "Écris ton prénom pour continuer."; A.nombre = v; }
+  if (q.type === "select") { const v = $("#f").value; if (!v) return "Choisis un pays."; if (A.pais !== v) delete A.moneda; A.pais = v; }
+  if (q.type === "radio" && A[q.id] === undefined) return "Choisis une option.";
+  if (q.type === "check" && !(A[q.id]||[]).length) return "Choisis au moins une option.";
+  if (q.type === "meta") { const v = parseFloat($("#f").value); if (!(v > 0)) return "Écris un nombre supérieur à zéro."; A.meta = v; A.moneda = ($("#mon").value.trim() || "EUR").toUpperCase(); }
+  save(); return "";
+}
+function next() { const e = valid(); if (e) { $("#err").textContent = e; return; } if (i < Q.length - 1) { i++; render(); } else showPlan(); }
+$("#next").onclick = next;
+$("#back").onclick = () => { if (i > 0) { i--; render(); } };
+
+const n = k => parseInt(A[k] ?? 0, 10);
+const fmt = v => Math.round(v).toLocaleString("fr");
+
+function showPlan() {
+  const exp = n("exp"), pres = n("pres"), horas = n("horas"), cont = n("contactos"), vid = n("video");
+  const ch = A.canales || [], has = c => ch.includes(c);
+  const nombre = esc(A.nombre), mon = esc(A.moneda), meta = A.meta;
+
+  // Profil
+  const score = exp + horas + Math.min(pres, 2);
+  const perfil = score <= 3 ? ["Entrepreneuse débutante", "Ta priorité est de pratiquer, préparer un bel échantillon et commencer à vendre dans ton cercle proche. Pas à pas."]
+    : score <= 6 ? ["Entrepreneuse en marche", "Tu as déjà une base. Ta priorité est d’organiser tes prix, montrer ton produit régulièrement et conclure tes premières commandes."]
+    : ["Entrepreneuse prête à grandir", "Tu as de l’expérience et du temps. Ta priorité est d’ajouter des canaux, des grosses commandes et des clients fidèles."];
+
+  // Temps quotidien
+  const minDia = ["20–30 min", "40–60 min", "1–2 h", "2 h ou plus"][horas];
+  const diasSem = [3, 5, 5, 6][horas];
+
+  // Canaux prioritaires
+  let prio = ["WhatsApp (statuts et messages personnels)"];
+  if (has("ig") || (vid >= 1 && !has("tt"))) prio.push(vid >= 1 ? "Instagram (Reels et statuts)" : "Instagram (photos et carrousel)");
+  if (has("tt") && vid >= 1) prio.push("TikTok (vidéos courtes du processus)");
+  if (has("fb")) prio.push("Facebook Marketplace et groupes locaux");
+  if (has("local")) prio.push("Commerces locaux partenaires");
+  if (has("eventos") || A.obj === "eventos") prio.push("Événements et cadeaux d’entreprise");
+  if (has("feria")) prio.push("Marchés et foires");
+  prio = [...new Set(prio)].slice(0, horas >= 2 ? 4 : 3);
+
+  // Produits recommandés
+  const prods = exp === 0 ? ["Boîte découverte (4 capsules gourmandes)", "Boîte cadeau (6 capsules gourmandes)"]
+    : ["Boîte découverte (4 capsules gourmandes)", "Boîte cadeau (6–9 capsules gourmandes)", "Commande personnalisée"];
+  if (A.obj === "eventos" || has("eventos")) prods.push("Souvenirs pour événements (en volume)");
+  const formatos = exp <= 1 ? "cœur, fleur et cercle (les plus faciles à démouler)" : "cœur, fleur, ourson et papillon";
+  const sabores = pres === 0 ? "2 saveurs de café et 1 de thé, pour acheter peu d’ingrédients" : "3 saveurs de café et 2 de thé";
+
+  // Date spéciale
+  const F = {navidad:["Boîte Noël","Noël"], sanvalentin:["Boîte Saint-Valentin","la Saint-Valentin"], madre:["Boîte Fête des Mères","la Fête des Mères"],
+             padre:["Boîte Fête des Pères","la Fête des Pères"], graduacion:["Boîte Diplôme","les remises de diplômes"], ninguna:["Boîte Anniversaire","les anniversaires du mois"]};
+  const [cajaT, fechaT] = F[A.fecha] || F.ninguna;
+
+  // Objectifs (prix moyen indicatif non connu : à calculer)
+  const metaSem = meta / 4.3;
+
+  // Forces et points d’attention
+  const fort = [], aten = [];
+  if (exp >= 2) fort.push("Tu as déjà de l’expérience : tu peux montrer des photos réelles et des avis dès le premier jour.");
+  if (horas >= 2) fort.push("Tu as du temps disponible : tu peux avancer plus vite que le plan de base.");
+  if (cont >= 2) fort.push("Ta liste WhatsApp est grande : tes statuts seront ton premier canal de vente.");
+  if (vid === 2) fort.push("Tu es prêt(e) à apparaître en vidéo : cela génère beaucoup de confiance et vend plus.");
+  if (pres >= 2) fort.push("Ton budget te permet de soigner la présentation dès le début.");
+  if (A.fecha && A.fecha !== "ninguna") fort.push(`Tu as ${fechaT} bientôt : une date qui justifie d’acheter maintenant.`);
+  if (!fort.length) fort.push("Tu as franchi le pas de commencer avec une méthode : cela te place déjà devant la plupart.");
+  if (exp <= 1) aten.push("Pratique 2–3 séries avant d’accepter de grosses commandes ; commence avec des formats simples.");
+  if (pres === 0) aten.push("Commence avec des emballages simples (sachet kraft + étiquette) et réinvestis les premiers gains dans des boîtes.");
+  if (horas === 0) aten.push("Avec peu de temps, produis par séries un seul jour par semaine et filme plusieurs vidéos d’un coup.");
+  if (cont === 0) aten.push("Ta liste de contacts est petite : tu auras besoin de Marketplace, groupes et commerces partenaires pour toucher plus de monde.");
+  if (vid === 0) aten.push("Sans vidéo, tu atteindras moins de personnes. Essaie juste avec tes mains : la capsule qui fond est ton meilleur contenu.");
+  const TRABA = {precio:"Ce qui te freine le plus, c’est le prix : les jours 3 et 4 sont clés. Ne les saute pas.",
+    donde:"Ce qui te freine le plus, c’est où vendre : suis le Guide de tes 10 premiers clients dès le jour 7.",
+    verguenza:"Tu as honte de proposer : utilise les messages prêts du Bonus 1. Tu vas partager quelque chose de joli, pas demander une faveur.",
+    tiempo:"Ton temps est limité : fais seulement la tâche principale de chaque jour et regroupe la production.",
+    produccion:"Tu ne te sens pas encore sûre en production : consacre les jours 2 et 6 à pratiquer et revois le cours principal."};
+  aten.push(TRABA[A.traba]);
+
+  // Semaines personnalisées
+  const S1 = [
+    `<b>Jour 1 :</b> imprime ce plan et écris pourquoi tu commences.`,
+    `<b>Jour 2 :</b> définis ton menu : ${prods.slice(0,3).join(", ")}. Formats : ${formatos}. Saveurs : ${sabores}.`,
+    `<b>Jours 3–4 :</b> entre tes coûts dans la Calculatrice et définis tes prix (marge suggérée : 55–70 %).`,
+    `<b>Jour 5 :</b> fixe ton objectif dans la feuille « 3 · Objectif » : ${fmt(meta)} ${mon} font environ ${fmt(metaSem)} ${mon} par semaine. Regarde combien de boîtes cela représente et ajuste si besoin.`,
+    exp <= 1 ? `<b>Jour 6 :</b> fais 2 séries d’entraînement et une boîte d’échantillon complète. Prends 15 photos à la lumière naturelle.` : `<b>Jour 6 :</b> prépare la boîte d’échantillon, prends 15 photos et filme la capsule qui fond.`,
+    `<b>Jour 7 :</b> configure WhatsApp Business (catalogue avec tes produits) et crée ta liste de ${cont === 0 ? "50" : "100"} contacts.`];
+  const S2 = [
+    `<b>Jour 8 :</b> 3 statuts WhatsApp avec un message de curiosité (Message 1).`,
+    `<b>Jour 9 :</b> ${cont >= 2 ? "15" : "10"} messages personnels avec le Message 3. Note qui répond.`,
+    vid >= 1 ? `<b>Jour 10 :</b> filme le Script 1 « Tu devines ce que c’est ? »${vid === 1 ? " (seulement les mains)" : ""} et publie-le sur ${has("tt") ? "TikTok, " : ""}Instagram et statuts.` : `<b>Jour 10 :</b> publie un carrousel de photos avec la question « Tu devines ce que c’est ? ».`,
+    `<b>Jour 11 :</b> dégustation avec famille, travail ou amies. Demande avis et photo.`,
+    has("fb") || cont <= 1 ? `<b>Jour 12 :</b> publie sur Marketplace et dans 3 groupes locaux.` : `<b>Jour 12 :</b> deuxième série de statuts avec les avis de la dégustation.`,
+    `<b>Jours 13–14 :</b> 10 messages de plus et bilan de la semaine dans le Contrôle des commandes.`];
+  const S3 = [
+    `<b>Jour 15 :</b> lance ta <b>«${cajaT}»</b> pour ${fechaT}, avec date limite de commande.`,
+    `<b>Jour 16 :</b> entre les réponses rapides et les étiquettes dans WhatsApp Business.`,
+    `<b>Jour 17 :</b> clôture les demandes en attente (Messages 12–16). Demande un acompte pour confirmer.`,
+    `<b>Jour 18 :</b> crée 3 options personnalisées et calcule leur prix.`,
+    has("eventos") || A.obj === "eventos" ? `<b>Jour 19 :</b> contacte 10 clients potentiels pour événements ou entreprises (Messages 22 et 23). <b>Priorité haute pour toi.</b>` : `<b>Jour 19 :</b> contacte 5 clients potentiels pour événements (Message 22).`,
+    `<b>Jours 20–21 :</b> publie 3 témoignages et regarde quel produit rapporte le plus.`];
+  const S4 = [
+    `<b>Jour 22 :</b> message de revente à tous tes clients (Message 27).`,
+    `<b>Jour 23 :</b> lance ton programme de parrainage (Message 28).`,
+    has("local") ? `<b>Jour 24 :</b> visite 3 commerces partenaires avec une boîte d’échantillon. <b>Priorité haute pour toi.</b>` : `<b>Jour 24 :</b> contacte 2 commerces similaires (fleuriste, café) avec le Message 24.`,
+    `<b>Jour 25 :</b> planifie 2 semaines de contenu${vid >= 1 ? " et filme 3 vidéos d’un coup" : ""}.`,
+    `<b>Jours 26–27 :</b> organise ta routine de production et vérifie tes chiffres dans la feuille Résumé.`,
+    `<b>Jours 28–30 :</b> évaluation finale, remercie tes clients et crée un nouveau plan avec ton nouvel objectif.`];
+  const rutina = horas === 0
+    ? ["Lundi : 20 min de messages et statuts", "Mercredi : 20 min de contenu", "Samedi : production et emballage en série"]
+    : horas === 1 ? ["Tous les jours : 15 min de statuts et réponses", "3 jours par semaine : 30 min de la tâche du plan", "1 jour : production en série"]
+    : ["Tous les jours : 20 min de statuts et réponses", "Tous les jours : la tâche du plan", "2 jours : production", "1 jour : filmer plusieurs vidéos d’un coup"];
+
+  const L = a => `<ul class="list">${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+  const W = (k, t, d, a) => `<div class="week"><div class="d">${d}</div><h4>${k} · ${t}</h4><ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul></div>`;
+  const hoy = new Date().toLocaleDateString("fr", {day:"numeric", month:"long", year:"numeric"});
+
+  $("#plan").innerHTML = `
+  <div class="hero"><div class="k">PLAN D’ACTION · ${hoy.toUpperCase()}</div>
+    <h2>${nombre}, voici ton plan sur 30 jours</h2><p><b>${perfil[0]}.</b> ${perfil[1]}</p>
+    <div class="stats"><div class="stat"><b>${fmt(meta)} ${mon}</b><span>ton objectif en 30 jours</span></div>
+    <div class="stat"><b>${minDia}</b><span>par jour · ${diasSem} jours/semaine</span></div>
+    <div class="stat"><b>${prio.length}</b><span>canaux prioritaires</span></div></div></div>
+
+  <div class="sec"><h3><span class="n">1</span>Tes forces</h3>${L(fort)}</div>
+  <div class="sec"><h3><span class="n">2</span>Points d’attention</h3><ul class="list warn">${aten.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="sec"><h3><span class="n">3</span>Par quoi commencer à vendre</h3>${L(prods)}
+    <div class="note">Formats recommandés : <b>${formatos}</b>. Saveurs : <b>${sabores}</b>. Ton offre de saison : <b>«${cajaT}»</b>.</div></div>
+  <div class="sec"><h3><span class="n">4</span>Où vendre en premier</h3><div class="chips">${prio.map(p=>`<span class="chip">${p}</span>`).join("")}</div>
+    <div class="note">Commence par le premier et ajoute le suivant quand tu publies régulièrement. Mieux vaut un canal bien travaillé que quatre abandonnés.</div></div>
+  <div class="sec"><h3><span class="n">5</span>Ta routine hebdomadaire</h3>${L(rutina)}</div>
+  <div class="sec"><h3><span class="n">6</span>Ton plan semaine par semaine</h3>
+    ${W("Phase 1","Plan d’action","JOURS 1 À 7",S1)}${W("Phase 2","Premiers clients","JOURS 8 À 14",S2)}
+    ${W("Phase 3","Demandes → commandes","JOURS 15 À 21",S3)}${W("Phase 4","Croître","JOURS 22 À 30",S4)}</div>
+  <div class="note"><b>Ton objectif est un guide, pas une garantie.</b> Les résultats dépendent de ta régularité, tes prix et ton marché. Si en calculant dans la feuille « 3 · Objectif » les chiffres par jour te semblent impossibles pour ton temps, ajuste l’objectif : un objectif atteignable vaut mieux qu’un énorme abandonné. Chaque tâche est expliquée en détail dans le <b>Manuel du programme</b>.</div>
+  <div class="actions"><button class="print" type="button" onclick="window.print()">⬇ Sauvegarder en PDF / Imprimer</button>
+  <button class="restart" type="button" onclick="restart()">Modifier mes réponses</button></div>`;
+  $("#quiz").style.display = "none"; $("header .sub").style.display = "none";
+  $("#plan").style.display = "block"; window.scrollTo(0, 0);
+  A.done = true; save();
+}
+function restart() { $("#plan").style.display = "none"; $("#quiz").style.display = "block"; $("header .sub").style.display = ""; i = 0; render(); }
+if (A.done && A.meta) showPlan(); else render();
+</script>
+</body>
+</html>

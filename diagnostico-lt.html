@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnostika ir Veiksmų Planas</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--w:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.55;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px}
+header{text-align:center;padding:18px 0 10px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;font-weight:800;color:var(--g);font-size:clamp(28px,6vw,40px);line-height:1.1;margin:14px 0 8px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:560px;margin:0 auto}
+.bar{height:8px;background:var(--c2);border-radius:9px;margin:22px 0 6px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--s),var(--o));transition:width .3s}
+.step-n{font-size:13px;color:var(--m);text-align:right;font-weight:600}
+.card{background:var(--w);border:1px solid #e6dfcf;border-radius:18px;padding:24px 20px;margin-top:14px;box-shadow:0 6px 20px rgba(47,74,42,.06)}
+.q{display:none}.q.on{display:block;animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.q h2{font-family:'Fraunces',serif;color:var(--g);font-size:22px;line-height:1.25;margin-bottom:6px}
+.q .hint{color:var(--m);font-size:14px;margin-bottom:14px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;border:1.5px solid #e2dac9;border-radius:14px;padding:13px 14px;cursor:pointer;background:var(--c);font-weight:600;transition:.15s}
+.opt:hover{border-color:var(--s)}
+.opt input{accent-color:var(--g);width:18px;height:18px;flex:none}
+.opt.sel{border-color:var(--g);background:var(--s2)}
+.opt small{display:block;font-weight:400;color:var(--m);font-size:13px}
+input[type=text],input[type=number],select{width:100%;font:inherit;padding:13px 14px;border:1.5px solid #e2dac9;border-radius:12px;background:var(--c);color:var(--t)}
+input:focus,select:focus{outline:2px solid var(--s);border-color:var(--s)}
+.row{display:grid;grid-template-columns:1fr 130px;gap:10px}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+button{font:800 15px 'Nunito Sans',sans-serif;border:0;border-radius:40px;padding:14px 22px;cursor:pointer}
+.next{background:var(--g);color:#fff;flex:1}.next:disabled{opacity:.4;cursor:not-allowed}
+.back{background:transparent;color:var(--g);border:1.5px solid var(--g)}
+.err{color:#b5654a;font-size:13px;margin-top:8px;min-height:18px}
+/* Resultado */
+#plan{display:none}
+.hero{background:linear-gradient(135deg,var(--g),#466b3c);color:#fff;border-radius:20px;padding:26px 22px;margin-top:10px}
+.hero .k{font-size:12px;letter-spacing:3px;font-weight:800;color:#e9d8b0}
+.hero h2{font-family:'Fraunces',serif;font-size:28px;line-height:1.15;margin:6px 0}
+.hero p{opacity:.92}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.stat{background:rgba(255,255,255,.12);border-radius:14px;padding:12px;text-align:center}
+.stat b{display:block;font-family:'Fraunces',serif;font-size:22px}
+.stat span{font-size:12px;opacity:.9}
+.sec{margin-top:22px}
+.sec h3{font-family:'Fraunces',serif;color:var(--g);font-size:21px;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.sec h3 .n{background:var(--o);color:#fff;font:800 13px 'Nunito Sans';border-radius:30px;padding:3px 10px}
+.list{list-style:none;display:grid;gap:8px}
+.list li{background:var(--w);border:1px solid #e6dfcf;border-radius:12px;padding:11px 14px 11px 40px;position:relative}
+.list li:before{content:"✓";position:absolute;left:14px;top:10px;color:var(--s);font-weight:800}
+.list.warn li:before{content:"!";color:#b5654a}
+.week{background:var(--w);border:1px solid #e6dfcf;border-radius:16px;padding:16px;margin-bottom:12px;break-inside:avoid}
+.week h4{color:var(--g);font-size:16px;margin-bottom:2px}
+.week .d{font-size:12px;color:var(--o);font-weight:800;letter-spacing:2px}
+.week ul{margin:8px 0 0 0;list-style:none}
+.week li{padding:6px 0 6px 28px;border-top:1px dashed #e6dfcf;position:relative;font-size:15px}
+.week li:before{content:"☐";position:absolute;left:4px;color:var(--s);font-weight:800}
+.week li b{color:var(--g)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--s2);color:var(--g);font-weight:800;font-size:13px;border-radius:30px;padding:6px 12px}
+.note{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--m);margin-top:14px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.actions button{flex:1;min-width:200px}
+.print{background:var(--o);color:#fff}
+.restart{background:transparent;border:1.5px solid var(--g);color:var(--g)}
+@media (max-width:520px){.stats{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff}.wrap{max-width:none;padding:0}
+  #quiz,header .sub,.actions,.bar,.step-n{display:none!important}
+  header{padding:0}
+  .hero{break-inside:avoid}
+  .sec{break-inside:auto}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">1 ŽINGSNIS IŠ PROGRAMA</span>
+  <h1>Diagnostika ir <em>asmeninis veiksmų planas</em></h1>
+  <p class="sub">Atsakyk į 12 greitų klausimų (apie 5 minutes). Galiausiai gausi savo 30 dienų planą, pritaikytą tavo laikui, biudžetui ir patirčiai, paruoštą spausdinti arba išsaugoti PDF formatu.</p>
+</header>
+
+<div id="quiz">
+  <div class="bar"><i id="prog"></i></div>
+  <div class="step-n" id="stepn"></div>
+  <div class="card" id="qs"></div>
+  <div class="err" id="err"></div>
+  <div class="nav">
+    <button class="back" id="back" type="button">← Atgal</button>
+    <button class="next" id="next" type="button">Toliau →</button>
+  </div>
+</div>
+
+<div id="plan"></div>
+</div>
+
+<script>
+const Q = [
+ {id:"nombre", t:"Koks tavo vardas?", h:"Tavo planas bus pažymėtas tavo vardu.", type:"text", ph:"Tavo vardas"},
+ {id:"pais", t:"Kurioje šalyje ketini pardavinėti?", h:"Tai padės pasiūlyti tinkamus kanalus ir svarbias datas.", type:"select",
+  o:["Lietuva","Latvija","Estija","Lenkija","Baltarusija","Rusija","Kita"]},
+ {id:"exp", t:"Kiek patirties turi gamindamas gurmaniškas kapsules?", type:"radio", o:[
+   ["0","Dar nesu gaminęs","Tik pradedu kursą"],["1","Bandžiau keletą kartų","Sekasi, bet dar praktikuojuosi"],
+   ["2","Jau pardaviau arba dovanojau keletą","Turiu patirties ir atsiliepimų"],["3","Reguliariai parduodu","Noriu tvarkos ir augimo"]]},
+ {id:"pres", t:"Koks tavo biudžetas žaliavoms ir pakuotėms?", type:"radio", o:[
+   ["0","Labai mažas","Turiu tik tai, ką jau turiu arba minimaliai"],["1","Mažas","Keletai partijų ir paprastoms pakuotėms"],
+   ["2","Vidutinis","Keletui partijų ir gražioms dėžutėms"],["3","Galiu investuoti daugiau","Nauji formeliai, daugiau pakuočių ir medžiagų"]]},
+ {id:"horas", t:"Kiek valandų per savaitę gali skirti?", type:"radio", o:[
+   ["0","Mažiau nei 3 valandas","Kai kuriomis dienomis po truputį"],["1","Nuo 3 iki 6 valandų","Beveik valandą per dieną"],
+   ["2","Nuo 7 iki 12 valandų","Vieną ar dvi valandas per dieną"],["3","Daugiau nei 12 valandų","Galiu skirti daug laiko"]]},
+ {id:"canales", t:"Kur norėtum pardavinėti?", h:"Gali pasirinkti kelias opcijas.", type:"check", o:[
+   ["wa","WhatsApp"],["ig","Instagram"],["tt","TikTok"],["fb","Facebook ir Marketplace"],["feria","Turgūs ir mugės"],
+   ["local","Vietinės parduotuvės (kavinės, gėlių parduotuvės, dovanos)"],["eventos","Renginiai ir įmonės (vestuvės, gimtadieniai, įmonių dovanos)"]]},
+ {id:"contactos", t:"Kiek maždaug kontaktų turi WhatsApp?", type:"radio", o:[
+   ["0","Mažiau nei 100",""],["1","Nuo 100 iki 300",""],["2","Nuo 300 iki 800",""],["3","Daugiau nei 800",""]]},
+ {id:"video", t:"Ar drįsti filmuoti vaizdo įrašus socialiniams tinklams?", type:"radio", o:[
+   ["2","Taip, ir galiu būti ekrane","Drįstu kalbėti į kamerą"],["1","Taip, bet tik rankos ir produktas","Noriu nerodyti veido"],
+   ["0","Kol kas tik nuotraukos","Vaizdo įrašai man sunkūs"]]},
+ {id:"obj", t:"Ką nori pasiekti su šiuo verslu?", type:"radio", o:[
+   ["extra","Papildomas uždarbis","Papildyti esamas pajamas"],["principal","Pagrindinis pajamų šaltinis","Sukurti rimtą verslą"],
+   ["temporada","Pardavimai per šventes","Kalėdos, Motinos diena, Valentino diena…"],["eventos","Specializuotis renginiuose ir dovanose","Vestuvės, gimtadieniai, įmonės"]]},
+ {id:"meta", t:"Kiek norėtum parduoti per artimiausias 30 dienų?", h:"Įrašyk skaičių ir valiutą. Vėliau galėsi koreguoti su Skaičiuokle.", type:"meta"},
+ {id:"traba", t:"Kas tave labiausiai stabdo šiandien?", type:"radio", o:[
+   ["precio","Nežinau, kiek prašyti kainos",""],["donde","Nežinau, kur ir kam parduoti",""],["verguenza","Gėda siūlyti",""],
+   ["tiempo","Neturiu daug laiko",""],["produccion","Dar nesijaučiu užtikrintas gamyboje",""]]},
+ {id:"fecha", t:"Kokia artimiausia svarbi data?", h:"Šventės – tavo geriausia pardavimo proga.", type:"radio", o:[
+   ["navidad","Kalėdos ir Naujieji metai",""],["sanvalentin","Valentino diena / Meilės diena",""],["madre","Motinos diena",""],
+   ["padre","Tėvo diena",""],["graduacion","Baigimo šventės / mokslo metų pabaiga",""],["ninguna","Artimiausiomis savaitėmis nėra",""]]},
+];
+const MONEDAS = {"Lietuva":"EUR","Latvija":"EUR","Estija":"EUR","Lenkija":"PLN","Baltarusija":"BYN","Rusija":"RUB","Kita":"EUR"};
+let A = {}; let i = 0;
+try { const s = localStorage.getItem("cg_diag"); if (s) A = JSON.parse(s) || {}; } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_diag", JSON.stringify(A)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function render() {
+  const q = Q[i]; let h = `<div class="q on"><h2>${q.t}</h2>${q.h ? `<p class="hint">${q.h}</p>` : ""}`;
+  if (q.type === "text") h += `<input type="text" id="f" placeholder="${q.ph}" value="${esc(A[q.id]||"")}" maxlength="40">`;
+  if (q.type === "select") h += `<select id="f"><option value="">Pasirink savo šalį</option>${q.o.map(o=>`<option ${A[q.id]===o?"selected":""}>${o}</option>`).join("")}</select>`;
+  if (q.type === "radio") h += `<div class="opts">${q.o.map(([v,l,s])=>`<label class="opt ${A[q.id]===v?"sel":""}"><input type="radio" name="r" value="${v}" ${A[q.id]===v?"checked":""}><span>${l}${s?`<small>${s}</small>`:""}</span></label>`).join("")}</div>`;
+  if (q.type === "check") { const cur = A[q.id]||[]; h += `<div class="opts">${q.o.map(([v,l])=>`<label class="opt ${cur.includes(v)?"sel":""}"><input type="checkbox" value="${v}" ${cur.includes(v)?"checked":""}><span>${l}</span></label>`).join("")}</div>`; }
+  if (q.type === "meta") { const mon = A.moneda || MONEDAS[A.pais] || "EUR";
+    h += `<div class="row"><input type="number" id="f" min="0" inputmode="numeric" placeholder="Pvz.: 1000" value="${A.meta||""}"><input type="text" id="mon" value="${esc(mon)}" maxlength="5" aria-label="Valiuta"></div>`; }
+  h += "</div>";
+  $("#qs").innerHTML = h; $("#err").textContent = "";
+  $("#prog").style.width = (i / Q.length * 100) + "%";
+  $("#stepn").textContent = `Klausimas ${i+1} iš ${Q.length}`;
+  $("#back").style.visibility = i ? "visible" : "hidden";
+  $("#next").textContent = i === Q.length - 1 ? "Peržiūrėti planą ✦" : "Toliau →";
+  document.querySelectorAll(".opt input").forEach(inp => inp.addEventListener("change", () => {
+    if (inp.type === "radio") { document.querySelectorAll(".opt").forEach(o=>o.classList.remove("sel")); inp.closest(".opt").classList.add("sel"); A[q.id] = inp.value; save(); setTimeout(next, 220); }
+    else { inp.closest(".opt").classList.toggle("sel", inp.checked); A[q.id] = [...document.querySelectorAll(".opt input:checked")].map(x=>x.value); save(); }
+  }));
+  const f = $("#f"); if (f && q.type !== "select") { f.focus(); f.addEventListener("keydown", e => { if (e.key === "Enter") next(); }); }
+}
+function valid() {
+  const q = Q[i];
+  if (q.type === "text") { const v = $("#f").value.trim(); if (!v) return "Įrašyk savo vardą, kad galėtum tęsti."; A.nombre = v; }
+  if (q.type === "select") { const v = $("#f").value; if (!v) return "Pasirink šalį."; if (A.pais !== v) delete A.moneda; A.pais = v; }
+  if (q.type === "radio" && A[q.id] === undefined) return "Pasirink variantą.";
+  if (q.type === "check" && !(A[q.id]||[]).length) return "Pasirink bent vieną variantą.";
+  if (q.type === "meta") { const v = parseFloat($("#f").value); if (!(v > 0)) return "Įrašyk skaičių, didesnį už nulį."; A.meta = v; A.moneda = ($("#mon").value.trim() || "EUR").toUpperCase(); }
+  save(); return "";
+}
+function next() { const e = valid(); if (e) { $("#err").textContent = e; return; } if (i < Q.length - 1) { i++; render(); } else showPlan(); }
+$("#next").onclick = next;
+$("#back").onclick = () => { if (i > 0) { i--; render(); } };
+
+const n = k => parseInt(A[k] ?? 0, 10);
+const fmt = v => Math.round(v).toLocaleString("lt");
+
+function showPlan() {
+  const exp = n("exp"), pres = n("pres"), horas = n("horas"), cont = n("contactos"), vid = n("video");
+  const ch = A.canales || [], has = c => ch.includes(c);
+  const nombre = esc(A.nombre), mon = esc(A.moneda), meta = A.meta;
+
+  // Perfil
+  const score = exp + horas + Math.min(pres, 2);
+  const perfil = score <= 3 ? ["Pradedantis verslininkas", "Tavo prioritetas – praktikuotis, paruošti gražią mėginio dėžutę ir pradėti pardavinėti artimiausioje aplinkoje. Žingsnis po žingsnio."]
+    : score <= 6 ? ["Veikiantis verslininkas", "Jau turi pagrindą. Prioritetas – sutvarkyti kainas, nuosekliai rodyti produktą ir užbaigti pirmuosius užsakymus."]
+    : ["Verslininkas pasiruošęs augti", "Turi patirties ir laiko. Prioritetas – pridėti kanalų, didelius užsakymus ir lojalius klientus."];
+
+  // Tiempo diario
+  const minDia = ["20–30 min", "40–60 min", "1–2 val.", "2 val. ar daugiau"][horas];
+  const diasSem = [3, 5, 5, 6][horas];
+
+  // Canales prioritarios
+  let prio = ["WhatsApp (būsena ir asmeniniai pranešimai)"];
+  if (has("ig") || (vid >= 1 && !has("tt"))) prio.push(vid >= 1 ? "Instagram (Reels ir būsenos)" : "Instagram (nuotraukos ir karuselė)");
+  if (has("tt") && vid >= 1) prio.push("TikTok (trumpi proceso vaizdo įrašai)");
+  if (has("fb")) prio.push("Facebook Marketplace ir vietinės grupės");
+  if (has("local")) prio.push("Vietinės partnerių parduotuvės");
+  if (has("eventos") || A.obj === "eventos") prio.push("Renginiai ir įmonių dovanos");
+  if (has("feria")) prio.push("Turgūs ir mugės");
+  prio = [...new Set(prio)].slice(0, horas >= 2 ? 4 : 3);
+
+  // Productos recomendados
+  const prods = exp === 0 ? ["Mėginio dėžutė (4 gurmaniškos kapsulės)", "Dovanų dėžutė (6 gurmaniškos kapsulės)"]
+    : ["Mėginio dėžutė (4 gurmaniškos kapsulės)", "Dovanų dėžutė (6–9 gurmaniškos kapsulės)", "Individualus užsakymas"];
+  if (A.obj === "eventos" || has("eventos")) prods.push("Renginių suvenyrai (pagal kiekį)");
+  const formatos = exp <= 1 ? "širdis, gėlė ir apskritimas (lengviausi formuoti)" : "širdis, gėlė, meškiukas ir drugelis";
+  const sabores = pres === 0 ? "2 kavos ir 1 arbatos skoniai, kad pirktum mažai žaliavų" : "3 kavos ir 2 arbatos skoniai";
+
+  // Fecha especial
+  const F = {navidad:["Kalėdų dėžutė","Kalėdos"], sanvalentin:["Meilės dėžutė","Valentino diena"], madre:["Motinos dienos dėžutė","Motinos diena"],
+             padre:["Tėčio kavos dėžutė","Tėvo diena"], graduacion:["Baigimo dėžutė","baigimo šventės"], ninguna:["Gimtadienio dėžutė","mėnesio gimtadieniai"]};
+  const [cajaT, fechaT] = F[A.fecha] || F.ninguna;
+
+  // Metas (precio promedio orientativo no se conoce: se pide calcular)
+  const metaSem = meta / 4.3;
+
+  // Fortalezas y atención
+  const fort = [], aten = [];
+  if (exp >= 2) fort.push("Jau turi patirties: gali nuo pirmos dienos rodyti tikras nuotraukas ir atsiliepimus.");
+  if (horas >= 2) fort.push("Turi daug laiko: gali judėti greičiau nei bazinis planas.");
+  if (cont >= 2) fort.push("Tavo WhatsApp kontaktų sąrašas didelis: tavo būsenos bus pirmasis pardavimo kanalas.");
+  if (vid === 2) fort.push("Drįsti būti vaizdo įrašuose: tai kuria pasitikėjimą ir padidina pardavimus.");
+  if (pres >= 2) fort.push("Biudžetas leidžia nuo pradžių rūpintis pateikimu.");
+  if (A.fecha && A.fecha !== "ninguna") fort.push(`Artėja ${fechaT}: puiki proga pradėti pardavimus.`);
+  if (!fort.length) fort.push("Pradėjai naudodamas metodą: tai jau suteikia pranašumą daugumai.");
+  if (exp <= 1) aten.push("Praktikuok 2–3 partijas prieš priimdamas didelius užsakymus; pradėk nuo paprastų formų.");
+  if (pres === 0) aten.push("Pradėk nuo paprastų pakuočių (kraftinis maišelis + etiketė) ir pirmas pajamas investuok į dėžutes.");
+  if (horas === 0) aten.push("Turėdamas mažai laiko, gamink partijas vieną dieną per savaitę ir filmuok kelis vaizdo įrašus iš karto.");
+  if (cont === 0) aten.push("Tavo kontaktų sąrašas mažas: reikės Marketplace, grupių ir partnerių parduotuvių, kad pasiektum daugiau žmonių.");
+  if (vid === 0) aten.push("Be vaizdo įrašų pasieksi mažiau žmonių. Išbandyk tik su rankomis: tirpstančios kapsulės vaizdas – geriausias turinys.");
+  const TRABA = {precio:"Tave labiausiai stabdo kaina: 3 ir 4 dienos yra svarbiausios. Nepražiopsok jų.",
+    donde:"Tave labiausiai stabdo, kur parduoti: sek pirmųjų 10 klientų vadovą nuo 7 dienos.",
+    verguenza:"Gėda siūlyti: naudok paruoštus pranešimus 1 bonuso dalyje. Dalinsiesi gražiu dalyku, ne prašysi paslaugos.",
+    tiempo:"Tavo laikas ribotas: daryk tik pagrindinį kiekvienos dienos užduotį ir grupuok gamybą.",
+    produccion:"Dar nesijauti užtikrintas gamyboje: skirk 2 ir 6 dienas praktikai ir peržiūrėk pagrindinį kursą."};
+  aten.push(TRABA[A.traba]);
+
+  // Semanas personalizadas
+  const S1 = [
+    `<b>1 diena:</b> atspausdink šį planą ir užrašyk, kodėl pradediesi.`,
+    `<b>2 diena:</b> apibrėžk savo meniu: ${prods.slice(0,3).join(", ")}. Formos: ${formatos}. Skoniai: ${sabores}.`,
+    `<b>3–4 dienos:</b> įvesk savo sąnaudas Skaičiuoklėje ir nustatyk kainas (siūlomas pelno maržas: 55–70 %).`,
+    `<b>5 diena:</b> įrašyk savo tikslą lape „3 · Tikslas“: ${fmt(meta)} ${mon} – tai apie ${fmt(metaSem)} ${mon} per savaitę. Pažiūrėk, kiek dėžučių tai sudaro, ir prireikus koreguok.`,
+    exp <= 1 ? `<b>6 diena:</b> padaryk 2 praktikos partijas ir vieną pilną mėginio dėžutę. Padaryk 15 nuotraukų natūraliu apšvietimu.` : `<b>6 diena:</b> paruošk mėginio dėžutę, padaryk 15 nuotraukų ir įrašyk tirpstančios kapsulės vaizdo įrašą.`,
+    `<b>7 diena:</b> susikonfigūruok WhatsApp Business (katalogą su produktais) ir sudaryk ${cont === 0 ? "50" : "100"} kontaktų sąrašą.`];
+  const S2 = [
+    `<b>8 diena:</b> 3 WhatsApp būsenos su smalsumo žinute (Žinutė 1).`,
+    `<b>9 diena:</b> ${cont >= 2 ? "15" : "10"} asmeninių žinučių su Žinute 3. Užsirašyk, kas atsakė.`,
+    vid >= 1 ? `<b>10 diena:</b> įrašyk scenarijų 1 „Atspėk, kas tai?“${vid === 1 ? " (tik rankos)" : ""} ir paskelbk ${has("tt") ? "TikTok, " : ""}Instagram ir būsenose.` : `<b>10 diena:</b> paskelbk nuotraukų karuselę su klausimu „Atspėk, kas tai?“`,
+    `<b>11 diena:</b> ragauk su šeima, darbe ar draugais. Paprašyk nuomonės ir nuotraukos.`,
+    has("fb") || cont <= 1 ? `<b>12 diena:</b> paskelbk Marketplace ir 3 vietinėse grupėse.` : `<b>12 diena:</b> antras būsenų ratas su ragavimo atsiliepimais.`,
+    `<b>13–14 dienos:</b> dar 10 žinučių ir savaitės apžvalga Užsakymų kontrolėje.`];
+  const S3 = [
+    `<b>15 diena:</b> paleisk savo <b>„${cajaT}“</b> ${fechaT} proga, su užsakymų pateikimo terminu.`,
+    `<b>16 diena:</b> įvesk greitus atsakymus ir etiketes WhatsApp Business.`,
+    `<b>17 diena:</b> užbaigk neatsakytus klausimus (Žinutės 12–16). Paprašyk avanso patvirtinimui.`,
+    `<b>18 diena:</b> sukurk 3 individualias parinktis ir apskaičiuok jų kainą.`,
+    has("eventos") || A.obj === "eventos" ? `<b>19 diena:</b> susisiek su 10 galimų renginių ar įmonių klientų (Žinutės 22 ir 23). <b>Tai tavo prioritetas.</b>` : `<b>19 diena:</b> susisiek su 5 galimais renginių klientais (Žinutė 22).`,
+    `<b>20–21 dienos:</b> paskelbk 3 atsiliepimus ir patikrink, kuris produktas duoda didžiausią pelną.`];
+  const S4 = [
+    `<b>22 diena:</b> pakartotinis pirkimo pranešimas visiems klientams (Žinutė 27).`,
+    `<b>23 diena:</b> aktyvink savo rekomendacijų programą (Žinutė 28).`,
+    has("local") ? `<b>24 diena:</b> aplankyk 3 partnerių parduotuves su mėginio dėžute. <b>Tai tavo prioritetas.</b>` : `<b>24 diena:</b> susisiek su 2 susijusiomis parduotuvėmis (gėlių, kavinių) su Žinute 24.`,
+    `<b>25 diena:</b> suplanuok 2 savaičių turinį${vid >= 1 ? " ir įrašyk 3 vaizdo įrašus iš karto" : ""}.`,
+    `<b>26–27 dienos:</b> sutvarkyk gamybos rutiną ir peržiūrėk skaičius apžvalgos lape.`,
+    `<b>28–30 dienos:</b> galutinė įvertinimo diena, padėkok klientams ir sukurk naują planą su nauju tikslu.`];
+  const rutina = horas === 0
+    ? ["Pirmadienis: 20 min žinučių ir būsenų", "Trečiadienis: 20 min turinio kūrimo", "Šeštadienis: gamyba ir pakuotė partijomis"]
+    : horas === 1 ? ["Kasdien: 15 min būsenų ir atsakymų", "3 dienos per savaitę: 30 min planų užduočių", "1 diena: gamyba partijomis"]
+    : ["Kasdien: 20 min būsenų ir atsakymų", "Kasdien: planų užduotys", "2 dienos: gamyba", "1 diena: įrašyti kelis vaizdo įrašus"];
+
+  const L = a => `<ul class="list">${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+  const W = (k, t, d, a) => `<div class="week"><div class="d">${d}</div><h4>${k} · ${t}</h4><ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul></div>`;
+  const hoy = new Date().toLocaleDateString("lt", {day:"numeric", month:"long", year:"numeric"});
+
+  $("#plan").innerHTML = `
+  <div class="hero"><div class="k">VEIKSMŲ PLANAS · ${hoy.toUpperCase()}</div>
+    <h2>${nombre}, tai tavo 30 dienų planas</h2><p><b>${perfil[0]}.</b> ${perfil[1]}</p>
+    <div class="stats"><div class="stat"><b>${fmt(meta)} ${mon}</b><span>tavo tikslas per 30 dienų</span></div>
+    <div class="stat"><b>${minDia}</b><span>per dieną · ${diasSem} dienos/savaitę</span></div>
+    <div class="stat"><b>${prio.length}</b><span>prioritetiniai kanalai</span></div></div></div>
+
+  <div class="sec"><h3><span class="n">1</span>Tavo stiprybės</h3>${L(fort)}</div>
+  <div class="sec"><h3><span class="n">2</span>Dėmesio taškai</h3><ul class="list warn">${aten.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="sec"><h3><span class="n">3</span>Su kuo pradėti pardavinėti</h3>${L(prods)}
+    <div class="note">Rekomenduojamos formos: <b>${formatos}</b>. Skoniai: <b>${sabores}</b>. Tavo sezoninis pasiūlymas: <b>„${cajaT}“</b>.</div></div>
+  <div class="sec"><h3><span class="n">4</span>Kur parduoti pirmiausia</h3><div class="chips">${prio.map(p=>`<span class="chip">${p}</span>`).join("")}</div>
+    <div class="note">Pradėk nuo pirmojo ir pridėk kitą, kai jau nuosekliai skelbi. Geriau vienas gerai išvystytas kanalas nei keturi apleisti.</div></div>
+  <div class="sec"><h3><span class="n">5</span>Tavo savaitės rutina</h3>${L(rutina)}</div>
+  <div class="sec"><h3><span class="n">6</span>Tavo planas savaitė po savaitės</h3>
+    ${W("1 etapas","Veiksmų planas","1–7 DIENOS",S1)}${W("2 etapas","Pirmieji klientai","8–14 DIENOS",S2)}
+    ${W("3 etapas","Konsultacijos → užsakymai","15–21 DIENOS",S3)}${W("4 etapas","Augimas","22–30 DIENOS",S4)}</div>
+  <div class="note"><b>Tavo tikslas yra gairė, ne garantija.</b> Rezultatai priklauso nuo tavo nuoseklumo, kainų ir rinkos. Jei skaičiuodamas lape „3 · Tikslas“ dienos skaičiai atrodo neįmanomi tavo laikui, koreguok tikslą: pasiekiamas tikslas, kuris įvykdomas, yra vertingesnis už didelį, bet apleistą. Kiekviena užduotis detaliai paaiškinta <b>Programos vadove</b>.</div>
+  <div class="actions"><button class="print" type="button" onclick="window.print()">⬇ Išsaugoti PDF / Spausdinti</button>
+  <button class="restart" type="button" onclick="restart()">Redaguoti mano atsakymus</button></div>`;
+  $("#quiz").style.display = "none"; $("header .sub").style.display = "none";
+  $("#plan").style.display = "block"; window.scrollTo(0, 0);
+  A.done = true; save();
+}
+function restart() { $("#plan").style.display = "none"; $("#quiz").style.display = "block"; $("header .sub").style.display = ""; i = 0; render(); }
+if (A.done && A.meta) showPlan(); else render();
+</script>
+</body>
+</html>

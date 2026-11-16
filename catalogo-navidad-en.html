@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en-ZA"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Editable Christmas Catalogue</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--r:#8c1d2a;--g:#2f5a3a;--o:#b8924a;--c:#fdf8f1;--c2:#efe0cf;--t:#2b2322;--m:#6c605c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.wrap{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+header{text-align:center;padding:8px 0 16px}
+.tag{display:inline-block;background:var(--g);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--r);font-size:clamp(26px,5.5vw,38px);line-height:1.1;margin:12px 0 6px}
+.sub{color:var(--m);max-width:620px;margin:0 auto}
+.panel{background:#fff;border:1px solid #eadccb;border-radius:16px;padding:16px;margin-top:14px}
+.panel h2{font-family:'Fraunces',serif;color:var(--r);font-size:19px;margin-bottom:10px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+label.f{display:block;font-size:13px;font-weight:800;color:var(--g)}
+label.f input,label.f select,label.f textarea{display:block;width:100%;margin-top:4px;font:inherit;font-weight:400;font-size:15px;padding:10px 12px;border:1.5px solid #e5d6c3;border-radius:10px;background:var(--c);color:var(--t)}
+button{font:800 15px 'Nunito Sans';border:0;border-radius:30px;padding:12px 20px;cursor:pointer}
+.print{background:var(--r);color:#fff} .sec{background:#fff;color:var(--r);border:1.5px solid var(--r)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.note{background:#fdf3e4;border-left:4px solid var(--o);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:12px}
+@media print{ .noprint{display:none!important} body{background:#fff} .wrap{max-width:none;padding:0} }
+
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;max-height:420px;overflow:auto;margin-top:8px}
+.li{display:grid;grid-template-columns:22px 46px 1fr 90px;gap:8px;align-items:center;background:var(--c);border:1px solid #eadccb;border-radius:10px;padding:6px 8px;font-size:13px}
+.li img{width:46px;height:46px;border-radius:8px;object-fit:cover}
+.li input[type=text]{width:100%;font:inherit;padding:6px 8px;border:1.5px solid #e5d6c3;border-radius:8px}
+.cat{background:#fff;margin-top:18px;border-radius:12px;overflow:hidden}
+.ch{background:linear-gradient(135deg,#8c1d2a,#a8323f);color:#fff;text-align:center;padding:26px 18px}
+.ch .k{font:800 11px 'Nunito Sans';letter-spacing:3px;color:#f1d9a4}
+.ch h2{font:800 34px/1.1 'Fraunces';margin:6px 0}
+.ch p{opacity:.92;max-width:560px;margin:0 auto}
+.cs{padding:16px 18px 4px}
+.cs h3{font:700 20px 'Fraunces';color:var(--r);margin:6px 0 10px;border-bottom:2px solid var(--c2);padding-bottom:4px}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ci{border:1px solid #eadccb;border-radius:10px;overflow:hidden;break-inside:avoid;background:#fff}
+.ci img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.ci .t{font:700 15px/1.2 'Fraunces';color:var(--r);padding:8px 10px 2px}
+.ci .d{font-size:12px;color:var(--m);padding:0 10px}
+.ci .p{font:800 15px 'Nunito Sans';color:var(--g);padding:4px 10px 10px}
+.cf{background:#fdf3e4;text-align:center;padding:18px;margin-top:10px}
+.cf b{color:var(--r);font-size:17px}
+@media(max-width:640px){.cgrid{grid-template-columns:repeat(2,1fr)}}
+@media print{ @page{size:A4;margin:10mm} .cat{margin:0;border-radius:0} .cgrid{grid-template-columns:repeat(3,1fr)} .cs{break-inside:auto} }
+
+</style></head><body>
+<div class="wrap">
+<header class="noprint"><span class="tag">BONUS · EDITABLE VERSION</span><h1>Your Christmas catalogue <span style="color:var(--o)">with your brand and prices</span></h1>
+<p class="sub">Choose which designs you offer, enter your prices and details, and save it as a PDF to send via WhatsApp or post on your social media.</p></header>
+<div class="panel noprint"><h2>1 · Your details</h2><div class="fg">
+<label class="f">Your brand<input id="marca" placeholder="E.g.: Sweet Coffee"></label>
+<label class="f">Catalogue title<input id="titulo" value="Christmas Collection"></label>
+<label class="f">WhatsApp<input id="wa" placeholder="E.g.: +27 82 123 4567"></label>
+<label class="f">Instagram / social media<input id="ig" placeholder="@yourbrand"></label>
+<label class="f">Order deadline<input id="limite" placeholder="E.g.: 18 December"></label>
+<label class="f">Delivery area<input id="zona" placeholder="E.g.: Deliveries in Cape Town"></label>
+</div>
+<label class="f" style="margin-top:10px">Introductory text<textarea id="intro" rows="2">Gourmet Capsules of coffee, tea and chocolate in Christmas shapes, handmade. Place them in a cup with hot water or milk and enjoy a delicious drink.</textarea></label>
+<h2 style="margin-top:14px">2 · Boxes and prices (optional)</h2><div class="fg">
+<label class="f">Box of 4<input id="p4" placeholder="Price"></label><label class="f">Box of 6 / 9<input id="p9" placeholder="Price"></label><label class="f">Box of 12<input id="p12" placeholder="Price"></label>
+<label class="f">Show price per design<select id="mostrar"><option value="no">No (boxes only)</option><option value="si">Yes</option></select></label></div>
+<h2 style="margin-top:14px">3 · Designs you offer</h2>
+<div style="display:flex;gap:8px"><button class="sec" type="button" id="all" style="padding:6px 12px;font-size:12px">All</button><button class="sec" type="button" id="none" style="padding:6px 12px;font-size:12px">None</button></div>
+<div class="list" id="list"></div>
+<div class="actions"><button class="print" type="button" onclick="window.print()">⬇ Save PDF / Print</button></div>
+<div class="note">To send via WhatsApp: “Save as PDF” in the print dialog, with 100% scale and no headers. Your details are saved on this device.</div></div>
+<div class="cat" id="cat"></div>
+</div>
+<script>
+const ITEMS = [{"n": 1, "t": "Cinnamon and Clove Coffee", "d": "Sprinkle cinnamon over the dried star.", "s": "Christmas Coffee"}, {"n": 2, "t": "Gingerbread Coffee", "d": "Draw eyes and buttons with a dot of melted white chocolate.", "s": "Christmas Coffee"}, {"n": 3, "t": "Christmas Mocha Coffee", "d": "Paint the tip with edible gold dust.", "s": "Christmas Coffee"}, {"n": 4, "t": "Snowy Vanilla Coffee", "d": "Dust icing sugar on top with a fine sieve.", "s": "Christmas Coffee"}, {"n": 5, "t": "Salted Caramel Coffee", "d": "Paint the bow with white chocolate.", "s": "Christmas Coffee"}, {"n": 6, "t": "Orange and Cinnamon Coffee", "d": "Place a small piece of candied orange peel on top.", "s": "Christmas Coffee"}, {"n": 7, "t": "Festive Hazelnut Coffee", "d": "Decorate with chopped hazelnuts.", "s": "Christmas Coffee"}, {"n": 8, "t": "Polar Mint Coffee", "d": "Paint red stripes with gel food colouring.", "s": "Christmas Coffee"}, {"n": 9, "t": "Cardamom Coffee", "d": "Place a cardamom seed in the centre.", "s": "Christmas Coffee"}, {"n": 10, "t": "Snowy Coconut Coffee", "d": "Cover the top with grated coconut.", "s": "Christmas Coffee"}, {"n": 11, "t": "Rum and Raisin Coffee (alcohol-free)", "d": "Decorate with a raisin on the bell’s edge.", "s": "Christmas Coffee"}, {"n": 12, "t": "Christmas Eve Spiced Coffee", "d": "Paint the star’s tail with gold dust.", "s": "Christmas Coffee"}, {"n": 13, "t": "Red Berry Tea", "d": "Stick a dried rose petal with a drop of solution.", "s": "Christmas Tea and Infusions"}, {"n": 14, "t": "Christmas Chai Tea", "d": "Sprinkle cinnamon on top.", "s": "Christmas Tea and Infusions"}, {"n": 15, "t": "Christmas Mint Green Tea", "d": "Paint small red dots like decorations.", "s": "Christmas Tea and Infusions"}, {"n": 16, "t": "Chamomile with Honey and Orange", "d": "Place a dried chamomile flower on top.", "s": "Christmas Tea and Infusions"}, {"n": 17, "t": "Vanilla Rooibos", "d": "Draw the nose with a red dot.", "s": "Christmas Tea and Infusions"}, {"n": 18, "t": "Apple and Cinnamon Tea", "d": "Place a mini cinnamon stick.", "s": "Christmas Tea and Infusions"}, {"n": 19, "t": "White Pear Tea", "d": "Paint the edge with silver dust.", "s": "Christmas Tea and Infusions"}, {"n": 20, "t": "Hibiscus and Ginger Infusion", "d": "Paint the tail with gold dust.", "s": "Christmas Tea and Infusions"}, {"n": 21, "t": "Black Tea with Chocolate", "d": "White chocolate bow.", "s": "Christmas Tea and Infusions"}, {"n": 22, "t": "Lavender and Lemon Infusion", "d": "Place 2 dried lavender flowers.", "s": "Christmas Tea and Infusions"}, {"n": 23, "t": "Hot Chocolate with Marshmallows", "d": "Marshmallows visible on the surface.", "s": "Hot Milk Chocolate"}, {"n": 24, "t": "Snowy White Chocolate", "d": "Sprinkle grated coconut.", "s": "Hot Milk Chocolate"}, {"n": 25, "t": "Bitter Orange Chocolate", "d": "A thin strip of candied orange.", "s": "Hot Milk Chocolate"}, {"n": 26, "t": "Mayan Spicy Chocolate", "d": "Edible gold dust.", "s": "Hot Milk Chocolate"}, {"n": 27, "t": "Christmas Cookie Chocolate", "d": "Christmas-coloured sprinkles.", "s": "Hot Milk Chocolate"}, {"n": 28, "t": "Red Berry Chocolate", "d": "Freeze-dried strawberry pieces.", "s": "Hot Milk Chocolate"}, {"n": 29, "t": "Christmas Mint Chocolate", "d": "White chocolate stripes.", "s": "Hot Milk Chocolate"}, {"n": 30, "t": "Dulce de Leche Chocolate", "d": "White chocolate thread.", "s": "Hot Milk Chocolate"}, {"n": 31, "t": "Hazelnut and Cocoa Chocolate", "d": "Chopped hazelnuts.", "s": "Hot Milk Chocolate"}, {"n": 32, "t": "Festive Ruby Chocolate", "d": "Edible dried petals.", "s": "Hot Milk Chocolate"}, {"n": 33, "t": "Espresso Coffee Bonbon", "d": "A coffee bean on the lid.", "s": "Filled Chocolate Shells"}, {"n": 34, "t": "Cappuccino Bonbon", "d": "Dust with cocoa.", "s": "Filled Chocolate Shells"}, {"n": 35, "t": "Chai Tea Bonbon", "d": "Cinnamon on top.", "s": "Filled Chocolate Shells"}, {"n": 36, "t": "Mint Mocha Bonbon", "d": "Edible green dust on the tip.", "s": "Filled Chocolate Shells"}, {"n": 37, "t": "Vanilla and Coffee Bonbon", "d": "Icing sugar.", "s": "Filled Chocolate Shells"}, {"n": 38, "t": "Caramel Bonbon", "d": "White chocolate bow.", "s": "Filled Chocolate Shells"}, {"n": 39, "t": "Red Berry and Tea Bonbon", "d": "Edible glitter.", "s": "Filled Chocolate Shells"}, {"n": 40, "t": "Reindeer Bonbon", "d": "Red nose and chocolate antlers.", "s": "Filled Chocolate Shells"}, {"n": 41, "t": "Luxury Golden Tree", "d": "Paint the whole tree with edible gold dust and a white star dot.", "s": "Premium Christmas Designs"}, {"n": 42, "t": "Bethlehem Star", "d": "Edges painted with gold.", "s": "Premium Christmas Designs"}, {"n": 43, "t": "Santa Hat", "d": "Edge and pompom of grated coconut.", "s": "Premium Christmas Designs"}, {"n": 44, "t": "Smiling Snowman", "d": "Eyes and buttons with dark chocolate, orange nose with colouring.", "s": "Premium Christmas Designs"}, {"n": 45, "t": "Advent Wreath", "d": "Red dots like berries.", "s": "Premium Christmas Designs"}, {"n": 46, "t": "Christmas Stocking", "d": "White edge and red detail.", "s": "Premium Christmas Designs"}, {"n": 47, "t": "Marbled Christmas Bauble", "d": "Thread of gold dust.", "s": "Premium Christmas Designs"}, {"n": 48, "t": "Christmas Angel", "d": "Wings painted with pearly dust.", "s": "Premium Christmas Designs"}, {"n": 49, "t": "Double Surprise Gift", "d": "Golden bow.", "s": "Premium Christmas Designs"}, {"n": 50, "t": "New Year Bells", "d": "Golden edge and a silver dot.", "s": "Premium Christmas Designs"}];
+let st = {marca:"", titulo:"Christmas Collection", wa:"", ig:"", limite:"", zona:"", intro:"", p4:"", p9:"", p12:"", mostrar:"no", sel: ITEMS.map(i=>i.n), pr:{}};
+try { Object.assign(st, JSON.parse(localStorage.getItem("cg_cat")||"{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_cat", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s); const esc = s => String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const img = n => "img/r" + String(n).padStart(2,"0") + ".jpg";
+function render() {
+  const secs = [...new Set(ITEMS.map(i => i.s))];
+  const boxes = [["Box of 4", st.p4], ["Box of 6 / 9", st.p9], ["Box of 12", st.p12]].filter(b => b[1]);
+  let h = `<div class="ch"><div class="k">${esc(st.marca || "GOURMET CAPSULES")}</div><h2>${esc(st.titulo)}</h2><p>${esc(st.intro)}</p></div>`;
+  if (boxes.length) h += `<div class="cs"><h3>Our boxes</h3><div class="cgrid">${boxes.map(b => `<div class="ci" style="text-align:center;padding:14px"><div class="t">${esc(b[0])}</div><div class="p">${esc(b[1])}</div></div>`).join("")}</div></div>`;
+  secs.forEach(s => { const its = ITEMS.filter(i => i.s === s && st.sel.includes(i.n)); if (!its.length) return;
+    h += `<div class="cs"><h3>${s}</h3><div class="cgrid">` + its.map(i => `<div class="ci"><img src="${img(i.n)}" alt=""><div class="t">${esc(i.t)}</div><div class="d">${esc(i.d)}</div>${st.mostrar === "si" && st.pr[i.n] ? `<div class="p">${esc(st.pr[i.n])}</div>` : '<div style="height:8px"></div>'}</div>`).join("") + "</div></div>"; });
+  const c = [st.wa && "WhatsApp: " + esc(st.wa), st.ig && esc(st.ig), st.zona && esc(st.zona)].filter(Boolean).join(" · ");
+  h += `<div class="cf"><b>Place your Christmas order</b><br>${c || "Write to us to build your box"}${st.limite ? "<br>Orders until " + esc(st.limite) : ""}</div>`;
+  $("#cat").innerHTML = h;
+}
+["marca","titulo","wa","ig","limite","zona","intro","p4","p9","p12","mostrar"].forEach(k => { const el = $("#"+k); if (st[k]) el.value = st[k]; else st[k] = el.value; el.addEventListener("input", () => { st[k] = el.value; save(); render(); }); });
+$("#list").innerHTML = ITEMS.map(i => `<label class="li"><input type="checkbox" value="${i.n}" ${st.sel.includes(i.n)?"checked":""}><img src="${img(i.n)}" alt="" loading="lazy"><span>${i.n}. ${esc(i.t)}</span><input type="text" data-p="${i.n}" placeholder="Price" value="${esc(st.pr[i.n]||"")}"></label>`).join("");
+$("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = () => { st.sel = [...$("#list").querySelectorAll("input[type=checkbox]:checked")].map(x => +x.value); save(); render(); });
+$("#list").querySelectorAll("input[data-p]").forEach(p => p.addEventListener("input", () => { st.pr[p.dataset.p] = p.value; save(); render(); }));
+$("#all").onclick = () => { $("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.checked = true); st.sel = ITEMS.map(i=>i.n); save(); render(); };
+$("#none").onclick = () => { $("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.checked = false); st.sel = []; save(); render(); };
+render();
+</script></body></html>

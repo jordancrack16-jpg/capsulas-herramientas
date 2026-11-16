@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>التشخيص وخطة العمل</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--w:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.55;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px}
+header{text-align:center;padding:18px 0 10px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;font-weight:800;color:var(--g);font-size:clamp(28px,6vw,40px);line-height:1.1;margin:14px 0 8px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:560px;margin:0 auto}
+.bar{height:8px;background:var(--c2);border-radius:9px;margin:22px 0 6px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--s),var(--o));transition:width .3s}
+.step-n{font-size:13px;color:var(--m);text-align:right;font-weight:600}
+.card{background:var(--w);border:1px solid #e6dfcf;border-radius:18px;padding:24px 20px;margin-top:14px;box-shadow:0 6px 20px rgba(47,74,42,.06)}
+.q{display:none}.q.on{display:block;animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.q h2{font-family:'Fraunces',serif;color:var(--g);font-size:22px;line-height:1.25;margin-bottom:6px}
+.q .hint{color:var(--m);font-size:14px;margin-bottom:14px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;border:1.5px solid #e2dac9;border-radius:14px;padding:13px 14px;cursor:pointer;background:var(--c);font-weight:600;transition:.15s}
+.opt:hover{border-color:var(--s)}
+.opt input{accent-color:var(--g);width:18px;height:18px;flex:none}
+.opt.sel{border-color:var(--g);background:var(--s2)}
+.opt small{display:block;font-weight:400;color:var(--m);font-size:13px}
+input[type=text],input[type=number],select{width:100%;font:inherit;padding:13px 14px;border:1.5px solid #e2dac9;border-radius:12px;background:var(--c);color:var(--t)}
+input:focus,select:focus{outline:2px solid var(--s);border-color:var(--s)}
+.row{display:grid;grid-template-columns:1fr 130px;gap:10px}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+button{font:800 15px 'Nunito Sans',sans-serif;border:0;border-radius:40px;padding:14px 22px;cursor:pointer}
+.next{background:var(--g);color:#fff;flex:1}.next:disabled{opacity:.4;cursor:not-allowed}
+.back{background:transparent;color:var(--g);border:1.5px solid var(--g)}
+.err{color:#b5654a;font-size:13px;margin-top:8px;min-height:18px}
+/* Resultado */
+#plan{display:none}
+.hero{background:linear-gradient(135deg,var(--g),#466b3c);color:#fff;border-radius:20px;padding:26px 22px;margin-top:10px}
+.hero .k{font-size:12px;letter-spacing:3px;font-weight:800;color:#e9d8b0}
+.hero h2{font-family:'Fraunces',serif;font-size:28px;line-height:1.15;margin:6px 0}
+.hero p{opacity:.92}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.stat{background:rgba(255,255,255,.12);border-radius:14px;padding:12px;text-align:center}
+.stat b{display:block;font-family:'Fraunces',serif;font-size:22px}
+.stat span{font-size:12px;opacity:.9}
+.sec{margin-top:22px}
+.sec h3{font-family:'Fraunces',serif;color:var(--g);font-size:21px;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.sec h3 .n{background:var(--o);color:#fff;font:800 13px 'Nunito Sans';border-radius:30px;padding:3px 10px}
+.list{list-style:none;display:grid;gap:8px}
+.list li{background:var(--w);border:1px solid #e6dfcf;border-radius:12px;padding:11px 14px 11px 40px;position:relative}
+.list li:before{content:"✓";position:absolute;left:14px;top:10px;color:var(--s);font-weight:800}
+.list.warn li:before{content:"!";color:#b5654a}
+.week{background:var(--w);border:1px solid #e6dfcf;border-radius:16px;padding:16px;margin-bottom:12px;break-inside:avoid}
+.week h4{color:var(--g);font-size:16px;margin-bottom:2px}
+.week .d{font-size:12px;color:var(--o);font-weight:800;letter-spacing:2px}
+.week ul{margin:8px 0 0 0;list-style:none}
+.week li{padding:6px 0 6px 28px;border-top:1px dashed #e6dfcf;position:relative;font-size:15px}
+.week li:before{content:"☐";position:absolute;left:4px;color:var(--s);font-weight:800}
+.week li b{color:var(--g)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--s2);color:var(--g);font-weight:800;font-size:13px;border-radius:30px;padding:6px 12px}
+.note{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--m);margin-top:14px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.actions button{flex:1;min-width:200px}
+.print{background:var(--o);color:#fff}
+.restart{background:transparent;border:1.5px solid var(--g);color:var(--g)}
+@media (max-width:520px){.stats{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff}.wrap{max-width:none;padding:0}
+  #quiz,header .sub,.actions,.bar,.step-n{display:none!important}
+  header{padding:0}
+  .hero{break-inside:avoid}
+  .sec{break-inside:auto}
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet"><style>body,h1,h2,h3,button,input,select,textarea,.n,.t,.lb .n,.ci .t,.ch h2,.cs h3,.q h2,.hero h2,.sec h3,.stat b{font-family:Cairo,sans-serif!important}</style></head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">الخطوة 1 من البرنامج</span>
+  <h1>التشخيص و<em>خطة عمل</em> مخصصة</h1>
+  <p class="sub">أجب عن 12 سؤالًا سريعًا (حوالي 5 دقائق). في النهاية ستحصل على خطة 30 يومًا، مُخصصة لوقتك وميزانيتك وخبرتك، جاهزة للطباعة أو الحفظ كملف PDF.</p>
+</header>
+
+<div id="quiz">
+  <div class="bar"><i id="prog"></i></div>
+  <div class="step-n" id="stepn"></div>
+  <div class="card" id="qs"></div>
+  <div class="err" id="err"></div>
+  <div class="nav">
+    <button class="back" id="back" type="button">← رجوع</button>
+    <button class="next" id="next" type="button">التالي →</button>
+  </div>
+</div>
+
+<div id="plan"></div>
+</div>
+
+<script>
+const Q = [
+ {id:"nombre", t:"ما اسمك؟", h:"ستحمل خطتك اسمك.", type:"text", ph:"اسمك"},
+ {id:"pais", t:"في أي دولة ستبيع؟", h:"يساعدنا ذلك في اقتراح القنوات والتواريخ الخاصة.", type:"select",
+  o:["الإمارات","السعودية","الكويت","قطر","البحرين","عُمان","دول أخرى"]},
+ {id:"exp", t:"ما مدى خبرتك في تحضير الكبسولات الفاخرة؟", type:"radio", o:[
+   ["0","لم أجرب بعد","أنا مبتدئ في الدورة"],["1","جربت بعض المرات","أتمكن منها لكنني ما زلت أتدرب"],
+   ["2","بعت أو أهديت بعضًا منها","لدي خبرة وبعض الآراء"],["3","أبيع بانتظام","أريد التنظيم والنمو"]]},
+ {id:"pres", t:"ما الميزانية التي تبدأ بها لشراء المواد والتغليف؟", type:"radio", o:[
+   ["0","منخفضة جدًا","فقط ما لدي أو الحد الأدنى"],["1","منخفضة","لبضع دفعات وتغليف بسيط"],
+   ["2","متوسطة","لعدة دفعات وصناديق جميلة"],["3","يمكنني الاستثمار أكثر","قوالب جديدة، تغليف ومواد إضافية"]]},
+ {id:"horas", t:"كم ساعة في الأسبوع يمكنك تخصيصها؟", type:"radio", o:[
+   ["0","أقل من 3 ساعات","بعض الأيام لفترة قصيرة"],["1","من 3 إلى 6 ساعات","حوالي ساعة يوميًا"],
+   ["2","من 7 إلى 12 ساعة","ساعة أو ساعتين يوميًا"],["3","أكثر من 12 ساعة","يمكنني تخصيص وقت كبير"]]},
+ {id:"canales", t:"أين تود أن تبيع؟", h:"يمكنك اختيار أكثر من خيار.", type:"check", o:[
+   ["wa","واتساب"],["ig","إنستغرام"],["tt","تيك توك"],["fb","فيسبوك وسوق فيسبوك"],["feria","المعارض والأسواق"],
+   ["local","محلات محلية (مقاهي، محلات زهور، هدايا)"],["eventos","فعاليات وشركات (حفلات زفاف، أعياد ميلاد، هدايا شركات)"]]},
+ {id:"contactos", t:"كم عدد جهات الاتصال لديك في واتساب تقريبًا؟", type:"radio", o:[
+   ["0","أقل من 100",""],["1","بين 100 و300",""],["2","بين 300 و800",""],["3","أكثر من 800",""]]},
+ {id:"video", t:"هل تجرؤ على تسجيل فيديوهات لوسائل التواصل؟", type:"radio", o:[
+   ["2","نعم، ويمكنني الظهور","أستطيع التحدث أمام الكاميرا"],["1","نعم، لكن فقط يدي والمنتج","أفضل عدم إظهار الوجه"],
+   ["0","أفضل الصور فقط الآن","الفيديوهات صعبة عليّ"]]},
+ {id:"obj", t:"ماذا تريد أن تحقق من هذا العمل؟", type:"radio", o:[
+   ["extra","دخل إضافي","تكملة لما أكسبه"],["principal","أن يكون دخلي الرئيسي","بناء عمل جاد"],
+   ["temporada","البيع في مناسبات خاصة","رمضان، عيد الفطر، عيد الأضحى..."],["eventos","التخصص في الفعاليات والهدايا","حفلات زفاف، أعياد ميلاد، شركات"]]},
+ {id:"meta", t:"كم تود أن تبيع خلال الـ30 يومًا القادمة؟", h:"اكتب رقمًا وعملتك. ستضبطها لاحقًا باستخدام الحاسبة.", type:"meta"},
+ {id:"traba", t:"ما أكثر شيء يعيقك اليوم؟", type:"radio", o:[
+   ["precio","لا أعرف كم أطلب سعرًا",""],["donde","لا أعرف أين أو لمن أبيع",""],["verguenza","أشعر بالخجل من العرض",""],
+   ["tiempo","وقتي محدود",""],["produccion","لا أشعر بالثقة في الإنتاج بعد",""]]},
+ {id:"fecha", t:"ما أقرب مناسبة خاصة لديك؟", h:"المناسبات الخاصة هي أفضل فرصة للبيع.", type:"radio", o:[
+   ["navidad","عيد الميلاد ورأس السنة",""],["sanvalentin","عيد الحب",""],["madre","عيد الأم",""],
+   ["padre","عيد الأب",""],["graduacion","حفلات التخرج",""],["ninguna","لا توجد مناسبات قريبة",""]]},
+];
+const MONEDAS = {"الإمارات":"AED","السعودية":"SAR","الكويت":"KWD","قطر":"QAR","البحرين":"BHD","عُمان":"OMR","دول أخرى":"AED"};
+let A = {}; let i = 0;
+try { const s = localStorage.getItem("cg_diag"); if (s) A = JSON.parse(s) || {}; } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_diag", JSON.stringify(A)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function render() {
+  const q = Q[i]; let h = `<div class="q on"><h2>${q.t}</h2>${q.h ? `<p class="hint">${q.h}</p>` : ""}`;
+  if (q.type === "text") h += `<input type="text" id="f" placeholder="${q.ph}" value="${esc(A[q.id]||"")}" maxlength="40">`;
+  if (q.type === "select") h += `<select id="f"><option value="">اختر دولتك</option>${q.o.map(o=>`<option ${A[q.id]===o?"selected":""}>${o}</option>`).join("")}</select>`;
+  if (q.type === "radio") h += `<div class="opts">${q.o.map(([v,l,s])=>`<label class="opt ${A[q.id]===v?"sel":""}"><input type="radio" name="r" value="${v}" ${A[q.id]===v?"checked":""}><span>${l}${s?`<small>${s}</small>`:""}</span></label>`).join("")}</div>`;
+  if (q.type === "check") { const cur = A[q.id]||[]; h += `<div class="opts">${q.o.map(([v,l])=>`<label class="opt ${cur.includes(v)?"sel":""}"><input type="checkbox" value="${v}" ${cur.includes(v)?"checked":""}><span>${l}</span></label>`).join("")}</div>`; }
+  if (q.type === "meta") { const mon = A.moneda || MONEDAS[A.pais] || "USD";
+    h += `<div class="row"><input type="number" id="f" min="0" inputmode="numeric" placeholder="مثال: 1000" value="${A.meta||""}"><input type="text" id="mon" value="${esc(mon)}" maxlength="5" aria-label="العملة"></div>`; }
+  h += "</div>";
+  $("#qs").innerHTML = h; $("#err").textContent = "";
+  $("#prog").style.width = (i / Q.length * 100) + "%";
+  $("#stepn").textContent = `السؤال ${i+1} من ${Q.length}`;
+  $("#back").style.visibility = i ? "visible" : "hidden";
+  $("#next").textContent = i === Q.length - 1 ? "عرض خطتي ✦" : "التالي →";
+  document.querySelectorAll(".opt input").forEach(inp => inp.addEventListener("change", () => {
+    if (inp.type === "radio") { document.querySelectorAll(".opt").forEach(o=>o.classList.remove("sel")); inp.closest(".opt").classList.add("sel"); A[q.id] = inp.value; save(); setTimeout(next, 220); }
+    else { inp.closest(".opt").classList.toggle("sel", inp.checked); A[q.id] = [...document.querySelectorAll(".opt input:checked")].map(x=>x.value); save(); }
+  }));
+  const f = $("#f"); if (f && q.type !== "select") { f.focus(); f.addEventListener("keydown", e => { if (e.key === "Enter") next(); }); }
+}
+function valid() {
+  const q = Q[i];
+  if (q.type === "text") { const v = $("#f").value.trim(); if (!v) return "اكتب اسمك للمتابعة."; A.nombre = v; }
+  if (q.type === "select") { const v = $("#f").value; if (!v) return "اختر دولة."; if (A.pais !== v) delete A.moneda; A.pais = v; }
+  if (q.type === "radio" && A[q.id] === undefined) return "اختر خيارًا.";
+  if (q.type === "check" && !(A[q.id]||[]).length) return "اختر خيارًا واحدًا على الأقل.";
+  if (q.type === "meta") { const v = parseFloat($("#f").value); if (!(v > 0)) return "اكتب رقمًا أكبر من صفر."; A.meta = v; A.moneda = ($("#mon").value.trim() || "USD").toUpperCase(); }
+  save(); return "";
+}
+function next() { const e = valid(); if (e) { $("#err").textContent = e; return; } if (i < Q.length - 1) { i++; render(); } else showPlan(); }
+$("#next").onclick = next;
+$("#back").onclick = () => { if (i > 0) { i--; render(); } };
+
+const n = k => parseInt(A[k] ?? 0, 10);
+const fmt = v => Math.round(v).toLocaleString("ar");
+
+function showPlan() {
+  const exp = n("exp"), pres = n("pres"), horas = n("horas"), cont = n("contactos"), vid = n("video");
+  const ch = A.canales || [], has = c => ch.includes(c);
+  const nombre = esc(A.nombre), mon = esc(A.moneda), meta = A.meta;
+
+  // Perfil
+  const score = exp + horas + Math.min(pres, 2);
+  const perfil = score <= 3 ? ["رائدة أعمال مبتدئة", "أولويتك هي التدريب، تحضير عينة جميلة والبدء بالبيع في دائرتك المقربة. خطوة بخطوة."]
+    : score <= 6 ? ["رائدة أعمال في الطريق", "لديك أساس. أولويتك ترتيب الأسعار، عرض منتجك باستمرار وإغلاق أول الطلبات."]
+    : ["رائدة أعمال جاهزة للنمو", "لديك خبرة ووقت. أولويتك إضافة قنوات، طلبات كبيرة وزبائن يعودون للشراء."];
+
+  // Tiempo diario
+  const minDia = ["20–30 دقيقة", "40–60 دقيقة", "1–2 ساعة", "ساعتان أو أكثر"][horas];
+  const diasSem = [3, 5, 5, 6][horas];
+
+  // Canales prioritarios
+  let prio = ["واتساب (الحالات والرسائل الشخصية)"];
+  if (has("ig") || (vid >= 1 && !has("tt"))) prio.push(vid >= 1 ? "إنستغرام (ريلز وحالات)" : "إنستغرام (صور وكاروسيل)");
+  if (has("tt") && vid >= 1) prio.push("تيك توك (فيديوهات قصيرة للعملية)");
+  if (has("fb")) prio.push("سوق فيسبوك والمجموعات المحلية");
+  if (has("local")) prio.push("محلات محلية شريكة");
+  if (has("eventos") || A.obj === "eventos") prio.push("فعاليات وهدايا شركات");
+  if (has("feria")) prio.push("المعارض والأسواق");
+  prio = [...new Set(prio)].slice(0, horas >= 2 ? 4 : 3);
+
+  // Productos recomendados
+  const prods = exp === 0 ? ["صندوق تجربة (4 كبسولات)", "صندوق هدايا (6 كبسولات)"]
+    : ["صندوق تجربة (4 كبسولات)", "صندوق هدايا (6–9 كبسولات)", "طلب مخصص"];
+  if (A.obj === "eventos" || has("eventos")) prods.push("تذكارات للفعاليات (حسب الحجم)");
+  const formatos = exp <= 1 ? "قلب، زهرة ودائرة (أسهل في الإخراج)" : "قلب، زهرة، دب صغير وفراشة";
+  const sabores = pres === 0 ? "نكهتان من القهوة وواحدة من الشاي، لشراء مواد قليلة" : "3 نكهات قهوة و2 شاي";
+
+  // Fecha especial
+  const F = {navidad:["صندوق عيد الميلاد","عيد الميلاد"], sanvalentin:["صندوق العشاق","عيد الحب"], madre:["صندوق الأم","عيد الأم"],
+             padre:["صندوق الأب محب القهوة","عيد الأب"], graduacion:["صندوق التخرج","حفلات التخرج"], ninguna:["صندوق أعياد الميلاد","أعياد الميلاد الشهرية"]};
+  const [cajaT, fechaT] = F[A.fecha] || F.ninguna;
+
+  // Metas (precio promedio orientativo no se conoce: se pide calcular)
+  const metaSem = meta / 4.3;
+
+  // Fortalezas y atención
+  const fort = [], aten = [];
+  if (exp >= 2) fort.push("لديك خبرة: يمكنك عرض صور حقيقية وآراء من اليوم الأول.");
+  if (horas >= 2) fort.push("لديك وقت جيد متاح: يمكنك التقدم أسرع من الخطة الأساسية.");
+  if (cont >= 2) fort.push("قائمة واتساب كبيرة: حالاتك ستكون أول قناة مبيعات.");
+  if (vid === 2) fort.push("تجرؤ على الظهور في الفيديو: هذا يولد ثقة أكبر ويزيد المبيعات.");
+  if (pres >= 2) fort.push("ميزانيتك تسمح بالاهتمام بالتقديم من البداية.");
+  if (A.fecha && A.fecha !== "ninguna") fort.push(`لديك ${fechaT} قريبًا: مناسبة تبرر الشراء الآن.`);
+  if (!fort.length) fort.push("لقد اتخذت خطوة البدء بطريقة منظمة: هذا يجعلك متقدمة على الأغلبية.");
+  if (exp <= 1) aten.push("تدرب على 2–3 دفعات قبل قبول طلبات كبيرة؛ ابدأ بأشكال بسيطة.");
+  if (pres === 0) aten.push("ابدأ بتغليف بسيط (كيس كرافت + ملصق) وأعد استثمار الأرباح الأولى في الصناديق.");
+  if (horas === 0) aten.push("مع وقت قليل، أنتج دفعة واحدة في الأسبوع وسجل عدة فيديوهات معًا.");
+  if (cont === 0) aten.push("قائمة جهات الاتصال صغيرة: ستحتاج إلى السوق، المجموعات والمحلات الشريكة للوصول لأكثر.");
+  if (vid === 0) aten.push("بدون فيديو ستصل لأقل عدد من الناس. جرب فقط بيديك: الكبسولة تذوب هي أفضل محتوى لديك.");
+  const TRABA = {precio:"أكبر عائق هو السعر: الأيام 3 و4 مهمة جدًا. لا تتخطاها.",
+    donde:"أكبر عائق هو أين تبيع: اتبع دليل أول 10 عملاء من اليوم 7.",
+    verguenza:"تشعر بالخجل من العرض: استخدم الرسائل الجاهزة من المكافأة 1. ستشارك شيئًا جميلًا، ليس طلب معروف.",
+    tiempo:"وقتك محدود: قم فقط بالمهمة الرئيسية لكل يوم وجمع الإنتاج.",
+    produccion:"لا تشعر بالأمان في الإنتاج بعد: خصص الأيام 2 و6 للتدريب وراجع الدورة الرئيسية."};
+  aten.push(TRABA[A.traba]);
+
+  // Semanas personalizadas
+  const S1 = [
+    `<b>اليوم 1:</b> اطبع هذه الخطة واكتب لماذا تبدأ.`,
+    `<b>اليوم 2:</b> حدد قائمتك: ${prods.slice(0,3).join(", ")}. الأشكال: ${formatos}. النكهات: ${sabores}.`,
+    `<b>الأيام 3–4:</b> أدخل تكاليفك في الحاسبة وحدد أسعارك (الهامش المقترح: 55–70%).`,
+    `<b>اليوم 5:</b> ضع هدفك في ورقة «3 · الهدف»: ${fmt(meta)} ${mon} تعادل حوالي ${fmt(metaSem)} ${mon} في الأسبوع. تحقق كم عدد الصناديق واضبط الهدف إذا لزم الأمر.`,
+    exp <= 1 ? `<b>اليوم 6:</b> قم بعمل 2 دفعات تدريبية وصندوق عينة كامل. التقط 15 صورة بإضاءة طبيعية.` : `<b>اليوم 6:</b> حضر صندوق العينة، التقط 15 صورة وسجل فيديو للكبسولة وهي تذوب.`,
+    `<b>اليوم 7:</b> جهز واتساب بيزنس (كتالوج منتجاتك) وابدأ قائمة ${cont === 0 ? "50" : "100"} جهة اتصال.`];
+  const S2 = [
+    `<b>اليوم 8:</b> 3 حالات واتساب برسالة تشويق (رسالة 1).`,
+    `<b>اليوم 9:</b> ${cont >= 2 ? "15" : "10"} رسائل شخصية مع رسالة 3. سجل من يرد.`,
+    vid >= 1 ? `<b>اليوم 10:</b> سجل سيناريو 1 «هل تعرف ما هذا؟»${vid === 1 ? " (يد فقط)" : ""} وانشره على ${has("tt") ? "تيك توك، " : ""}إنستغرام والحالات.` : `<b>اليوم 10:</b> انشر مجموعة صور مع سؤال «هل تعرف ما هذا؟».`,
+    `<b>اليوم 11:</b> تذوق مع العائلة، العمل أو الأصدقاء. اطلب رأيهم وصورة.`,
+    has("fb") || cont <= 1 ? `<b>اليوم 12:</b> انشر في سوق فيسبوك و3 مجموعات محلية.` : `<b>اليوم 12:</b> جولة ثانية من الحالات مع آراء التذوق.`,
+    `<b>الأيام 13–14:</b> 10 رسائل إضافية ومراجعة الأسبوع في متابعة الطلبات.`];
+  const S3 = [
+    `<b>اليوم 15:</b> أطلق <b>«${cajaT}»</b> لـ${fechaT} مع موعد نهائي للطلبات.`,
+    `<b>اليوم 16:</b> أدخل الردود السريعة والوسوم في واتساب بيزنس.`,
+    `<b>اليوم 17:</b> أغلق الاستفسارات المعلقة (رسائل 12–16). اطلب تأكيد الطلب.`,
+    `<b>اليوم 18:</b> أنشئ 3 خيارات مخصصة واحسب سعرها.`,
+    has("eventos") || A.obj === "eventos" ? `<b>اليوم 19:</b> تواصل مع 10 عملاء محتملين للفعاليات أو الشركات (رسائل 22 و23). <b>أولوية عالية لك.</b>` : `<b>اليوم 19:</b> تواصل مع 5 عملاء محتملين للفعاليات (رسالة 22).`,
+    `<b>الأيام 20–21:</b> انشر 3 شهادات وراجع أي منتج يحقق أكبر ربح.`];
+  const S4 = [
+    `<b>اليوم 22:</b> رسالة إعادة شراء لجميع عملائك (رسالة 27).`,
+    `<b>اليوم 23:</b> فعّل برنامج الإحالات الخاص بك (رسالة 28).`,
+    has("local") ? `<b>اليوم 24:</b> زر 3 محلات شريكة مع صندوق عينة. <b>أولوية عالية لك.</b>` : `<b>اليوم 24:</b> تواصل مع محلين مشابهين (محل زهور، مقهى) مع رسالة 24.`,
+    `<b>اليوم 25:</b> خطط لمحتوى أسبوعين${vid >= 1 ? " وسجل 3 فيديوهات معًا" : ""}.`,
+    `<b>الأيام 26–27:</b> نظم روتين الإنتاج وراجع أرقامك في ورقة الملخص.`,
+    `<b>الأيام 28–30:</b> التقييم النهائي، شكر العملاء وضع خطة جديدة مع هدف جديد.`];
+  const rutina = horas === 0
+    ? ["الإثنين: 20 دقيقة للرسائل والحالات", "الأربعاء: 20 دقيقة للمحتوى", "السبت: الإنتاج والتغليف دفعة واحدة"]
+    : horas === 1 ? ["يوميًا: 15 دقيقة للحالات والردود", "3 أيام في الأسبوع: 30 دقيقة لمهمة الخطة", "يوم واحد: إنتاج دفعة"]
+    : ["يوميًا: 20 دقيقة للحالات والردود", "يوميًا: مهمة الخطة", "يومان: الإنتاج", "يوم واحد: تسجيل عدة فيديوهات معًا"];
+
+  const L = a => `<ul class="list">${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+  const W = (k, t, d, a) => `<div class="week"><div class="d">${d}</div><h4>${k} · ${t}</h4><ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul></div>`;
+  const hoy = new Date().toLocaleDateString("ar", {day:"numeric", month:"long", year:"numeric"});
+
+  $("#plan").innerHTML = `
+  <div class="hero"><div class="k">خطة العمل · ${hoy.toUpperCase()}</div>
+    <h2>${nombre}، هذه خطتك لـ30 يومًا</h2><p><b>${perfil[0]}.</b> ${perfil[1]}</p>
+    <div class="stats"><div class="stat"><b>${fmt(meta)} ${mon}</b><span>هدفك خلال 30 يومًا</span></div>
+    <div class="stat"><b>${minDia}</b><span>يوميًا · ${diasSem} أيام/أسبوع</span></div>
+    <div class="stat"><b>${prio.length}</b><span>قنوات أولوية</span></div></div></div>
+
+  <div class="sec"><h3><span class="n">1</span>نقاط قوتك</h3>${L(fort)}</div>
+  <div class="sec"><h3><span class="n">2</span>نقاط يجب الانتباه لها</h3><ul class="list warn">${aten.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div class="sec"><h3><span class="n">3</span>ماذا تبدأ بالبيع</h3>${L(prods)}
+    <div class="note">الأشكال الموصى بها: <b>${formatos}</b>. النكهات: <b>${sabores}</b>. عرضك الموسمي: <b>«${cajaT}»</b>.</div></div>
+  <div class="sec"><h3><span class="n">4</span>أين تبيع أولًا</h3><div class="chips">${prio.map(p=>`<span class="chip">${p}</span>`).join("")}</div>
+    <div class="note">ابدأ بالأول وأضف التالي عندما تنشر باستمرار. من الأفضل قناة واحدة مُدارة جيدًا من أربع مهجورة.</div></div>
+  <div class="sec"><h3><span class="n">5</span>روتينك الأسبوعي</h3>${L(rutina)}</div>
+  <div class="sec"><h3><span class="n">6</span>خطة أسبوعية</h3>
+    ${W("المرحلة 1","خطة العمل","الأيام 1 إلى 7",S1)}${W("المرحلة 2","أول العملاء","الأيام 8 إلى 14",S2)}
+    ${W("المرحلة 3","الاستفسارات → الطلبات","الأيام 15 إلى 21",S3)}${W("المرحلة 4","النمو","الأيام 22 إلى 30",S4)}</div>
+  <div class="note"><b>هدفك هو دليل، وليس ضمانًا.</b> النتائج تعتمد على استمراريتك، أسعارك وسوقك. إذا بدت الأرقام اليومية في ورقة «3 · الهدف» مستحيلة لوقتك، عدل الهدف: هدف قابل للتحقيق أفضل من هدف ضخم يُهمل. كل مهمة مشروحة بالتفصيل في <b>دليل البرنامج</b>.</div>
+  <div class="actions"><button class="print" type="button" onclick="window.print()">⬇ حفظ كـ PDF / طباعة</button>
+  <button class="restart" type="button" onclick="restart()">تعديل إجاباتي</button></div>`;
+  $("#quiz").style.display = "none"; $("header .sub").style.display = "none";
+  $("#plan").style.display = "block"; window.scrollTo(0, 0);
+  A.done = true; save();
+}
+function restart() { $("#plan").style.display = "none"; $("#quiz").style.display = "block"; $("header .sub").style.display = ""; i = 0; render(); }
+if (A.done && A.meta) showPlan(); else render();
+</script>
+</body>
+</html>

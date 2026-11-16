@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>30 رسالة واتساب</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--wa:#e9f5e1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5}
+.wrap{max-width:820px;margin:0 auto;padding:22px 16px 70px}
+header{text-align:center;padding:10px 0 16px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--g);font-size:clamp(28px,6vw,38px);line-height:1.1;margin:12px 0 6px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:580px;margin:0 auto}
+.vars{position:sticky;top:0;z-index:5;background:rgba(251,247,239,.96);backdrop-filter:blur(6px);border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin:16px 0;box-shadow:0 6px 18px rgba(47,74,42,.07)}
+.vars b{display:block;color:var(--g);font-size:14px;margin-bottom:8px}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.vg input{width:100%;font:inherit;font-size:14px;padding:10px 12px;border:1.5px solid #e2dac9;border-radius:10px;background:#fff}
+.vg input:focus{outline:2px solid var(--s)}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px;margin-top:10px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+textarea{overflow:hidden}
+.filters button{flex:none;font:800 13px 'Nunito Sans';border:1.5px solid var(--s);background:#fff;color:var(--g);border-radius:30px;padding:7px 13px;cursor:pointer}
+.filters button.on{background:var(--g);border-color:var(--g);color:#fff}
+.cat h2{font-family:'Fraunces',serif;color:var(--g);font-size:24px;margin:26px 0 2px}
+.cat>p{color:var(--m);margin-bottom:10px}
+.m{background:#fff;border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin-bottom:12px}
+.mh{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.n{background:var(--g);color:#fff;font-weight:800;font-size:13px;border-radius:30px;padding:3px 10px}
+.mh h3{font-size:16px;color:var(--g)}
+.w{font-size:12px;font-weight:800;color:var(--g);background:var(--s2);border-radius:30px;padding:3px 10px}
+textarea{width:100%;font:inherit;font-size:15px;line-height:1.5;border:0;border-radius:12px 12px 12px 3px;background:var(--wa);padding:12px 14px;resize:vertical;min-height:110px;color:var(--t)}
+textarea:focus{outline:2px solid var(--s)}
+.btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.btns button,.btns a{font:800 13px 'Nunito Sans';border-radius:30px;padding:9px 14px;cursor:pointer;text-decoration:none;border:0}
+.copy{background:var(--g);color:#fff}
+.wa{background:#25d366;color:#fff}
+.reset{background:transparent;color:var(--m);border:1px solid #d9d0bd!important}
+.ok{background:var(--o)!important}
+.tip{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:10px}
+@media(max-width:600px){.vg{grid-template-columns:1fr}.vars{position:static}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet"><style>body,h1,h2,h3,button,input,select,textarea,.n,.t,.lb .n,.ci .t,.ch h2,.cs h3,.q h2,.hero h2,.sec h3,.stat b{font-family:Cairo,sans-serif!important}</style></head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">هدية 1 · نسخة قابلة للتعديل</span>
+  <h1><em>30 رسالة</em> واتساب جاهزة للاستخدام</h1>
+  <p class="sub">اكتب بياناتك مرة واحدة فقط وسيتم ملء جميع الرسائل تلقائيًا. يمكنك تعديل أي رسالة، نسخها أو فتحها مباشرة في واتساب. يتم حفظ تغييراتك على هذا الجهاز.</p>
+</header>
+
+<div class="vars">
+  <b>✍️ بياناتك (تُملأ في جميع الرسائل)</b>
+  <div class="vg">
+    <input id="v_YO" placeholder="اسمك">
+    <input id="v_NEGOCIO" placeholder="اسم علامتك التجارية">
+    <input id="v_CIUDAD" placeholder="مدينتك">
+  </div>
+  <div class="filters" id="filters"></div>
+</div>
+
+<div id="list"></div>
+<div class="tip"><b>تذكّر:</b> غيّر ما بين الأقواس المربعة، مثل <b>[Nombre]</b> أو <b>[Fecha]</b> قبل الإرسال. واكتب دائمًا اسم الشخص: الرسائل الشخصية تحصل على ردود أكثر بكثير.</div>
+</div>
+
+<script>
+const DATA = [{"cat": "بدء المحادثة", "desc": "لكي يعرف معارفك أنك بدأت، بدون أن تبدو كإعلان.", "ms": [{"n": 1, "t": "حالة الفضول", "w": "حالات واتساب · اليوم 8", "x": "هل تخمنون ما هذا؟ 👀☕\nليس شوكولاتة، ليس صابونًا وليس شمعة…\nسأخبركم غدًا 🤫"}, {"n": 2, "t": "حالة: فتحت الطلبات", "w": "حالات واتساب", "x": "أخيرًا أخبركم! 🌸\nهذه هي الكبسولات الفاخرة من القهوة والشاي: تضعها في ماء ساخن وتتحول إلى مشروب لذيذ.\nأنا أصنعها يدويًا في {CIUDAD}.\nهذا الأسبوع أفتح أول الطلبات 🎁 هل تريد رؤية النماذج؟ اكتب لي."}, {"n": 3, "t": "اتصال قريب", "w": "رسالة شخصية · اليوم 9", "x": "مرحبًا {NOMBRE}! كيف حالك؟ 😊\nأخبرك بشيء: بدأت مشروعًا للكبسولات الفاخرة من القهوة والشاي، مصنوعة يدويًا بأشكال ورود وقلوب ودببة.\nأحب أن أعرف رأيك فيها. هل أرسل لك بعض الصور؟"}, {"n": 4, "t": "معروف ليس قريبًا جدًا", "w": "رسالة شخصية", "x": "مرحبًا {NOMBRE}، كيف الأمور؟ أنا {YO} 😊\nأكتب لك لأنني بدأت مع {NEGOCIO}، مشروع كبسولات القهوة والشاي كهدايا.\nفكرت فيك لأنني أعلم أنك تحب التفاصيل الجميلة. هل أريك الكتالوج بدون أي التزام؟"}, {"n": 5, "t": "دعوة للتجربة", "w": "تذوق · اليوم 11", "x": "{NOMBRE}، لدي هدية صغيرة لك! ☕\nأجرب نكهات جديدة من كبسولاتي الفاخرة وأريد رأيك الصادق.\nمتى يمكنني أن أوصلها لك؟"}, {"n": 6, "t": "بعد التذوق", "w": "شكر وعرض · اليوم 11", "x": "شكرًا لتجربتها، {NOMBRE}! 🥰 أي واحدة أعجبتك أكثر؟\nرأيك يساعدني كثيرًا.\nإذا أردت إهداؤها لأحد: لدي علبة للتجربة وعلبة هدايا مع شريط وبطاقة. هل أرسل لك الصور؟"}]}, {"cat": "الرد على الاستفسارات", "desc": "ردود سريعة على أكثر الأسئلة شيوعًا.", "ms": [{"n": 7, "t": "«ما هذا؟»", "w": "رد سريع /quees", "x": "مرحبًا {NOMBRE}! شكرًا لرسالتك 😊\nهي كبسولات قهوة أو شاي مصنوعة يدويًا ومشكّلة بأشكال (ورود، قلوب، دببة).\nتوضع في كوب، يُضاف الماء الساخن وتذوب لتصبح مشروبًا معطرًا. إنها هدية رائعة!\nهل هي لك أم هدية؟"}, {"n": 8, "t": "الأسعار والكتالوج", "w": "رد سريع /precios", "x": "بالطبع! هذه الخيارات 👇\n🎁 علبة للتجربة (4 كبسولات)\n🎀 علبة هدايا مع شريط وبطاقة\n✨ طلب مخصص (ألوان، حرف أول أو رسالة)\nأرسل لك الكتالوج مع الصور والأسعار. لأي مناسبة تحتاجها؟"}, {"n": 9, "t": "كيفية التحضير والمدة", "w": "رد سريع /uso", "x": "طريقة التحضير: ضع كبسولة واحدة في كوب، أضف ماء ساخن وحرّك حتى تذوب ☕\nتحفظ في مكان بارد وجاف، في علبتها المغلقة. سأرسل لك كتابة مدة الاستهلاك الموصى بها عند التسليم.\nهل تود تجربة العلبة التي تحتوي 4 كبسولات أولًا؟"}, {"n": 10, "t": "«غالي»", "w": "اعتراض على السعر", "x": "أتفهمك، {NOMBRE} 😊 كل كبسولة مصنوعة يدويًا واحدة تلو الأخرى، بمكونات مختارة وتغليف هدايا متضمن.\nإذا أردت شيئًا أبسط، علبة التجربة خيار أكثر اقتصادية وجميلة أيضًا كهدية. هل أريك؟"}, {"n": 11, "t": "«سأفكر»", "w": "اعتراض على الوقت", "x": "بالطبع، لا داعي للعجلة! 😊\nفقط أخبرك أنني أجهز الطلبات حسب ترتيب الوصول وهذا الأسبوع بقيت أماكن قليلة.\nهل تريد أن أحجز لك واحدة لـ {FECHA}؟ وإذا غيرت رأيك لاحقًا، لا مشكلة."}]}, {"cat": "إغلاق الطلبات", "desc": "رسائل لتحويل «جميل» إلى «أريد واحدًا».", "ms": [{"n": 12, "t": "إغلاق بخيارين", "w": "إغلاق · اليوم 17", "x": "أيها يعجبك أكثر، {NOMBRE}: علبة 4 كبسولات أم علبة الهدايا مع الشريط؟ 🎁\nأيًا كان، سأجهزها لك لـ {FECHA}."}, {"n": 13, "t": "إغلاق بمناسبة خاصة", "w": "إغلاق الموسم", "x": "{NOMBRE}، أخبرك لأنك سألت 💛\nأستقبل آخر الطلبات لـ {FECHA}. بعد هذا التاريخ لن أتمكن من تجهيزها.\nهل أحجز لك علبتك؟"}, {"n": 14, "t": "إغلاق مع دفعة مقدمة", "w": "تأكيد بدفع جزئي", "x": "رائع! لحجز تاريخك أطلب دفعة مقدمة 50% ({PRECIO}) والباقي عند التسليم 😊\nبمجرد تأكيدك، أحجز لك وأبدأ التحضير."}, {"n": 15, "t": "تأكيد الطلب", "w": "ملخص لتجنب الأخطاء", "x": "شكرًا لطلبك، {NOMBRE}! 🥰 أؤكد لك البيانات:\n• المنتج: \n• النكهات: \n• بطاقة أو رسالة: \n• التسليم: {FECHA}\n• الإجمالي: {PRECIO}\nهل كل شيء صحيح؟"}, {"n": 16, "t": "بيانات الدفع", "w": "إرسال وسائل الدفع", "x": "أرسل لك بيانات الدفع 👇\n[اكتب هنا التحويل أو المحفظة أو وسيلة الدفع]\nعند الدفع، أرسل لي الإيصال هنا وأؤكد لك. شكرًا!"}]}, {"cat": "التسليم والمتابعة", "desc": "لا تفقد أي استفسار أو عميل.", "ms": [{"n": 17, "t": "الطلب جاهز", "w": "إشعار التسليم", "x": "مرحبًا {NOMBRE}، طلبك جاهز! 🎁✨\nأرسل لك صورة لترى.\nهل يناسبك أن أسلمه {FECHA}؟ أم تفضل الاستلام بنفسك؟"}, {"n": 18, "t": "تعليمات عند التسليم", "w": "مع التسليم", "x": "استمتع به! ☕\nطريقة التحضير: كبسولة واحدة في الكوب + ماء ساخن + تحريك.\nاحفظها في مكان بارد وجاف، في علبتها المغلقة.\nإذا أعجبتك، أحب أن تخبرني!"}, {"n": 19, "t": "متابعة بعد 24 ساعة", "w": "استفسار بدون رد", "x": "مرحبًا {NOMBRE}! هل شاهدت الصور التي أرسلتها أمس؟ 😊\nإذا لديك أي سؤال عن النماذج أو النكهات، أنا هنا."}, {"n": 20, "t": "مهتمة لم تشترِ", "w": "متابعة بعد 7 أيام · اليوم 29", "x": "مرحبًا {NOMBRE} 🌸 قبل أيام سألت عن الكبسولات.\nهذا الأسبوع جهزت نماذج جديدة وتذكرتك. هل أريك؟\nإذا الآن ليس الوقت المناسب، لا تقلق!"}, {"n": 21, "t": "قائمة البث: جديد", "w": "للمتصلين الذين وافقوا فقط", "x": "✨ جديد في {NEGOCIO} ✨\nنكهات جديدة وعلبة الموسم متوفرة الآن.\nرد بـ «أريد» وأرسل لك الصور والأسعار 🎁"}]}, {"cat": "مبيعات كبيرة وشراكات", "desc": "طلبات بالجملة، شركات وأعمال محلية.", "ms": [{"n": 22, "t": "فعاليات (أعراس، أعياد ميلاد، حفلات)", "w": "عملاء بالجملة · اليوم 19", "x": "مرحبًا {NOMBRE}! أنا {YO} من {NEGOCIO} 😊\nأصنع كبسولات فاخرة مخصصة كتذكار للفعاليات: بألوان الحفل، الحرف الأول للاحتفالين، وملصق برسالة.\nهي تفصيل مختلف يستخدمه الضيوف فعلاً. هل أرسل لك أفكار وأسعار حسب الكمية؟"}, {"n": 23, "t": "شركات وهدايا مؤسسية", "w": "عملاء بالجملة · اليوم 19", "x": "مرحبًا {NOMBRE}، كيف حالك؟ أنا {YO} من {NEGOCIO}.\nأجهز علب كبسولات فاخرة من القهوة والشاي كهدايا للشركات: للعملاء، الفريق أو المناسبات الخاصة، مع ملصق مخصص بشعارهم أو رسالة.\nهل أرسل لك عرضًا مع خيارات وأسعار حسب الكمية؟"}, {"n": 24, "t": "شريك تجاري (محل زهور، مقهى، متجر هدايا)", "w": "شراكة محلية · اليوم 24", "x": "مرحبًا! أنا {YO}، رائدة أعمال من {CIUDAD}. أصنع كبسولات فاخرة من القهوة والشاي، مثالية مع الهدايا.\nأحب أن أقترح عليك شراكة: يمكنني ترك عينة لعملائك ليروها ونعمل بنظام العمولة أو بسعر خاص لإعادة البيع.\nمتى يمكنني أن أوصل لك علبة لتجربتها؟"}]}, {"cat": "الاحتفاظ بالعملاء وإعادة البيع", "desc": "عملاؤك السعداء هم أفضل قناة مبيعات لديك.", "ms": [{"n": 25, "t": "طلب رأي", "w": "بعد التسليم · اليوم 20", "x": "مرحبًا {NOMBRE}! كيف كانت تجربتك مع الكبسولات؟ 😊\nهل أعجبت من استلمها؟\nإذا أرسلت لي صورة أو تسجيل صوتي برأيك، سأكون سعيدة جدًا 💛"}, {"n": 26, "t": "شكر وطلب إذن", "w": "لنشر الشهادات", "x": "شكرًا جزيلاً، {NOMBRE}! 🥹 أسعدت يومي.\nهل تسمح لي بمشاركة رسالتك في حالاتي؟ يمكنني فعل ذلك بدون اسمك إذا تفضل."}, {"n": 27, "t": "إعادة شراء", "w": "عملاء سابقون · اليوم 22", "x": "مرحبًا {NOMBRE}! 🌸 منذ فترة جهزت لك كبسولات وأريد أن أخبرك أن لدي نكهات جديدة.\nبما أنك عميلة، في طلبك القادم أهديك كبسولة إضافية 🎁\nهل أريك الجديد؟"}, {"n": 28, "t": "إحالات", "w": "برنامج الإحالة · اليوم 23", "x": "{NOMBRE}، شكرًا لثقتك بي! 💛\nأخبرك شيئًا: إذا أوصيت بي لأحد وقام بطلب، أهديك كبسولتين في مشتراك القادم.\nفقط أخبره أن يذكر اسمك عند التواصل معي 😊"}, {"n": 29, "t": "عيد ميلاد العميل", "w": "مناسبة خاصة", "x": "عيد ميلاد سعيد، {NOMBRE}! 🎂🥳\nأتمنى لك يومًا جميلًا.\nلدي هدية لك: هذا الشهر، علبتك المفضلة مع خصم خاص. اكتب لي متى تريد!"}, {"n": 30, "t": "تنشيط العملاء في المواسم", "w": "قبل كل مناسبة خاصة", "x": "مرحبًا {NOMBRE}! يقترب {FECHA} 🎁\nفي العام الماضي/المرة الماضية كثيرون لم يحصلوا على علبتهم لأنهم تأخروا، لذلك أخبرك مسبقًا.\nلدي نماذج الموسم. هل أحجز لك؟"}]}];
+const VARS = ["YO","NEGOCIO","CIUDAD"];
+const LABEL = {NOMBRE:"[اسم]", YO:"[اسمك]", NEGOCIO:"[علامتك]", CIUDAD:"[مدينتك]", PRECIO:"[السعر]", FECHA:"[التاريخ]"};
+let st = {v:{}, e:{}};
+try { st = Object.assign(st, JSON.parse(localStorage.getItem("cg_msgs") || "{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_msgs", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+
+function fill(x) {
+  return x.replace(/\{(\w+)\}/g, (m, k) => (VARS.includes(k) && st.v[k]) ? st.v[k] : (LABEL[k] || m));
+}
+function render(filter) {
+  let h = "";
+  DATA.forEach((c, ci) => {
+    if (filter !== undefined && filter !== ci) return;
+    h += `<section class="cat"><h2>${c.cat}</h2><p>${c.desc}</p>`;
+    c.ms.forEach(m => {
+      const txt = st.e[m.n] !== undefined ? st.e[m.n] : fill(m.x);
+      h += `<div class="m"><div class="mh"><span class="n">${m.n}</span><h3>${m.t}</h3><span class="w">${m.w}</span></div>
+      <textarea data-n="${m.n}" rows="${Math.max(4, txt.split("\n").length + 1)}">${txt.replace(/</g,"&lt;")}</textarea>
+      <div class="btns"><button class="copy" data-c="${m.n}">نسخ</button><a class="wa" data-w="${m.n}" href="#" target="_blank" rel="noopener">فتح في واتساب</a>
+      ${st.e[m.n] !== undefined ? `<button class="reset" data-r="${m.n}">استعادة الأصل</button>` : ""}</div></div>`;
+    });
+    h += "</section>";
+  });
+  $("#list").innerHTML = h;
+  const fit = t => { t.style.height = "auto"; t.style.height = (t.scrollHeight + 4) + "px"; };
+  document.querySelectorAll("textarea").forEach(t => { fit(t); t.addEventListener("input", () => { fit(t); st.e[t.dataset.n] = t.value; save(); }); });
+  document.querySelectorAll("[data-c]").forEach(b => b.onclick = async () => {
+    const t = document.querySelector(`textarea[data-n="${b.dataset.c}"]`);
+    try { await navigator.clipboard.writeText(t.value); } catch(e) { t.select(); document.execCommand("copy"); }
+    b.textContent = "تم النسخ! ✓"; b.classList.add("ok"); setTimeout(() => { b.textContent = "نسخ"; b.classList.remove("ok"); }, 1500);
+  });
+  document.querySelectorAll("[data-w]").forEach(a => a.onclick = () => {
+    const t = document.querySelector(`textarea[data-n="${a.dataset.w}"]`);
+    a.href = "https://wa.me/?text=" + encodeURIComponent(t.value);
+  });
+  document.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { delete st.e[b.dataset.r]; save(); render(cur); });
+}
+let cur;
+const fb = $("#filters");
+fb.innerHTML = `<button class="on" data-f="">الكل</button>` + DATA.map((c, i) => `<button data-f="${i}">${c.cat}</button>`).join("");
+fb.querySelectorAll("button").forEach(b => b.onclick = () => {
+  fb.querySelectorAll("button").forEach(x => x.classList.remove("on")); b.classList.add("on");
+  cur = b.dataset.f === "" ? undefined : +b.dataset.f; render(cur);
+});
+VARS.forEach(k => { const i = $("#v_" + k); i.value = st.v[k] || ""; i.addEventListener("input", () => { st.v[k] = i.value.trim(); save(); render(cur); }); });
+render();
+</script>
+</body>
+</html>

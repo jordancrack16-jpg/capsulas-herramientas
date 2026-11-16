@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>30 Messages WhatsApp</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--wa:#e9f5e1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5}
+.wrap{max-width:820px;margin:0 auto;padding:22px 16px 70px}
+header{text-align:center;padding:10px 0 16px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--g);font-size:clamp(28px,6vw,38px);line-height:1.1;margin:12px 0 6px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:580px;margin:0 auto}
+.vars{position:sticky;top:0;z-index:5;background:rgba(251,247,239,.96);backdrop-filter:blur(6px);border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin:16px 0;box-shadow:0 6px 18px rgba(47,74,42,.07)}
+.vars b{display:block;color:var(--g);font-size:14px;margin-bottom:8px}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.vg input{width:100%;font:inherit;font-size:14px;padding:10px 12px;border:1.5px solid #e2dac9;border-radius:10px;background:#fff}
+.vg input:focus{outline:2px solid var(--s)}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px;margin-top:10px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+textarea{overflow:hidden}
+.filters button{flex:none;font:800 13px 'Nunito Sans';border:1.5px solid var(--s);background:#fff;color:var(--g);border-radius:30px;padding:7px 13px;cursor:pointer}
+.filters button.on{background:var(--g);border-color:var(--g);color:#fff}
+.cat h2{font-family:'Fraunces',serif;color:var(--g);font-size:24px;margin:26px 0 2px}
+.cat>p{color:var(--m);margin-bottom:10px}
+.m{background:#fff;border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin-bottom:12px}
+.mh{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.n{background:var(--g);color:#fff;font-weight:800;font-size:13px;border-radius:30px;padding:3px 10px}
+.mh h3{font-size:16px;color:var(--g)}
+.w{font-size:12px;font-weight:800;color:var(--g);background:var(--s2);border-radius:30px;padding:3px 10px}
+textarea{width:100%;font:inherit;font-size:15px;line-height:1.5;border:0;border-radius:12px 12px 12px 3px;background:var(--wa);padding:12px 14px;resize:vertical;min-height:110px;color:var(--t)}
+textarea:focus{outline:2px solid var(--s)}
+.btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.btns button,.btns a{font:800 13px 'Nunito Sans';border-radius:30px;padding:9px 14px;cursor:pointer;text-decoration:none;border:0}
+.copy{background:var(--g);color:#fff}
+.wa{background:#25d366;color:#fff}
+.reset{background:transparent;color:var(--m);border:1px solid #d9d0bd!important}
+.ok{background:var(--o)!important}
+.tip{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:10px}
+@media(max-width:600px){.vg{grid-template-columns:1fr}.vars{position:static}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">BONUS 1 · VERSION MODIFIABLE</span>
+  <h1><em>30 messages</em> WhatsApp prêts à l’emploi</h1>
+  <p class="sub">Saisis tes informations une seule fois et tous les messages se remplissent automatiquement. Tu peux modifier n’importe quel message, le copier ou l’ouvrir directement dans WhatsApp. Tes modifications sont sauvegardées sur cet appareil.</p>
+</header>
+
+<div class="vars">
+  <b>✍️ Tes infos (remplies dans tous les messages)</b>
+  <div class="vg">
+    <input id="v_YO" placeholder="Ton prénom">
+    <input id="v_NEGOCIO" placeholder="Nom de ta marque">
+    <input id="v_CIUDAD" placeholder="Ta ville">
+  </div>
+  <div class="filters" id="filters"></div>
+</div>
+
+<div id="list"></div>
+<div class="tip"><b>Rappelle-toi :</b> modifie ce qui est entre crochets, comme <b>[Nom]</b> ou <b>[Date]</b>, avant d’envoyer. Et écris toujours le prénom de la personne : les messages personnalisés reçoivent beaucoup plus de réponses.</div>
+</div>
+
+<script>
+const DATA = [{"cat": "Ouvrir la conversation", "desc": "Pour que ton entourage sache que tu as commencé, sans faire de pub.", "ms": [{"n": 1, "t": "Éveil de curiosité", "w": "Statuts WhatsApp · jour 8", "x": "Devinez ce que c’est ? 👀☕\nCe n’est ni du chocolat, ni du savon, ni une bougie…\nJe vous raconte demain 🤫"}, {"n": 2, "t": "Statut : commandes ouvertes", "w": "Statuts WhatsApp", "x": "Enfin je vous raconte ! 🌸\nCe sont des capsules gourmandes de café et thé : tu les mets dans de l’eau chaude et elles se transforment en une boisson délicieuse.\nJe les fabrique moi-même, à la main, à {CIUDAD}.\nCette semaine j’ouvre les premières commandes 🎁 Tu veux voir les modèles ? Écris-moi."}, {"n": 3, "t": "Contact proche", "w": "Message personnel · jour 9", "x": "Salut {NOMBRE} ! Comment ça va ? 😊\nJe te raconte : j’ai lancé un projet de capsules gourmandes de café et thé, faites à la main en formes de fleurs, cœurs et oursons.\nJ’aimerais beaucoup savoir ce que tu en penses. Je t’envoie quelques photos ?"}, {"n": 4, "t": "Connaissance moins proche", "w": "Message personnel", "x": "Salut {NOMBRE}, comment ça va ? C’est {YO} 😊\nJe t’écris parce que je démarre {NEGOCIO}, un projet de capsules de café et thé à offrir.\nJ’ai pensé à toi car je sais que tu aimes les jolis détails. Je te montre le catalogue, sans engagement ?"}, {"n": 5, "t": "Invitation à goûter", "w": "Dégustation · jour 11", "x": "{NOMBRE}, j’ai un petit cadeau pour toi ! ☕\nJe teste de nouvelles saveurs de mes capsules gourmandes et j’aimerais avoir ton avis sincère.\nQuand puis-je te les apporter ?"}, {"n": 6, "t": "Après la dégustation", "w": "Remercier et proposer · jour 11", "x": "Merci d’avoir goûté, {NOMBRE} ! 🥰 Laquelle as-tu préférée ?\nTon avis m’aide beaucoup.\nSi tu veux en offrir : j’ai la petite boîte découverte et la boîte cadeau avec nœud et carte. Je t’envoie les photos ?"}]}, {"cat": "Répondre aux questions", "desc": "Réponses rapides aux questions les plus fréquentes.", "ms": [{"n": 7, "t": "«Qu’est-ce que c’est ?»", "w": "Réponse rapide /questce", "x": "Salut {NOMBRE} ! Merci pour ton message 😊\nCe sont des capsules de café ou thé faites à la main et moulées en formes (fleurs, cœurs, oursons).\nOn les met dans une tasse, on ajoute de l’eau chaude et elles se dissolvent en une boisson aromatique. C’est un cadeau magnifique !\nC’est pour toi ou pour offrir ?"}, {"n": 8, "t": "Prix et catalogue", "w": "Réponse rapide /prix", "x": "Bien sûr ! Voici les options 👇\n🎁 Petite boîte découverte (4 capsules)\n🎀 Boîte cadeau avec nœud et carte\n✨ Commande personnalisée (couleurs, initiale ou message)\nJe te laisse le catalogue avec photos et prix. Pour quelle occasion en as-tu besoin ?"}, {"n": 9, "t": "Préparation et durée", "w": "Réponse rapide /usage", "x": "Voici comment les préparer : mets 1 capsule dans une tasse, ajoute de l’eau chaude et remue jusqu’à dissolution ☕\nConserve-les dans un endroit frais et sec, dans leur emballage fermé. Je te donne par écrit la durée de consommation recommandée à la livraison.\nTu veux d’abord essayer la boîte de 4 ?"}, {"n": 10, "t": "«C’est cher»", "w": "Objection prix", "x": "Je comprends, {NOMBRE} 😊 Chaque capsule est faite à la main, une par une, avec des ingrédients sélectionnés et un emballage cadeau inclus.\nSi tu veux quelque chose de plus simple, la petite boîte découverte est une option plus abordable et tout aussi jolie à offrir. Je te la montre ?"}, {"n": 11, "t": "«Je vais réfléchir»", "w": "Objection temps", "x": "Bien sûr, pas de stress ! 😊\nJe prépare les commandes dans l’ordre d’arrivée et il ne me reste que quelques créneaux cette semaine.\nVeux-tu que je t’en réserve un pour {FECHA} ? Si tu changes d’avis après, pas de souci."}]}, {"cat": "Finaliser les commandes", "desc": "Messages pour passer de «c’est joli» à «j’en veux un».", "ms": [{"n": 12, "t": "Finaliser avec deux options", "w": "Finalisation · jour 17", "x": "Laquelle préfères-tu, {NOMBRE} : la boîte de 4 ou la boîte cadeau avec nœud ? 🎁\nJe peux te préparer l’une ou l’autre pour {FECHA}."}, {"n": 13, "t": "Finaliser pour une date spéciale", "w": "Fin de saison", "x": "{NOMBRE}, je te préviens car tu m’as demandé 💛\nJe prends les dernières commandes pour {FECHA}. Après cette date, je ne pourrai plus les préparer.\nJe te réserve ta boîte ?"}, {"n": 14, "t": "Finaliser avec acompte", "w": "Confirmer avec paiement partiel", "x": "Parfait ! Pour réserver ta date, je te demande un acompte de 50 % ({PRECIO}) et le reste à la livraison 😊\nDès que tu confirmes, je te note et commence la préparation."}, {"n": 15, "t": "Confirmation de commande", "w": "Récapitulatif pour éviter les erreurs", "x": "Merci pour ta commande, {NOMBRE} ! 🥰 Voici les détails :\n• Produit : \n• Saveurs : \n• Carte ou message : \n• Livraison : {FECHA}\n• Total : {PRECIO}\nTout est bon ?"}, {"n": 16, "t": "Infos de paiement", "w": "Envoyer les moyens de paiement", "x": "Voici les infos pour le paiement 👇\n[Écris ici ton virement, paiement mobile ou autre moyen]\nQuand c’est fait, envoie-moi le reçu ici et je te confirme. Merci !" }]}, {"cat": "Livraison et suivi", "desc": "Pour ne perdre aucune question ni client.", "ms": [{"n": 17, "t": "Commande prête", "w": "Avis de livraison", "x": "Salut {NOMBRE}, ta commande est prête ! 🎁✨\nJe t’envoie une photo pour que tu vois.\nÇa te va que je livre le {FECHA} ? Ou tu préfères venir la chercher ?"}, {"n": 18, "t": "Instructions à la livraison", "w": "Avec la livraison", "x": "Bonne dégustation ! ☕\nComment les préparer : 1 capsule dans la tasse + eau chaude + remuer.\nConserve-les dans un endroit frais et sec, dans leur boîte fermée.\nSi tu aimes, j’aimerais beaucoup que tu me dises !" }, {"n": 19, "t": "Suivi après 24 h", "w": "Question sans réponse", "x": "Salut {NOMBRE} ! As-tu pu voir les photos que je t’ai envoyées hier ? 😊\nSi tu as des questions sur les modèles ou les saveurs, je suis là."}, {"n": 20, "t": "Intéressée qui n’a pas acheté", "w": "Relance à 7 jours · jour 29", "x": "Salut {NOMBRE} 🌸 Il y a quelques jours tu m’as demandé pour les capsules.\nCette semaine j’ai préparé de nouveaux modèles et j’ai pensé à toi. Tu veux que je te montre ?\nSi ce n’est pas le moment, pas de souci !" }, {"n": 21, "t": "Liste de diffusion : nouveauté", "w": "Seulement pour contacts ayant accepté", "x": "✨ Nouveauté chez {NEGOCIO} ✨\nNouvelles saveurs et la boîte de saison sont disponibles.\nRéponds «JE VEUX» et je t’envoie photos et prix 🎁"}]}, {"cat": "Grosses ventes et partenariats", "desc": "Commandes en volume, entreprises et commerces locaux.", "ms": [{"n": 22, "t": "Événements (mariages, anniversaires, baby showers)", "w": "Clients volume · jour 19", "x": "Salut {NOMBRE} ! C’est {YO}, de {NEGOCIO} 😊\nJe prépare des capsules gourmandes personnalisées comme souvenir d’événements : avec les couleurs de la fête, l’initiale des fêtés et une étiquette avec message.\nC’est un détail original que les invités utilisent vraiment. Je t’envoie idées et tarifs par quantité ?"}, {"n": 23, "t": "Entreprises et cadeaux d’affaires", "w": "Clients volume · jour 19", "x": "Bonjour {NOMBRE}, comment vas-tu ? C’est {YO}, de {NEGOCIO}.\nJe prépare des boîtes de capsules gourmandes de café et thé pour cadeaux d’entreprise : clients, équipe ou occasions spéciales, avec étiquette personnalisée avec leur logo ou message.\nPuis-je t’envoyer une proposition avec options et tarifs par volume ?"}, {"n": 24, "t": "Commerce partenaire (fleuriste, café, boutique cadeaux)", "w": "Partenariat local · jour 24", "x": "Bonjour ! Je suis {YO}, entrepreneuse à {CIUDAD}. Je fabrique des capsules gourmandes de café et thé, idéales pour accompagner des cadeaux.\nJ’aimerais te proposer un partenariat : je peux te laisser un échantillon pour que tes clients les découvrent et travailler en dépôt-vente ou avec un tarif spécial pour revente.\nQuand puis-je t’apporter une boîte pour que tu la testes ?"}]}, {"cat": "Fidéliser et revendre", "desc": "Tes clients satisfaits sont ton meilleur canal de vente.", "ms": [{"n": 25, "t": "Demander un avis", "w": "Après la livraison · jour 20", "x": "Salut {NOMBRE} ! Comment ça s’est passé avec les capsules ? 😊\nLa personne qui les a reçues a aimé ?\nSi tu m’envoies une photo ou un audio avec ton avis, ça me ferait très plaisir 💛"}, {"n": 26, "t": "Remercier et demander permission", "w": "Pour publier des témoignages", "x": "Merci beaucoup, {NOMBRE} ! 🥹 Tu as illuminé ma journée.\nPuis-je partager ton message dans mes statuts ? Je peux le faire sans ton nom si tu préfères."}, {"n": 27, "t": "Nouvelle commande", "w": "Clients précédents · jour 22", "x": "Salut {NOMBRE} ! 🌸 Il y a quelque temps je t’ai préparé des capsules et je voulais te dire que j’ai de nouvelles saveurs.\nComme tu es déjà cliente, je t’offre une capsule en plus pour ta prochaine commande 🎁\nJe te montre les nouveautés ?"}, {"n": 28, "t": "Parrainages", "w": "Programme de parrainage · jour 23", "x": "{NOMBRE}, merci de ta confiance ! 💛\nJe te raconte : si tu me recommandes à quelqu’un et que cette personne commande, je t’offre 2 capsules lors de ton prochain achat.\nDis-lui juste de te mentionner quand elle m’écrit 😊"}, {"n": 29, "t": "Anniversaire du client", "w": "Date spéciale", "x": "Joyeux anniversaire, {NOMBRE} ! 🎂🥳\nPasse une belle journée.\nJe t’ai préparé un petit cadeau : ce mois-ci, ta boîte préférée avec une remise spéciale. Écris-moi quand tu veux !" }, {"n": 30, "t": "Relancer clients saisonniers", "w": "Avant chaque date spéciale", "x": "Salut {NOMBRE} ! {FECHA} approche 🎁\nL’an dernier/la dernière fois, beaucoup de personnes sont restées sans leur boîte car elles ont commandé trop tard, alors je te préviens à l’avance.\nJ’ai déjà les modèles de saison. Je te réserve la tienne ?"}]}];
+const VARS = ["YO","NEGOCIO","CIUDAD"];
+const LABEL = {NOMBRE:"[Nom]", YO:"[Ton prénom]", NEGOCIO:"[Ta marque]", CIUDAD:"[Ta ville]", PRECIO:"[Prix]", FECHA:"[Date]"};
+let st = {v:{}, e:{}};
+try { st = Object.assign(st, JSON.parse(localStorage.getItem("cg_msgs") || "{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_msgs", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+
+function fill(x) {
+  return x.replace(/\{(\w+)\}/g, (m, k) => (VARS.includes(k) && st.v[k]) ? st.v[k] : (LABEL[k] || m));
+}
+function render(filter) {
+  let h = "";
+  DATA.forEach((c, ci) => {
+    if (filter !== undefined && filter !== ci) return;
+    h += `<section class="cat"><h2>${c.cat}</h2><p>${c.desc}</p>`;
+    c.ms.forEach(m => {
+      const txt = st.e[m.n] !== undefined ? st.e[m.n] : fill(m.x);
+      h += `<div class="m"><div class="mh"><span class="n">${m.n}</span><h3>${m.t}</h3><span class="w">${m.w}</span></div>
+      <textarea data-n="${m.n}" rows="${Math.max(4, txt.split("\n").length + 1)}">${txt.replace(/</g,"&lt;")}</textarea>
+      <div class="btns"><button class="copy" data-c="${m.n}">Copier</button><a class="wa" data-w="${m.n}" href="#" target="_blank" rel="noopener">Ouvrir WhatsApp</a>
+      ${st.e[m.n] !== undefined ? `<button class="reset" data-r="${m.n}">Restaurer l’original</button>` : ""}</div></div>`;
+    });
+    h += "</section>";
+  });
+  $("#list").innerHTML = h;
+  const fit = t => { t.style.height = "auto"; t.style.height = (t.scrollHeight + 4) + "px"; };
+  document.querySelectorAll("textarea").forEach(t => { fit(t); t.addEventListener("input", () => { fit(t); st.e[t.dataset.n] = t.value; save(); }); });
+  document.querySelectorAll("[data-c]").forEach(b => b.onclick = async () => {
+    const t = document.querySelector(`textarea[data-n="${b.dataset.c}"]`);
+    try { await navigator.clipboard.writeText(t.value); } catch(e) { t.select(); document.execCommand("copy"); }
+    b.textContent = "Copié ! ✓"; b.classList.add("ok"); setTimeout(() => { b.textContent = "Copier"; b.classList.remove("ok"); }, 1500);
+  });
+  document.querySelectorAll("[data-w]").forEach(a => a.onclick = () => {
+    const t = document.querySelector(`textarea[data-n="${a.dataset.w}"]`);
+    a.href = "https://wa.me/?text=" + encodeURIComponent(t.value);
+  });
+  document.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { delete st.e[b.dataset.r]; save(); render(cur); });
+}
+let cur;
+const fb = $("#filters");
+fb.innerHTML = `<button class="on" data-f="">Tous</button>` + DATA.map((c, i) => `<button data-f="${i}">${c.cat}</button>`).join("");
+fb.querySelectorAll("button").forEach(b => b.onclick = () => {
+  fb.querySelectorAll("button").forEach(x => x.classList.remove("on")); b.classList.add("on");
+  cur = b.dataset.f === "" ? undefined : +b.dataset.f; render(cur);
+});
+VARS.forEach(k => { const i = $("#v_" + k); i.value = st.v[k] || ""; i.addEventListener("input", () => { st.v[k] = i.value.trim(); save(); render(cur); }); });
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>30 WhatsApp sporočil</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--wa:#e9f5e1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5}
+.wrap{max-width:820px;margin:0 auto;padding:22px 16px 70px}
+header{text-align:center;padding:10px 0 16px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--g);font-size:clamp(28px,6vw,38px);line-height:1.1;margin:12px 0 6px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:580px;margin:0 auto}
+.vars{position:sticky;top:0;z-index:5;background:rgba(251,247,239,.96);backdrop-filter:blur(6px);border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin:16px 0;box-shadow:0 6px 18px rgba(47,74,42,.07)}
+.vars b{display:block;color:var(--g);font-size:14px;margin-bottom:8px}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.vg input{width:100%;font:inherit;font-size:14px;padding:10px 12px;border:1.5px solid #e2dac9;border-radius:10px;background:#fff}
+.vg input:focus{outline:2px solid var(--s)}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px;margin-top:10px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+textarea{overflow:hidden}
+.filters button{flex:none;font:800 13px 'Nunito Sans';border:1.5px solid var(--s);background:#fff;color:var(--g);border-radius:30px;padding:7px 13px;cursor:pointer}
+.filters button.on{background:var(--g);border-color:var(--g);color:#fff}
+.cat h2{font-family:'Fraunces',serif;color:var(--g);font-size:24px;margin:26px 0 2px}
+.cat>p{color:var(--m);margin-bottom:10px}
+.m{background:#fff;border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin-bottom:12px}
+.mh{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.n{background:var(--g);color:#fff;font-weight:800;font-size:13px;border-radius:30px;padding:3px 10px}
+.mh h3{font-size:16px;color:var(--g)}
+.w{font-size:12px;font-weight:800;color:var(--g);background:var(--s2);border-radius:30px;padding:3px 10px}
+textarea{width:100%;font:inherit;font-size:15px;line-height:1.5;border:0;border-radius:12px 12px 12px 3px;background:var(--wa);padding:12px 14px;resize:vertical;min-height:110px;color:var(--t)}
+textarea:focus{outline:2px solid var(--s)}
+.btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.btns button,.btns a{font:800 13px 'Nunito Sans';border-radius:30px;padding:9px 14px;cursor:pointer;text-decoration:none;border:0}
+.copy{background:var(--g);color:#fff}
+.wa{background:#25d366;color:#fff}
+.reset{background:transparent;color:var(--m);border:1px solid #d9d0bd!important}
+.ok{background:var(--o)!important}
+.tip{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:10px}
+@media(max-width:600px){.vg{grid-template-columns:1fr}.vars{position:static}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">BONUS 1 · UREJENA VERZIJA</span>
+  <h1><em>30 sporočil</em> za WhatsApp, pripravljenih za uporabo</h1>
+  <p class="sub">Vnesi svoje podatke samo enkrat in vsa sporočila se samodejno izpolnijo. Vsako sporočilo lahko urejaš, kopiraš ali odpreš neposredno v WhatsApp. Tvoje spremembe se shranijo na tej napravi.</p>
+</header>
+
+<div class="vars">
+  <b>✍️ Tvoji podatki (se izpolnijo v vseh sporočilih)</b>
+  <div class="vg">
+    <input id="v_YO" placeholder="Tvoje ime">
+    <input id="v_NEGOCIO" placeholder="Ime tvoje znamke">
+    <input id="v_CIUDAD" placeholder="Tvoje mesto">
+  </div>
+  <div class="filters" id="filters"></div>
+</div>
+
+<div id="list"></div>
+<div class="tip"><b>Zapomni si:</b> pred pošiljanjem spremeni, kar je v oglatih oklepajih, kot so <b>[Ime]</b> ali <b>[Datum]</b>. Vedno napiši tudi ime osebe: osebna sporočila imajo veliko boljši odziv.</div>
+</div>
+
+<script>
+const DATA = [{"cat": "Začetek pogovora", "desc": "Da tvoj krog ve, da si začel, brez da izgleda kot reklama.", "ms": [{"n": 1, "t": "Zbuditi radovednost", "w": "WhatsApp statusi · dan 8", "x": "Ugani, kaj je to? 👀☕\nNi čokolada, ni milo in ni sveča…\nJutri ti povem 🤫"}, {"n": 2, "t": "Status: sprejemam naročila", "w": "WhatsApp statusi", "x": "Končno ti povem! 🌸\nTo so gurmanske kapsule za kavo in čaj: daš jih v vročo vodo in nastane okusna pijača.\nJaz jih izdelujem ročno v {CIUDAD}.\nTa teden odpiram prva naročila 🎁 Želiš videti modele? Piši mi."}, {"n": 3, "t": "Tovariš bližnji", "w": "Osebno sporočilo · dan 9", "x": "Živjo {NOMBRE}! Kako si? 😊\nPovem ti nekaj: začel sem s podjetjem gurmanskih kapsul za kavo in čaj, ročno izdelanih v oblikah cvetov, src in medvedkov.\nZanima me, kaj meniš. Pošljem ti nekaj slik?"}, {"n": 4, "t": "Znanka, ne tako blizu", "w": "Osebno sporočilo", "x": "Živjo {NOMBRE}, kako gre? Sem {YO} 😊\nPišem ti, ker sem začel z {NEGOCIO}, podjetjem za kapsule kave in čaja za darila.\nPomislil sem nate, ker vem, da imaš rada lepe detajle. Želiš videti katalog, brez obveznosti?"}, {"n": 5, "t": "Povabilo k pokušini", "w": "Degustacija · dan 11", "x": "{NOMBRE}, imam zate darilce! ☕\nPreizkušam nove okuse svojih gurmanskih kapsul in želim iskreno mnenje.\nKdaj ti jih lahko prinesem?"}, {"n": 6, "t": "Po pokušini", "w": "Zahvala in ponudba · dan 11", "x": "Hvala, ker si jih poskusil, {NOMBRE}! 🥰 Kateri ti je bil najbolj všeč?\nTvoje mnenje mi veliko pomeni.\nČe želiš podariti, imam Poskusno škatlico in Darilno škatlo z mašno in kartico. Pošljem ti slike?"}]}, {"cat": "Odgovori na vprašanja", "desc": "Hitri odgovori na najpogostejša vprašanja.", "ms": [{"n": 7, "t": "Kaj je to?", "w": "Hitri odgovor /kajje", "x": "Živjo {NOMBRE}! Hvala za sporočilo 😊\nTo so kapsule kave ali čaja, ročno izdelane in oblikovane (cvetovi, srca, medvedki).\nDajo se v skodelico, doda vroča voda in se raztopijo v aromatično pijačo. Čudovito darilo!\nJe zate ali za darilo?"}, {"n": 8, "t": "Cene in katalog", "w": "Hitri odgovor /cene", "x": "Seveda! Tukaj so možnosti 👇\n🎁 Poskusna škatlica (4 kapsule)\n🎀 Darilna škatla z mašno in kartico\n✨ Naročilo po meri (barve, začetnica ali sporočilo)\nPošljem ti katalog s slikami in cenami. Za kakšno priložnost jih potrebuješ?"}, {"n": 9, "t": "Kako se pripravijo in koliko zdržijo", "w": "Hitri odgovor /uporaba", "x": "Priprava je takšna: daš 1 kapsulo v skodelico, dodaš vročo vodo in mešaš, dokler se ne raztopi ☕\nShranjujejo se na hladnem in suhem mestu, v zaprti embalaži. Ob dostavi ti napišem priporočeni rok uporabe.\nŽeliš najprej poskusiti poskusno škatlico s 4 kapsulami?"}, {"n": 10, "t": "Drago je", "w": "Zamisel o ceni", "x": "Razumem te, {NOMBRE} 😊 Vsaka kapsula je ročno izdelana, ena za drugo, z izbranimi sestavinami in vključeno darilno embalažo.\nČe želiš nekaj bolj preprostega, je poskusna škatlica dostopnejša in prav tako lepa za darilo. Želiš, da ti jo pokažem?"}, {"n": 11, "t": "Premislim", "w": "Zamisel o času", "x": "Seveda, brez hitenja! 😊\nSamo povem ti, da naročila pripravljam po vrstnem redu in ta teden imam še malo prostih mest.\nŽeliš, da ti rezerviram eno za {FECHA}? Če potem spremeniš mnenje, ni problema."}]}, {"cat": "Zaključek naročil", "desc": "Sporočila, da greš od 'lepo' do 'želim eno'.", "ms": [{"n": 12, "t": "Zaključek z dvema možnostma", "w": "Zaključek · dan 17", "x": "Kaj ti je bolj všeč, {NOMBRE}: Poskusna škatlica s 4 kapsulami ali Darilna škatla z mašno? 🎁\nKatero koli ti pripravim za {FECHA}."}, {"n": 13, "t": "Zaključek za poseben datum", "w": "Zaključek sezone", "x": "{NOMBRE}, sporočam ti, ker si vprašal/a 💛\nSprejemam zadnja naročila za {FECHA}. Po tem datumu jih ne bom več pripravil/a.\nŽeliš, da ti rezerviram škatlo?"}, {"n": 14, "t": "Zaključek z akontacijo", "w": "Potrditev z delnim plačilom", "x": "Super! Za rezervacijo datuma prosim 50 % akontacijo ({PRECIO}), preostanek ob dostavi 😊\nKo potrdiš, te zabeležim in začnem pripravljati."}, {"n": 15, "t": "Potrditev naročila", "w": "Povzetek za preprečitev napak", "x": "Hvala za naročilo, {NOMBRE}! 🥰 Potrjujem podatke:\n• Izdelek: \n• Okusi: \n• Kartica ali sporočilo: \n• Dostava: {FECHA}\n• Skupaj: {PRECIO}\nJe vse v redu?"}, {"n": 16, "t": "Podatki za plačilo", "w": "Pošlji plačilne podatke", "x": "Tukaj so podatki za plačilo 👇\n[Tu vpiši svoj bančni račun, plačilno aplikacijo ali način plačila]\nKo plačaš, mi pošlji potrdilo tukaj in potrdim. Hvala!"}]}, {"cat": "Dostava in spremljanje", "desc": "Da nobeno vprašanje ali stranka ne ostane spregledana.", "ms": [{"n": 17, "t": "Naročilo pripravljeno", "w": "Obvestilo o dostavi", "x": "Hej {NOMBRE}, tvoje naročilo je pripravljeno! 🎁✨\nPošiljam ti sliko, da vidiš.\nJe v redu, da dostavim {FECHA}? Ali raje prevzameš sam/a?"}, {"n": 18, "t": "Navodila ob dostavi", "w": "Ob dostavi", "x": "Uživaj! ☕\nKako jih pripraviti: 1 kapsula v skodelico + vroča voda + mešaj.\nShranjuj na hladnem in suhem mestu, v zaprti škatli.\nČe ti je všeč, mi prosim sporoči!"}, {"n": 19, "t": "Spremljanje po 24 urah", "w": "Vprašanje brez odgovora", "x": "Živjo {NOMBRE}! Si videl/a slike, ki sem ti jih poslal/a včeraj? 😊\nČe imaš kakšno vprašanje o modelih ali okusih, sem tukaj."}, {"n": 20, "t": "Zainteresiran/a, a ni kupil/a", "w": "Spremljanje po 7 dneh · dan 29", "x": "Živjo {NOMBRE} 🌸 Pred nekaj dnevi si me vprašal/a o kapsulah.\nTa teden sem pripravil/a nove modele in se spomnil/a nate. Želiš, da ti jih pokažem?\nČe zdaj ni pravi čas, brez skrbi!"}, {"n": 21, "t": "Seznam za obveščanje: novost", "w": "Samo za kontakte, ki so se strinjali", "x": "✨ Novost pri {NEGOCIO} ✨\nNovi okusi in sezonska škatla so že na voljo.\nOdgovori z »ŽELIM« in pošljem ti slike in cene 🎁"}]}, {"cat": "Velike prodaje in partnerstva", "desc": "Naročila v količinah, podjetja in lokalna podjetja.", "ms": [{"n": 22, "t": "Dogodki (poročne, rojstnodnevne, baby shower)", "w": "Stranke za količino · dan 19", "x": "Živjo {NOMBRE}! Sem {YO} iz {NEGOCIO} 😊\nPripravljam personalizirane gurmanske kapsule kot spominek za dogodke: z barvami zabave, začetnico slavljenke/slavljenca in nalepko s sporočilom.\nSo drugačen detajl, ki ga gostje res uporabljajo. Pošljem ti ideje in cene glede na količino?"}, {"n": 23, "t": "Podjetja in poslovna darila", "w": "Stranke za količino · dan 19", "x": "Živjo {NOMBRE}, kako si? Sem {YO} iz {NEGOCIO}.\nPripravljam škatle gurmanskih kapsul kave in čaja za poslovna darila: za stranke, ekipo ali posebne datume, z nalepko po meri z logotipom ali sporočilom.\nLahko ti pošljem ponudbo z možnostmi in cenami za količine?"}, {"n": 24, "t": "Poslovni partner (cvetličarna, kavarna, trgovina z darili)", "w": "Lokalno partnerstvo · dan 24", "x": "Živjo! Sem {YO}, podjetnica iz {CIUDAD}. Izdelujem gurmanske kapsule kave in čaja, idealne za dodatek k darilom.\nZ veseljem bi ti predlagala partnerstvo: lahko ti pustim vzorec, da ga tvoji stranke vidijo, in sodelujemo na komisijski osnovi ali s posebno ceno za nadaljnjo prodajo.\nKdaj ti lahko prinesem škatlo, da jo preizkusiš?"}]}, {"cat": "Zvestoba in ponovna prodaja", "desc": "Zadovoljni kupci so tvoj najboljši prodajni kanal.", "ms": [{"n": 25, "t": "Prosi za mnenje", "w": "Po dostavi · dan 20", "x": "Živjo {NOMBRE}! Kako ti je šlo s kapsulami? 😊\nSo bile všeč tistemu, ki jih je prejel?\nČe mi pošlješ sliko ali posnetek z mnenjem, bi me zelo razveselilo 💛"}, {"n": 26, "t": "Zahvali se in prosi dovoljenje", "w": "Za objavo pričevanj", "x": "Najlepša hvala, {NOMBRE}! 🥹 Polepšal/a si mi dan.\nDovoli, da tvoje sporočilo delim v svojih statusih? Lahko brez tvojega imena, če želiš."}, {"n": 27, "t": "Ponovno nakupovanje", "w": "Prejšnje stranke · dan 22", "x": "Živjo {NOMBRE}! 🌸 Pred časom sem ti pripravil/a kapsule in želim ti povedati, da imam nove okuse.\nKer si že stranka, ti pri naslednjem naročilu podarim dodatno kapsulo 🎁\nŽeliš videti novosti?"}, {"n": 28, "t": "Priporočila", "w": "Program priporočil · dan 23", "x": "{NOMBRE}, hvala, ker mi zaupaš! 💛\nPovem ti nekaj: če me priporočiš nekomu in ta oseba naroči, ti podarim 2 kapsuli pri naslednjem nakupu.\nSamo povej, naj te omeni, ko mi piše 😊"}, {"n": 29, "t": "Rojstni dan stranke", "w": "Poseben datum", "x": "Vse najboljše, {NOMBRE}! 🎂🥳\nNaj bo tvoj dan čudovit.\nImam zate darilce: ta mesec tvoja najljubša škatlica s posebnim popustom. Piši, kadar želiš!"}, {"n": 30, "t": "Aktivacija sezonskih strank", "w": "Pred vsakim posebnim datumom", "x": "Živjo {NOMBRE}! Približuje se {FECHA} 🎁\nLani/prejšnjič je veliko ljudi ostalo brez svoje škatlice, ker so zamudili, zato ti sporočam pravočasno.\nImam že sezonske modele. Želiš, da ti rezerviram svojo?"}]}];
+const VARS = ["YO","NEGOCIO","CIUDAD"];
+const LABEL = {NOMBRE:"[Ime]", YO:"[Tvoje ime]", NEGOCIO:"[Tvoja znamka]", CIUDAD:"[Tvoje mesto]", PRECIO:"[Cena]", FECHA:"[Datum]"};
+let st = {v:{}, e:{}};
+try { st = Object.assign(st, JSON.parse(localStorage.getItem("cg_msgs") || "{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_msgs", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+
+function fill(x) {
+  return x.replace(/\{(\w+)\}/g, (m, k) => (VARS.includes(k) && st.v[k]) ? st.v[k] : (LABEL[k] || m));
+}
+function render(filter) {
+  let h = "";
+  DATA.forEach((c, ci) => {
+    if (filter !== undefined && filter !== ci) return;
+    h += `<section class="cat"><h2>${c.cat}</h2><p>${c.desc}</p>`;
+    c.ms.forEach(m => {
+      const txt = st.e[m.n] !== undefined ? st.e[m.n] : fill(m.x);
+      h += `<div class="m"><div class="mh"><span class="n">${m.n}</span><h3>${m.t}</h3><span class="w">${m.w}</span></div>
+      <textarea data-n="${m.n}" rows="${Math.max(4, txt.split("\n").length + 1)}">${txt.replace(/</g,"&lt;")}</textarea>
+      <div class="btns"><button class="copy" data-c="${m.n}">Kopiraj</button><a class="wa" data-w="${m.n}" href="#" target="_blank" rel="noopener">Odpri v WhatsApp</a>
+      ${st.e[m.n] !== undefined ? `<button class="reset" data-r="${m.n}">Obnovi izvirnik</button>` : ""}</div></div>`;
+    });
+    h += "</section>";
+  });
+  $("#list").innerHTML = h;
+  const fit = t => { t.style.height = "auto"; t.style.height = (t.scrollHeight + 4) + "px"; };
+  document.querySelectorAll("textarea").forEach(t => { fit(t); t.addEventListener("input", () => { fit(t); st.e[t.dataset.n] = t.value; save(); }); });
+  document.querySelectorAll("[data-c]").forEach(b => b.onclick = async () => {
+    const t = document.querySelector(`textarea[data-n="${b.dataset.c}"]`);
+    try { await navigator.clipboard.writeText(t.value); } catch(e) { t.select(); document.execCommand("copy"); }
+    b.textContent = "Kopirano! ✓"; b.classList.add("ok"); setTimeout(() => { b.textContent = "Kopiraj"; b.classList.remove("ok"); }, 1500);
+  });
+  document.querySelectorAll("[data-w]").forEach(a => a.onclick = () => {
+    const t = document.querySelector(`textarea[data-n="${a.dataset.w}"]`);
+    a.href = "https://wa.me/?text=" + encodeURIComponent(t.value);
+  });
+  document.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { delete st.e[b.dataset.r]; save(); render(cur); });
+}
+let cur;
+const fb = $("#filters");
+fb.innerHTML = `<button class="on" data-f="">Vse</button>` + DATA.map((c, i) => `<button data-f="${i}">${c.cat}</button>`).join("");
+fb.querySelectorAll("button").forEach(b => b.onclick = () => {
+  fb.querySelectorAll("button").forEach(x => x.classList.remove("on")); b.classList.add("on");
+  cur = b.dataset.f === "" ? undefined : +b.dataset.f; render(cur);
+});
+VARS.forEach(k => { const i = $("#v_" + k); i.value = st.v[k] || ""; i.addEventListener("input", () => { st.v[k] = i.value.trim(); save(); render(cur); }); });
+render();
+</script>
+</body>
+</html>

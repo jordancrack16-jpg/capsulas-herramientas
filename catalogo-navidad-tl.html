@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="tl"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Editable na Christmas Catalog</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--r:#8c1d2a;--g:#2f5a3a;--o:#b8924a;--c:#fdf8f1;--c2:#efe0cf;--t:#2b2322;--m:#6c605c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.wrap{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+header{text-align:center;padding:8px 0 16px}
+.tag{display:inline-block;background:var(--g);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--r);font-size:clamp(26px,5.5vw,38px);line-height:1.1;margin:12px 0 6px}
+.sub{color:var(--m);max-width:620px;margin:0 auto}
+.panel{background:#fff;border:1px solid #eadccb;border-radius:16px;padding:16px;margin-top:14px}
+.panel h2{font-family:'Fraunces',serif;color:var(--r);font-size:19px;margin-bottom:10px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+label.f{display:block;font-size:13px;font-weight:800;color:var(--g)}
+label.f input,label.f select,label.f textarea{display:block;width:100%;margin-top:4px;font:inherit;font-weight:400;font-size:15px;padding:10px 12px;border:1.5px solid #e5d6c3;border-radius:10px;background:var(--c);color:var(--t)}
+button{font:800 15px 'Nunito Sans';border:0;border-radius:30px;padding:12px 20px;cursor:pointer}
+.print{background:var(--r);color:#fff} .sec{background:#fff;color:var(--r);border:1.5px solid var(--r)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.note{background:#fdf3e4;border-left:4px solid var(--o);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:12px}
+@media print{ .noprint{display:none!important} body{background:#fff} .wrap{max-width:none;padding:0} }
+
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;max-height:420px;overflow:auto;margin-top:8px}
+.li{display:grid;grid-template-columns:22px 46px 1fr 90px;gap:8px;align-items:center;background:var(--c);border:1px solid #eadccb;border-radius:10px;padding:6px 8px;font-size:13px}
+.li img{width:46px;height:46px;border-radius:8px;object-fit:cover}
+.li input[type=text]{width:100%;font:inherit;padding:6px 8px;border:1.5px solid #e5d6c3;border-radius:8px}
+.cat{background:#fff;margin-top:18px;border-radius:12px;overflow:hidden}
+.ch{background:linear-gradient(135deg,#8c1d2a,#a8323f);color:#fff;text-align:center;padding:26px 18px}
+.ch .k{font:800 11px 'Nunito Sans';letter-spacing:3px;color:#f1d9a4}
+.ch h2{font:800 34px/1.1 'Fraunces';margin:6px 0}
+.ch p{opacity:.92;max-width:560px;margin:0 auto}
+.cs{padding:16px 18px 4px}
+.cs h3{font:700 20px 'Fraunces';color:var(--r);margin:6px 0 10px;border-bottom:2px solid var(--c2);padding-bottom:4px}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ci{border:1px solid #eadccb;border-radius:10px;overflow:hidden;break-inside:avoid;background:#fff}
+.ci img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.ci .t{font:700 15px/1.2 'Fraunces';color:var(--r);padding:8px 10px 2px}
+.ci .d{font-size:12px;color:var(--m);padding:0 10px}
+.ci .p{font:800 15px 'Nunito Sans';color:var(--g);padding:4px 10px 10px}
+.cf{background:#fdf3e4;text-align:center;padding:18px;margin-top:10px}
+.cf b{color:var(--r);font-size:17px}
+@media(max-width:640px){.cgrid{grid-template-columns:repeat(2,1fr)}}
+@media print{ @page{size:A4;margin:10mm} .cat{margin:0;border-radius:0} .cgrid{grid-template-columns:repeat(3,1fr)} .cs{break-inside:auto} }
+
+</style></head><body>
+<div class="wrap">
+<header class="noprint"><span class="tag">BONO · EDITABLE NA VERSION</span><h1>Ang Christmas catalog mo <span style="color:var(--o)">na may sariling brand at presyo</span></h1>
+<p class="sub">Piliin kung anong mga disenyo ang iaalok mo, isulat ang mga presyo at detalye mo, at i-save ito bilang PDF para ipadala sa WhatsApp o i-post sa social media.</p></header>
+<div class="panel noprint"><h2>1 · Iyong mga detalye</h2><div class="fg">
+<label class="f">Brand mo<input id="marca" placeholder="Hal.: Matamis na Kape"></label>
+<label class="f">Pamagat ng catalog<input id="titulo" value="Christmas Collection"></label>
+<label class="f">WhatsApp<input id="wa" placeholder="Hal.: +63 912 345 6789"></label>
+<label class="f">Instagram / social media<input id="ig" placeholder="@brandmo"></label>
+<label class="f">Huling araw ng order<input id="limite" placeholder="Hal.: Disyembre 18"></label>
+<label class="f">Lugar ng delivery<input id="zona" placeholder="Hal.: Delivery sa Metro Manila"></label>
+</div>
+<label class="f" style="margin-top:10px">Intro na teksto<textarea id="intro" rows="2">Gourmet Capsules ng kape, tsaa, at tsokolate na may Christmas designs, handmade. Ilagay sa tasa na may mainit na tubig o gatas para gawing masarap na inumin.</textarea></label>
+<h2 style="margin-top:14px">2 · Mga kahon at presyo (opsyonal)</h2><div class="fg">
+<label class="f">Kahon ng 4<input id="p4" placeholder="Presyo"></label><label class="f">Kahon ng 6 / 9<input id="p9" placeholder="Presyo"></label><label class="f">Kahon ng 12<input id="p12" placeholder="Presyo"></label>
+<label class="f">Ipakita ang presyo bawat disenyo<select id="mostrar"><option value="no">Hindi (kahon lang)</option><option value="si">Oo</option></select></label></div>
+<h2 style="margin-top:14px">3 · Mga disenyo na iaalok mo</h2>
+<div style="display:flex;gap:8px"><button class="sec" type="button" id="all" style="padding:6px 12px;font-size:12px">Lahat</button><button class="sec" type="button" id="none" style="padding:6px 12px;font-size:12px">Wala</button></div>
+<div class="list" id="list"></div>
+<div class="actions"><button class="print" type="button" onclick="window.print()">⬇ I-save bilang PDF / I-print</button></div>
+<div class="note">Para ipadala sa WhatsApp: Piliin ang "Save as PDF" sa print dialog, scale 100%, walang header. Naka-save ang mga detalye mo sa device na ito.</div></div>
+<div class="cat" id="cat"></div>
+</div>
+<script>
+const ITEMS = [{"n": 1, "t": "Kape na may kanela at clove", "d": "Budburan ng kanela ang tuyong bituin.", "s": "Christmas na Kape"}, {"n": 2, "t": "Kape na gingerbread", "d": "Gumuhit ng mga mata at butones gamit ang natunaw na puting tsokolate.", "s": "Christmas na Kape"}, {"n": 3, "t": "Christmas moka coffee", "d": "Pinturahan ang dulo ng edible na gintong pulbos.", "s": "Christmas na Kape"}, {"n": 4, "t": "Snowy vanilla coffee", "d": "Budburan ng powdered sugar gamit ang fine strainer.", "s": "Christmas na Kape"}, {"n": 5, "t": "Salted caramel coffee", "d": "Pinturahan ang bow gamit ang puting tsokolate.", "s": "Christmas na Kape"}, {"n": 6, "t": "Orange cinnamon coffee", "d": "Ilagay ang maliit na piraso ng candied orange peel sa ibabaw.", "s": "Christmas na Kape"}, {"n": 7, "t": "Festive hazelnut coffee", "d": "Dekorasyunan ng tinadtad na hazelnut.", "s": "Christmas na Kape"}, {"n": 8, "t": "Polar mint coffee", "d": "Pinturahan ng pulang stripes gamit ang gel food coloring.", "s": "Christmas na Kape"}, {"n": 9, "t": "Cardamom coffee", "d": "Ilagay ang isang butil ng cardamom sa gitna.", "s": "Christmas na Kape"}, {"n": 10, "t": "Snowy coconut coffee", "d": "Takpan ang ibabaw ng grated coconut.", "s": "Christmas na Kape"}, {"n": 11, "t": "Rum raisin coffee (alcohol-free)", "d": "Dekorasyunan ng pasas sa gilid ng kampana.", "s": "Christmas na Kape"}, {"n": 12, "t": "Spiced Christmas Eve coffee", "d": "Pinturahan ang buntot ng bituin ng edible na gintong pulbos.", "s": "Christmas na Kape"}, {"n": 13, "t": "Red fruit forest tea", "d": "Idikit ang tuyong petal ng rosas gamit ang patak ng solution.", "s": "Christmas na Tsaa at infusions"}, {"n": 14, "t": "Christmas chai tea", "d": "Budburan ng kanela sa ibabaw.", "s": "Christmas na Tsaa at infusions"}, {"n": 15, "t": "Christmas mint green tea", "d": "Pinturahan ng maliliit na pulang tuldok bilang dekorasyon.", "s": "Christmas na Tsaa at infusions"}, {"n": 16, "t": "Chamomile with honey and orange", "d": "Ilagay ang tuyong bulaklak ng manzanilla sa ibabaw.", "s": "Christmas na Tsaa at infusions"}, {"n": 17, "t": "Vanilla rooibos", "d": "Gumuhit ng ilong gamit ang pulang tuldok.", "s": "Christmas na Tsaa at infusions"}, {"n": 18, "t": "Apple cinnamon tea", "d": "Ilagay ang maliit na cinnamon stick.", "s": "Christmas na Tsaa at infusions"}, {"n": 19, "t": "White pear tea", "d": "Pinturahan ang gilid ng silver powder.", "s": "Christmas na Tsaa at infusions"}, {"n": 20, "t": "Hibiscus ginger infusion", "d": "Pinturahan ang buntot ng edible na gintong pulbos.", "s": "Christmas na Tsaa at infusions"}, {"n": 21, "t": "Black tea with chocolate", "d": "Puting tsokolate na bow.", "s": "Christmas na Tsaa at infusions"}, {"n": 22, "t": "Lavender lemon infusion", "d": "Ilagay ang 2 tuyong lavender flowers.", "s": "Christmas na Tsaa at infusions"}, {"n": 23, "t": "Chocolate with marshmallows", "d": "Nakikitang marshmallows sa ibabaw.", "s": "Chocolate para sa mainit na gatas"}, {"n": 24, "t": "Snowy white chocolate", "d": "Budburan ng grated coconut.", "s": "Chocolate para sa mainit na gatas"}, {"n": 25, "t": "Bitter orange chocolate", "d": "Manipis na piraso ng candied orange.", "s": "Chocolate para sa mainit na gatas"}, {"n": 26, "t": "Maya spicy chocolate", "d": "Edible na gintong pulbos.", "s": "Chocolate para sa mainit na gatas"}, {"n": 27, "t": "Christmas cookie chocolate", "d": "Christmas colored sprinkles.", "s": "Chocolate para sa mainit na gatas"}, {"n": 28, "t": "Red fruit chocolate", "d": "Freeze-dried strawberry pieces.", "s": "Chocolate para sa mainit na gatas"}, {"n": 29, "t": "Christmas mint chocolate", "d": "Puting tsokolate na stripes.", "s": "Chocolate para sa mainit na gatas"}, {"n": 30, "t": "Dulce de leche chocolate", "d": "Puting tsokolate na linya.", "s": "Chocolate para sa mainit na gatas"}, {"n": 31, "t": "Hazelnut cocoa chocolate", "d": "Tinadtad na hazelnut.", "s": "Chocolate para sa mainit na gatas"}, {"n": 32, "t": "Festive ruby chocolate", "d": "Edible dry petals.", "s": "Chocolate para sa mainit na gatas"}, {"n": 33, "t": "Espresso coffee bonbon", "d": "Isang butil ng kape sa takip.", "s": "Chocolate shells na may palaman"}, {"n": 34, "t": "Cappuccino bonbon", "d": "Budburan ng cocoa.", "s": "Chocolate shells na may palaman"}, {"n": 35, "t": "Chai tea bonbon", "d": "Kanela sa ibabaw.", "s": "Chocolate shells na may palaman"}, {"n": 36, "t": "Mint mocha bonbon", "d": "Edible green powder sa dulo.", "s": "Chocolate shells na may palaman"}, {"n": 37, "t": "Vanilla coffee bonbon", "d": "Powdered sugar.", "s": "Chocolate shells na may palaman"}, {"n": 38, "t": "Caramel bonbon", "d": "Puting tsokolate na bow.", "s": "Chocolate shells na may palaman"}, {"n": 39, "t": "Red fruit and tea bonbon", "d": "Edible glitter.", "s": "Chocolate shells na may palaman"}, {"n": 40, "t": "Reindeer bonbon", "d": "Pulang ilong at tsokolate na sungay.", "s": "Chocolate shells na may palaman"}, {"n": 41, "t": "Luxury golden tree", "d": "Pinturahan ang buong puno ng edible na gintong pulbos at puting star dot.", "s": "Premium Christmas designs"}, {"n": 42, "t": "Star of Bethlehem", "d": "Gintong pintura sa mga gilid.", "s": "Premium Christmas designs"}, {"n": 43, "t": "Santa hat", "d": "Puting border at pompom na grated coconut.", "s": "Premium Christmas designs"}, {"n": 44, "t": "Smiling snowman", "d": "Mga mata at butones na dark chocolate, orange na ilong na may food coloring.", "s": "Premium Christmas designs"}, {"n": 45, "t": "Advent wreath", "d": "Pulang tuldok na parang berries.", "s": "Premium Christmas designs"}, {"n": 46, "t": "Christmas stocking", "d": "Puting border at pulang detalye.", "s": "Premium Christmas designs"}, {"n": 47, "t": "Marbled Christmas ornament", "d": "Linya ng gintong pulbos.", "s": "Premium Christmas designs"}, {"n": 48, "t": "Christmas angel", "d": "Pakpak na may pearl powder.", "s": "Premium Christmas designs"}, {"n": 49, "t": "Double surprise gift", "d": "Gintong bow.", "s": "Premium Christmas designs"}, {"n": 50, "t": "New Year bells", "d": "Gintong border at maliit na silver dot.", "s": "Premium Christmas designs"}];
+let st = {marca:"", titulo:"Christmas Collection", wa:"", ig:"", limite:"", zona:"", intro:"", p4:"", p9:"", p12:"", mostrar:"no", sel: ITEMS.map(i=>i.n), pr:{}};
+try { Object.assign(st, JSON.parse(localStorage.getItem("cg_cat")||"{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_cat", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s); const esc = s => String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const img = n => "img/r" + String(n).padStart(2,"0") + ".jpg";
+function render() {
+  const secs = [...new Set(ITEMS.map(i => i.s))];
+  const boxes = [["Kahon ng 4", st.p4], ["Kahon ng 6 / 9", st.p9], ["Kahon ng 12", st.p12]].filter(b => b[1]);
+  let h = `<div class="ch"><div class="k">${esc(st.marca || "GOURMET CAPSULES")}</div><h2>${esc(st.titulo)}</h2><p>${esc(st.intro)}</p></div>`;
+  if (boxes.length) h += `<div class="cs"><h3>Mga kahon namin</h3><div class="cgrid">${boxes.map(b => `<div class="ci" style="text-align:center;padding:14px"><div class="t">${esc(b[0])}</div><div class="p">${esc(b[1])}</div></div>`).join("")}</div></div>`;
+  secs.forEach(s => { const its = ITEMS.filter(i => i.s === s && st.sel.includes(i.n)); if (!its.length) return;
+    h += `<div class="cs"><h3>${s}</h3><div class="cgrid">` + its.map(i => `<div class="ci"><img src="${img(i.n)}" alt=""><div class="t">${esc(i.t)}</div><div class="d">${esc(i.d)}</div>${st.mostrar === "si" && st.pr[i.n] ? `<div class="p">${esc(st.pr[i.n])}</div>` : '<div style="height:8px"></div>'}</div>`).join("") + "</div></div>"; });
+  const c = [st.wa && "WhatsApp: " + esc(st.wa), st.ig && esc(st.ig), st.zona && esc(st.zona)].filter(Boolean).join(" · ");
+  h += `<div class="cf"><b>Mag-order ng iyong Christmas</b><br>${c || "Message us para gumawa ng kahon"}${st.limite ? "<br>Order hanggang " + esc(st.limite) : ""}</div>`;
+  $("#cat").innerHTML = h;
+}
+["marca","titulo","wa","ig","limite","zona","intro","p4","p9","p12","mostrar"].forEach(k => { const el = $("#"+k); if (st[k]) el.value = st[k]; else st[k] = el.value; el.addEventListener("input", () => { st[k] = el.value; save(); render(); }); });
+$("#list").innerHTML = ITEMS.map(i => `<label class="li"><input type="checkbox" value="${i.n}" ${st.sel.includes(i.n)?"checked":""}><img src="${img(i.n)}" alt="" loading="lazy"><span>${i.n}. ${esc(i.t)}</span><input type="text" data-p="${i.n}" placeholder="Presyo" value="${esc(st.pr[i.n]||"")}"></label>`).join("");
+$("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = () => { st.sel = [...$("#list").querySelectorAll("input[type=checkbox]:checked")].map(x => +x.value); save(); render(); });
+$("#list").querySelectorAll("input[data-p]").forEach(p => p.addEventListener("input", () => { st.pr[p.dataset.p] = p.value; save(); render(); }));
+$("#all").onclick = () => { $("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.checked = true); st.sel = ITEMS.map(i=>i.n); save(); render(); };
+$("#none").onclick = () => { $("#list").querySelectorAll("input[type=checkbox]").forEach(c => c.checked = false); st.sel = []; save(); render(); };
+render();
+</script></body></html>
