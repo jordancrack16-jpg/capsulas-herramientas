@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>30 Mensajes de WhatsApp</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2f4a2a;--s:#6d8a5a;--s2:#dfe8d5;--c:#fbf7ef;--c2:#f3ebdd;--o:#b8924a;--t:#2a2a24;--m:#6b6a5e;--wa:#e9f5e1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--c);color:var(--t);line-height:1.5}
+.wrap{max-width:820px;margin:0 auto;padding:22px 16px 70px}
+header{text-align:center;padding:10px 0 16px}
+.tag{display:inline-block;background:var(--s);color:#fff;font-weight:800;font-size:12px;letter-spacing:3px;padding:6px 16px;border-radius:30px}
+h1{font-family:'Fraunces',serif;color:var(--g);font-size:clamp(28px,6vw,38px);line-height:1.1;margin:12px 0 6px}
+h1 em{font-style:normal;color:var(--o)}
+.sub{color:var(--m);max-width:580px;margin:0 auto}
+.vars{position:sticky;top:0;z-index:5;background:rgba(251,247,239,.96);backdrop-filter:blur(6px);border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin:16px 0;box-shadow:0 6px 18px rgba(47,74,42,.07)}
+.vars b{display:block;color:var(--g);font-size:14px;margin-bottom:8px}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.vg input{width:100%;font:inherit;font-size:14px;padding:10px 12px;border:1.5px solid #e2dac9;border-radius:10px;background:#fff}
+.vg input:focus{outline:2px solid var(--s)}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px;margin-top:10px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+textarea{overflow:hidden}
+.filters button{flex:none;font:800 13px 'Nunito Sans';border:1.5px solid var(--s);background:#fff;color:var(--g);border-radius:30px;padding:7px 13px;cursor:pointer}
+.filters button.on{background:var(--g);border-color:var(--g);color:#fff}
+.cat h2{font-family:'Fraunces',serif;color:var(--g);font-size:24px;margin:26px 0 2px}
+.cat>p{color:var(--m);margin-bottom:10px}
+.m{background:#fff;border:1px solid #e6dfcf;border-radius:16px;padding:14px;margin-bottom:12px}
+.mh{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.n{background:var(--g);color:#fff;font-weight:800;font-size:13px;border-radius:30px;padding:3px 10px}
+.mh h3{font-size:16px;color:var(--g)}
+.w{font-size:12px;font-weight:800;color:var(--g);background:var(--s2);border-radius:30px;padding:3px 10px}
+textarea{width:100%;font:inherit;font-size:15px;line-height:1.5;border:0;border-radius:12px 12px 12px 3px;background:var(--wa);padding:12px 14px;resize:vertical;min-height:110px;color:var(--t)}
+textarea:focus{outline:2px solid var(--s)}
+.btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.btns button,.btns a{font:800 13px 'Nunito Sans';border-radius:30px;padding:9px 14px;cursor:pointer;text-decoration:none;border:0}
+.copy{background:var(--g);color:#fff}
+.wa{background:#25d366;color:#fff}
+.reset{background:transparent;color:var(--m);border:1px solid #d9d0bd!important}
+.ok{background:var(--o)!important}
+.tip{background:#fdf8ee;border-left:4px solid var(--o);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--m);margin-top:10px}
+@media(max-width:600px){.vg{grid-template-columns:1fr}.vars{position:static}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">BONO 1 · VERSIÓN EDITABLE</span>
+  <h1><em>30 mensajes</em> de WhatsApp listos para usar</h1>
+  <p class="sub">Escribe tus datos una sola vez y todos los mensajes se completan solos. Puedes editar cualquier mensaje, copiarlo o abrirlo directo en WhatsApp. Tus cambios quedan guardados en este dispositivo.</p>
+</header>
+
+<div class="vars">
+  <b>✍️ Tus datos (se completan en todos los mensajes)</b>
+  <div class="vg">
+    <input id="v_YO" placeholder="Tu nombre">
+    <input id="v_NEGOCIO" placeholder="Nombre de tu marca">
+    <input id="v_CIUDAD" placeholder="Tu ciudad">
+  </div>
+  <div class="filters" id="filters"></div>
+</div>
+
+<div id="list"></div>
+<div class="tip"><b>Recuerda:</b> cambia lo que queda entre corchetes, como <b>[Nombre]</b> o <b>[Fecha]</b>, antes de enviar. Y escribe siempre el nombre de la persona: los mensajes personales se responden mucho más.</div>
+</div>
+
+<script>
+const DATA = [{"cat": "Abrir conversación", "desc": "Para que tu círculo sepa que empezaste, sin parecer publicidad.", "ms": [{"n": 1, "t": "Estado de curiosidad", "w": "Estados de WhatsApp · día 8", "x": "¿Adivinan qué es esto? 👀☕\nNo es chocolate, no es jabón y no es una vela…\nMañana les cuento 🤫"}, {"n": 2, "t": "Estado: abrí pedidos", "w": "Estados de WhatsApp", "x": "¡Por fin les cuento! 🌸\nSon Cápsulas Gourmet de café y té: las pones en agua caliente y se convierten en una bebida deliciosa.\nLas hago yo, a mano, en {CIUDAD}.\nEsta semana abro los primeros pedidos 🎁 ¿Quieres ver los modelos? Escríbeme."}, {"n": 3, "t": "Contacto cercano", "w": "Mensaje personal · día 9", "x": "¡Hola {NOMBRE}! ¿Cómo estás? 😊\nTe cuento algo: empecé un emprendimiento de Cápsulas Gourmet de café y té, hechas a mano con formas de flores, corazones y ositos.\nMe encantaría saber qué te parecen. ¿Te mando unas fotos?"}, {"n": 4, "t": "Conocido no tan cercano", "w": "Mensaje personal", "x": "Hola {NOMBRE}, ¿cómo va todo? Soy {YO} 😊\nTe escribo porque estoy empezando con {NEGOCIO}, un emprendimiento de cápsulas de café y té para regalar.\nPensé en ti porque sé que te gustan los detalles lindos. ¿Te muestro el catálogo, sin compromiso?"}, {"n": 5, "t": "Invitación a probar", "w": "Degustación · día 11", "x": "{NOMBRE}, ¡tengo un regalito para ti! ☕\nEstoy probando sabores nuevos de mis Cápsulas Gourmet y quiero que me des tu opinión sincera.\n¿Cuándo te las puedo llevar?"}, {"n": 6, "t": "Después de la degustación", "w": "Agradecer y ofrecer · día 11", "x": "¡Gracias por probarlas, {NOMBRE}! 🥰 ¿Cuál te gustó más?\nTu opinión me ayuda muchísimo.\nPor si quieres regalarlas a alguien: tengo la Cajita para probar y la Caja regalo con moño y tarjeta. ¿Te paso las fotos?"}]}, {"cat": "Responder consultas", "desc": "Respuestas rápidas para las preguntas que más llegan.", "ms": [{"n": 7, "t": "«¿Qué es?»", "w": "Respuesta rápida /quees", "x": "¡Hola {NOMBRE}! Gracias por escribir 😊\nSon cápsulas de café o té preparadas a mano y moldeadas con formas (flores, corazones, ositos).\nSe ponen en una taza, se agrega agua caliente y se disuelven en una bebida aromática. ¡Son un regalo precioso!\n¿Es para ti o para regalar?"}, {"n": 8, "t": "Precios y catálogo", "w": "Respuesta rápida /precios", "x": "¡Claro! Te cuento las opciones 👇\n🎁 Cajita para probar (4 cápsulas)\n🎀 Caja regalo con moño y tarjeta\n✨ Pedido personalizado (colores, inicial o mensaje)\nTe dejo el catálogo con fotos y precios. ¿Para qué ocasión lo necesitas?"}, {"n": 9, "t": "Cómo se preparan y cuánto duran", "w": "Respuesta rápida /uso", "x": "Se preparan así: pon 1 cápsula en una taza, agrega agua caliente y revuelve hasta que se disuelva ☕\nSe conservan en un lugar fresco y seco, en su envase cerrado. Te paso por escrito el tiempo de consumo recomendado al entregar.\n¿Te gustaría probar primero la cajita de 4?"}, {"n": 10, "t": "«Está caro»", "w": "Objeción de precio", "x": "Te entiendo, {NOMBRE} 😊 Cada cápsula está hecha a mano, una por una, con ingredientes seleccionados y empaque de regalo incluido.\nSi quieres algo más simple, la Cajita para probar es una opción más accesible y igual de linda para regalar. ¿Te la muestro?"}, {"n": 11, "t": "«Lo voy a pensar»", "w": "Objeción de tiempo", "x": "¡Claro, sin apuro! 😊\nSolo te cuento que preparo los pedidos por orden de llegada y esta semana me quedan pocos lugares.\n¿Quieres que te guarde uno para {FECHA}? Si después cambias de idea, no pasa nada."}]}, {"cat": "Cerrar pedidos", "desc": "Mensajes para pasar de «qué lindo» a «quiero uno».", "ms": [{"n": 12, "t": "Cierre con dos opciones", "w": "Cierre · día 17", "x": "¿Cuál te gusta más, {NOMBRE}: la Cajita de 4 o la Caja regalo con moño? 🎁\nCualquiera de las dos te la tengo lista para {FECHA}."}, {"n": 13, "t": "Cierre por fecha especial", "w": "Cierre de temporada", "x": "{NOMBRE}, te aviso porque me preguntaste 💛\nEstoy tomando los últimos pedidos para {FECHA}. Después de esa fecha ya no llego a prepararlos.\n¿Te separo tu caja?"}, {"n": 14, "t": "Cierre con seña", "w": "Confirmar con pago parcial", "x": "¡Perfecto! Para reservar tu fecha te pido una seña del 50 % ({PRECIO}) y el resto al entregar 😊\nApenas me confirmes, te agendo y empiezo a prepararla."}, {"n": 15, "t": "Confirmación del pedido", "w": "Resumen para evitar errores", "x": "¡Gracias por tu pedido, {NOMBRE}! 🥰 Te confirmo los datos:\n• Producto: \n• Sabores: \n• Tarjeta o mensaje: \n• Entrega: {FECHA}\n• Total: {PRECIO}\n¿Está todo bien?"}, {"n": 16, "t": "Datos de pago", "w": "Enviar medios de pago", "x": "Te dejo los datos para el pago 👇\n[Escribe aquí tu transferencia, billetera o medio de pago]\nCuando lo hagas, mándame el comprobante por aquí y te confirmo. ¡Gracias!"}]}, {"cat": "Entrega y seguimiento", "desc": "Que ninguna consulta ni cliente se pierda.", "ms": [{"n": 17, "t": "Pedido listo", "w": "Aviso de entrega", "x": "¡{NOMBRE}, tu pedido está listo! 🎁✨\nTe mando una foto para que lo veas.\n¿Te queda bien que lo entregue {FECHA}? ¿O prefieres retirarlo?"}, {"n": 18, "t": "Instrucciones al entregar", "w": "Junto con la entrega", "x": "¡Que lo disfrutes! ☕\nCómo prepararlas: 1 cápsula en la taza + agua caliente + revolver.\nGuárdalas en un lugar fresco y seco, en su caja cerrada.\nSi te gustan, ¡me encantaría que me cuentes!"}, {"n": 19, "t": "Seguimiento a las 24 h", "w": "Consulta sin respuesta", "x": "¡Hola {NOMBRE}! ¿Pudiste ver las fotos que te mandé ayer? 😊\nSi tienes alguna duda sobre los modelos o los sabores, aquí estoy."}, {"n": 20, "t": "Interesada que no compró", "w": "Seguimiento a los 7 días · día 29", "x": "Hola {NOMBRE} 🌸 Hace unos días me preguntaste por las cápsulas.\nEsta semana preparé modelos nuevos y me acordé de ti. ¿Te los muestro?\nSi ahora no es el momento, ¡no te preocupes!"}, {"n": 21, "t": "Lista de difusión: novedad", "w": "Solo para contactos que aceptaron", "x": "✨ Novedad en {NEGOCIO} ✨\nNuevos sabores y la caja de temporada ya están disponibles.\nRespóndeme «QUIERO» y te mando fotos y precios 🎁"}]}, {"cat": "Ventas grandes y alianzas", "desc": "Pedidos por volumen, empresas y negocios locales.", "ms": [{"n": 22, "t": "Eventos (bodas, cumpleaños, baby showers)", "w": "Clientes de volumen · día 19", "x": "¡Hola {NOMBRE}! Soy {YO}, de {NEGOCIO} 😊\nPreparo Cápsulas Gourmet personalizadas como recuerdo para eventos: con los colores de la fiesta, la inicial de los festejados y una etiqueta con mensaje.\nSon un detalle distinto que los invitados sí usan. ¿Te paso ideas y precios por cantidad?"}, {"n": 23, "t": "Empresas y regalos corporativos", "w": "Clientes de volumen · día 19", "x": "Hola {NOMBRE}, ¿cómo estás? Soy {YO}, de {NEGOCIO}.\nPreparo cajas de Cápsulas Gourmet de café y té para regalos de empresa: clientes, equipo o fechas especiales, con etiqueta personalizada con su logo o mensaje.\n¿Te puedo enviar una propuesta con opciones y precios por volumen?"}, {"n": 24, "t": "Negocio aliado (florería, cafetería, tienda de regalos)", "w": "Alianza local · día 24", "x": "¡Hola! Soy {YO}, emprendedora de {CIUDAD}. Hago Cápsulas Gourmet de café y té, ideales para acompañar regalos.\nMe encantaría proponerte una alianza: puedo dejarte una muestra para que tus clientes las vean y trabajar a consignación o con un precio especial para reventa.\n¿Cuándo te puedo llevar una caja para que la pruebes?"}]}, {"cat": "Fidelizar y volver a vender", "desc": "Tus clientes contentos son tu mejor canal de ventas.", "ms": [{"n": 25, "t": "Pedir opinión", "w": "Después de la entrega · día 20", "x": "¡Hola {NOMBRE}! ¿Qué tal te fue con las cápsulas? 😊\n¿Le gustaron a quien las recibió?\nSi me mandas una fotito o un audio con tu opinión, me harías muy feliz 💛"}, {"n": 26, "t": "Agradecer y pedir permiso", "w": "Para publicar testimonios", "x": "¡Muchísimas gracias, {NOMBRE}! 🥹 Me alegraste el día.\n¿Me das permiso para compartir tu mensaje en mis estados? Puedo hacerlo sin tu nombre si prefieres."}, {"n": 27, "t": "Recompra", "w": "Clientes anteriores · día 22", "x": "¡Hola {NOMBRE}! 🌸 Hace un tiempo te preparé unas cápsulas y quería contarte que ya tengo sabores nuevos.\nComo ya eres clienta, en tu próximo pedido te regalo una cápsula extra 🎁\n¿Te muestro las novedades?"}, {"n": 28, "t": "Referidos", "w": "Programa de referidos · día 23", "x": "{NOMBRE}, ¡gracias por confiar en mí! 💛\nTe cuento algo: si me recomiendas con alguien y esa persona hace su pedido, te regalo 2 cápsulas en tu próxima compra.\nSolo dile que te mencione cuando me escriba 😊"}, {"n": 29, "t": "Cumpleaños del cliente", "w": "Fecha especial", "x": "¡Feliz cumpleaños, {NOMBRE}! 🎂🥳\nQue tengas un día hermoso.\nTe tengo un regalito: este mes, tu cajita favorita con un descuento especial. ¡Escríbeme cuando quieras!"}, {"n": 30, "t": "Reactivar clientes de temporada", "w": "Antes de cada fecha especial", "x": "¡Hola {NOMBRE}! Se acerca {FECHA} 🎁\nEl año pasado/la vez pasada muchas personas se quedaron sin su caja porque llegaron tarde, así que te aviso con tiempo.\nYa tengo los modelos de temporada. ¿Te reservo la tuya?"}]}];
+const VARS = ["YO","NEGOCIO","CIUDAD"];
+const LABEL = {NOMBRE:"[Nombre]", YO:"[Tu nombre]", NEGOCIO:"[Tu marca]", CIUDAD:"[Tu ciudad]", PRECIO:"[Precio]", FECHA:"[Fecha]"};
+let st = {v:{}, e:{}};
+try { st = Object.assign(st, JSON.parse(localStorage.getItem("cg_msgs") || "{}")); } catch(e) {}
+const save = () => { try { localStorage.setItem("cg_msgs", JSON.stringify(st)); } catch(e) {} };
+const $ = s => document.querySelector(s);
+
+function fill(x) {
+  return x.replace(/\{(\w+)\}/g, (m, k) => (VARS.includes(k) && st.v[k]) ? st.v[k] : (LABEL[k] || m));
+}
+function render(filter) {
+  let h = "";
+  DATA.forEach((c, ci) => {
+    if (filter !== undefined && filter !== ci) return;
+    h += `<section class="cat"><h2>${c.cat}</h2><p>${c.desc}</p>`;
+    c.ms.forEach(m => {
+      const txt = st.e[m.n] !== undefined ? st.e[m.n] : fill(m.x);
+      h += `<div class="m"><div class="mh"><span class="n">${m.n}</span><h3>${m.t}</h3><span class="w">${m.w}</span></div>
+      <textarea data-n="${m.n}" rows="${Math.max(4, txt.split("\n").length + 1)}">${txt.replace(/</g,"&lt;")}</textarea>
+      <div class="btns"><button class="copy" data-c="${m.n}">Copiar</button><a class="wa" data-w="${m.n}" href="#" target="_blank" rel="noopener">Abrir en WhatsApp</a>
+      ${st.e[m.n] !== undefined ? `<button class="reset" data-r="${m.n}">Restaurar original</button>` : ""}</div></div>`;
+    });
+    h += "</section>";
+  });
+  $("#list").innerHTML = h;
+  const fit = t => { t.style.height = "auto"; t.style.height = (t.scrollHeight + 4) + "px"; };
+  document.querySelectorAll("textarea").forEach(t => { fit(t); t.addEventListener("input", () => { fit(t); st.e[t.dataset.n] = t.value; save(); }); });
+  document.querySelectorAll("[data-c]").forEach(b => b.onclick = async () => {
+    const t = document.querySelector(`textarea[data-n="${b.dataset.c}"]`);
+    try { await navigator.clipboard.writeText(t.value); } catch(e) { t.select(); document.execCommand("copy"); }
+    b.textContent = "¡Copiado! ✓"; b.classList.add("ok"); setTimeout(() => { b.textContent = "Copiar"; b.classList.remove("ok"); }, 1500);
+  });
+  document.querySelectorAll("[data-w]").forEach(a => a.onclick = () => {
+    const t = document.querySelector(`textarea[data-n="${a.dataset.w}"]`);
+    a.href = "https://wa.me/?text=" + encodeURIComponent(t.value);
+  });
+  document.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { delete st.e[b.dataset.r]; save(); render(cur); });
+}
+let cur;
+const fb = $("#filters");
+fb.innerHTML = `<button class="on" data-f="">Todos</button>` + DATA.map((c, i) => `<button data-f="${i}">${c.cat}</button>`).join("");
+fb.querySelectorAll("button").forEach(b => b.onclick = () => {
+  fb.querySelectorAll("button").forEach(x => x.classList.remove("on")); b.classList.add("on");
+  cur = b.dataset.f === "" ? undefined : +b.dataset.f; render(cur);
+});
+VARS.forEach(k => { const i = $("#v_" + k); i.value = st.v[k] || ""; i.addEventListener("input", () => { st.v[k] = i.value.trim(); save(); render(cur); }); });
+render();
+</script>
+</body>
+</html>
